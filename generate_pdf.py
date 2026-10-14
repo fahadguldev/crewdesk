@@ -464,86 +464,115 @@ def build_pdf(filename="Crewdesk_Agency_Executive_Brief.pdf"):
     story.append(PageBreak())
 
     # =========================================================================
-    # PAGE 3: PRICING COMPARISON TABLE & PLANS (CLEAN & READABLE)
+    # PAGE 3: PRICING COMPARISON TABLE & PLANS (STACK REPLACEMENT MODEL)
     # =========================================================================
     story.append(Spacer(1, 4))
-    story.append(Paragraph("<b>Pricing Comparison: Flat Rates vs Per-Seat Penalty</b>", title_style))
-    story.append(Paragraph("Published competitor list prices (PKR 280/USD). Zero per-seat inflation penalty as your agency grows.", subtitle_style))
-    story.append(Spacer(1, 8))
+    story.append(Paragraph("<b>Pricing & Economics: Fragmented Stack vs Crewdesk</b>", title_style))
+    story.append(Paragraph("Why agencies replace 3-4 separate per-seat subscriptions with one flat, predictable agency operating system.", subtitle_style))
+    story.append(Spacer(1, 7))
 
-    # Master Clean Pricing Comparison Table
-    # Columns: Tool Stack (160), Team of 10 (95), Team of 25 (95), Team of 50 (95), Admin Time Saved (95) = 540 pt
+    # Master Stack-Replacement Pricing Comparison Table
+    # Widths: [135, 125, 95, 95, 90] = 540 pt
     pricing_headers = [
-        Paragraph("<b>Software / Tool Stack</b>", cell_head),
-        Paragraph("<b>10 Seats</b><br/><font size='6.5' color='#cbd5e1'>Starter Agency</font>", cell_head_center),
-        Paragraph("<b>25 Seats</b><br/><font size='6.5' color='#cbd5e1'>Growth Agency</font>", cell_head_center),
-        Paragraph("<b>50 Seats</b><br/><font size='6.5' color='#cbd5e1'>Scale Agency</font>", cell_head_center),
-        Paragraph("<b>Admin Time</b><br/><font size='6.5' color='#cbd5e1'>Hours Recovered</font>", cell_head_center)
+        Paragraph("<b>Operational Capability</b>", cell_head),
+        Paragraph("<b>Tools Typically Paid For</b>", cell_head),
+        Paragraph("<b>Cost (10 Seats)</b><br/><font size='6.5' color='#cbd5e1'>Starter Agency</font>", cell_head_center),
+        Paragraph("<b>Cost (25 Seats)</b><br/><font size='6.5' color='#cbd5e1'>Growth Agency</font>", cell_head_center),
+        Paragraph("<b>Crewdesk (Flat)</b><br/><font size='6.5' color='#cbd5e1'>Agency OS</font>", cell_head_center)
     ]
 
     pricing_rows = [
         pricing_headers,
         [
-            Paragraph("<b>ClickUp Unlimited</b><br/><font color='#64748b' size='6.5'>$10/user/mo billed monthly</font>", cell_body),
+            Paragraph("<b>Task & Project Sprints</b><br/><font color='#64748b' size='6.5'>Deadlines, tasks, milestones</font>", cell_body),
+            Paragraph("<b>ClickUp Unlimited / Asana</b><br/><font color='#64748b' size='6.5'>$10/user/mo list price</font>", cell_body),
             Paragraph("PKR 28,000 / mo<br/><font color='#64748b' size='6.5'>$100 USD</font>", cell_center),
             Paragraph("PKR 70,000 / mo<br/><font color='#64748b' size='6.5'>$250 USD</font>", cell_center),
-            Paragraph("PKR 140,000 / mo<br/><font color='#64748b' size='6.5'>$500 USD</font>", cell_center),
-            Paragraph("0 hrs<br/><font color='#64748b' size='6.5'>Manual rollups</font>", cell_center)
+            Paragraph("<font color='#059669'><b>✔ Included</b></font><br/><font color='#059669' size='6.5'>All 7 Modules</font>", cell_center)
         ],
         [
-            Paragraph("<b>ClickUp Business</b><br/><font color='#64748b' size='6.5'>$19/user/mo billed monthly</font>", cell_body),
-            Paragraph("PKR 53,200 / mo<br/><font color='#64748b' size='6.5'>$190 USD</font>", cell_center),
-            Paragraph("PKR 133,000 / mo<br/><font color='#64748b' size='6.5'>$475 USD</font>", cell_center),
-            Paragraph("PKR 266,000 / mo<br/><font color='#64748b' size='6.5'>$950 USD</font>", cell_center),
-            Paragraph("0 hrs<br/><font color='#64748b' size='6.5'>No HR/vault</font>", cell_center)
-        ],
-        [
-            Paragraph("<b>HubSpot Starter Suite</b><br/><font color='#64748b' size='6.5'>$20/seat/mo list price</font>", cell_body),
+            Paragraph("<b>Client Password Vault</b><br/><font color='#64748b' size='6.5'>API keys, logins, server creds</font>", cell_body),
+            Paragraph("<b>1Password / Keeper</b><br/><font color='#64748b' size='6.5'>$8/user/mo standard tier</font>", cell_body),
+            Paragraph("PKR 22,400 / mo<br/><font color='#64748b' size='6.5'>$80 USD</font>", cell_center),
             Paragraph("PKR 56,000 / mo<br/><font color='#64748b' size='6.5'>$200 USD</font>", cell_center),
-            Paragraph("PKR 140,000 / mo<br/><font color='#64748b' size='6.5'>$500 USD</font>", cell_center),
-            Paragraph("PKR 280,000 / mo<br/><font color='#64748b' size='6.5'>$1,000 USD</font>", cell_center),
-            Paragraph("0 hrs<br/><font color='#64748b' size='6.5'>CRM only</font>", cell_center)
+            Paragraph("<font color='#059669'><b>✔ Included</b></font><br/><font color='#059669' size='6.5'>AES-256 Vault</font>", cell_center)
         ],
         [
-            Paragraph("<b>CREWDESK (All-in-One Flat Rate)</b><br/><font color='#059669' size='6.5'>All 7 modules + dedicated database</font>", cell_body_bold),
-            Paragraph("<b>PKR 12,000 / mo</b><br/><font color='#059669' size='6.5'>~$43 USD (Flat)</font>", cell_center_green),
-            Paragraph("<b>PKR 30,000 / mo</b><br/><font color='#059669' size='6.5'>~$107 USD (Flat)</font>", cell_center_green),
-            Paragraph("<b>PKR 50,000 / mo</b><br/><font color='#059669' size='6.5'>~$179 USD (Flat)</font>", cell_center_green),
-            Paragraph("<b>+18 to +50 hrs</b><br/><font color='#059669' size='6.5'>Saved every month</font>", cell_center_green)
+            Paragraph("<b>Attendance & Leave Hub</b><br/><font color='#64748b' size='6.5'>Punch in/out, late flags, leave log</font>", cell_body),
+            Paragraph("<b>Jibble / Timely / Clockify</b><br/><font color='#64748b' size='6.5'>$5/user/mo standard tier</font>", cell_body),
+            Paragraph("PKR 14,000 / mo<br/><font color='#64748b' size='6.5'>$50 USD</font>", cell_center),
+            Paragraph("PKR 35,000 / mo<br/><font color='#64748b' size='6.5'>$125 USD</font>", cell_center),
+            Paragraph("<font color='#059669'><b>✔ Included</b></font><br/><font color='#059669' size='6.5'>1-Click Punch</font>", cell_center)
         ],
         [
-            Paragraph("<b>YOUR MONTHLY CASH SAVINGS</b><br/><font color='#047857' size='6.5'>vs ClickUp Business tier</font>", cell_body_bold),
-            Paragraph("<b>Save PKR 41,200</b><br/><font color='#047857' size='6.5'>77% savings</font>", cell_center_green),
-            Paragraph("<b>Save PKR 103,000</b><br/><font color='#047857' size='6.5'>77% savings</font>", cell_center_green),
-            Paragraph("<b>Save PKR 216,000</b><br/><font color='#047857' size='6.5'>81% savings</font>", cell_center_green),
-            Paragraph("<b>18–50 hrs / mo</b><br/><font color='#047857' size='6.5'>Recovered time</font>", cell_center_green)
+            Paragraph("<b>Profit Margins & Workload</b><br/><font color='#64748b' size='6.5'>Rate &times; hours, real capacity</font>", cell_body),
+            Paragraph("<b>Manual Excel & Bookkeeping</b><br/><font color='#64748b' size='6.5'>Chasing timesheets & formulas</font>", cell_body),
+            Paragraph("~18 hrs lost ($$)<br/><font color='#64748b' size='6.5'>Manual rollups</font>", cell_center),
+            Paragraph("~35 hrs lost ($$)<br/><font color='#64748b' size='6.5'>Manual rollups</font>", cell_center),
+            Paragraph("<font color='#059669'><b>✔ Included</b></font><br/><font color='#059669' size='6.5'>Live & Automatic</font>", cell_center)
         ],
         [
-            Paragraph("<b>YOUR ANNUAL CASH SAVINGS</b><br/><font color='#047857' size='6.5'>Direct bottom-line profit preserved</font>", cell_body_bold),
-            Paragraph("<b>Save PKR 494,400 / yr</b><br/><font color='#047857' size='6.5'>$1,765 USD / yr</font>", cell_center_green),
-            Paragraph("<b>Save PKR 1.23M / yr</b><br/><font color='#047857' size='6.5'>$4,414 USD / yr</font>", cell_center_green),
-            Paragraph("<b>Save PKR 2.59M / yr</b><br/><font color='#047857' size='6.5'>$9,257 USD / yr</font>", cell_center_green),
-            Paragraph("<b>200–600 hrs</b><br/><font color='#047857' size='6.5'>Saved annually</font>", cell_center_green)
+            Paragraph("<b>TOTAL MONTHLY TOOL COST</b><br/><font color='#64748b' size='6.5'>3 Separate Bills + Spreadsheets</font>", cell_body_bold),
+            Paragraph("<b>Fragmented 3-Tool Stack</b><br/><font color='#64748b' size='6.5'>ClickUp + 1Password + Jibble</font>", cell_body),
+            Paragraph("<b>PKR 64,400 / mo</b><br/><font color='#64748b' size='6.5'>$230 USD / mo</font>", cell_center_bold),
+            Paragraph("<b>PKR 161,000 / mo</b><br/><font color='#64748b' size='6.5'>$575 USD / mo</font>", cell_center_bold),
+            Paragraph("<b>PKR 12k | PKR 30k</b><br/><font color='#059669' size='6.5'>Flat rate (no per-seat)</font>", cell_center_green)
+        ],
+        [
+            Paragraph("<b>YOUR MONTHLY CASH SAVED</b><br/><font color='#047857' size='6.5'>Direct bottom-line software savings</font>", cell_body_bold),
+            Paragraph("<b>Net Cash Kept in Bank</b><br/><font color='#047857' size='6.5'>Every single month</font>", cell_body),
+            Paragraph("<b>Save PKR 52,400</b><br/><font color='#047857' size='6.5'>81% cost reduction</font>", cell_center_green),
+            Paragraph("<b>Save PKR 131,000</b><br/><font color='#047857' size='6.5'>81% cost reduction</font>", cell_center_green),
+            Paragraph("<b>Zero Per-Seat Tax</b><br/><font color='#047857' size='6.5'>Hire without penalties</font>", cell_center_green)
+        ],
+        [
+            Paragraph("<b>YOUR ANNUAL PROFIT PRESERVED</b><br/><font color='#047857' size='6.5'>Cash retained for bonuses & growth</font>", cell_body_bold),
+            Paragraph("<b>Annualized Bottom-Line ROI</b><br/><font color='#047857' size='6.5'>Bankable cash saved</font>", cell_body),
+            Paragraph("<b>Save PKR 628,800 / yr</b><br/><font color='#047857' size='6.5'>$2,245 USD saved</font>", cell_center_green),
+            Paragraph("<b>Save PKR 1.57M / yr</b><br/><font color='#047857' size='6.5'>$5,614 USD saved</font>", cell_center_green),
+            Paragraph("<b>+200–400 hrs saved</b><br/><font color='#047857' size='6.5'>Admin friction gone</font>", cell_center_green)
         ]
     ]
 
-    pricing_table = Table(pricing_rows, colWidths=[160, 95, 95, 95, 95])
+    pricing_table = Table(pricing_rows, colWidths=[135, 125, 95, 95, 90])
     pricing_table.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,0), PRIMARY),
         ('BOX', (0,0), (-1,-1), 0.5, BORDER_LIGHT),
         ('INNERGRID', (0,0), (-1,-1), 0.5, BORDER_LIGHT),
-        ('BACKGROUND', (0,1), (-1,3), colors.HexColor("#f8fafc")),
-        ('BACKGROUND', (0,4), (-1,4), colors.HexColor("#ecfdf5")),
-        ('BACKGROUND', (0,5), (-1,5), colors.HexColor("#d1fae5")),
-        ('BACKGROUND', (0,6), (-1,6), colors.HexColor("#a7f3d0")),
+        ('BACKGROUND', (0,1), (-1,4), colors.HexColor("#f8fafc")),
+        ('BACKGROUND', (0,5), (-1,5), colors.HexColor("#f1f5f9")),
+        ('BACKGROUND', (0,6), (-1,6), colors.HexColor("#ecfdf5")),
+        ('BACKGROUND', (0,7), (-1,7), colors.HexColor("#d1fae5")),
+        ('LEFTPADDING', (0,0), (-1,-1), 6),
+        ('RIGHTPADDING', (0,0), (-1,-1), 6),
+        ('TOPPADDING', (0,0), (-1,-1), 3.5),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 3.5),
+        ('LINEBELOW', (0,4), (-1,4), 1, colors.HexColor("#0f172a")),
+        ('LINEBELOW', (0,5), (-1,5), 1, colors.HexColor("#10b981")),
+    ]))
+    story.append(pricing_table)
+    story.append(Spacer(1, 7))
+
+    # 3 Strategic ROI Cards
+    roi_data = [
+        [
+            Paragraph("<b>Zero Per-Seat Penalty</b><br/><font size='7' color='#475569'>Hire 3 new devs next month? Competitors hike your bill by $60–90/mo. Crewdesk charges flat tiers. Add team members with zero billing shock.</font>", p_style),
+            Paragraph("<b>Recover 18–35 PM Hours</b><br/><font size='7' color='#475569'>Eliminates WhatsApp leave requests, attendance disputes at month-end, and manual Excel profit calculations. PMs focus on client delivery.</font>", p_style),
+            Paragraph("<b>Under 1.5% of Payroll</b><br/><font size='7' color='#475569'>At PKR 12,000/mo (~$43 USD), Crewdesk costs less than a junior intern salary. Saving just 2 hours of PM time pays for the tool 3x over.</font>", p_style)
+        ]
+    ]
+    roi_table = Table(roi_data, colWidths=[180, 180, 180])
+    roi_table.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#f8fafc")),
+        ('BOX', (0,0), (-1,-1), 0.5, BORDER_LIGHT),
+        ('INNERGRID', (0,0), (-1,-1), 0.5, BORDER_LIGHT),
         ('LEFTPADDING', (0,0), (-1,-1), 6),
         ('RIGHTPADDING', (0,0), (-1,-1), 6),
         ('TOPPADDING', (0,0), (-1,-1), 4),
         ('BOTTOMPADDING', (0,0), (-1,-1), 4),
-        ('LINEBELOW', (0,3), (-1,3), 1, colors.HexColor("#10b981")),
     ]))
-    story.append(pricing_table)
-    story.append(Spacer(1, 8))
+    story.append(roi_table)
+    story.append(Spacer(1, 7))
 
     # Pricing Plans Summary Cards
     plans_data = [
