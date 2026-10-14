@@ -535,9 +535,8 @@ def build_pdf(filename):
     offer_data = [[
         Paragraph(
             "<b>🎁 LAUNCH PILOT OFFER:</b> "
-            "<b>Month 1 is 100% FREE</b> (setup, roster migration & team walkthrough). "
-            "Up to <b>3 custom modules built free</b> for your workflow. "
-            "First 3 Founding Agencies get <b>50% off (PKR 6,000/mo)</b> for 3 paying months.",
+            "Get <b>3 Modules 100% FREE in your first month</b> to test live with your agency team (includes setup & walkthrough). "
+            "First 3 Founding Agencies get <b>50% off (PKR 6,000/mo)</b> when unlocking all 7 modules.",
             p_style
         )
     ]]
