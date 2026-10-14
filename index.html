@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Crewdesk | All-in-One Agency Operations Platform</title>
+  <meta name="description" content="Run your whole agency from one connected system. Business analysis, agency overview, attendance, projects, encrypted password vault, time tracking, and developer workload.">
+
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+            },
+            surface: {
+              800: '#18181b',
+              850: '#131317',
+              900: '#0f0f12',
+              950: '#08080a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #08080a;
+      color: #e4e4e7;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      width: 100%;
+    }
+    .heading-font {
+      font-family: '"Plus Jakarta Sans"', sans-serif;
+    }
+    .glass-card {
+      background: rgba(18, 18, 23, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glow-border {
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      box-shadow: 0 0 30px -5px rgba(16, 185, 129, 0.2);
+    }
+    .range-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 9999px;
+      background: #27272a;
+      outline: none;
+    }
+    .range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #10b981;
+      cursor: pointer;
+      border: 3px solid #09090b;
+      box-shadow: 0 0 14px rgba(16, 185, 129, 0.8);
+      transition: transform 0.15s ease;
+    }
+    .range-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-surface-950 text-zinc-200 antialiased selection:bg-brand-500 selection:text-black">
+
+  <!-- TOP BANNER -->
+  <div class="bg-gradient-to-r from-emerald-950/80 via-zinc-900 to-indigo-950/80 border-b border-emerald-500/20 py-2 px-3 text-xs text-center font-medium">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+      <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30">Launch Offer</span>
+      <span><strong>Month 1 Free</strong> + up to 3 custom agency modules built free of cost.</span>
+      <a href="#pricing" class="text-emerald-400 hover:text-emerald-300 font-semibold underline underline-offset-2 ml-1">View Pricing Table &rarr;</a>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 backdrop-blur-xl bg-surface-950/90 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-black font-extrabold text-lg shadow-md shadow-emerald-500/20">
+          C
+        </div>
+        <div>
+          <span class="heading-font font-bold text-lg text-white tracking-tight flex items-center gap-1.5">
+            Crewdesk
+            <span class="text-[10px] uppercase font-semibold px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-zinc-700">Agency OS</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden lg:flex items-center gap-6 text-xs sm:text-sm font-medium text-zinc-300">
+        <a href="#pricing-table" class="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          Pricing & Savings Matrix
+        </a>
+        <a href="#comparison" class="hover:text-white transition-colors">vs ClickUp Pro</a>
+        <a href="#modules" class="hover:text-white transition-colors">7 Modules</a>
+        <a href="#dashboards" class="hover:text-white transition-colors">Role Dashboards</a>
+        <a href="#pricing" class="hover:text-white transition-colors">Plans</a>
+        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+      </div>
+
+      <!-- Action items -->
+      <div class="flex items-center gap-2.5">
+        <!-- Currency Pill -->
+        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-0.5 flex text-xs font-semibold">
+          <button id="curr-pkr-btn" onclick="setCurrency('PKR')" class="px-2.5 py-1 rounded bg-emerald-500 text-black transition-all">PKR (₨)</button>
+          <button id="curr-usd-btn" onclick="setCurrency('USD')" class="px-2.5 py-1 rounded text-zinc-400 hover:text-white transition-all">USD ($)</button>
+        </div>
+
+        <button onclick="openWalkthroughModal()" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold bg-emerald-500 hover:bg-emerald-400 text-black transition-all shadow-md shadow-emerald-500/20">
+          <span>Book Walkthrough</span>
+        </button>
+
+        <!-- Mobile menu toggle -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-zinc-950 border-b border-zinc-800 px-4 py-4 space-y-3 text-sm">
+      <a href="#pricing-table" onclick="toggleMobileMenu()" class="block text-emerald-400 font-semibold">Pricing & Savings Matrix</a>
+      <a href="#comparison" onclick="toggleMobileMenu()" class="block text-zinc-300">Feature Comparison vs ClickUp</a>
+      <a href="#modules" onclick="toggleMobileMenu()" class="block text-zinc-300">7 Core Modules</a>
+      <a href="#dashboards" onclick="toggleMobileMenu()" class="block text-zinc-300">4 Role Dashboards</a>
+      <a href="#pricing" onclick="toggleMobileMenu()" class="block text-zinc-300">Plans</a>
+      <a href="#faq" onclick="toggleMobileMenu()" class="block text-zinc-300">FAQ</a>
+      <button onclick="openWalkthroughModal(); toggleMobileMenu();" class="w-full py-2.5 rounded-lg bg-emerald-500 text-black font-bold text-xs mt-2">
+        Book Free Walkthrough
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="relative pt-12 pb-16 md:pt-16 md:pb-20 overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <!-- Proof Pill -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700/80 text-xs text-zinc-300 mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Used daily by our active agency team</span>
+        <span class="text-zinc-600">&bull;</span>
+        <span class="text-emerald-400 font-semibold">Zero Setup Fee</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="heading-font text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+        Run your whole agency from <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">one system</span>.<br class="hidden sm:inline"> Not 5 tools and a spreadsheet.
+      </h1>
+
+      <!-- Short 1-sentence Subheadline -->
+      <p class="mt-4 text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto font-normal">
+        Attendance, leaves, client passwords, team workload, and real profit per project — connected on day one.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+        <button onclick="openWalkthroughModal()" class="w-full sm:w-auto px-6 py-3 rounded-xl text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-black transition-all shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2">
+          <span>Book Free 30-Min Walkthrough</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+
+        <a href="#pricing-table" class="w-full sm:w-auto px-5 py-3 rounded-xl text-sm font-semibold bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-700 transition-all flex items-center justify-center gap-2">
+          <span>Compare All Prices In Single Table</span>
+        </a>
+      </div>
+
+      <!-- 4 Quick Stats/Pillars -->
+      <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 text-left">
+        <div class="p-3 rounded-xl bg-zinc-900/60 border border-zinc-800">
+          <div class="text-emerald-400 font-semibold text-xs flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            Separate DB
+          </div>
+          <p class="text-[11px] text-zinc-400 mt-1">Dedicated Supabase instance per agency.</p>
+        </div>
+
+        <div class="p-3 rounded-xl bg-zinc-900/60 border border-zinc-800">
+          <div class="text-indigo-400 font-semibold text-xs flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            Encrypted Vault
+          </div>
+          <p class="text-[11px] text-zinc-400 mt-1">Client passwords with access audit logs.</p>
+        </div>
+
+        <div class="p-3 rounded-xl bg-zinc-900/60 border border-zinc-800">
+          <div class="text-emerald-400 font-semibold text-xs flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Project Margins
+          </div>
+          <p class="text-[11px] text-zinc-400 mt-1">Dev pay multiplied by hours in real time.</p>
+        </div>
+
+        <div class="p-3 rounded-xl bg-zinc-900/60 border border-zinc-800">
+          <div class="text-amber-400 font-semibold text-xs flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+            Your Branding
+          </div>
+          <p class="text-[11px] text-zinc-400 mt-1">Carries your agency's name and logo.</p>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- ALL-IN-ONE PRICING & SAVINGS TABLE (NEW REQUESTED VARIANT) -->
+  <!-- ========================================================================= -->
+  <section id="pricing-table" class="py-14 bg-surface-900 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/20">All-in-One Master Table</span>
+        <h2 class="heading-font text-2xl sm:text-4xl font-extrabold text-white mt-2">
+          Competitor Price & Savings Comparison Table
+        </h2>
+        <p class="text-xs sm:text-sm text-zinc-400 mt-1">
+          See published prices for ClickUp, HubSpot, and Salesforce alongside Crewdesk — plus exact money and founder hours saved.
+        </p>
+      </div>
+
+      <!-- TEAM SIZE SELECTOR TABS -->
+      <div class="max-w-xl mx-auto mb-6 bg-zinc-950 p-1.5 rounded-2xl border border-zinc-800 flex items-center justify-between gap-1">
+        <button onclick="setMasterTier(10)" id="tier-tab-10" class="flex-1 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-500 text-black transition-all shadow-md shadow-emerald-500/20">
+          Team of 10 (Starter)
+        </button>
+        <button onclick="setMasterTier(25)" id="tier-tab-25" class="flex-1 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-zinc-400 hover:text-white transition-all">
+          Team of 25 (Growth)
+        </button>
+        <button onclick="setMasterTier(50)" id="tier-tab-50" class="flex-1 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-zinc-400 hover:text-white transition-all">
+          Team of 50 (Scale)
+        </button>
+      </div>
+
+      <!-- THE SINGLE MASTER TABLE -->
+      <div class="overflow-x-auto rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl">
+        <table class="w-full text-left text-xs sm:text-sm border-collapse min-w-[760px]">
+          <thead>
+            <tr class="border-b border-zinc-800 bg-zinc-900 text-zinc-300">
+              <th class="p-3.5 sm:p-4 font-bold text-white">Platform / Tool</th>
+              <th class="p-3.5 sm:p-4 font-bold text-zinc-300">Their Price / Mo</th>
+              <th class="p-3.5 sm:p-4 font-bold text-emerald-400 bg-emerald-950/20 border-x border-emerald-500/20">Crewdesk Price</th>
+              <th class="p-3.5 sm:p-4 font-bold text-emerald-400">You Save / Mo</th>
+              <th class="p-3.5 sm:p-4 font-bold text-white">You Save / Year</th>
+              <th class="p-3.5 sm:p-4 font-bold text-indigo-400">Hours Saved / Mo</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-zinc-800/80 text-zinc-300 font-mono">
+            
+            <!-- ROW 0: CREWDESK (HIGHLIGHTED TOP ROW) -->
+            <tr class="bg-gradient-to-r from-emerald-950/40 via-surface-950 to-zinc-950 font-sans font-bold border-y-2 border-emerald-500/60">
+              <td class="p-3.5 sm:p-4 text-white flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                <span>Crewdesk (Agency OS)</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 uppercase font-mono">All-in-One</span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-zinc-400 font-mono">-</td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/30 border-x border-emerald-500/30 text-emerald-300 font-black text-sm sm:text-base font-mono" id="row-crewdesk-price">
+                PKR 12,000 / mo
+              </td>
+              <td class="p-3.5 sm:p-4 text-emerald-400 font-bold font-mono">Benchmark</td>
+              <td class="p-3.5 sm:p-4 text-emerald-400 font-bold font-mono">Zero Setup Fee</td>
+              <td class="p-3.5 sm:p-4 text-indigo-300 font-bold font-mono" id="row-crewdesk-hours">
+                +18 Hours / Mo
+              </td>
+            </tr>
+
+            <!-- ROW 1: ClickUp Unlimited (Annual) -->
+            <tr class="hover:bg-zinc-900/40">
+              <td class="p-3.5 sm:p-4 font-sans font-medium text-zinc-200">
+                ClickUp Unlimited <span class="text-[11px] text-zinc-500 font-mono block">Billed annually ($7/user)</span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-rose-300" id="row-cu-unl-ann-price">PKR 19,600</td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-400 font-semibold" id="row-match-price-1">PKR 12,000</td>
+              <td class="p-3.5 sm:p-4 text-emerald-400 font-bold" id="row-cu-unl-ann-save-mo">PKR 7,600 (39%)</td>
+              <td class="p-3.5 sm:p-4 text-white font-bold" id="row-cu-unl-ann-save-yr">PKR 91,200</td>
+              <td class="p-3.5 sm:p-4 text-indigo-400 font-semibold" id="row-save-hours-1">+18h reclaimed</td>
+            </tr>
+
+            <!-- ROW 2: ClickUp Unlimited (Monthly) -->
+            <tr class="hover:bg-zinc-900/40">
+              <td class="p-3.5 sm:p-4 font-sans font-medium text-zinc-200">
+                ClickUp Unlimited <span class="text-[11px] text-zinc-500 font-mono block">Billed monthly ($10/user)</span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-rose-300" id="row-cu-unl-mo-price">PKR 28,000</td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-400 font-semibold" id="row-match-price-2">PKR 12,000</td>
+              <td class="p-3.5 sm:p-4 text-emerald-400 font-bold" id="row-cu-unl-mo-save-mo">PKR 16,000 (57%)</td>
+              <td class="p-3.5 sm:p-4 text-white font-bold" id="row-cu-unl-mo-save-yr">PKR 192,000</td>
+              <td class="p-3.5 sm:p-4 text-indigo-400 font-semibold" id="row-save-hours-2">+18h reclaimed</td>
+            </tr>
+
+            <!-- ROW 3: ClickUp Business (Annual) -->
+            <tr class="hover:bg-zinc-900/40">
+              <td class="p-3.5 sm:p-4 font-sans font-medium text-zinc-200">
+                ClickUp Business <span class="text-[11px] text-zinc-500 font-mono block">Billed annually ($12/user)</span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-rose-300" id="row-cu-biz-ann-price">PKR 33,600</td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-400 font-semibold" id="row-match-price-3">PKR 12,000</td>
+              <td class="p-3.5 sm:p-4 text-emerald-400 font-bold" id="row-cu-biz-ann-save-mo">PKR 21,600 (64%)</td>
+              <td class="p-3.5 sm:p-4 text-white font-bold" id="row-cu-biz-ann-save-yr">PKR 259,200</td>
+              <td class="p-3.5 sm:p-4 text-indigo-400 font-semibold" id="row-save-hours-3">+18h reclaimed</td>
+            </tr>
+
+            <!-- ROW 4: ClickUp Business (Monthly) -->
+            <tr class="hover:bg-zinc-900/40 bg-zinc-900/20">
+              <td class="p-3.5 sm:p-4 font-sans font-medium text-zinc-200">
+                ClickUp Business <span class="text-[11px] text-zinc-500 font-mono block">Billed monthly ($19/user)</span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-rose-300 font-bold" id="row-cu-biz-mo-price">PKR 53,200</td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-400 font-semibold" id="row-match-price-4">PKR 12,000</td>
+              <td class="p-3.5 sm:p-4 text-emerald-400 font-black" id="row-cu-biz-mo-save-mo">PKR 41,200 (77%)</td>
+              <td class="p-3.5 sm:p-4 text-emerald-300 font-black" id="row-cu-biz-mo-save-yr">PKR 494,400</td>
+              <td class="p-3.5 sm:p-4 text-indigo-400 font-semibold" id="row-save-hours-4">+18h reclaimed</td>
+            </tr>
+
+            <!-- ROW 5: HubSpot Starter -->
+            <tr class="hover:bg-zinc-900/40">
+              <td class="p-3.5 sm:p-4 font-sans font-medium text-zinc-200">
+                HubSpot Starter Suite <span class="text-[11px] text-zinc-500 font-mono block">$20/seat monthly list</span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-rose-300" id="row-hub-price">PKR 56,000</td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-400 font-semibold" id="row-match-price-5">PKR 12,000</td>
+              <td class="p-3.5 sm:p-4 text-emerald-400 font-bold" id="row-hub-save-mo">PKR 44,000 (79%)</td>
+              <td class="p-3.5 sm:p-4 text-white font-bold" id="row-hub-save-yr">PKR 528,000</td>
+              <td class="p-3.5 sm:p-4 text-indigo-400 font-semibold" id="row-save-hours-5">+18h reclaimed</td>
+            </tr>
+
+            <!-- ROW 6: Salesforce Starter -->
+            <tr class="hover:bg-zinc-900/40">
+              <td class="p-3.5 sm:p-4 font-sans font-medium text-zinc-200">
+                Salesforce Starter Suite <span class="text-[11px] text-zinc-500 font-mono block">$25/seat monthly list</span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-rose-300 font-bold" id="row-sf-price">PKR 70,000</td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-400 font-semibold" id="row-match-price-6">PKR 12,000</td>
+              <td class="p-3.5 sm:p-4 text-emerald-400 font-black" id="row-sf-save-mo">PKR 58,000 (83%)</td>
+              <td class="p-3.5 sm:p-4 text-emerald-300 font-black" id="row-sf-save-yr">PKR 696,000</td>
+              <td class="p-3.5 sm:p-4 text-indigo-400 font-semibold" id="row-save-hours-6">+18h reclaimed</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <!-- FOOTNOTES & SUMMARY CALLOUT -->
+      <div class="mt-4 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-400 gap-3">
+        <span>*List prices checked October 2026 converted at PKR 280/USD. In competitors, password tools and attendance require separate paid apps.</span>
+        <button onclick="openWalkthroughModal()" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs transition-all shrink-0">
+          Lock In This Rate Today &rarr;
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FEATURE COMPARISON TABLE (PERFECTED AS CONFIRMED) -->
+  <!-- ========================================================================= -->
+  <section id="comparison" class="py-16 bg-surface-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/20">Feature Comparison</span>
+        <h2 class="heading-font text-2xl sm:text-4xl font-extrabold text-white mt-2">
+          Why Agencies Switch From ClickUp Pro
+        </h2>
+        <p class="text-xs sm:text-sm text-zinc-400 mt-1">
+          Other tools are empty toolkits that require weeks of configuration. Crewdesk works on Day 1.
+        </p>
+      </div>
+
+      <!-- TABLE CONTAINER -->
+      <div class="overflow-x-auto rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl">
+        <table class="w-full text-left text-xs sm:text-sm border-collapse">
+          <thead>
+            <tr class="border-b border-zinc-800 bg-zinc-900/80 text-zinc-300">
+              <th class="p-3.5 sm:p-4 font-bold text-white">Features & Capabilities</th>
+              <th class="p-3.5 sm:p-4 font-extrabold text-emerald-400 bg-emerald-950/20 border-x border-emerald-500/20">
+                Crewdesk (Agency OS)
+              </th>
+              <th class="p-3.5 sm:p-4 font-bold text-zinc-300">ClickUp Pro / Unlimited</th>
+              <th class="p-3.5 sm:p-4 font-bold text-zinc-400 hidden sm:table-cell">Other PM Tools (Asana/Jira)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-zinc-800/70 text-zinc-300">
+            
+            <!-- 1. Attendance & Punch-in -->
+            <tr class="hover:bg-zinc-900/30">
+              <td class="p-3.5 sm:p-4 font-medium text-white">
+                Attendance, Overtime & Punch Log
+                <span class="block text-[11px] text-zinc-500 font-normal">Daily check-in, late arrivals flag, immutable audit log</span>
+              </td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
+                  &check; Built-in (Ready)
+                </span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-rose-400">
+                <span class="inline-flex items-center gap-1 text-xs">
+                  &cross; Not Supported
+                </span>
+                <span class="block text-[10px] text-zinc-500">Requires external 3rd-party tool</span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-zinc-500 hidden sm:table-cell">&cross; Not Supported</td>
+            </tr>
+
+            <!-- 2. Leaves & Workload sync -->
+            <tr class="hover:bg-zinc-900/30">
+              <td class="p-3.5 sm:p-4 font-medium text-white">
+                Leave & WFH Auto-Deduction
+                <span class="block text-[11px] text-zinc-500 font-normal">Approved leave automatically deducts available project hours</span>
+              </td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
+                  &check; Built-in & Connected
+                </span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-amber-300">
+                <span class="inline-flex items-center gap-1 text-xs font-medium">
+                  &Delta; Setup Required
+                </span>
+                <span class="block text-[10px] text-zinc-500">Requires forms + Zapier webhooks</span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-zinc-500 hidden sm:table-cell">&cross; Not Supported</td>
+            </tr>
+
+            <!-- 3. Business Analysis & Real Profit -->
+            <tr class="hover:bg-zinc-900/30">
+              <td class="p-3.5 sm:p-4 font-medium text-white">
+                Live Net Profit & Margin per Project
+                <span class="block text-[11px] text-zinc-500 font-normal">Logged hours &times; developer rate = real margin without Excel</span>
+              </td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
+                  &check; Built-in (Owner Only)
+                </span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-amber-300">
+                <span class="inline-flex items-center gap-1 text-xs font-medium">
+                  &Delta; Setup Required
+                </span>
+                <span class="block text-[10px] text-zinc-500">Complex rollup formulas & custom fields</span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-zinc-500 hidden sm:table-cell">&cross; Not Supported</td>
+            </tr>
+
+            <!-- 4. Client Password Vault -->
+            <tr class="hover:bg-zinc-900/30">
+              <td class="p-3.5 sm:p-4 font-medium text-white">
+                Encrypted Client Password Manager
+                <span class="block text-[11px] text-zinc-500 font-normal">AES-256 vault with reveal logs and instant employee offboarding</span>
+              </td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
+                  &check; Built-in
+                </span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-rose-400">
+                <span class="inline-flex items-center gap-1 text-xs">
+                  &cross; Not Supported
+                </span>
+                <span class="block text-[10px] text-zinc-500">Requires 1Password ($5–$8/seat)</span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-zinc-500 hidden sm:table-cell">&cross; Not Supported</td>
+            </tr>
+
+            <!-- 5. Workload Module -->
+            <tr class="hover:bg-zinc-900/30">
+              <td class="p-3.5 sm:p-4 font-medium text-white">
+                Workload & Capacity Balancing
+                <span class="block text-[11px] text-zinc-500 font-normal">See who has max tasks and who has available bandwidth</span>
+              </td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
+                  &check; Built-in
+                </span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-amber-300">
+                <span class="inline-flex items-center gap-1 text-xs font-medium">
+                  &Delta; Setup Required
+                </span>
+                <span class="block text-[10px] text-zinc-500">Locked on Business Tier + manual points</span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-amber-300 hidden sm:table-cell">&Delta; Setup Required</td>
+            </tr>
+
+            <!-- 6. Role-Based Dashboards -->
+            <tr class="hover:bg-zinc-900/30">
+              <td class="p-3.5 sm:p-4 font-medium text-white">
+                Pre-configured Role Views
+                <span class="block text-[11px] text-zinc-500 font-normal">Dedicated screens for Admin, HR, PM, and Employee</span>
+              </td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
+                  &check; 4 Pre-built Dashboards
+                </span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-amber-300">
+                <span class="inline-flex items-center gap-1 text-xs font-medium">
+                  &Delta; Setup Required
+                </span>
+                <span class="block text-[10px] text-zinc-500">Must manually configure permissions</span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-amber-300 hidden sm:table-cell">&Delta; Setup Required</td>
+            </tr>
+
+            <!-- 7. Setup Effort -->
+            <tr class="hover:bg-zinc-900/30">
+              <td class="p-3.5 sm:p-4 font-medium text-white">
+                Setup Effort & Time to Launch
+              </td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-bold">
+                0 Hours (Done for you in 3 days)
+              </td>
+              <td class="p-3.5 sm:p-4 text-rose-400 font-medium">
+                40+ Hours of DIY assembly
+              </td>
+              <td class="p-3.5 sm:p-4 text-zinc-400 hidden sm:table-cell">30+ Hours</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 6 CORE HEADACHES (PUNCHY, SHORT QUOTES) -->
+  <!-- ========================================================================= -->
+  <section class="py-14 bg-surface-900 border-t border-white/5">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <h2 class="heading-font text-2xl sm:text-3xl font-extrabold text-white">Sound familiar?</h2>
+        <p class="text-xs sm:text-sm text-zinc-400 mt-1">Six small leaks that cost agency owners hours every single week.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
+          <p class="text-xs sm:text-sm font-semibold text-zinc-200 italic">"Who was late today? I’m checking three places."</p>
+          <span class="text-[11px] text-zinc-500 mt-2 block">Biometrics, chats, and asking around.</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
+          <p class="text-xs sm:text-sm font-semibold text-zinc-200 italic">"Leave requests are buried in WhatsApp."</p>
+          <span class="text-[11px] text-zinc-500 mt-2 block">Nobody recorded it. Now deadlines are blown.</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
+          <p class="text-xs sm:text-sm font-semibold text-zinc-200 italic">"I promised a deadline while half the team was off."</p>
+          <span class="text-[11px] text-zinc-500 mt-2 block">Tools count calendar days, not real working days.</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
+          <p class="text-xs sm:text-sm font-semibold text-zinc-200 italic">"Client passwords are in chats and sheets."</p>
+          <span class="text-[11px] text-zinc-500 mt-2 block">When someone leaves, passwords remain exposed.</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
+          <p class="text-xs sm:text-sm font-semibold text-zinc-200 italic">"I have no idea if this project made money."</p>
+          <span class="text-[11px] text-zinc-500 mt-2 block">Hours logged aren't multiplied by developer costs.</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
+          <p class="text-xs sm:text-sm font-semibold text-zinc-200 italic">"Attendance disputes eat our month-end."</p>
+          <span class="text-[11px] text-zinc-500 mt-2 block">HR spends days arguing over punch-in times.</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- THE 7 CORE MODULES -->
+  <!-- ========================================================================= -->
+  <section id="modules" class="py-14 bg-surface-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/20">System Architecture</span>
+        <h2 class="heading-font text-2xl sm:text-4xl font-extrabold text-white mt-2">The 7 Operational Modules</h2>
+        <p class="text-xs sm:text-sm text-zinc-400 mt-1">Everything your agency needs to run smoothly, built into one cohesive system.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <!-- Module 1: Business Analysis -->
+        <div class="p-5 rounded-2xl glass-card space-y-2.5 border-emerald-500/40 bg-emerald-950/10">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider">Module 1</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30">Owner / Admin</span>
+          </div>
+          <h3 class="font-heading text-base font-bold text-white">Business Analysis Module</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Shows the real net revenue and profit generated by each project. Visualizes top-performing client projects, category margins, and financial health in real time.
+          </p>
+        </div>
+
+        <!-- Module 2: Overview -->
+        <div class="p-5 rounded-2xl glass-card space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-indigo-400 uppercase tracking-wider">Module 2</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-semibold border border-indigo-500/30">For Owner</span>
+          </div>
+          <h3 class="font-heading text-base font-bold text-white">Agency Overview Module</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            A birds-eye view of your entire agency’s momentum. See live task completion, active projects, employee statuses, and department progress at a single glance.
+          </p>
+        </div>
+
+        <!-- Module 3: Attendance -->
+        <div class="p-5 rounded-2xl glass-card space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-teal-400 uppercase tracking-wider">Module 3</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 font-semibold border border-teal-500/30">HR + Owner</span>
+          </div>
+          <h3 class="font-heading text-base font-bold text-white">Attendance & Leave Module</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            1-click daily check-in. Tracks attendance, casual/sick leaves, WFH requests, office working hours, late arrivals, and early exits with an immutable audit log.
+          </p>
+        </div>
+
+        <!-- Module 4: Projects -->
+        <div class="p-5 rounded-2xl glass-card space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-blue-400 uppercase tracking-wider">Module 4</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold border border-blue-500/30">PM + Admin</span>
+          </div>
+          <h3 class="font-heading text-base font-bold text-white">Projects Module</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Organizes all client projects category-wise (e.g. Mobile, Web, AI, Retainers). Track milestone deadlines, deliverables, sprints, and subtasks cleanly.
+          </p>
+        </div>
+
+        <!-- Module 5: Password Manager -->
+        <div class="p-5 rounded-2xl glass-card space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">Module 5</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold border border-amber-500/30">Admin Only</span>
+          </div>
+          <h3 class="font-heading text-base font-bold text-white">Password Manager Module</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Secure client credentials in an AES-256 encrypted vault instead of Google Sheets or WhatsApp. Grant access strictly to specific individuals with copy/reveal logs.
+          </p>
+        </div>
+
+        <!-- Module 6: Time Tracking -->
+        <div class="p-5 rounded-2xl glass-card space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-purple-400 uppercase tracking-wider">Module 6</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-semibold border border-purple-500/30">Admin + PM</span>
+          </div>
+          <h3 class="font-heading text-base font-bold text-white">Time Tracking Module</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Developers track billable time via an active timer or manual log entry. Visualize exactly who worked the most on each client task without weekly timesheet friction.
+          </p>
+        </div>
+
+        <!-- Module 7: Workload (Spans full width on desktop) -->
+        <div class="p-5 rounded-2xl glass-card space-y-2.5 md:col-span-2 lg:col-span-3 border-emerald-500/30">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider">Module 7</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30">Admin + Project Manager</span>
+          </div>
+          <h3 class="font-heading text-base font-bold text-white">Workload & Capacity Module</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Inspect live developer capacity before delegating work. Instantly see who has maximum tasks/projects allocated and who has available bandwidth, preventing burnout and blown deadlines.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4 ROLE-BASED DASHBOARDS / VIEWS -->
+  <!-- ========================================================================= -->
+  <section id="dashboards" class="py-14 bg-surface-900 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded border border-indigo-500/20">Zero Info Leakage</span>
+        <h2 class="heading-font text-2xl sm:text-4xl font-extrabold text-white mt-2">4 Dedicated Role Dashboards</h2>
+        <p class="text-xs sm:text-sm text-zinc-400 mt-1">Each person gets the exact screen they need. Fewer buttons, zero training, zero salary leaks.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <!-- Dashboard 1: Admin -->
+        <div class="p-6 rounded-2xl bg-zinc-950 border border-emerald-500/30 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">View 1</span>
+            <span class="text-[11px] px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">Admin Dashboard</span>
+          </div>
+          <h3 class="font-heading text-lg font-bold text-white">Agency Owner / Admin View</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Full executive command center. Can view overall progress, projects, attendance logs, business dashboard with profit margins, team workload, encrypted passwords, and agency notifications.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-1.5 text-[10px] text-zinc-300 font-mono">
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">Overall Progress</span>
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">Profit Margins</span>
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">Password Vault</span>
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">Workload</span>
+          </div>
+        </div>
+
+        <!-- Dashboard 2: HR -->
+        <div class="p-6 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-indigo-400">View 2</span>
+            <span class="text-[11px] px-2.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold">HR Dashboard</span>
+          </div>
+          <h3 class="font-heading text-lg font-bold text-white">HR Manager View</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Streamlined people operations. Onboard new hires, setup employee profiles, update details when required, organize teams, and track daily attendance, leaves, and office working hours.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-1.5 text-[10px] text-zinc-300 font-mono">
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">Employee Onboarding</span>
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">Team Structure</span>
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">Attendance & Leaves</span>
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">Working Hours</span>
+          </div>
+        </div>
+
+        <!-- Dashboard 3: PM -->
+        <div class="p-6 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-400">View 3</span>
+            <span class="text-[11px] px-2.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold">PM Dashboard</span>
+          </div>
+          <h3 class="font-heading text-lg font-bold text-white">Project Manager View</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Execution and delivery hub. See active projects, create tasks, mark tasks as complete, inspect live team workloads, and assign tasks directly to less workloaded employees.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-1.5 text-[10px] text-zinc-300 font-mono">
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">Project Milestones</span>
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">Task Delegation</span>
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">Workload Rebalance</span>
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">Sprint Tracking</span>
+          </div>
+        </div>
+
+        <!-- Dashboard 4: Employee -->
+        <div class="p-6 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-teal-400">View 4</span>
+            <span class="text-[11px] px-2.5 py-0.5 rounded bg-teal-500/20 text-teal-300 font-bold">Employee Dashboard</span>
+          </div>
+          <h3 class="font-heading text-lg font-bold text-white">Employee & Developer View</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Distraction-free workspace. See assigned tasks and projects, mark attendance with 1 click, apply for leaves, and track time spent on specific tasks without seeing sensitive financial numbers.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-1.5 text-[10px] text-zinc-300 font-mono">
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">Assigned Tasks</span>
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">1-Click Punch In</span>
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">Time Tracker</span>
+            <span class="px-2 py-0.5 bg-zinc-900 rounded border border-zinc-800">Fast Leave Form</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 3 PRICING TIERS & LAUNCH OFFER (STARTER / GROWTH / SCALE) -->
+  <!-- ========================================================================= -->
+  <section id="pricing" class="py-20 bg-surface-950 border-t border-white/5 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Simple, Transparent Pricing</span>
+        <h2 class="heading-font text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-3">
+          Predictable flat pricing. No seat penalties.
+        </h2>
+        <p class="text-zinc-400 mt-2 text-base sm:text-lg">
+          No feature paywalls. No surprises. Every tier includes all 7 operational modules.
+        </p>
+
+        <!-- Pricing Currency Toggle -->
+        <div class="mt-6 inline-flex items-center gap-2 p-1 rounded-xl bg-zinc-900 border border-zinc-800 text-xs font-semibold">
+          <button onclick="setCurrency('PKR')" class="px-3.5 py-1.5 rounded-lg bg-emerald-500 text-black font-bold transition-all" id="pricing-pkr-btn">
+            Pakistani Rupee (PKR ₨)
+          </button>
+          <button onclick="setCurrency('USD')" class="px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition-all" id="pricing-usd-btn">
+            US Dollars (USD $)
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+        
+        <!-- PLAN 1: STARTER (MAIN OFFER) -->
+        <div class="lg:order-2 rounded-3xl p-8 bg-gradient-to-b from-surface-850 to-zinc-950 border-2 border-emerald-500/70 shadow-2xl shadow-emerald-500/15 relative flex flex-col justify-between">
+          
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-emerald-500 text-black text-xs font-extrabold tracking-wide uppercase shadow-lg">
+            Most Popular &bull; Main Offer
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <h3 class="font-heading text-2xl font-bold text-white">Starter Plan</h3>
+                <p class="text-xs text-emerald-400 font-medium">Perfect for 5 to 10 person agencies</p>
+              </div>
+              <span class="text-xs px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-300 font-mono">Up to 10 seats</span>
+            </div>
+
+            <!-- Price display -->
+            <div class="my-6">
+              <div class="flex items-baseline gap-1">
+                <span id="starter-price-display" class="font-heading text-4xl sm:text-5xl font-black text-white">PKR 12,000</span>
+                <span class="text-sm text-zinc-400">/ month</span>
+              </div>
+              <p class="text-xs text-zinc-400 mt-1">
+                That's about <span id="starter-usd-equiv">$43 USD</span> total — less than 1-2% of agency payroll.
+              </p>
+            </div>
+
+            <!-- Launch offer highlight badge -->
+            <div class="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/30 text-xs space-y-2 mb-6">
+              <div class="flex items-center gap-2 text-emerald-400 font-bold uppercase tracking-wider text-[11px]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>
+                <span>Launch Pilot Special:</span>
+              </div>
+              <p class="text-zinc-200">
+                <strong>Month 1 is 100% FREE</strong> with full setup, data migration, and team walkthrough.
+              </p>
+              <p class="text-zinc-300">
+                &bull; Up to <strong>3 custom modules</strong> built for your agency in month one for free.
+              </p>
+              <p class="text-emerald-300 font-medium">
+                &bull; First 3 Founding Agencies get <strong>50% off (PKR 6,000/mo)</strong> for the next 3 paying months!
+              </p>
+            </div>
+
+            <!-- Inclusions -->
+            <ul class="space-y-3 text-sm text-zinc-300 mb-8">
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>All 7 core operational modules included</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Dedicated Supabase database & app instance</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Zero setup fee (normally PKR 20,000)</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Encrypted Client Password Vault</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>5 GB secure cloud file storage included</span>
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="openWalkthroughModal()" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-sm transition-all shadow-lg shadow-emerald-500/25">
+            Book Free Walkthrough & Start Free Month
+          </button>
+        </div>
+
+        <!-- PLAN 2: GROWTH -->
+        <div class="lg:order-1 rounded-3xl p-8 bg-zinc-950/70 border border-zinc-800 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <h3 class="font-heading text-xl font-bold text-white">Growth Plan</h3>
+                <p class="text-xs text-zinc-400 font-medium">For scaling agencies</p>
+              </div>
+              <span class="text-xs px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-300 font-mono">Up to 25 seats</span>
+            </div>
+
+            <div class="my-6">
+              <div class="flex items-baseline gap-1">
+                <span id="growth-price-display" class="font-heading text-3xl font-extrabold text-white">PKR 30,000</span>
+                <span class="text-sm text-zinc-400">/ month</span>
+              </div>
+              <p class="text-xs text-zinc-400 mt-1">Save over PKR 480,000/yr vs ClickUp</p>
+            </div>
+
+            <ul class="space-y-3 text-sm text-zinc-300 mb-8">
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Everything in Starter Plan</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Up to 25 team members</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Multi-department workload management</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Priority hyper-care WhatsApp channel</span>
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="openWalkthroughModal()" class="w-full py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-sm transition-all border border-zinc-700">
+            Request Growth Demo
+          </button>
+        </div>
+
+        <!-- PLAN 3: SCALE -->
+        <div class="lg:order-3 rounded-3xl p-8 bg-zinc-950/70 border border-zinc-800 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <h3 class="font-heading text-xl font-bold text-white">Scale Plan</h3>
+                <p class="text-xs text-zinc-400 font-medium">For established software houses</p>
+              </div>
+              <span class="text-xs px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-300 font-mono">Up to 50 seats</span>
+            </div>
+
+            <div class="my-6">
+              <div class="flex items-baseline gap-1">
+                <span id="scale-price-display" class="font-heading text-3xl font-extrabold text-white">PKR 50,000</span>
+                <span class="text-sm text-zinc-400">/ month</span>
+              </div>
+              <p class="text-xs text-zinc-400 mt-1">Save over PKR 1,400,000/yr vs ClickUp Business</p>
+            </div>
+
+            <ul class="space-y-3 text-sm text-zinc-300 mb-8">
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Everything in Growth Plan</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Up to 50 team members</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Custom database backup export scripts</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Bespoke custom integrations assistance</span>
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="openWalkthroughModal()" class="w-full py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-sm transition-all border border-zinc-700">
+            Request Scale Demo
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Payment & Billing Methods Note -->
+      <div class="mt-12 p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 text-center max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-left">
+          <h4 class="font-bold text-white text-sm">Flexible Local & Global Payment Options</h4>
+          <p class="text-xs text-zinc-400 mt-0.5">Pay via direct Bank Wire (IBAN), Raast, JazzCash, Easypaisa, or Credit Card. An official tax invoice is provided for every payment.</p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="text-xs px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 border border-zinc-700 font-mono">Tax Invoice Provided</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- RESTORED PREVIOUS FAQS (ACCORDION) -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-20 bg-surface-900 border-t border-white/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-14">
+        <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Honest Answers</span>
+        <h2 class="heading-font text-3xl sm:text-4xl font-extrabold text-white mt-3">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-zinc-400 mt-2 text-base">
+          Straightforward answers to the questions agency founders ask us most.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="rounded-2xl bg-zinc-950 border border-zinc-800 overflow-hidden">
+          <button onclick="toggleFaq('faq-1')" class="w-full p-5 text-left flex items-center justify-between text-base font-bold text-white hover:text-emerald-400 transition-colors">
+            <span>"ClickUp or Google Sheets are free. Why should we pay PKR 12,000/mo?"</span>
+            <svg id="faq-icon-faq-1" class="w-5 h-5 text-zinc-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="faq-1" class="hidden px-5 pb-5 text-sm text-zinc-400 leading-relaxed border-t border-zinc-800/60 pt-3">
+            ClickUp's free plan restricts custom fields and storage heavily, and paid ClickUp costs PKR 19,600 to 53,200/mo for 10 people without even having a password vault or real payroll attendance. Google Sheets is free only until you calculate the 12+ hours every month spent chasing attendance disputes, checking WhatsApp leave messages, and accidentally blowing deadlines. At PKR 12,000 (~$43 USD), saving just 3 hours of founder/PM time pays for the tool completely.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="rounded-2xl bg-zinc-950 border border-zinc-800 overflow-hidden">
+          <button onclick="toggleFaq('faq-2')" class="w-full p-5 text-left flex items-center justify-between text-base font-bold text-white hover:text-emerald-400 transition-colors">
+            <span>"How do I know our client passwords and employee salaries are safe?"</span>
+            <svg id="faq-icon-faq-2" class="w-5 h-5 text-zinc-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="faq-2" class="hidden px-5 pb-5 text-sm text-zinc-400 leading-relaxed border-t border-zinc-800/60 pt-3">
+            Your agency receives its own separate Supabase database instance. Your data is never combined in a shared database with any other customer. Client passwords are stored in an AES-256 encrypted vault with an immutable audit log (recording who viewed or copied credentials and when). Furthermore, developer salary rates and project margin charts are strictly role-gated and accessible solely by designated agency owners.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="rounded-2xl bg-zinc-950 border border-zinc-800 overflow-hidden">
+          <button onclick="toggleFaq('faq-3')" class="w-full p-5 text-left flex items-center justify-between text-base font-bold text-white hover:text-emerald-400 transition-colors">
+            <span>"Will our developers and designers actually use it, or resist it?"</span>
+            <svg id="faq-icon-faq-3" class="w-5 h-5 text-zinc-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="faq-3" class="hidden px-5 pb-5 text-sm text-zinc-400 leading-relaxed border-t border-zinc-800/60 pt-3">
+            Team resistance happens when tools require complex weekly timesheet logs or 10-step forms. In Crewdesk, employees have a single 1-click punch-in button on desktop or phone, and a 60-second form for leave requests. There are no redundant project codes to memorize. If any step ever causes friction during month 1, we tweak it directly for your team during your free hyper-care month.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="rounded-2xl bg-zinc-950 border border-zinc-800 overflow-hidden">
+          <button onclick="toggleFaq('faq-4')" class="w-full p-5 text-left flex items-center justify-between text-base font-bold text-white hover:text-emerald-400 transition-colors">
+            <span>"Can you migrate our existing team records and active projects?"</span>
+            <svg id="faq-icon-faq-4" class="w-5 h-5 text-zinc-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="faq-4" class="hidden px-5 pb-5 text-sm text-zinc-400 leading-relaxed border-t border-zinc-800/60 pt-3">
+            Yes. Send us your employee roster, roles, public holiday schedule, and active client project list (in Excel, CSV, or ClickUp export format). We populate your instance before your team onboarding session so your team logs in to an active, recognizable workspace from hour one.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="rounded-2xl bg-zinc-950 border border-zinc-800 overflow-hidden">
+          <button onclick="toggleFaq('faq-5')" class="w-full p-5 text-left flex items-center justify-between text-base font-bold text-white hover:text-emerald-400 transition-colors">
+            <span>"What happens after the first free month?"</span>
+            <svg id="faq-icon-faq-5" class="w-5 h-5 text-zinc-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="faq-5" class="hidden px-5 pb-5 text-sm text-zinc-400 leading-relaxed border-t border-zinc-800/60 pt-3">
+            Month 1 is 100% free with zero obligation. If you love how smoothly your agency runs, you continue on the Starter Plan at PKR 12,000/month (or PKR 6,000/mo if you are one of our first 3 founding agencies). Your custom modules stay active forever, your database stays untouched, and continuous support continues. If you decide not to continue, we provide a complete data dump of all your records.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FINAL CTA -->
+  <!-- ========================================================================= -->
+  <section class="py-16 bg-gradient-to-b from-surface-900 to-surface-950 border-t border-white/5 text-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <h2 class="heading-font text-2xl sm:text-4xl font-extrabold text-white">
+        See it running with your own team
+      </h2>
+      <p class="text-xs sm:text-sm text-zinc-400 mt-2">
+        Bring your team size and biggest headache. We'll show you how it works in 30 minutes.
+      </p>
+
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <button onclick="openWalkthroughModal()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs sm:text-sm shadow-lg shadow-emerald-500/20">
+          Book Free 30-Min Walkthrough
+        </button>
+
+        <a href="https://wa.me/?text=Hi%2C%20I%20am%20interested%20in%20a%20walkthrough%20of%20Crewdesk" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-700 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2">
+          <span>Chat on WhatsApp</span>
+        </a>
+      </div>
+
+      <div class="mt-8 text-[11px] text-zinc-500">
+        &copy; 2026 Crewdesk &bull; Agency Operations Platform &bull; All Rights Reserved
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- WALKTHROUGH BOOKING MODAL -->
+  <!-- ========================================================================= -->
+  <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative w-full max-w-md rounded-2xl bg-zinc-950 border border-zinc-800 p-5 sm:p-6 shadow-2xl max-h-[92vh] overflow-y-auto">
+      
+      <button onclick="closeWalkthroughModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white p-1 rounded-lg bg-zinc-900">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="text-left mb-4">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Free Walkthrough</span>
+        <h3 class="font-heading text-lg font-bold text-white mt-1">Book Your 30-Min Demo</h3>
+        <p class="text-xs text-zinc-400">We'll show you the screens that match your exact agency size.</p>
+      </div>
+
+      <form onsubmit="submitBooking(event)" class="space-y-3 text-left text-xs">
+        <div>
+          <label class="block font-semibold text-zinc-300 mb-1">Your Name</label>
+          <input type="text" id="m-name" required placeholder="e.g. Asad" class="w-full px-3 py-2 rounded-lg bg-zinc-900 border border-zinc-700 text-white focus:outline-none focus:border-emerald-500 text-xs">
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block font-semibold text-zinc-300 mb-1">Agency Name</label>
+            <input type="text" id="m-agency" required placeholder="e.g. Pixel Forge" class="w-full px-3 py-2 rounded-lg bg-zinc-900 border border-zinc-700 text-white focus:outline-none focus:border-emerald-500 text-xs">
+          </div>
+          <div>
+            <label class="block font-semibold text-zinc-300 mb-1">Team Size</label>
+            <select id="m-size" class="w-full px-3 py-2 rounded-lg bg-zinc-900 border border-zinc-700 text-white focus:outline-none focus:border-emerald-500 text-xs">
+              <option value="5-10 people">5-10 (Starter)</option>
+              <option value="11-25 people">11-25 (Growth)</option>
+              <option value="26-50 people">26-50 (Scale)</option>
+              <option value="50+ people">50+ people</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-zinc-300 mb-1">WhatsApp Number or Email</label>
+          <input type="text" id="m-contact" required placeholder="+92 300 1234567 or email" class="w-full px-3 py-2 rounded-lg bg-zinc-900 border border-zinc-700 text-white focus:outline-none focus:border-emerald-500 text-xs">
+        </div>
+
+        <div>
+          <label class="block font-semibold text-zinc-300 mb-1">Main Operational Headache</label>
+          <select id="m-pain" class="w-full px-3 py-2 rounded-lg bg-zinc-900 border border-zinc-700 text-white focus:outline-none focus:border-emerald-500 text-xs">
+            <option value="Project Profit & Margins">No clear view of real profit per project</option>
+            <option value="Attendance & Late Arrivals">Attendance & late arrival disputes</option>
+            <option value="Leave & Deadline Conflicts">WhatsApp leaves & blown deadlines</option>
+            <option value="Client Password Security">Client passwords scattered in chats</option>
+            <option value="ClickUp Cost & Complexity">High ClickUp bill & bloated setup</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs transition-all shadow-md mt-2">
+          Open WhatsApp Direct
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT LOGIC -->
+  <!-- ========================================================================= -->
+  <script>
+    let activeCurrency = 'PKR';
+    const PKR_USD = 280;
+
+    let activeMasterTier = 10; // 10, 25, or 50
+
+    // Master pricing benchmark data directly from Section 9 of the Sales Brief
+    const TIER_DATA = {
+      10: {
+        crewdeskPKR: 12000,
+        hoursSaved: 18,
+        cuUnlAnnPKR: 19600,
+        cuUnlMoPKR: 28000,
+        cuBizAnnPKR: 33600,
+        cuBizMoPKR: 53200,
+        hubPKR: 56000,
+        sfPKR: 70000
+      },
+      25: {
+        crewdeskPKR: 30000,
+        hoursSaved: 30,
+        cuUnlAnnPKR: 49000,
+        cuUnlMoPKR: 70000,
+        cuBizAnnPKR: 84000,
+        cuBizMoPKR: 133000,
+        hubPKR: 140000,
+        sfPKR: 175000
+      },
+      50: {
+        crewdeskPKR: 50000,
+        hoursSaved: 50,
+        cuUnlAnnPKR: 98000,
+        cuUnlMoPKR: 140000,
+        cuBizAnnPKR: 168000,
+        cuBizMoPKR: 266000,
+        hubPKR: 280000,
+        sfPKR: 350000
+      }
+    };
+
+    function formatVal(amount) {
+      if (activeCurrency === 'PKR') {
+        return 'PKR ' + Math.round(amount).toLocaleString('en-US');
+      } else {
+        return '$' + Math.round(amount / PKR_USD).toLocaleString('en-US');
+      }
+    }
+
+    function renderMasterTable() {
+      const data = TIER_DATA[activeMasterTier];
+      const our = data.crewdeskPKR;
+      const hrs = data.hoursSaved;
+
+      // Update Tab Styles
+      [10, 25, 50].forEach(t => {
+        const tab = document.getElementById('tier-tab-' + t);
+        if (t === activeMasterTier) {
+          tab.className = "flex-1 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-500 text-black transition-all shadow-md shadow-emerald-500/20";
+        } else {
+          tab.className = "flex-1 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-zinc-400 hover:text-white transition-all";
+        }
+      });
+
+      // Crewdesk row
+      document.getElementById('row-crewdesk-price').innerText = formatVal(our) + ' / mo';
+      document.getElementById('row-crewdesk-hours').innerText = `+${hrs} Hours / Mo`;
+
+      // Match prices in all rows
+      for (let i = 1; i <= 6; i++) {
+        document.getElementById('row-match-price-' + i).innerText = formatVal(our);
+        document.getElementById('row-save-hours-' + i).innerText = `+${hrs}h reclaimed`;
+      }
+
+      // 1. ClickUp Unlimited (Annual)
+      const cuUnlAnnSaveMo = data.cuUnlAnnPKR - our;
+      const cuUnlAnnPct = Math.round((cuUnlAnnSaveMo / data.cuUnlAnnPKR) * 100);
+      document.getElementById('row-cu-unl-ann-price').innerText = formatVal(data.cuUnlAnnPKR);
+      document.getElementById('row-cu-unl-ann-save-mo').innerText = `${formatVal(cuUnlAnnSaveMo)} (${cuUnlAnnPct}%)`;
+      document.getElementById('row-cu-unl-ann-save-yr').innerText = formatVal(cuUnlAnnSaveMo * 12);
+
+      // 2. ClickUp Unlimited (Monthly)
+      const cuUnlMoSaveMo = data.cuUnlMoPKR - our;
+      const cuUnlMoPct = Math.round((cuUnlMoSaveMo / data.cuUnlMoPKR) * 100);
+      document.getElementById('row-cu-unl-mo-price').innerText = formatVal(data.cuUnlMoPKR);
+      document.getElementById('row-cu-unl-mo-save-mo').innerText = `${formatVal(cuUnlMoSaveMo)} (${cuUnlMoPct}%)`;
+      document.getElementById('row-cu-unl-mo-save-yr').innerText = formatVal(cuUnlMoSaveMo * 12);
+
+      // 3. ClickUp Business (Annual)
+      const cuBizAnnSaveMo = data.cuBizAnnPKR - our;
+      const cuBizAnnPct = Math.round((cuBizAnnSaveMo / data.cuBizAnnPKR) * 100);
+      document.getElementById('row-cu-biz-ann-price').innerText = formatVal(data.cuBizAnnPKR);
+      document.getElementById('row-cu-biz-ann-save-mo').innerText = `${formatVal(cuBizAnnSaveMo)} (${cuBizAnnPct}%)`;
+      document.getElementById('row-cu-biz-ann-save-yr').innerText = formatVal(cuBizAnnSaveMo * 12);
+
+      // 4. ClickUp Business (Monthly)
+      const cuBizMoSaveMo = data.cuBizMoPKR - our;
+      const cuBizMoPct = Math.round((cuBizMoSaveMo / data.cuBizMoPKR) * 100);
+      document.getElementById('row-cu-biz-mo-price').innerText = formatVal(data.cuBizMoPKR);
+      document.getElementById('row-cu-biz-mo-save-mo').innerText = `${formatVal(cuBizMoSaveMo)} (${cuBizMoPct}%)`;
+      document.getElementById('row-cu-biz-mo-save-yr').innerText = formatVal(cuBizMoSaveMo * 12);
+
+      // 5. HubSpot Starter
+      const hubSaveMo = data.hubPKR - our;
+      const hubPct = Math.round((hubSaveMo / data.hubPKR) * 100);
+      document.getElementById('row-hub-price').innerText = formatVal(data.hubPKR);
+      document.getElementById('row-hub-save-mo').innerText = `${formatVal(hubSaveMo)} (${hubPct}%)`;
+      document.getElementById('row-hub-save-yr').innerText = formatVal(hubSaveMo * 12);
+
+      // 6. Salesforce Starter
+      const sfSaveMo = data.sfPKR - our;
+      const sfPct = Math.round((sfSaveMo / data.sfPKR) * 100);
+      document.getElementById('row-sf-price').innerText = formatVal(data.sfPKR);
+      document.getElementById('row-sf-save-mo').innerText = `${formatVal(sfSaveMo)} (${sfPct}%)`;
+      document.getElementById('row-sf-save-yr').innerText = formatVal(sfSaveMo * 12);
+    }
+
+    function setMasterTier(tier) {
+      activeMasterTier = tier;
+      renderMasterTable();
+    }
+
+    function setCurrency(curr) {
+      activeCurrency = curr;
+
+      const pkrBtn = document.getElementById('curr-pkr-btn');
+      const usdBtn = document.getElementById('curr-usd-btn');
+      const pricingPkr = document.getElementById('pricing-pkr-btn');
+      const pricingUsd = document.getElementById('pricing-usd-btn');
+
+      if (curr === 'PKR') {
+        pkrBtn.className = "px-2.5 py-1 rounded bg-emerald-500 text-black transition-all";
+        usdBtn.className = "px-2.5 py-1 rounded text-zinc-400 hover:text-white transition-all";
+        if (pricingPkr && pricingUsd) {
+          pricingPkr.className = "px-3.5 py-1.5 rounded-lg bg-emerald-500 text-black font-bold transition-all";
+          pricingUsd.className = "px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition-all";
+        }
+        document.getElementById('starter-price-display').innerText = "PKR 12,000";
+        document.getElementById('growth-price-display').innerText = "PKR 30,000";
+        document.getElementById('scale-price-display').innerText = "PKR 50,000";
+        document.getElementById('starter-usd-equiv').innerText = "$43 USD";
+      } else {
+        usdBtn.className = "px-2.5 py-1 rounded bg-emerald-500 text-black transition-all";
+        pkrBtn.className = "px-2.5 py-1 rounded text-zinc-400 hover:text-white transition-all";
+        if (pricingPkr && pricingUsd) {
+          pricingUsd.className = "px-3.5 py-1.5 rounded-lg bg-emerald-500 text-black font-bold transition-all";
+          pricingPkr.className = "px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition-all";
+        }
+        document.getElementById('starter-price-display').innerText = "$43 USD";
+        document.getElementById('growth-price-display').innerText = "$107 USD";
+        document.getElementById('scale-price-display').innerText = "$179 USD";
+        document.getElementById('starter-usd-equiv').innerText = "PKR 12,000";
+      }
+
+      renderMasterTable();
+    }
+
+    // FAQ Accordion
+    function toggleFaq(id) {
+      const el = document.getElementById(id);
+      const icon = document.getElementById('faq-icon-' + id);
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+        if (icon) icon.classList.add('rotate-180');
+      } else {
+        el.classList.add('hidden');
+        if (icon) icon.classList.remove('rotate-180');
+      }
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    function openWalkthroughModal() {
+      document.getElementById('booking-modal').classList.remove('hidden');
+    }
+
+    function closeWalkthroughModal() {
+      document.getElementById('booking-modal').classList.add('hidden');
+    }
+
+    function submitBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('m-name').value;
+      const agency = document.getElementById('m-agency').value;
+      const size = document.getElementById('m-size').value;
+      const contact = document.getElementById('m-contact').value;
+      const pain = document.getElementById('m-pain').value;
+
+      const msg = `Hi! I would like to book a 30-min walkthrough for Crewdesk.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Agency:* ${encodeURIComponent(agency)}%0A*Team Size:* ${encodeURIComponent(size)}%0A*Contact:* ${encodeURIComponent(contact)}%0A*Main Headache:* ${encodeURIComponent(pain)}`;
+
+      closeWalkthroughModal();
+      window.open(`https://wa.me/?text=${msg}`, '_blank');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderMasterTable();
+    });
+  </script>
+</body>
+</html>
