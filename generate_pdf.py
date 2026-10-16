@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate a strict 3-Page Executive PDF for Crewdesk (Agency OS)
+Generate a strict 3-Page Executive PDF for Daftar Hub (دفتر Hub | Agency OS)
 Target Audience: Busy Agency Owners & Founders
 
 Page Structure:
@@ -9,11 +9,11 @@ Page Structure:
   Page 3: Pricing Comparison (10-Person Team comparison vs ClickUp, HubSpot, Salesforce, Stack)
           Shows Cost Saved per Month in % and Time Saved. Zero contact info.
 
-Constraints:
-  - Exactly 3 pages (verified via pypdf)
-  - Zero hypothetical/dummy agency names
-  - Zero contact details (no email, whatsapp, or phone)
-  - 3 Modules Free in First Month offer
+Branding:
+  - Name: Daftar Hub
+  - "دفتر" rendered in authentic Noto Nastaliq Urdu calligraphy
+  - "Hub" rendered in bold Latin type
+  - Zero contact info (no email, whatsapp, phone)
 """
 
 import os
@@ -23,9 +23,65 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import (
-    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak
+    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak, Image
 )
 from reportlab.pdfgen import canvas
+
+def ensure_daftar_hub_logo(path="daftar_hub_logo.png"):
+    """Render high-resolution logo with Nastaliq font for دفتر and Latin for Hub."""
+    if os.path.exists(path) and os.path.getsize(path) > 1000:
+        return path
+    try:
+        import gi
+        gi.require_version('Pango', '1.0')
+        gi.require_version('PangoCairo', '1.0')
+        from gi.repository import Pango, PangoCairo
+        import cairo
+
+        scale = 3.0
+        width_pt, height_pt = 270, 50
+        width_px, height_px = int(width_pt * scale), int(height_pt * scale)
+
+        surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, width_px, height_px)
+        ctx = cairo.Context(surface)
+        ctx.scale(scale, scale)
+
+        l_urdu = PangoCairo.create_layout(ctx)
+        l_urdu.set_markup('<span font_family="Noto Nastaliq Urdu" font_weight="bold" font_size="24000" foreground="#0f172a">دفتر</span>', -1)
+
+        l_hub = PangoCairo.create_layout(ctx)
+        l_hub.set_markup('<span font_family="DejaVu Sans, Arial, Helvetica" font_weight="bold" font_size="22000" foreground="#059669">Hub</span>', -1)
+
+        l_sub = PangoCairo.create_layout(ctx)
+        l_sub.set_markup('<span font_family="DejaVu Sans, Arial, Helvetica" font_weight="bold" font_size="14000" foreground="#64748b">| AGENCY OS</span>', -1)
+
+        baseline_urdu = l_urdu.get_baseline() / Pango.SCALE
+        baseline_hub = l_hub.get_baseline() / Pango.SCALE
+
+        base_y = 36
+        y_urdu = base_y - baseline_urdu
+        y_hub = base_y - baseline_hub
+
+        ink_u, log_u = l_urdu.get_extents()
+        w_u = log_u.width / Pango.SCALE
+
+        ctx.move_to(0, y_urdu)
+        PangoCairo.show_layout(ctx, l_urdu)
+
+        ctx.move_to(w_u + 6, y_hub)
+        PangoCairo.show_layout(ctx, l_hub)
+
+        ink_h, log_h = l_hub.get_extents()
+        w_h = log_h.width / Pango.SCALE
+
+        ctx.move_to(w_u + 6 + w_h + 8, y_hub + 4)
+        PangoCairo.show_layout(ctx, l_sub)
+
+        surface.write_to_png(path)
+    except Exception as e:
+        print(f"Notice: Pango rendering exception: {e}")
+    return path
+
 
 class NumberedCanvas(canvas.Canvas):
     """Two-pass canvas for dynamic running header and page numbering."""
@@ -47,12 +103,14 @@ class NumberedCanvas(canvas.Canvas):
 
     def draw_page_decorations(self, page_count):
         self.saveState()
-        self.setFont("Helvetica", 7.5)
-        self.setFillColor(colors.HexColor("#64748b"))
+        self.setFont("Helvetica-Bold", 7.5)
+        self.setFillColor(colors.HexColor("#475569"))
 
         # Running Top Header (Pages 2 & 3)
         if self._pageNumber > 1:
-            self.drawString(36, 762, "CREWDESK (AGENCY OS) — EXECUTIVE BRIEF")
+            self.drawString(36, 762, "DAFTAR HUB (AGENCY OS) — EXECUTIVE BRIEF")
+            self.setFont("Helvetica", 7.5)
+            self.setFillColor(colors.HexColor("#64748b"))
             self.drawRightString(576, 762, "CONFIDENTIAL & PROPRIETARY")
             self.setStrokeColor(colors.HexColor("#e2e8f0"))
             self.setLineWidth(0.5)
@@ -63,13 +121,15 @@ class NumberedCanvas(canvas.Canvas):
         self.setLineWidth(0.5)
         self.line(36, 32, 576, 32)
 
-        self.drawString(36, 22, "Crewdesk Agency OS • Built exclusively for digital & tech agencies")
+        self.setFont("Helvetica", 7.5)
+        self.setFillColor(colors.HexColor("#64748b"))
+        self.drawString(36, 22, "Daftar Hub (Agency OS) • Built exclusively for digital & tech agencies")
         page_str = f"Page {self._pageNumber} of {page_count}"
         self.drawRightString(576, 22, page_str)
         self.restoreState()
 
 
-def build_pdf(filename="Crewdesk_Agency_Executive_Brief.pdf"):
+def build_pdf(filename="Daftar_Hub_Agency_Executive_Brief.pdf"):
     # Target 3 pages exactly: 8.5 x 11 inches, margins 36pt (0.5 in)
     doc = SimpleDocTemplate(
         filename,
@@ -79,6 +139,9 @@ def build_pdf(filename="Crewdesk_Agency_Executive_Brief.pdf"):
         topMargin=36,
         bottomMargin=36
     )
+
+    # Ensure high-res Nastaliq logo exists
+    logo_path = ensure_daftar_hub_logo("daftar_hub_logo.png")
 
     styles = getSampleStyleSheet()
 
@@ -95,8 +158,8 @@ def build_pdf(filename="Crewdesk_Agency_Executive_Brief.pdf"):
         'DocTitle',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=17,
-        leading=21,
+        fontSize=16,
+        leading=20,
         textColor=PRIMARY
     )
     subtitle_style = ParagraphStyle(
@@ -195,22 +258,29 @@ def build_pdf(filename="Crewdesk_Agency_Executive_Brief.pdf"):
     # PAGE 1: FEATURE COMPARISON (TOP PRIORITY)
     # =========================================================================
 
-    # Clean Executive Header
-    header_data = [
-        [
-            Paragraph("<b>CREWDESK</b> <font color='#059669'>| AGENCY OS</font><br/><font size='8.5' color='#64748b'>All-in-One Operations & Project Profit Platform for Digital Agencies</font>", title_style),
-            Paragraph("<font size='8' color='#059669'><b>EXECUTIVE BRIEF</b></font><br/><font size='7.5' color='#334155'>• Zero DIY Setup<br/>• Flat Predictable Rates<br/>• Dedicated Database</font>", p_style)
-        ]
-    ]
-    header_table = Table(header_data, colWidths=[380, 160])
+    # Clean Executive Header with Nastaliq Logo
+    logo_img = Image(logo_path, width=195, height=36)
+    sub_title_para = Paragraph(
+        "<font size='8' color='#64748b'>All-in-One Operations & Project Profit Platform for Digital Agencies</font>",
+        p_style
+    )
+    left_header = [logo_img, Spacer(1, 1), sub_title_para]
+
+    right_header = Paragraph(
+        "<font size='8' color='#059669'><b>EXECUTIVE BRIEF</b></font><br/>"
+        "<font size='7.5' color='#334155'>• Zero DIY Setup<br/>• Flat Predictable Rates<br/>• Dedicated Database</font>",
+        p_style
+    )
+
+    header_table = Table([[left_header, right_header]], colWidths=[380, 160])
     header_table.setStyle(TableStyle([
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
         ('BACKGROUND', (1,0), (1,0), ACCENT_LIGHT),
         ('BOX', (1,0), (1,0), 1, colors.HexColor("#a7f3d0")),
         ('LEFTPADDING', (0,0), (-1,-1), 8),
         ('RIGHTPADDING', (0,0), (-1,-1), 8),
-        ('TOPPADDING', (0,0), (-1,-1), 5),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 5),
+        ('TOPPADDING', (0,0), (-1,-1), 4),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 4),
     ]))
     story.append(header_table)
     story.append(Spacer(1, 8))
@@ -218,7 +288,7 @@ def build_pdf(filename="Crewdesk_Agency_Executive_Brief.pdf"):
     # Core Value Banner
     banner_data = [[
         Paragraph(
-            "<b>Why Agencies Switch from Generic PM Tools:</b> Generic tools (ClickUp, Asana, Jira) are blank slates requiring 40+ hours of custom setup and external subscriptions for attendance, client passwords, and project profit margins. Crewdesk delivers an opinionated, ready-to-run agency operating system on Day 1.",
+            "<b>Why Agencies Switch from Generic PM Tools:</b> Generic tools (ClickUp, Asana, Jira) are blank slates requiring 40+ hours of custom setup and external subscriptions for attendance, client passwords, and project profit margins. <b>Daftar Hub</b> delivers an opinionated, ready-to-run agency operating system on Day 1.",
             ParagraphStyle('BannerText', parent=p_style, fontSize=8.2, leading=11.2, textColor=colors.HexColor("#065f46"))
         )
     ]]
@@ -236,12 +306,12 @@ def build_pdf(filename="Crewdesk_Agency_Executive_Brief.pdf"):
 
     # Feature Comparison Section
     story.append(Paragraph("<b>Head-to-Head Feature Comparison: Built-in vs Setup Required</b>", h2_style))
-    story.append(Paragraph("Crewdesk features are 100% pre-built for agencies. ClickUp and competitors require paid add-ons, complex formula rollups, or manual Zapier integrations.", subtitle_style))
+    story.append(Paragraph("Daftar Hub features are 100% pre-built for agencies. ClickUp and competitors require paid add-ons, complex formula rollups, or manual Zapier integrations.", subtitle_style))
     story.append(Spacer(1, 6))
 
     comp_headers = [
         Paragraph("<b>Operational Feature</b>", cell_head),
-        Paragraph("<b>Crewdesk (Agency OS)</b>", cell_head),
+        Paragraph("<b>Daftar Hub (Agency OS)</b>", cell_head),
         Paragraph("<b>ClickUp Pro / Unlimited</b>", cell_head),
         Paragraph("<b>Other PM Tools (Asana/Jira)</b>", cell_head)
     ]
@@ -477,7 +547,7 @@ def build_pdf(filename="Crewdesk_Agency_Executive_Brief.pdf"):
     pricing_headers = [
         Paragraph("<b>Platform / Tool Stack</b>", cell_head),
         Paragraph("<b>Their Price / Mo</b><br/><font size='6.5' color='#cbd5e1'>10 Team Members</font>", cell_head_center),
-        Paragraph("<b>Crewdesk Price</b><br/><font size='6.5' color='#cbd5e1'>10 Team Members</font>", cell_head_center),
+        Paragraph("<b>Daftar Hub Price</b><br/><font size='6.5' color='#cbd5e1'>10 Team Members</font>", cell_head_center),
         Paragraph("<b>Cost Saved / Mo (%)</b><br/><font size='6.5' color='#cbd5e1'>Direct Cash Retained</font>", cell_head_center),
         Paragraph("<b>Time Saved / Mo</b><br/><font size='6.5' color='#cbd5e1'>Admin Hours</font>", cell_head_center)
     ]
@@ -640,5 +710,5 @@ def build_pdf(filename="Crewdesk_Agency_Executive_Brief.pdf"):
         print(f"ERROR: Document has {num_pages} pages (exceeded 3 pages).")
 
 if __name__ == '__main__':
-    output_pdf = sys.argv[1] if len(sys.argv) > 1 else "Crewdesk_Agency_Executive_Brief.pdf"
+    output_pdf = sys.argv[1] if len(sys.argv) > 1 else "Daftar_Hub_Agency_Executive_Brief.pdf"
     build_pdf(output_pdf)
