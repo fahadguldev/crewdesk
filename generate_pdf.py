@@ -46,35 +46,38 @@ def ensure_daftar_hub_logo(path="daftar_hub_logo.png"):
         ctx = cairo.Context(surface)
         ctx.scale(scale, scale)
 
-        l_urdu = PangoCairo.create_layout(ctx)
-        l_urdu.set_markup('<span font_family="Noto Nastaliq Urdu" font_weight="bold" font_size="24000" foreground="#0f172a">دفتر</span>', -1)
-
         l_hub = PangoCairo.create_layout(ctx)
         l_hub.set_markup('<span font_family="DejaVu Sans, Arial, Helvetica" font_weight="bold" font_size="22000" foreground="#059669">Hub</span>', -1)
 
-        l_sub = PangoCairo.create_layout(ctx)
-        l_sub.set_markup('<span font_family="DejaVu Sans, Arial, Helvetica" font_weight="bold" font_size="14000" foreground="#64748b">| AGENCY OS</span>', -1)
+        l_urdu = PangoCairo.create_layout(ctx)
+        l_urdu.set_markup('<span font_family="Noto Nastaliq Urdu" font_weight="bold" font_size="24000" foreground="#0f172a">دفتر</span>', -1)
 
-        baseline_urdu = l_urdu.get_baseline() / Pango.SCALE
+        l_sub = PangoCairo.create_layout(ctx)
+        l_sub.set_markup('<span font_family="DejaVu Sans, Arial, Helvetica" font_weight="bold" font_size="14000" foreground="#64748b">| DAFTAR OS</span>', -1)
+
         baseline_hub = l_hub.get_baseline() / Pango.SCALE
+        baseline_urdu = l_urdu.get_baseline() / Pango.SCALE
 
         base_y = 36
-        y_urdu = base_y - baseline_urdu
         y_hub = base_y - baseline_hub
+        y_urdu = base_y - baseline_urdu
 
-        ink_u, log_u = l_urdu.get_extents()
-        w_u = log_u.width / Pango.SCALE
-
-        ctx.move_to(0, y_urdu)
-        PangoCairo.show_layout(ctx, l_urdu)
-
-        ctx.move_to(w_u + 6, y_hub)
+        # 1. Hub on left
+        ctx.move_to(0, y_hub)
         PangoCairo.show_layout(ctx, l_hub)
 
         ink_h, log_h = l_hub.get_extents()
         w_h = log_h.width / Pango.SCALE
 
-        ctx.move_to(w_u + 6 + w_h + 8, y_hub + 4)
+        # 2. دفتر on right
+        ctx.move_to(w_h + 8, y_urdu)
+        PangoCairo.show_layout(ctx, l_urdu)
+
+        ink_u, log_u = l_urdu.get_extents()
+        w_u = log_u.width / Pango.SCALE
+
+        # 3. | DAFTAR OS
+        ctx.move_to(w_h + 8 + w_u + 10, y_hub + 4)
         PangoCairo.show_layout(ctx, l_sub)
 
         surface.write_to_png(path)
@@ -108,7 +111,7 @@ class NumberedCanvas(canvas.Canvas):
 
         # Running Top Header (Pages 2 & 3)
         if self._pageNumber > 1:
-            self.drawString(36, 762, "DAFTAR HUB (AGENCY OS) — EXECUTIVE BRIEF")
+            self.drawString(36, 762, "HUB DAFTAR (DAFTAR OS) — EXECUTIVE BRIEF")
             self.setFont("Helvetica", 7.5)
             self.setFillColor(colors.HexColor("#64748b"))
             self.drawRightString(576, 762, "CONFIDENTIAL & PROPRIETARY")
@@ -123,7 +126,7 @@ class NumberedCanvas(canvas.Canvas):
 
         self.setFont("Helvetica", 7.5)
         self.setFillColor(colors.HexColor("#64748b"))
-        self.drawString(36, 22, "Daftar Hub (Agency OS) • Built exclusively for digital & tech agencies")
+        self.drawString(36, 22, "Hub دفتر (Daftar OS) • Built exclusively for modern digital daftars")
         page_str = f"Page {self._pageNumber} of {page_count}"
         self.drawRightString(576, 22, page_str)
         self.restoreState()
@@ -261,7 +264,7 @@ def build_pdf(filename="Daftar_Hub_Agency_Executive_Brief.pdf"):
     # Clean Executive Header with Nastaliq Logo
     logo_img = Image(logo_path, width=195, height=36)
     sub_title_para = Paragraph(
-        "<font size='8' color='#64748b'>All-in-One Operations & Project Profit Platform for Digital Agencies</font>",
+        "<font size='8' color='#64748b'>All-in-One Operations & Project Profit Platform for Modern Daftars</font>",
         p_style
     )
     left_header = [logo_img, Spacer(1, 1), sub_title_para]
@@ -288,7 +291,7 @@ def build_pdf(filename="Daftar_Hub_Agency_Executive_Brief.pdf"):
     # Core Value Banner
     banner_data = [[
         Paragraph(
-            "<b>Why Agencies Switch from Generic PM Tools:</b> Generic tools (ClickUp, Asana, Jira) are blank slates requiring 40+ hours of custom setup and external subscriptions for attendance, client passwords, and project profit margins. <b>Daftar Hub</b> delivers an opinionated, ready-to-run agency operating system on Day 1.",
+            "<b>Why Daftars Switch from Generic PM Tools:</b> Generic tools (ClickUp, Asana, Jira) are blank slates requiring 40+ hours of custom setup and external subscriptions for attendance, client passwords, and project profit margins. <b>Daftar Hub</b> delivers an opinionated, ready-to-run daftar operating system on Day 1.",
             ParagraphStyle('BannerText', parent=p_style, fontSize=8.2, leading=11.2, textColor=colors.HexColor("#065f46"))
         )
     ]]
@@ -306,12 +309,12 @@ def build_pdf(filename="Daftar_Hub_Agency_Executive_Brief.pdf"):
 
     # Feature Comparison Section
     story.append(Paragraph("<b>Head-to-Head Feature Comparison: Built-in vs Setup Required</b>", h2_style))
-    story.append(Paragraph("Daftar Hub features are 100% pre-built for agencies. ClickUp and competitors require paid add-ons, complex formula rollups, or manual Zapier integrations.", subtitle_style))
+    story.append(Paragraph("Hub دفتر features are 100% pre-built for daftars. ClickUp and competitors require paid add-ons, complex formula rollups, or manual Zapier integrations.", subtitle_style))
     story.append(Spacer(1, 6))
 
     comp_headers = [
         Paragraph("<b>Operational Feature</b>", cell_head),
-        Paragraph("<b>Daftar Hub (Agency OS)</b>", cell_head),
+        Paragraph("<b>Hub دفتر (Daftar OS)</b>", cell_head),
         Paragraph("<b>ClickUp Pro / Unlimited</b>", cell_head),
         Paragraph("<b>Other PM Tools (Asana/Jira)</b>", cell_head)
     ]
@@ -387,7 +390,7 @@ def build_pdf(filename="Daftar_Hub_Agency_Executive_Brief.pdf"):
         [
             Paragraph("<b>Pre-Configured (0h Setup)</b><br/>Attendance, leave schedules, developer rates, and workload work on Day 1 without building custom formulas.", p_style),
             Paragraph("<b>Native Connection</b><br/>Approved leave reduces sprint capacity; tracked hours update live project margins. Zero manual sync.", p_style),
-            Paragraph("<b>Enterprise Security</b><br/>Your agency receives a dedicated database instance. Client passwords and staff salary rates stay 100% confidential.", p_style)
+            Paragraph("<b>Enterprise Security</b><br/>Your daftar receives a dedicated database instance. Client passwords and staff salary rates stay 100% confidential.", p_style)
         ]
     ]
     arch_table = Table(arch_data, colWidths=[175, 185, 180])
@@ -429,7 +432,7 @@ def build_pdf(filename="Daftar_Hub_Agency_Executive_Brief.pdf"):
         [
             Paragraph("<b>2. Overview Module</b>", cell_body_bold),
             Paragraph("<font color='#0f172a'><b>Owner</b></font>", cell_body),
-            Paragraph("A high-level command view of agency momentum. See live task completion rates, active projects, employee presence, and department milestones in one consolidated view.", cell_body)
+            Paragraph("A high-level command view of daftar momentum. See live task completion rates, active projects, employee presence, and department milestones in one consolidated view.", cell_body)
         ],
         [
             Paragraph("<b>3. Attendance & Leave</b>", cell_body_bold),
@@ -538,7 +541,7 @@ def build_pdf(filename="Daftar_Hub_Agency_Executive_Brief.pdf"):
     # PAGE 3: PRICING COMPARISON (10 PEOPLE / MONTH FOCUSED TABLE)
     # =========================================================================
     story.append(Spacer(1, 4))
-    story.append(Paragraph("<b>Pricing Comparison: 10-Person Agency Team</b>", title_style))
+    story.append(Paragraph("<b>Pricing Comparison: 10-Person Daftar Team</b>", title_style))
     story.append(Paragraph("Monthly cost and hours saved compared to ClickUp, HubSpot, Salesforce, and multi-tool stacks (PKR 280/USD).", subtitle_style))
     story.append(Spacer(1, 8))
 
@@ -613,7 +616,7 @@ def build_pdf(filename="Daftar_Hub_Agency_Executive_Brief.pdf"):
     # 3 Strategic ROI Cards
     roi_data = [
         [
-            Paragraph("<b>Save 57% to 83% Cash</b><br/><font size='7' color='#475569'>Save PKR 16,000 to PKR 58,000 every single month for a team of 10. Direct cash retained on your agency's balance sheet.</font>", p_style),
+            Paragraph("<b>Save 57% to 83% Cash</b><br/><font size='7' color='#475569'>Save PKR 16,000 to PKR 58,000 every single month for a team of 10. Direct cash retained on your daftar's balance sheet.</font>", p_style),
             Paragraph("<b>Save 18 to 25 Hours / Mo</b><br/><font size='7' color='#475569'>Eliminates manual timesheets, WhatsApp leave tracking, and Excel profit calculations. PMs and founders regain billable focus.</font>", p_style),
             Paragraph("<b>Zero Per-Seat Growth Tax</b><br/><font size='7' color='#475569'>Predictable flat rate of PKR 12,000/mo. Onboard developers, interns, and designers without unexpected billing spikes.</font>", p_style)
         ]
@@ -658,8 +661,8 @@ def build_pdf(filename="Daftar_Hub_Agency_Executive_Brief.pdf"):
     offer_data = [[
         Paragraph(
             "<b>LAUNCH PILOT SPECIAL:</b> "
-            "Get <b>3 Modules 100% FREE in your first month</b> to test live with your agency team (includes setup & walkthrough). "
-            "First 3 Founding Agencies get <b>50% off (PKR 6,000/mo)</b> when unlocking all 7 modules.",
+            "Get <b>3 Modules 100% FREE in your first month</b> to test live with your daftar team (includes setup & walkthrough). "
+            "First 3 Founding Daftars get <b>50% off (PKR 6,000/mo)</b> when unlocking all 7 modules.",
             p_style
         )
     ]]
@@ -679,7 +682,7 @@ def build_pdf(filename="Daftar_Hub_Agency_Executive_Brief.pdf"):
     cta_data = [[
         Paragraph(
             "<b>Next Step: Schedule a 30-Minute Live Walkthrough</b><br/>"
-            "<font size='8' color='#64748b'>Inspect live matching screens for a 10-person agency team with all 7 modules pre-configured. Zero obligation, no credit card required.</font>",
+            "<font size='8' color='#64748b'>Inspect live matching screens for a 10-person daftar team with all 7 modules pre-configured. Zero obligation, no credit card required.</font>",
             p_style
         )
     ]]
