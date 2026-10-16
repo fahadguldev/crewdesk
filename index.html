@@ -462,164 +462,190 @@
               <th class="p-3.5 sm:p-4 font-extrabold text-emerald-400 bg-emerald-950/20 border-x border-emerald-500/20">
                 <span class="flex items-baseline gap-1"><span class="font-heading font-black text-white">Hub</span> <span class="font-nastaliq text-lg font-bold text-emerald-400" dir="rtl">دفتر</span> <span class="text-xs text-zinc-400">(Daftar OS)</span></span>
               </th>
-              <th class="p-3.5 sm:p-4 font-bold text-zinc-300">ClickUp Pro / Unlimited</th>
-              <th class="p-3.5 sm:p-4 font-bold text-zinc-400 hidden sm:table-cell">Other PM Tools (Asana/Jira)</th>
+              <th class="p-3.5 sm:p-4 font-bold text-zinc-300">ClickUp Unlimited / Pro</th>
+              <th class="p-3.5 sm:p-4 font-bold text-zinc-400 hidden sm:table-cell">Other PM Tools (Asana / Jira)</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-zinc-800/70 text-zinc-300">
-            
-            <!-- 1. Attendance & Punch-in -->
-            <tr class="hover:bg-zinc-900/30">
-              <td class="p-3.5 sm:p-4 font-medium text-white">
-                Attendance, Overtime & Punch Log
-                <span class="block text-[11px] text-zinc-500 font-normal">Daily check-in, late arrivals flag, immutable audit log</span>
-              </td>
-              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
-                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
-                  &check; Built-in (Ready)
-                </span>
-              </td>
-              <td class="p-3.5 sm:p-4 text-rose-400">
-                <span class="inline-flex items-center gap-1 text-xs">
-                  &cross; Not Supported
-                </span>
-                <span class="block text-[10px] text-zinc-500">Requires external 3rd-party tool</span>
-              </td>
-              <td class="p-3.5 sm:p-4 text-rose-400 hidden sm:table-cell">&cross; Not Supported</td>
-            </tr>
 
-            <!-- 2. Leaves & Workload sync -->
+            <!-- 1. Attendance, Overtime & Punch Logs -->
             <tr class="hover:bg-zinc-900/30">
-              <td class="p-3.5 sm:p-4 font-medium text-white">
-                Leave & WFH Auto-Deduction
-                <span class="block text-[11px] text-zinc-500 font-normal">Approved leave automatically deducts available project hours</span>
-              </td>
+              <td class="p-3.5 sm:p-4 font-medium text-white">Attendance, Overtime &amp; Punch Logs</td>
               <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
                 <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
-                  &check; Built-in & Connected
+                  &check; Built-in attendance tracking, late-arrival flags and audit logs*
                 </span>
               </td>
               <td class="p-3.5 sm:p-4 text-amber-300">
                 <span class="inline-flex items-center gap-1 text-xs font-medium">
-                  &Delta; Setup Required
+                  &Delta; Integrations or custom workflows may be needed
                 </span>
-                <span class="block text-[10px] text-zinc-500">Requires forms + Zapier webhooks</span>
               </td>
-              <td class="p-3.5 sm:p-4 text-rose-400 hidden sm:table-cell">&cross; Not Supported</td>
+              <td class="p-3.5 sm:p-4 text-amber-300 hidden sm:table-cell">
+                <span class="inline-flex items-center gap-1 text-xs font-medium">
+                  &Delta; Integrations or custom workflows may be needed
+                </span>
+              </td>
             </tr>
 
-            <!-- 3. Business Analysis & Real Profit -->
+            <!-- 2. Leave & WFH Management -->
             <tr class="hover:bg-zinc-900/30">
-              <td class="p-3.5 sm:p-4 font-medium text-white">
-                Live Net Profit & Margin per Project
-                <span class="block text-[11px] text-zinc-500 font-normal">Logged hours &times; developer rate = real margin without Excel</span>
-              </td>
+              <td class="p-3.5 sm:p-4 font-medium text-white">Leave &amp; WFH Management</td>
               <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
                 <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
-                  &check; Built-in (Owner Only)
+                  &check; Connected leave and availability workflows*
                 </span>
               </td>
               <td class="p-3.5 sm:p-4 text-amber-300">
                 <span class="inline-flex items-center gap-1 text-xs font-medium">
-                  &Delta; Setup Required
+                  &Delta; Automation or integrations may be needed
                 </span>
-                <span class="block text-[10px] text-zinc-500">Complex rollup formulas & custom fields</span>
               </td>
-              <td class="p-3.5 sm:p-4 text-rose-400 hidden sm:table-cell">&cross; Not Supported</td>
+              <td class="p-3.5 sm:p-4 text-amber-300 hidden sm:table-cell">
+                <span class="inline-flex items-center gap-1 text-xs font-medium">
+                  &Delta; Automation or integrations may be needed
+                </span>
+              </td>
             </tr>
 
-            <!-- 4. Client Password Vault -->
+            <!-- 3. Live Project Profitability & Margins -->
             <tr class="hover:bg-zinc-900/30">
-              <td class="p-3.5 sm:p-4 font-medium text-white">
-                Encrypted Client Password Manager
-                <span class="block text-[11px] text-zinc-500 font-normal">AES-256 vault with reveal logs and instant employee offboarding</span>
-              </td>
+              <td class="p-3.5 sm:p-4 font-medium text-white">Live Project Profitability &amp; Margins</td>
               <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
                 <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
-                  &check; Built-in
-                </span>
-              </td>
-              <td class="p-3.5 sm:p-4 text-rose-400">
-                <span class="inline-flex items-center gap-1 text-xs">
-                  &cross; Not Supported
-                </span>
-                <span class="block text-[10px] text-zinc-500">Requires 1Password ($5–$8/seat)</span>
-              </td>
-              <td class="p-3.5 sm:p-4 text-rose-400 hidden sm:table-cell">&cross; Not Supported</td>
-            </tr>
-
-            <!-- 5. Workload Module -->
-            <tr class="hover:bg-zinc-900/30">
-              <td class="p-3.5 sm:p-4 font-medium text-white">
-                Workload & Capacity Balancing
-                <span class="block text-[11px] text-zinc-500 font-normal">See who has max tasks and who has available bandwidth</span>
-              </td>
-              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
-                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
-                  &check; Built-in
+                  &check; Project-level cost and margin visibility*
                 </span>
               </td>
               <td class="p-3.5 sm:p-4 text-amber-300">
                 <span class="inline-flex items-center gap-1 text-xs font-medium">
-                  &Delta; Setup Required
+                  &Delta; Requires appropriate time tracking, cost data and reporting setup
                 </span>
-                <span class="block text-[10px] text-zinc-500">Locked on Business Tier + manual points</span>
               </td>
-              <td class="p-3.5 sm:p-4 text-rose-400 hidden sm:table-cell">&Delta; Setup Required</td>
+              <td class="p-3.5 sm:p-4 text-amber-300 hidden sm:table-cell">
+                <span class="inline-flex items-center gap-1 text-xs font-medium">
+                  &Delta; Depends on available features, integrations and reporting setup
+                </span>
+              </td>
             </tr>
 
-            <!-- 5b. Project Management -->
+            <!-- 4. Client Credential Management -->
             <tr class="hover:bg-zinc-900/30">
-              <td class="p-3.5 sm:p-4 font-medium text-white">
-                End-to-End Project Management
-                <span class="block text-[11px] text-zinc-500 font-normal">Projects, milestones, sprints, tasks & deliverables in one flow</span>
-              </td>
+              <td class="p-3.5 sm:p-4 font-medium text-white">Client Credential Management</td>
               <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
                 <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
-                  &check; Built-in
+                  &check; Centralized, access-controlled password vault*
+                </span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-amber-300">
+                <span class="inline-flex items-center gap-1 text-xs font-medium">
+                  &Delta; A dedicated password manager may be preferable
+                </span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-amber-300 hidden sm:table-cell">
+                <span class="inline-flex items-center gap-1 text-xs font-medium">
+                  &Delta; A dedicated password manager may be preferable
+                </span>
+              </td>
+            </tr>
+
+            <!-- 5. Workload & Capacity Planning -->
+            <tr class="hover:bg-zinc-900/30">
+              <td class="p-3.5 sm:p-4 font-medium text-white">Workload &amp; Capacity Planning</td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
+                  &check; Designed for agency team capacity management*
                 </span>
               </td>
               <td class="p-3.5 sm:p-4 text-emerald-400">
                 <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 text-xs font-bold">
-                  &check; Supported
+                  &check; Supported; features vary by plan
                 </span>
-                <span class="block text-[10px] text-zinc-500">Strong, but blank slate needing weeks of setup</span>
               </td>
-              <td class="p-3.5 sm:p-4 text-rose-400 hidden sm:table-cell">&check; Basic Tasks Only</td>
+              <td class="p-3.5 sm:p-4 text-emerald-400 hidden sm:table-cell">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 text-xs font-bold">
+                  &check; Supported in varying forms; features vary by product and plan
+                </span>
+              </td>
             </tr>
 
-            <!-- 6. Role-Based Dashboards -->
+            <!-- 6. End-to-End Project Management -->
             <tr class="hover:bg-zinc-900/30">
-              <td class="p-3.5 sm:p-4 font-medium text-white">
-                Pre-configured Role Views
-                <span class="block text-[11px] text-zinc-500 font-normal">Dedicated screens for Admin, HR, PM, and Employee</span>
-              </td>
+              <td class="p-3.5 sm:p-4 font-medium text-white">End-to-End Project Management</td>
               <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
                 <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
-                  &check; 4 Pre-built Dashboards
+                  &check; Projects, milestones, sprints, tasks and deliverables*
+                </span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-emerald-400">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 text-xs font-bold">
+                  &check; Comprehensive project management
+                </span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-emerald-400 hidden sm:table-cell">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 text-xs font-bold">
+                  &check; Comprehensive project management
+                </span>
+              </td>
+            </tr>
+
+            <!-- 7. Preconfigured Role-Based Dashboards -->
+            <tr class="hover:bg-zinc-900/30">
+              <td class="p-3.5 sm:p-4 font-medium text-white">Preconfigured Role-Based Dashboards</td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
+                  &check; Dedicated Admin, HR, PM and Employee views*
                 </span>
               </td>
               <td class="p-3.5 sm:p-4 text-amber-300">
                 <span class="inline-flex items-center gap-1 text-xs font-medium">
-                  &Delta; Setup Required
+                  &Delta; Custom configuration may be required
                 </span>
-                <span class="block text-[10px] text-zinc-500">Must manually configure permissions</span>
               </td>
-              <td class="p-3.5 sm:p-4 text-rose-400 hidden sm:table-cell">&Delta; Setup Required</td>
+              <td class="p-3.5 sm:p-4 text-amber-300 hidden sm:table-cell">
+                <span class="inline-flex items-center gap-1 text-xs font-medium">
+                  &Delta; Custom configuration may be required
+                </span>
+              </td>
             </tr>
 
-            <!-- 7. Setup Effort -->
+            <!-- 8. Agency-Specific Configuration -->
             <tr class="hover:bg-zinc-900/30">
-              <td class="p-3.5 sm:p-4 font-medium text-white">
-                Setup Effort & Time to Launch
+              <td class="p-3.5 sm:p-4 font-medium text-white">Agency-Specific Configuration</td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
+                  &check; Designed around agency workflows and team operations*
+                </span>
               </td>
-              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-bold">
-                0 Hours (Done for you in 3 days)
+              <td class="p-3.5 sm:p-4 text-amber-300">
+                <span class="inline-flex items-center gap-1 text-xs font-medium">
+                  &Delta; Requires configuration and potentially integrations
+                </span>
               </td>
-              <td class="p-3.5 sm:p-4 text-rose-400 font-medium">
-                40+ Hours of DIY assembly
+              <td class="p-3.5 sm:p-4 text-amber-300 hidden sm:table-cell">
+                <span class="inline-flex items-center gap-1 text-xs font-medium">
+                  &Delta; Requires configuration and potentially integrations
+                </span>
               </td>
-              <td class="p-3.5 sm:p-4 text-rose-400 font-medium hidden sm:table-cell">30+ Hours</td>
+            </tr>
+
+            <!-- 9. Setup & Time to Launch -->
+            <tr class="hover:bg-zinc-900/30">
+              <td class="p-3.5 sm:p-4 font-medium text-white">Setup &amp; Time to Launch</td>
+              <td class="p-3.5 sm:p-4 bg-emerald-950/10 border-x border-emerald-500/20 text-emerald-300 font-semibold">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">
+                  &check; Guided onboarding and agency-specific setup*
+                </span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-amber-300">
+                <span class="inline-flex items-center gap-1 text-xs font-medium">
+                  &Delta; Setup effort depends on workflow complexity
+                </span>
+              </td>
+              <td class="p-3.5 sm:p-4 text-amber-300 hidden sm:table-cell">
+                <span class="inline-flex items-center gap-1 text-xs font-medium">
+                  &Delta; Setup effort depends on workflow complexity
+                </span>
+              </td>
             </tr>
 
           </tbody>
