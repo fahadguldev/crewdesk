@@ -105,52 +105,51 @@
 
   <!-- NAVBAR (ENLARGED FOR PERFECT NASTALIQ VISIBILITY) -->
   <nav class="sticky top-0 z-50 backdrop-blur-xl bg-surface-950/90 border-b border-white/5">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between py-2">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between gap-4 sm:gap-6 flex-nowrap">
       
-      <!-- Logo: Hub on left, دفتر on right in icon and brand text -->
-      <a href="#" class="flex items-center gap-3 sm:gap-4 group">
-        <!-- Logo Icon badge: Hub on left, دفتر on right -->
-        <div class="h-12 sm:h-14 px-3.5 sm:px-4 rounded-2xl bg-gradient-to-r from-emerald-500 via-emerald-400 to-teal-400 text-black flex items-center gap-2 shadow-xl shadow-emerald-500/25 border border-emerald-300/40 select-none transition-transform group-hover:scale-105">
-          <span class="heading-font font-black text-base sm:text-lg tracking-tight text-zinc-950 leading-none">Hub</span>
-          <span class="text-zinc-950/30 text-base font-light select-none">|</span>
-          <span class="font-nastaliq font-bold text-2xl sm:text-3xl leading-none -mt-1 text-zinc-950" dir="rtl">دفتر</span>
+      <!-- Logo: Clean Green Graphic Icon + Hub (left) and دفتر (right) with spacious gap in a single line -->
+      <a href="#" class="flex items-center gap-3 sm:gap-4 group shrink-0 whitespace-nowrap">
+        <!-- Clean Green Icon: Pure graphic emblem, NO text inside -->
+        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-500/25 border border-emerald-300/40 text-zinc-950 shrink-0 transition-transform group-hover:scale-105">
+          <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/>
+          </svg>
         </div>
-        
-        <!-- Text lockup: Hub on left, دفتر on right -->
-        <div class="flex items-baseline gap-2">
+
+        <!-- Brand Name: Hub on left, دفتر on right with proper spacing in a single line (no chip) -->
+        <div class="flex items-center gap-3 sm:gap-4 whitespace-nowrap">
           <span class="heading-font font-black text-2xl sm:text-3xl text-white tracking-tight group-hover:text-emerald-400 transition-colors">Hub</span>
-          <span class="font-nastaliq text-3xl sm:text-4xl font-extrabold text-emerald-400 tracking-normal leading-none" dir="rtl">دفتر</span>
-          <span class="text-[10px] sm:text-xs uppercase font-extrabold px-2 py-0.5 rounded-full bg-zinc-800 text-emerald-300 border border-emerald-500/30 ml-1">Daftar OS</span>
+          <span class="font-nastaliq text-3xl sm:text-4xl font-extrabold text-emerald-400 leading-none pt-0.5" dir="rtl">دفتر</span>
         </div>
       </a>
 
-      <!-- Desktop Links -->
-      <div class="hidden lg:flex items-center gap-6 text-xs sm:text-sm font-medium text-zinc-300">
-        <a href="#pricing-table" class="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-          Pricing & Savings Matrix
+      <!-- Desktop Links (Single line with spacious gaps, no wrapping) -->
+      <div class="hidden lg:flex items-center gap-4 xl:gap-7 text-xs xl:text-sm font-medium text-zinc-300 whitespace-nowrap flex-nowrap">
+        <a href="#pricing-table" class="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1.5 transition-colors whitespace-nowrap shrink-0">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          <span>Pricing & Savings Matrix</span>
         </a>
-        <a href="#comparison" class="hover:text-white transition-colors">vs ClickUp Pro</a>
-        <a href="#modules" class="hover:text-white transition-colors">7 Modules</a>
-        <a href="#dashboards" class="hover:text-white transition-colors">Role Dashboards</a>
-        <a href="#pricing" class="hover:text-white transition-colors">Plans</a>
-        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+        <a href="#comparison" class="hover:text-white transition-colors whitespace-nowrap shrink-0">vs ClickUp Pro</a>
+        <a href="#modules" class="hover:text-white transition-colors whitespace-nowrap shrink-0">7 Modules</a>
+        <a href="#dashboards" class="hover:text-white transition-colors whitespace-nowrap shrink-0">Role Dashboards</a>
+        <a href="#pricing" class="hover:text-white transition-colors whitespace-nowrap shrink-0">Plans</a>
+        <a href="#faq" class="hover:text-white transition-colors whitespace-nowrap shrink-0">FAQ</a>
       </div>
 
-      <!-- Action items -->
-      <div class="flex items-center gap-2.5">
+      <!-- Action items (Single line, no wrapping) -->
+      <div class="flex items-center gap-2.5 sm:gap-3 shrink-0 whitespace-nowrap">
         <!-- Currency Pill -->
-        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-0.5 flex text-xs font-semibold">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-0.5 flex text-xs font-semibold shrink-0">
           <button id="curr-pkr-btn" onclick="setCurrency('PKR')" class="px-2.5 py-1 rounded bg-emerald-500 text-black transition-all">PKR (₨)</button>
           <button id="curr-usd-btn" onclick="setCurrency('USD')" class="px-2.5 py-1 rounded text-zinc-400 hover:text-white transition-all">USD ($)</button>
         </div>
 
-        <button onclick="openWalkthroughModal()" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold bg-emerald-500 hover:bg-emerald-400 text-black transition-all shadow-md shadow-emerald-500/20">
+        <button onclick="openWalkthroughModal()" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-black transition-all shadow-md shadow-emerald-500/20 whitespace-nowrap shrink-0">
           <span>Book Walkthrough</span>
         </button>
 
         <!-- Mobile menu toggle -->
-        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800">
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 shrink-0">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
