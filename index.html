@@ -60,10 +60,11 @@
       font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Urdu Typesetting', serif;
     }
     .glass-card {
-      background: rgba(18, 18, 23, 0.75);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(18, 18, 23, 0.72);
+      backdrop-filter: blur(16px) saturate(140%);
+      -webkit-backdrop-filter: blur(16px) saturate(140%);
       border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 10px 30px -14px rgba(0, 0, 0, 0.55);
     }
     .glow-border {
       border: 1px solid rgba(16, 185, 129, 0.45);
@@ -667,32 +668,32 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
+        <div class="p-4 rounded-xl glass-card">
           <p class="text-xs sm:text-sm font-semibold text-zinc-200 italic">"Who was late today? I’m checking three places."</p>
           <span class="text-[11px] text-zinc-500 mt-2 block">Biometrics, chats, and asking around.</span>
         </div>
 
-        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
+        <div class="p-4 rounded-xl glass-card">
           <p class="text-xs sm:text-sm font-semibold text-zinc-200 italic">"Leave requests are buried in WhatsApp."</p>
           <span class="text-[11px] text-zinc-500 mt-2 block">Nobody recorded it. Now deadlines are blown.</span>
         </div>
 
-        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
+        <div class="p-4 rounded-xl glass-card">
           <p class="text-xs sm:text-sm font-semibold text-zinc-200 italic">"I promised a deadline while half the team was off."</p>
           <span class="text-[11px] text-zinc-500 mt-2 block">Tools count calendar days, not real working days.</span>
         </div>
 
-        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
+        <div class="p-4 rounded-xl glass-card">
           <p class="text-xs sm:text-sm font-semibold text-zinc-200 italic">"Client passwords are in chats and sheets."</p>
           <span class="text-[11px] text-zinc-500 mt-2 block">When someone leaves, passwords remain exposed.</span>
         </div>
 
-        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
+        <div class="p-4 rounded-xl glass-card">
           <p class="text-xs sm:text-sm font-semibold text-zinc-200 italic">"I have no idea if this project made money."</p>
           <span class="text-[11px] text-zinc-500 mt-2 block">Hours logged aren't multiplied by developer costs.</span>
         </div>
 
-        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
+        <div class="p-4 rounded-xl glass-card">
           <p class="text-xs sm:text-sm font-semibold text-zinc-200 italic">"Attendance disputes eat our month-end."</p>
           <span class="text-[11px] text-zinc-500 mt-2 block">HR spends days arguing over punch-in times.</span>
         </div>
@@ -837,7 +838,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         
         <!-- Dashboard 1: Admin -->
-        <div class="p-6 rounded-2xl bg-zinc-950 border border-emerald-500/30 space-y-3">
+        <div class="p-6 rounded-2xl glass-card border-emerald-500/30 space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">View 1</span>
             <span class="text-[11px] px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">Admin Dashboard</span>
@@ -855,7 +856,7 @@
         </div>
 
         <!-- Dashboard 2: HR -->
-        <div class="p-6 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-3">
+        <div class="p-6 rounded-2xl glass-card space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold uppercase tracking-wider text-indigo-400">View 2</span>
             <span class="text-[11px] px-2.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold">HR Dashboard</span>
@@ -873,7 +874,7 @@
         </div>
 
         <!-- Dashboard 3: PM -->
-        <div class="p-6 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-3">
+        <div class="p-6 rounded-2xl glass-card space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold uppercase tracking-wider text-blue-400">View 3</span>
             <span class="text-[11px] px-2.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold">PM Dashboard</span>
@@ -891,7 +892,7 @@
         </div>
 
         <!-- Dashboard 4: Employee -->
-        <div class="p-6 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-3">
+        <div class="p-6 rounded-2xl glass-card space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold uppercase tracking-wider text-teal-400">View 4</span>
             <span class="text-[11px] px-2.5 py-0.5 rounded bg-teal-500/20 text-teal-300 font-bold">Employee Dashboard</span>
@@ -1016,7 +1017,7 @@
         </div>
 
         <!-- PLAN 2: GROWTH -->
-        <div class="lg:order-1 rounded-3xl p-8 bg-zinc-950/70 border border-zinc-800 flex flex-col justify-between">
+        <div class="lg:order-1 rounded-3xl p-8 glass-card flex flex-col justify-between">
           <div>
             <div class="flex justify-between items-center mb-4">
               <div>
@@ -1060,7 +1061,7 @@
         </div>
 
         <!-- PLAN 3: SCALE -->
-        <div class="lg:order-3 rounded-3xl p-8 bg-zinc-950/70 border border-zinc-800 flex flex-col justify-between">
+        <div class="lg:order-3 rounded-3xl p-8 glass-card flex flex-col justify-between">
           <div>
             <div class="flex justify-between items-center mb-4">
               <div>
@@ -1106,7 +1107,7 @@
       </div>
 
       <!-- Payment & Billing Methods Note -->
-      <div class="mt-12 p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 max-w-4xl mx-auto">
+      <div class="mt-12 p-6 rounded-2xl glass-card max-w-4xl mx-auto">
         <h4 class="font-bold text-white text-sm">Flexible Local & Global Payment Options</h4>
         <p class="text-xs text-zinc-400 mt-0.5">Pay via direct Bank Wire (IBAN), Raast, JazzCash, Easypaisa, or Credit Card.</p>
       </div>
@@ -1133,7 +1134,7 @@
       <div class="space-y-4">
         
         <!-- FAQ 1 -->
-        <div class="rounded-2xl bg-zinc-950 border border-zinc-800 overflow-hidden">
+        <div class="rounded-2xl glass-card overflow-hidden">
           <button onclick="toggleFaq('faq-1')" class="w-full p-5 text-left flex items-center justify-between text-base font-bold text-white hover:text-emerald-400 transition-colors">
             <span>"ClickUp or Google Sheets are free. Why should we pay PKR 12,000/mo?"</span>
             <svg id="faq-icon-faq-1" class="w-5 h-5 text-zinc-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -1144,7 +1145,7 @@
         </div>
 
         <!-- FAQ 2 -->
-        <div class="rounded-2xl bg-zinc-950 border border-zinc-800 overflow-hidden">
+        <div class="rounded-2xl glass-card overflow-hidden">
           <button onclick="toggleFaq('faq-2')" class="w-full p-5 text-left flex items-center justify-between text-base font-bold text-white hover:text-emerald-400 transition-colors">
             <span>"How do I know our client passwords and employee salaries are safe?"</span>
             <svg id="faq-icon-faq-2" class="w-5 h-5 text-zinc-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -1155,7 +1156,7 @@
         </div>
 
         <!-- FAQ 3 -->
-        <div class="rounded-2xl bg-zinc-950 border border-zinc-800 overflow-hidden">
+        <div class="rounded-2xl glass-card overflow-hidden">
           <button onclick="toggleFaq('faq-3')" class="w-full p-5 text-left flex items-center justify-between text-base font-bold text-white hover:text-emerald-400 transition-colors">
             <span>"Will our developers and designers actually use it, or resist it?"</span>
             <svg id="faq-icon-faq-3" class="w-5 h-5 text-zinc-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -1166,7 +1167,7 @@
         </div>
 
         <!-- FAQ 4 -->
-        <div class="rounded-2xl bg-zinc-950 border border-zinc-800 overflow-hidden">
+        <div class="rounded-2xl glass-card overflow-hidden">
           <button onclick="toggleFaq('faq-4')" class="w-full p-5 text-left flex items-center justify-between text-base font-bold text-white hover:text-emerald-400 transition-colors">
             <span>"Can you migrate our existing team records and active projects?"</span>
             <svg id="faq-icon-faq-4" class="w-5 h-5 text-zinc-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -1177,7 +1178,7 @@
         </div>
 
         <!-- FAQ 5 -->
-        <div class="rounded-2xl bg-zinc-950 border border-zinc-800 overflow-hidden">
+        <div class="rounded-2xl glass-card overflow-hidden">
           <button onclick="toggleFaq('faq-5')" class="w-full p-5 text-left flex items-center justify-between text-base font-bold text-white hover:text-emerald-400 transition-colors">
             <span>"What happens after the first month with 3 free modules?"</span>
             <svg id="faq-icon-faq-5" class="w-5 h-5 text-zinc-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -1228,7 +1229,7 @@
   <!-- WALKTHROUGH BOOKING MODAL -->
   <!-- ========================================================================= -->
   <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="relative w-full max-w-md rounded-2xl bg-zinc-950 border border-zinc-800 p-5 sm:p-6 shadow-2xl max-h-[92vh] overflow-y-auto">
+    <div class="relative w-full max-w-md rounded-2xl glass-card p-5 sm:p-6 shadow-2xl max-h-[92vh] overflow-y-auto">
       
       <button onclick="closeWalkthroughModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white p-1 rounded-lg bg-zinc-900">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
