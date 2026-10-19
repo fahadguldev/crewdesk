@@ -12,7 +12,7 @@ export function bindCube(): void {
   idx = 0;
 
   render = () => {
-    cube.style.transform = `rotateX(-6deg) rotateY(${-idx * 90}deg)`;
+    cube.style.transform = `rotateY(${-idx * 90}deg)`;
 
     // Toggle faces and dots
     document.querySelectorAll('.cube-face').forEach((f, i) => f.classList.toggle('is-on', i === idx));

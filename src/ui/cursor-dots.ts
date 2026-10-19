@@ -1,7 +1,8 @@
 /**
- * Cursor Following Dots
+ * Cursor Following Dots & Luminous Inertial Bubble
  * Creates a smooth, physics-based trailing ribbon of glowing dots that
- * follow the user's cursor across the entire website.
+ * follow the user's cursor with luxury inertia, and blooms into a larger
+ * glowing glass bubble whenever cursor movement stops.
  */
 
 interface DotState {
@@ -40,6 +41,12 @@ export function initCursorDots(): () => void {
   const container = document.createElement('div');
   container.className = 'cursor-dots-layer';
   container.setAttribute('aria-hidden', 'true');
+
+  // Luminous inertia bubble that blooms on idle
+  const bubbleEl = document.createElement('div');
+  bubbleEl.className = 'cursor-bubble';
+  container.appendChild(bubbleEl);
+
   document.body.appendChild(container);
 
   const dotsCount = DOT_COLORS.length;
@@ -47,14 +54,18 @@ export function initCursorDots(): () => void {
 
   let mouseX = -100;
   let mouseY = -100;
+  let bubbleX = -100;
+  let bubbleY = -100;
   let hasMoved = false;
   let isVisible = false;
+  let isIdle = false;
+  let lastMoveTime = 0;
 
   for (let i = 0; i < dotsCount; i++) {
     const dotEl = document.createElement('div');
     dotEl.className = 'cursor-dot';
     const ratio = (dotsCount - i) / dotsCount;
-    const size = Math.max(3, Math.round(11 * ratio));
+    const size = Math.max(3, Math.round(10 * ratio));
     const color = DOT_COLORS[i];
 
     dotEl.style.width = `${size}px`;
@@ -70,11 +81,14 @@ export function initCursorDots(): () => void {
   const onMouseMove = (e: MouseEvent) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
+    lastMoveTime = performance.now();
 
     if (!hasMoved) {
       hasMoved = true;
       isVisible = true;
-      // Initialize dot positions on first move
+      bubbleX = mouseX;
+      bubbleY = mouseY;
+      bubbleEl.style.opacity = '1';
       dots.forEach((d) => {
         d.x = mouseX;
         d.y = mouseY;
@@ -82,18 +96,21 @@ export function initCursorDots(): () => void {
       });
     } else if (!isVisible) {
       isVisible = true;
+      bubbleEl.style.opacity = '1';
       dots.forEach((d) => (d.element.style.opacity = '1'));
     }
   };
 
   const onMouseLeave = () => {
     isVisible = false;
+    bubbleEl.style.opacity = '0';
     dots.forEach((d) => (d.element.style.opacity = '0'));
   };
 
   const onMouseEnter = () => {
     if (hasMoved) {
       isVisible = true;
+      bubbleEl.style.opacity = '1';
       dots.forEach((d) => (d.element.style.opacity = '1'));
     }
   };
@@ -109,19 +126,36 @@ export function initCursorDots(): () => void {
 
     if (!hasMoved) return;
 
-    // Head dot follows mouse with snappy spring
-    dots[0].x += (mouseX - dots[0].x) * 0.45;
-    dots[0].y += (mouseY - dots[0].y) * 0.45;
+    const now = performance.now();
+    const idleNow = now - lastMoveTime > 130;
 
-    // Subsequent dots follow the dot ahead of them
+    if (idleNow !== isIdle) {
+      isIdle = idleNow;
+      bubbleEl.classList.toggle('is-idle', isIdle);
+      container.classList.toggle('is-idle', isIdle);
+    }
+
+    // Luminous bubble tracks mouse with silky lag (slower than raw cursor)
+    const bubbleSpeed = isIdle ? 0.08 : 0.12;
+    bubbleX += (mouseX - bubbleX) * bubbleSpeed;
+    bubbleY += (mouseY - bubbleY) * bubbleSpeed;
+    bubbleEl.style.transform = `translate3d(${bubbleX}px, ${bubbleY}px, 0) translate(-50%, -50%)`;
+
+    // Head dot follows with gentle inertia
+    const headSpeed = 0.15;
+    dots[0].x += (mouseX - dots[0].x) * headSpeed;
+    dots[0].y += (mouseY - dots[0].y) * headSpeed;
+
+    // Subsequent dots trail smoothly behind the dot ahead of them
+    const trailSpeed = 0.24;
     for (let i = 1; i < dotsCount; i++) {
       const prev = dots[i - 1];
       const curr = dots[i];
-      curr.x += (prev.x - curr.x) * 0.38;
-      curr.y += (prev.y - curr.y) * 0.38;
+      curr.x += (prev.x - curr.x) * trailSpeed;
+      curr.y += (prev.y - curr.y) * trailSpeed;
     }
 
-    // Render positions via hardware-accelerated translate3d
+    // Hardware accelerated positioning
     for (let i = 0; i < dotsCount; i++) {
       const d = dots[i];
       const offsetX = d.x - d.size / 2;

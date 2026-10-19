@@ -5,16 +5,17 @@ export function buildRoles(): HTMLElement {
   el.className = 'roles pin-section';
   el.id = 'roles';
 
+  const fallbackIcon = `<svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>`;
   const roleIcons: Record<string, string> = {
-    admin: '👑',
-    hr: '👥',
-    pm: '📊',
-    employee: '💻'
+    admin: `<svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>`,
+    hr: `<svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    pm: `<svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>`,
+    employee: `<svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="12" x="3" y="4" rx="2"/><line x1="2" x2="22" y1="20" y2="20"/></svg>`
   };
 
   const faces = C.roles.items
     .map((r) => {
-      const icon = roleIcons[r.id] ?? '👤';
+      const icon = roleIcons[r.id] ?? fallbackIcon;
       const demoUrl = (r as any).demoUrl ?? (C.roles as any).demoUrl ?? 'https://demo.crewdesk.com';
       const demoCta = (C.roles as any).demoCta ?? 'See Live Demo';
 
@@ -68,7 +69,7 @@ export function buildRoles(): HTMLElement {
 
   const tabs = C.roles.items
     .map((r, i) => {
-      const icon = roleIcons[r.id] ?? '👤';
+      const icon = roleIcons[r.id] ?? fallbackIcon;
       const cleanLabel = r.badge.replace(' Dashboard', '');
       return `
         <button type="button" class="role-tab-btn${i === 0 ? ' is-active' : ''}" data-i="${i}" role="tab" aria-selected="${i === 0}">
