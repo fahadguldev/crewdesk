@@ -13,18 +13,16 @@ interface DotState {
 }
 
 const DOT_COLORS = [
-  '#2dd4bf', // teal
-  '#2dd4bf',
-  '#34d399', // emerald
+  '#34d399', // emerald (signature Urdu brand green)
   '#34d399',
-  '#60a5fa', // blue
-  '#60a5fa',
-  '#818cf8', // indigo
-  '#818cf8',
-  '#c084fc', // purple
-  '#f5b544', // amber
-  '#f5b544',
-  '#f87171'  // coral
+  '#2dd4bf', // teal (site accent)
+  '#2dd4bf',
+  '#38bdf8', // sky cyan (site highlight)
+  '#2dd4bf',
+  '#34d399',
+  '#10b981', // deep emerald
+  '#34d399',
+  '#2dd4bf'
 ];
 
 export function initCursorDots(): () => void {
@@ -135,19 +133,19 @@ export function initCursorDots(): () => void {
       container.classList.toggle('is-idle', isIdle);
     }
 
-    // Luminous bubble tracks mouse with silky lag (slower than raw cursor)
-    const bubbleSpeed = isIdle ? 0.08 : 0.12;
+    // Luminous bubble tracks mouse with silky lag (noticeably slower than raw cursor)
+    const bubbleSpeed = isIdle ? 0.05 : 0.07;
     bubbleX += (mouseX - bubbleX) * bubbleSpeed;
     bubbleY += (mouseY - bubbleY) * bubbleSpeed;
     bubbleEl.style.transform = `translate3d(${bubbleX}px, ${bubbleY}px, 0) translate(-50%, -50%)`;
 
-    // Head dot follows with gentle inertia
-    const headSpeed = 0.15;
+    // Head dot follows with calm luxury inertia
+    const headSpeed = 0.08;
     dots[0].x += (mouseX - dots[0].x) * headSpeed;
     dots[0].y += (mouseY - dots[0].y) * headSpeed;
 
     // Subsequent dots trail smoothly behind the dot ahead of them
-    const trailSpeed = 0.24;
+    const trailSpeed = 0.15;
     for (let i = 1; i < dotsCount; i++) {
       const prev = dots[i - 1];
       const curr = dots[i];
