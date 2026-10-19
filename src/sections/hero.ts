@@ -1,4 +1,4 @@
-﻿import { C } from '../content';
+import { C } from '../content';
 
 function urdu(text: string): string {
   return `<span class="urdu" dir="rtl" lang="ur"><bdi>${text}</bdi></span>`;
@@ -61,10 +61,8 @@ export function buildHero(): HTMLElement {
           <span class="pill glass">${C.hero.pill1}</span>
           <span class="pill glass pill-accent">${C.hero.pill2}</span>
         </div>
-        <h1 class="hero-h1">
-          ${C.hero.h1a} <span class="hero-hub">${C.brand.latin}</span> ${urdu(C.brand.urdu)}<br />
-          ${C.hero.h1b}<br />
-          <span class="hero-muted">${C.hero.h1c}</span>
+        <h1 class="hero-h1" id="hero-headline" aria-label="manage your whole dafter from one single hub not 5 tools and a spread sheet.">
+          <span class="typewriter-text" id="typewriter-text"></span><span class="typing-cursor" id="typing-cursor" aria-hidden="true">|</span>
         </h1>
         <p class="hero-sub">${C.hero.sub}</p>
         <div class="hero-cta">

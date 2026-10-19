@@ -70,7 +70,46 @@
 .hero-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
 .pill { padding: 8px 16px; border-radius: 999px; font-size: 13px; color: var(--text-muted); }
 .pill-accent { color: var(--accent); border-color: rgba(45, 212, 191, 0.4); }
-.hero-h1 { font-size: clamp(40px, 7vw, 86px); line-height: 1.06; letter-spacing: -.045em; }
+.hero-h1 {
+  font-size: clamp(38px, 6.2vw, 82px);
+  line-height: 1.1;
+  letter-spacing: -.04em;
+  min-height: 3.4em;
+}
+.typing-line { display: inline-block; }
+.typing-cursor {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 300;
+  margin-left: 3px;
+  animation: cursor-blink 0.75s step-end infinite;
+}
+.typing-cursor.is-done {
+  animation: cursor-blink 1.2s ease-in-out infinite;
+}
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ===== Cursor Following Dots ===== */
+.cursor-dots-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99999;
+  overflow: hidden;
+}
+.cursor-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transition: opacity 0.25s ease;
+}
+
 .hero-hub { background: linear-gradient(135deg, #34d399, #2dd4bf); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero-h1 .urdu { color: var(--accent-2); font-size: 0.95em; }
 .hero-muted { color: var(--text-muted); font-weight: 600; }

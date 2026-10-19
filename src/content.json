@@ -33,6 +33,12 @@
   "hero": {
     "pill1": "Built for digital agencies & service providers",
     "pill2": "7 Core + 3 Custom Modules",
+    "typewriterLines": [
+      "manage your whole dafter",
+      "from one single hub",
+      "not 5 tools and a",
+      "spread sheet."
+    ],
     "h1a": "Run your whole",
     "h1b": "from One HUB.",
     "h1c": "Not 5 tools and a spreadsheet.",

@@ -23,6 +23,9 @@ import { bindCube } from './ui/cube';
 import { bindForm } from './ui/form';
 import { bindCurrency, bindPricingTilt, bindTheme, bindAnchors, bindNav, bindEntrances } from './ui/toggles';
 import { initHubAnimation } from './ui/hub-animation';
+import { initCursorDots } from './ui/cursor-dots';
+import { initTypewriter } from './ui/typewriter';
+import { C } from './content';
 
 function mount(app: HTMLElement): void {
   const sticky = document.createElement('div');
@@ -75,9 +78,20 @@ function boot(): void {
   bindFaq();
   bindForm();
   initChoreography(env);
+  initCursorDots();
+
   // Let the brand gather animation complete before revealing the page.
   const pre = document.getElementById('preloader');
-  const hide = () => pre?.classList.add('hide');
+  const hide = () => {
+    if (!pre?.classList.contains('hide')) {
+      pre?.classList.add('hide');
+      initTypewriter({
+        lines: (C.hero as any).typewriterLines,
+        totalDurationMs: 2300
+      });
+    }
+  };
+  pre?.addEventListener('click', hide, { once: true });
   const isQa = new URLSearchParams(window.location.search).has('scroll');
   if (isQa) hide();
   if (env.reducedMotion || env.quality === 'low') setTimeout(hide, 700);
