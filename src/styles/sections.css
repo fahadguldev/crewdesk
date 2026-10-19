@@ -92,6 +92,29 @@
   50% { opacity: 0; }
 }
 
+.type-urdu-green {
+  font-family: var(--font-urdu);
+  color: var(--accent-2);
+  font-size: 1.05em;
+  font-weight: 700;
+  direction: rtl;
+  unicode-bidi: isolate;
+  display: inline-block;
+  vertical-align: baseline;
+  filter: drop-shadow(0 0 14px rgba(52, 211, 153, 0.45));
+}
+
+.type-green-hub {
+  color: var(--accent-2);
+  background: linear-gradient(135deg, #34d399, #2dd4bf);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  display: inline-block;
+  filter: drop-shadow(0 0 14px rgba(52, 211, 153, 0.45));
+}
+
 /* ===== Cursor Following Dots ===== */
 .cursor-dots-layer {
   position: fixed;

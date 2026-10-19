@@ -33,11 +33,31 @@
   "hero": {
     "pill1": "Built for digital agencies & service providers",
     "pill2": "7 Core + 3 Custom Modules",
-    "typewriterLines": [
-      "manage your whole dafter",
-      "from one single hub",
-      "not 5 tools and a",
-      "spread sheet."
+    "typewriterStructure": [
+      {
+        "tokens": [
+          { "text": "manage your whole " },
+          { "text": "دفتر", "className": "type-urdu-green", "isUrdu": true }
+        ]
+      },
+      {
+        "tokens": [
+          { "text": "from one single " },
+          { "text": "hub", "className": "type-green-hub" }
+        ]
+      },
+      {
+        "className": "hero-muted",
+        "tokens": [
+          { "text": "not 5 tools and a" }
+        ]
+      },
+      {
+        "className": "hero-muted",
+        "tokens": [
+          { "text": "spread sheet." }
+        ]
+      }
     ],
     "h1a": "Run your whole",
     "h1b": "from One HUB.",

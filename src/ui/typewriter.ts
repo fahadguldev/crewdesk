@@ -2,18 +2,46 @@
  * Typewriter Hero Headline Animation
  * Runs immediately after the loading screen finishes.
  * Types the requested copy line-by-line in under 3 seconds.
+ * Supports styled tokens (e.g. Urdu Nastaleeq green daftar, green hub).
  */
 
-interface TypewriterConfig {
-  lines: string[];
+export interface TextToken {
+  text: string;
+  className?: string;
+  isUrdu?: boolean;
+}
+
+export interface TypewriterLine {
+  tokens: TextToken[];
+  className?: string;
+}
+
+export interface TypewriterConfig {
+  structure: TypewriterLine[];
   totalDurationMs?: number;
 }
 
-const DEFAULT_LINES = [
-  'manage your whole dafter',
-  'from one single hub',
-  'not 5 tools and a',
-  'spread sheet.'
+const DEFAULT_STRUCTURE: TypewriterLine[] = [
+  {
+    tokens: [
+      { text: 'manage your whole ' },
+      { text: 'دفتر', className: 'type-urdu-green', isUrdu: true }
+    ]
+  },
+  {
+    tokens: [
+      { text: 'from one single ' },
+      { text: 'hub', className: 'type-green-hub' }
+    ]
+  },
+  {
+    className: 'hero-muted',
+    tokens: [{ text: 'not 5 tools and a' }]
+  },
+  {
+    className: 'hero-muted',
+    tokens: [{ text: 'spread sheet.' }]
+  }
 ];
 
 let hasStarted = false;
@@ -27,66 +55,98 @@ export function initTypewriter(config?: Partial<TypewriterConfig>): void {
 
   hasStarted = true;
 
-  const lines = config?.lines ?? DEFAULT_LINES;
+  const structure = config?.structure ?? DEFAULT_STRUCTURE;
   const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Reduced motion: show full text immediately
+  // Reduced motion: show full styled text immediately
   if (isReduced) {
-    container.innerHTML = formatCompleteLines(lines);
+    container.innerHTML = formatCompleteStructure(structure);
     if (cursor) cursor.style.display = 'none';
     return;
   }
 
-  // Calculate speed to ensure it completes in under 3 seconds (target: ~2.3 seconds)
-  const totalChars = lines.reduce((acc, l) => acc + l.length, 0);
+  // Count total characters to pace under 3 seconds (target: ~2.3 seconds)
+  let totalChars = 0;
+  structure.forEach((l) => l.tokens.forEach((t) => (totalChars += t.text.length)));
   const targetDurationMs = config?.totalDurationMs ?? 2300;
   const charDelay = Math.max(18, Math.floor(targetDurationMs / totalChars));
 
-  let currentLineIdx = 0;
-  let currentCharIdx = 0;
-
-  // Setup initial DOM lines
+  // Build DOM layout with empty token spans ready to receive characters
   container.innerHTML = '';
-  const lineSpans: HTMLElement[] = lines.map((_, i) => {
-    const span = document.createElement('span');
-    span.className = `typing-line ${i >= 2 ? 'hero-muted' : ''}`;
-    container.appendChild(span);
-    if (i < lines.length - 1) {
+  const tokenSpans: HTMLElement[][] = [];
+
+  structure.forEach((line, lineIdx) => {
+    const lineWrapper = document.createElement('span');
+    lineWrapper.className = `typing-line ${line.className || ''}`;
+
+    const spansForLine: HTMLElement[] = [];
+    line.tokens.forEach((token) => {
+      const span = document.createElement('span');
+      if (token.className) span.className = token.className;
+      if (token.isUrdu) {
+        span.setAttribute('dir', 'rtl');
+        span.setAttribute('lang', 'ur');
+      }
+      lineWrapper.appendChild(span);
+      spansForLine.push(span);
+    });
+
+    container.appendChild(lineWrapper);
+    tokenSpans.push(spansForLine);
+
+    if (lineIdx < structure.length - 1) {
       container.appendChild(document.createElement('br'));
     }
-    return span;
   });
 
+  let lineIdx = 0;
+  let tokenIdx = 0;
+  let charIdx = 0;
+
   function typeNextChar(): void {
-    if (currentLineIdx >= lines.length) {
-      // Completed typing!
-      if (cursor) {
-        cursor.classList.add('is-done');
-      }
+    if (lineIdx >= structure.length) {
+      if (cursor) cursor.classList.add('is-done');
       return;
     }
 
-    const currentLineText = lines[currentLineIdx];
-    if (currentCharIdx < currentLineText.length) {
-      const char = currentLineText[currentCharIdx];
-      lineSpans[currentLineIdx].textContent += char;
-      currentCharIdx++;
+    const currentLine = structure[lineIdx];
+    if (tokenIdx >= currentLine.tokens.length) {
+      lineIdx++;
+      tokenIdx = 0;
+      charIdx = 0;
+      setTimeout(typeNextChar, charDelay * 1.5);
+      return;
+    }
+
+    const currentToken = currentLine.tokens[tokenIdx];
+    const targetSpan = tokenSpans[lineIdx][tokenIdx];
+
+    if (charIdx < currentToken.text.length) {
+      targetSpan.textContent += currentToken.text[charIdx];
+      charIdx++;
       setTimeout(typeNextChar, charDelay);
     } else {
-      // Move to next line
-      currentLineIdx++;
-      currentCharIdx = 0;
-      setTimeout(typeNextChar, charDelay * 1.5);
+      tokenIdx++;
+      charIdx = 0;
+      setTimeout(typeNextChar, charDelay * 1.2);
     }
   }
 
-  // Small breath after preloader fade before typing starts
+  // Small delay after preloader hides
   setTimeout(typeNextChar, 120);
 }
 
-function formatCompleteLines(lines: string[]): string {
-  return lines
-    .map((line, i) => `<span class="typing-line ${i >= 2 ? 'hero-muted' : ''}">${escapeHtml(line)}</span>`)
+function formatCompleteStructure(structure: TypewriterLine[]): string {
+  return structure
+    .map((line) => {
+      const inner = line.tokens
+        .map(
+          (t) =>
+            `<span class="${t.className || ''}" ${t.isUrdu ? 'dir="rtl" lang="ur"' : ''}>${escapeHtml(t.text)}</span>`
+        )
+        .join('');
+      return `<span class="typing-line ${line.className || ''}">${inner}</span>`;
+    })
     .join('<br />');
 }
 

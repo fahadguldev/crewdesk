@@ -86,7 +86,7 @@ function boot(): void {
     if (!pre?.classList.contains('hide')) {
       pre?.classList.add('hide');
       initTypewriter({
-        lines: (C.hero as any).typewriterLines,
+        structure: (C.hero as any).typewriterStructure,
         totalDurationMs: 2300
       });
     }
