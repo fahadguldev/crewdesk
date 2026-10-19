@@ -167,6 +167,8 @@
     "eyebrow": "Zero Info Leakage",
     "title": "4 Dedicated Role Dashboards",
     "sub": "Each person gets the exact screen they need. Fewer buttons, zero training, zero salary leaks.",
+    "demoUrl": "https://demo.crewdesk.com",
+    "demoCta": "See Live Demo",
     "items": [
       { "n": 1, "id": "admin", "title": "Daftar Owner / Admin View", "badge": "Admin Dashboard", "color": "emerald", "desc": "Full executive command center. Can view overall progress, projects, attendance logs, business dashboard with profit margins, team workload, encrypted passwords, and daftar notifications.", "chips": ["Overall Progress", "Profit Margins", "Password Vault", "Workload"], "seesMoney": true },
       { "n": 2, "id": "hr", "title": "HR Manager View", "badge": "HR Dashboard", "color": "indigo", "desc": "Streamlined people operations. Onboard new hires, setup employee profiles, update details when required, organize teams, and track daily attendance, leaves, and office working hours.", "chips": ["Employee Onboarding", "Team Structure", "Attendance & Leaves", "Working Hours"], "seesMoney": false },
