@@ -127,15 +127,32 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; font-weight: 
 .btn-ghost:hover { background: rgba(255, 255, 255, 0.1); }
 [data-theme="light"] .btn-ghost:hover { background: rgba(11, 16, 32, 0.06); }
 
-/* Urdu wordmark: Noto Nastaliq (NOT Nastaliq-linebreak-prone layout), isolated */
+/* Urdu wordmark: Noto Nastaliq, isolated, emerald green across the entire site */
 .urdu {
   font-family: var(--font-urdu);
   direction: rtl;
   unicode-bidi: isolate;
   display: inline-block;
-  line-height: 1.4;
+  line-height: 1.25;
+  color: var(--accent-2) !important;
+  font-weight: 700;
+  font-size: 1.05em;
+  padding: 0 1px;
+  vertical-align: baseline;
+  text-shadow: 0 0 10px rgba(52, 211, 153, 0.28);
 }
 bdi.urdu, .urdu bdi { unicode-bidi: isolate; }
+
+[data-theme="light"] .urdu {
+  color: var(--accent-2) !important;
+  text-shadow: none;
+}
+
+.btn-primary .urdu,
+.cur-btn.is-active .urdu {
+  color: #04121a !important;
+  text-shadow: none !important;
+}
 
 /* ===== Preloader ===== */
 #preloader {

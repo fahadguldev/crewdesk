@@ -25,7 +25,7 @@ const DEFAULT_STRUCTURE: TypewriterLine[] = [
   {
     tokens: [
       { text: 'manage your whole ' },
-      { text: 'دفتر', className: 'type-urdu-green', isUrdu: true }
+      { text: 'دفتر', className: 'type-urdu-green urdu', isUrdu: true }
     ]
   },
   {

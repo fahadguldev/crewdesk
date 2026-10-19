@@ -1,4 +1,5 @@
 import { C } from '../content';
+import { applyUrduDaftar } from './urdu';
 
 // Final CTA form: same no-backend WhatsApp hand-off as the previous site
 export function bindForm(): void {
@@ -25,6 +26,7 @@ export function bindForm(): void {
           return `<span class="sm-chip">${name}</span>`;
         })
         .join('');
+      applyUrduDaftar(smContainer);
     }
   });
 

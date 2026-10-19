@@ -25,6 +25,7 @@ import { bindCurrency, bindPricingTilt, bindTheme, bindAnchors, bindNav, bindEnt
 import { initHubAnimation } from './ui/hub-animation';
 import { initCursorDots } from './ui/cursor-dots';
 import { initTypewriter } from './ui/typewriter';
+import { applyUrduDaftar } from './ui/urdu';
 import { C } from './content';
 
 function mount(app: HTMLElement): void {
@@ -61,6 +62,7 @@ function boot(): void {
   if (env.reducedMotion) document.documentElement.dataset.reduced = 'true';
 
   mount(document.getElementById('app')!);
+  applyUrduDaftar(document.body);
   const loaderStage = document.getElementById('loader-stage') as HTMLCanvasElement | null;
   if (loaderStage && !env.reducedMotion) initHubAnimation(loaderStage, 'loader');
 
