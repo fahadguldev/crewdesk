@@ -45,6 +45,25 @@ export function initChoreography(env: Env): void {
       .to('.pain-card', { scale: 0.94, opacity: 0.3, stagger: 0.06, duration: 0.4 }, 0.75);
   }
 
+  // ---- Mobile Pain cards entrance ----
+  if (mobile) {
+    gsap.from('.pain-card', {
+      scrollTrigger: {
+        trigger: '.pain',
+        start: 'top 82%',
+        toggleActions: 'play none none reverse'
+      },
+      x: (i) => (i % 2 === 0 ? -40 : 40),
+      y: 50,
+      rotate: (i) => (i % 2 === 0 ? -3 : 3),
+      opacity: 0,
+      stagger: 0.08,
+      duration: 0.65,
+      ease: 'power2.out',
+      clearProps: 'transform'
+    });
+  }
+
   // ---- Modules: horizontal slab track (desktop only, ~45vh per slab) ----
   const stage = document.querySelector<HTMLElement>('.modules-stage');
   const ring = document.querySelector<HTMLElement>('.module-ring');
@@ -82,6 +101,107 @@ export function initChoreography(env: Env): void {
       }
     });
   }
+
+  // ---- Custom Modules: cards fly in from alternating sides with tilt ----
+  gsap.from('.cm-step', {
+    scrollTrigger: {
+      trigger: '.custom-modules',
+      start: 'top 78%',
+      toggleActions: 'play none none reverse'
+    },
+    x: (i) => (mobile ? (i % 2 === 0 ? -35 : 35) : (i % 2 === 0 ? -190 : 190)),
+    y: mobile ? 50 : 110,
+    rotate: (i) => (mobile ? (i % 2 === 0 ? -2 : 2) : (i % 2 === 0 ? -5 : 5)),
+    opacity: 0,
+    stagger: 0.12,
+    duration: 0.75,
+    ease: 'power2.out',
+    clearProps: 'transform'
+  });
+
+  // ---- Comparison: cards and table fly in from alternating sides ----
+  gsap.from('.cmp-desktop-only, .cmp-card', {
+    scrollTrigger: {
+      trigger: '.comparison',
+      start: 'top 78%',
+      toggleActions: 'play none none reverse'
+    },
+    x: (i) => (mobile ? (i % 2 === 0 ? -30 : 30) : (i % 2 === 0 ? -140 : 140)),
+    y: mobile ? 40 : 90,
+    rotate: (i) => (mobile ? (i % 2 === 0 ? -1.5 : 1.5) : (i % 2 === 0 ? -3 : 3)),
+    opacity: 0,
+    stagger: 0.08,
+    duration: 0.7,
+    ease: 'power2.out',
+    clearProps: 'transform'
+  });
+
+  // ---- Pricing Plans: cards fly in from alternating sides with tilt ----
+  if (!mobile) {
+    gsap.from('.plans .plan', {
+      scrollTrigger: {
+        trigger: '.pricing',
+        start: 'top 76%',
+        toggleActions: 'play none none reverse'
+      },
+      x: (i) => (i === 0 ? -190 : i === 1 ? 0 : 190),
+      y: 120,
+      rotate: (i) => (i === 0 ? -6 : i === 1 ? 0 : 6),
+      opacity: 0,
+      stagger: 0.12,
+      duration: 0.8,
+      ease: 'power2.out',
+      clearProps: 'transform'
+    });
+  }
+
+  // ---- Pricing Table: savings matrix container flies in ----
+  gsap.from('.pt-wrap', {
+    scrollTrigger: {
+      trigger: '.pricing-table',
+      start: 'top 78%',
+      toggleActions: 'play none none reverse'
+    },
+    y: 90,
+    opacity: 0,
+    duration: 0.7,
+    ease: 'power2.out',
+    clearProps: 'transform'
+  });
+
+  // ---- Onboarding: 4 cards fly in from alternating sides with tilt ----
+  gsap.from('.ob-card', {
+    scrollTrigger: {
+      trigger: '.onboarding',
+      start: 'top 78%',
+      toggleActions: 'play none none reverse'
+    },
+    x: (i) => (mobile ? (i % 2 === 0 ? -35 : 35) : (i % 2 === 0 ? -180 : 180)),
+    y: mobile ? 50 : 110,
+    rotate: (i) => (mobile ? (i % 2 === 0 ? -2 : 2) : (i % 2 === 0 ? -5 : 5)),
+    opacity: 0,
+    stagger: 0.1,
+    duration: 0.75,
+    ease: 'power2.out',
+    clearProps: 'transform'
+  });
+
+  // ---- FAQ: accordion cards cascade in from alternating sides ----
+  gsap.from('.faq-item', {
+    scrollTrigger: {
+      trigger: '.faq',
+      start: 'top 80%',
+      toggleActions: 'play none none reverse'
+    },
+    x: (i) => (mobile ? (i % 2 === 0 ? -25 : 25) : (i % 2 === 0 ? -90 : 90)),
+    y: 45,
+    rotate: (i) => (mobile ? (i % 2 === 0 ? -1 : 1) : (i % 2 === 0 ? -2 : 2)),
+    opacity: 0,
+    stagger: 0.06,
+    duration: 0.6,
+    ease: 'power2.out',
+    clearProps: 'transform'
+  });
 
   // ---- Final CTA: pinned ~80vh, form settles in (desktop only) ----
   if (!mobile) {
