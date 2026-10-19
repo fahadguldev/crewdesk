@@ -7,7 +7,13 @@ import { initScroll, getLenis, ScrollTrigger } from './scroll';
 import { buildBanner, buildNav, buildHero, buildPain } from './sections/hero';
 import { buildModules } from './sections/modules';
 import { buildRoles } from './sections/roles';
-import { buildPricingTable, buildComparison, buildPricing } from './sections/pricing';
+import {
+  buildPricingTable,
+  buildComparison,
+  buildPricing,
+  bindComparisonMobile,
+  bindPricingMobile
+} from './sections/pricing';
 import {
   buildCustomModules,
   buildOnboarding,
@@ -74,6 +80,8 @@ function boot(): void {
   bindCurrency();
   bindEntrances();
   bindPricingTilt();
+  bindComparisonMobile();
+  bindPricingMobile();
   bindModuleRing();
   bindPicker();
   bindCube();

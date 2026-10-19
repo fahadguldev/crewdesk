@@ -1,4 +1,4 @@
-﻿import {
+import {
   C,
   competitorMonthlyPKR,
   competitorAnnualPKR,
@@ -107,6 +107,26 @@ export function buildComparison(): HTMLElement {
     )
     .join('');
 
+  const mobileCards = c.rows
+    .map(
+      (r) => `
+        <div class="cmp-card glass">
+          <div class="cmp-card-title">${r.f}</div>
+          <div class="cmp-card-grid">
+            <div class="cmp-card-col is-hub ${r.hubState}">
+              <div class="cmp-card-col-head"><span class="cmp-col-tag">Hub <span class="urdu">دفتر</span></span></div>
+              <div class="cmp-card-col-body">${r.hub}</div>
+            </div>
+            <div class="cmp-card-col is-comp ${r.cuState}" data-cu-state="${r.cuState}" data-other-state="${r.otherState}">
+              <div class="cmp-card-col-head"><span class="cmp-col-tag cmp-active-comp-label">ClickUp Pro</span></div>
+              <div class="cmp-card-col-body cmp-active-comp-text" data-cu-text="${r.cu}" data-other-text="${r.other}">${r.cu}</div>
+            </div>
+          </div>
+        </div>
+      `
+    )
+    .join('');
+
   el.innerHTML = `
     <div class="container">
       <div class="cmp-head">
@@ -114,15 +134,66 @@ export function buildComparison(): HTMLElement {
         <h2 class="h-sec">${c.title}</h2>
         <p class="sub-sec">${c.sub}</p>
       </div>
-      <div class="cmp-wrap glass">
+
+      <!-- Desktop Comparison Table (Screen width > 768px) -->
+      <div class="cmp-wrap glass cmp-desktop-only">
         <table class="cmp-table">
           <thead><tr>${c.cols.map((h) => `<th scope="col">${h}</th>`).join('')}</tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>
+
+      <!-- Mobile Head-to-Head Switcher (Screen width <= 768px) -->
+      <div class="cmp-mobile-only">
+        <div class="cmp-mobile-switcher-wrap">
+          <span class="cmp-mobile-switcher-label">Compare against:</span>
+          <div class="cmp-mobile-tabs" role="tablist" aria-label="Select comparison tool">
+            <button type="button" class="cmp-mobile-tab is-active" data-comp="cu" role="tab" aria-selected="true">
+              ClickUp Pro
+            </button>
+            <button type="button" class="cmp-mobile-tab" data-comp="other" role="tab" aria-selected="false">
+              Other Tools
+            </button>
+          </div>
+        </div>
+        <div class="cmp-mobile-cards">
+          ${mobileCards}
+        </div>
+      </div>
     </div>
   `;
   return el;
+}
+
+export function bindComparisonMobile(): void {
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.cmp-mobile-tab');
+  if (!tabs.length) return;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const targetComp = tab.dataset.comp; // 'cu' | 'other'
+      tabs.forEach((t) => {
+        const isActive = t === tab;
+        t.classList.toggle('is-active', isActive);
+        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      const compName = targetComp === 'cu' ? 'ClickUp Pro' : 'Other PM Tools';
+
+      document.querySelectorAll<HTMLElement>('.cmp-card-col.is-comp').forEach((col) => {
+        const state = targetComp === 'cu' ? col.dataset.cuState : col.dataset.otherState;
+        col.className = `cmp-card-col is-comp ${state ?? ''}`;
+
+        const label = col.querySelector('.cmp-active-comp-label');
+        if (label) label.textContent = compName;
+
+        const body = col.querySelector<HTMLElement>('.cmp-active-comp-text');
+        if (body) {
+          body.textContent = targetComp === 'cu' ? body.dataset.cuText ?? '' : body.dataset.otherText ?? '';
+        }
+      });
+    });
+  });
 }
 
 export function buildPricing(): HTMLElement {
@@ -133,7 +204,7 @@ export function buildPricing(): HTMLElement {
 
   const plans = p.plans
     .map(
-      (pl) => `<article class="plan glass${pl.popular ? ' plan-popular' : ''}" data-id="${pl.id}">
+      (pl) => `<article class="plan glass${pl.popular ? ' plan-popular is-mobile-active' : ''}" data-id="${pl.id}">
         ${pl.popular ? '<span class="plan-ribbon">Most Popular</span>' : ''}
         <h3 class="plan-name">${pl.name}</h3>
         <p class="plan-tag">${pl.tagline}</p>
@@ -151,6 +222,17 @@ export function buildPricing(): HTMLElement {
     )
     .join('');
 
+  const mobileTabs = p.plans
+    .map(
+      (pl) => `
+        <button type="button" class="plan-tab-btn${pl.popular ? ' is-active' : ''}" data-id="${pl.id}" role="tab" aria-selected="${pl.popular}">
+          <span>${pl.name.replace(' Plan', '')}</span>
+          ${pl.popular ? '<span class="tab-star">★</span>' : ''}
+        </button>
+      `
+    )
+    .join('');
+
   el.innerHTML = `
     <div class="container">
       <div class="pricing-head">
@@ -163,6 +245,14 @@ export function buildPricing(): HTMLElement {
         <strong>${p.founderLabel}</strong>
         <span>${C.brand.foundingOffer}</span>
       </div>
+
+      <!-- Mobile Tier Switcher (Screen width <= 900px) -->
+      <div class="pricing-mobile-switcher-wrap">
+        <div class="pricing-mobile-tabs" role="tablist" aria-label="Select pricing tier">
+          ${mobileTabs}
+        </div>
+      </div>
+
       <div class="plans">${plans}</div>
       <div class="payment glass">
         <h3>${p.paymentTitle}</h3>
@@ -171,4 +261,24 @@ export function buildPricing(): HTMLElement {
     </div>
   `;
   return el;
+}
+
+export function bindPricingMobile(): void {
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.plan-tab-btn');
+  if (!tabs.length) return;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const planId = tab.dataset.id;
+      tabs.forEach((t) => {
+        const isActive = t === tab;
+        t.classList.toggle('is-active', isActive);
+        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      document.querySelectorAll<HTMLElement>('.plan').forEach((card) => {
+        card.classList.toggle('is-mobile-active', card.dataset.id === planId);
+      });
+    });
+  });
 }
