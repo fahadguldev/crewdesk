@@ -37,11 +37,11 @@ function mount(app: HTMLElement): void {
   app.appendChild(buildHero());
   app.appendChild(buildPain());
   app.appendChild(buildModules());
-  app.appendChild(buildPricingTable());
-  app.appendChild(buildComparison());
   app.appendChild(buildRoles());
-  app.appendChild(buildPricing());
   app.appendChild(buildCustomModules());
+  app.appendChild(buildComparison());
+  app.appendChild(buildPricing());
+  app.appendChild(buildPricingTable());
   app.appendChild(buildOnboarding());
   app.appendChild(buildFaq());
   app.appendChild(buildFinalCta());
@@ -80,8 +80,9 @@ function boot(): void {
   initChoreography(env);
   initCursorDots();
 
-  // Let the brand gather animation complete before revealing the page.
+  // Let the brand gather animation complete or dismiss cleanly
   const pre = document.getElementById('preloader');
+  const skipBtn = document.getElementById('preloader-skip');
   const hide = () => {
     if (!pre?.classList.contains('hide')) {
       pre?.classList.add('hide');
@@ -92,12 +93,16 @@ function boot(): void {
     }
   };
   pre?.addEventListener('click', hide, { once: true });
+  skipBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hide();
+  }, { once: true });
   const isQa = new URLSearchParams(window.location.search).has('scroll');
   if (isQa) hide();
   if (env.reducedMotion || env.quality === 'low') setTimeout(hide, 700);
-  else if (document.readyState === 'complete') setTimeout(hide, 7100);
-  else window.addEventListener('load', () => setTimeout(hide, 7100));
-  setTimeout(hide, 7800);
+  else if (document.readyState === 'complete') setTimeout(hide, 3200);
+  else window.addEventListener('load', () => setTimeout(hide, 3200));
+  setTimeout(hide, 3600);
 
   (window as any).__env = env;
 

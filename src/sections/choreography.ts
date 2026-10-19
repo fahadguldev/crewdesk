@@ -27,7 +27,7 @@ export function initChoreography(env: Env): void {
         scrollTrigger: {
           trigger: '.pain',
           start: 'top top',
-          end: '+=250%',
+          end: '+=130%',
           pin: true,
           scrub: 1,
           anticipatePin: 1
@@ -45,7 +45,7 @@ export function initChoreography(env: Env): void {
       .to('.pain-card', { scale: 0.94, opacity: 0.3, stagger: 0.06, duration: 0.4 }, 0.75);
   }
 
-  // ---- Modules: horizontal slab track (desktop only, ~80vh per slab) ----
+  // ---- Modules: horizontal slab track (desktop only, ~45vh per slab) ----
   const stage = document.querySelector<HTMLElement>('.modules-stage');
   const ring = document.querySelector<HTMLElement>('.module-ring');
   if (!mobile && stage && ring) {
@@ -58,7 +58,7 @@ export function initChoreography(env: Env): void {
       scrollTrigger: {
         trigger: stage,
         start: 'top top',
-        end: () => `+=${Math.round(slabCount * 0.8 * window.innerHeight)}`,
+        end: () => `+=${Math.round(slabCount * 0.45 * window.innerHeight)}`,
         pin: true,
         scrub: 1,
         invalidateOnRefresh: true,
@@ -67,12 +67,12 @@ export function initChoreography(env: Env): void {
     });
   }
 
-  // ---- Roles: cube rotates 90° per role (desktop only, ~400vh) ----
+  // ---- Roles: cube rotates 90° per role (desktop only, snappy ~65% per role) ----
   if (!mobile) {
     ScrollTrigger.create({
       trigger: '.roles',
       start: 'top top',
-      end: `+=${C.roles.items.length * 100}%`,
+      end: `+=${C.roles.items.length * 65}%`,
       pin: true,
       scrub: true,
       anticipatePin: 1,
@@ -83,7 +83,7 @@ export function initChoreography(env: Env): void {
     });
   }
 
-  // ---- Final CTA: pinned ~100vh, form settles in (desktop only) ----
+  // ---- Final CTA: pinned ~80vh, form settles in (desktop only) ----
   if (!mobile) {
     gsap.fromTo(
       '.final-form',
@@ -95,7 +95,7 @@ export function initChoreography(env: Env): void {
         scrollTrigger: {
           trigger: '.final-cta',
           start: 'top top',
-          end: '+=100%',
+          end: '+=80%',
           pin: true,
           scrub: 1,
           anticipatePin: 1

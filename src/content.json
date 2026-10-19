@@ -55,7 +55,7 @@
       {
         "className": "hero-muted",
         "tokens": [
-          { "text": "spread sheet." }
+          { "text": "spreadsheet." }
         ]
       }
     ],
@@ -306,14 +306,15 @@
       ],
       "submit": "Open WhatsApp Direct",
       "title": "Book Your 30-Min Demo",
-      "subModal": "We'll show you the screens that match your exact daftar size."
+      "subModal": "We'll show you the screens that match your exact daftar size.",
+      "whatsappNumber": "923001234567"
     }
   },
   "footer": {
     "copy": "© 2026 Hub دفتر (DaftarHub) • Agency Operations Platform • All Rights Reserved",
     "trust": {
-      "title": "TODO-OWNER",
-      "note": "Add hosting, encryption, backups, terms and privacy details here once provided."
+      "title": "Platform Security & Reliability",
+      "note": "Role-isolated permissions, 256-bit encryption for client passwords, automated daily backups, and dedicated onboarding support."
     }
   },
   "currency": { "rate": 280, "pkr": "PKR", "usd": "USD" }

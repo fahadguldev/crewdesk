@@ -40,7 +40,7 @@ const DEFAULT_STRUCTURE: TypewriterLine[] = [
   },
   {
     className: 'hero-muted',
-    tokens: [{ text: 'spread sheet.' }]
+    tokens: [{ text: 'spreadsheet.' }]
   }
 ];
 

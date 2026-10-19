@@ -1,4 +1,4 @@
-﻿import { C } from '../content';
+import { C } from '../content';
 
 export function buildCustomModules(): HTMLElement {
   const el = document.createElement('section');
@@ -147,6 +147,10 @@ export function buildFinalCta(): HTMLElement {
         <label>${f.size}<select name="size" required><option value="">Select...</option>${sizeOpts}</select></label>
         <label>${f.contact}<input name="contact" type="text" placeholder="${f.contactPh}" required /></label>
         <label>${f.pain}<select name="pain" required><option value="">Select...</option>${painOpts}</select></label>
+        <div class="form-selected-modules" id="form-selected-modules" hidden>
+          <span class="sm-label">Modules to discuss:</span>
+          <div class="sm-chips" id="sm-chips"></div>
+        </div>
         <input type="hidden" name="modules" value="" />
         <button type="submit" class="btn btn-primary form-submit">${f.submit}</button>
         <a class="btn btn-ghost form-wa" href="#" target="_blank" rel="noopener">${C.finalCta.whatsapp}</a>

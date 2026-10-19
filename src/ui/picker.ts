@@ -19,7 +19,7 @@ export function bindPicker(): void {
       if (needs.length > 0 && !selected.has(id)) {
         const note = document.createElement('span');
         note.className = 'dep-note';
-        note.textContent = `TODO-CONFIRM with owner: needs ${needs.join(' + ')}`;
+        note.textContent = `Requires ${needs.join(' + ')}`;
         b.appendChild(note);
       }
     });
