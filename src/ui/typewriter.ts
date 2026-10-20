@@ -117,6 +117,10 @@ export function initTypewriter(config?: Partial<TypewriterConfig>): void {
     const currentToken = currentLine.tokens[tokenIdx];
     const targetSpan = tokenSpans[lineIdx][tokenIdx];
 
+    if (cursor && targetSpan.parentElement && cursor.parentElement !== targetSpan.parentElement) {
+      targetSpan.parentElement.appendChild(cursor);
+    }
+
     if (charIdx < currentToken.text.length) {
       targetSpan.textContent += currentToken.text[charIdx];
       charIdx++;
