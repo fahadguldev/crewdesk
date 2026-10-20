@@ -81,7 +81,7 @@ export function initChoreography(env: Env): void {
     });
   }
 
-  // ---- Modules: horizontal slab track (desktop only, ~45vh per slab) ----
+  // ---- Modules: horizontal slab track (desktop only, ~48vh per slab with buttery scrub) ----
   const stage = document.querySelector<HTMLElement>('.modules-stage');
   const ring = document.querySelector<HTMLElement>('.module-ring');
   if (!mobile && stage && ring) {
@@ -94,27 +94,34 @@ export function initChoreography(env: Env): void {
       scrollTrigger: {
         trigger: stage,
         start: 'top top',
-        end: () => `+=${Math.round(slabCount * 0.45 * window.innerHeight)}`,
+        end: () => `+=${Math.round(slabCount * 0.48 * window.innerHeight)}`,
         pin: true,
-        scrub: 1,
+        scrub: 1.2,
         invalidateOnRefresh: true,
         anticipatePin: 1
       }
     });
   }
 
-  // ---- Roles: cube rotates 90° per role (desktop only, snappy ~65% per role) ----
-  if (!mobile) {
+  // ---- Roles: smooth step through 4 dashboards on desktop scroll ----
+  // Pins the card layout centered in the viewport so the entire card fits,
+  // allowing the heading to scroll up naturally.
+  const rolesLayout = document.querySelector<HTMLElement>('.roles-layout');
+  if (!mobile && rolesLayout) {
+    let lastStep = -1;
     ScrollTrigger.create({
-      trigger: '.roles',
-      start: 'top top',
-      end: `+=${C.roles.items.length * 65}%`,
+      trigger: rolesLayout,
+      start: 'center center',
+      end: `+=${C.roles.items.length * 70}%`,
       pin: true,
       scrub: true,
       anticipatePin: 1,
       onUpdate: (self) => {
         const step = Math.min(C.roles.items.length - 1, Math.floor(self.progress * C.roles.items.length));
-        window.dispatchEvent(new CustomEvent('roles:set', { detail: step }));
+        if (step !== lastStep) {
+          lastStep = step;
+          window.dispatchEvent(new CustomEvent('roles:set', { detail: step }));
+        }
       }
     });
   }

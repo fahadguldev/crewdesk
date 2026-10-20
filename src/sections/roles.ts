@@ -227,10 +227,14 @@ export function buildRoles(): HTMLElement {
     el.querySelectorAll<HTMLButtonElement>(".role-tab"),
   );
   const cardEls = Array.from(el.querySelectorAll<HTMLElement>(".role-card"));
-  let current = 0;
+  let current = -1;
 
   const setActive = (index: number, focus = false): void => {
     const next = (index + roles.length) % roles.length;
+    // Prevent redundant animation restarting if already active
+    if (next === current && cardEls[current] && !cardEls[current].hidden) {
+      return;
+    }
     current = next;
     tabEls.forEach((t, i) => {
       const on = i === next;
@@ -248,9 +252,20 @@ export function buildRoles(): HTMLElement {
       c.hidden = !on;
     });
     el.dataset.activeRole = roles[next].id;
+
+    // If user clicked or focused tab, ensure the whole card fits in view
+    if (focus) {
+      const activeCard = cardEls[next];
+      if (activeCard) {
+        const rect = activeCard.getBoundingClientRect();
+        if (rect.bottom > window.innerHeight || rect.top < 65) {
+          activeCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      }
+    }
   };
 
-  tabEls.forEach((t, i) => t.addEventListener("click", () => setActive(i)));
+  tabEls.forEach((t, i) => t.addEventListener("click", () => setActive(i, true)));
 
   el.querySelector(".role-tabs")!.addEventListener("keydown", (e) => {
     const k = (e as KeyboardEvent).key;
