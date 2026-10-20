@@ -302,7 +302,7 @@
     }
   },
   "footer": {
-    "copy": "© 2026 Hub دفتر (DaftarHub) • Agency Operations Platform • All Rights Reserved",
+    "copy": "© 2026 Hub دفتر • Agency Operations Platform • All Rights Reserved",
     "trust": {
       "title": "Platform Security & Reliability",
       "note": "Role-isolated permissions, 256-bit encryption for client passwords, automated daily backups, and dedicated onboarding support."
