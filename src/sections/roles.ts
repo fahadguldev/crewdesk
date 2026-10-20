@@ -13,11 +13,83 @@ export function buildRoles(): HTMLElement {
     employee: `<svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="12" x="3" y="4" rx="2"/><line x1="2" x2="22" y1="20" y2="20"/></svg>`
   };
 
+  const roleMockups: Record<string, string> = {
+    admin: `
+      <div class="rc-preview-box">
+        <div class="money-row">
+          <div class="mr-left">
+            <span class="mr-indicator-dot"></span>
+            <span class="money-label">${C.roles.redaction.label}</span>
+          </div>
+          <span class="money-value" data-real="${C.roles.redaction.value}" data-mask="${C.roles.redaction.hidden}">${C.roles.redaction.value}</span>
+        </div>
+        <div class="rc-preview-pills">
+          <span class="rc-metric-pill"><span>Vault:</span> AES-256 Armed</span>
+          <span class="rc-metric-pill"><span>Attendance:</span> 100% Synced</span>
+          <span class="rc-metric-pill"><span>Net Margin:</span> +34.2%</span>
+        </div>
+      </div>
+      <p class="money-cap">${C.roles.redaction.captionAdmin}</p>
+    `,
+    hr: `
+      <div class="rc-preview-box">
+        <div class="money-row redacted">
+          <div class="mr-left">
+            <span class="mr-shield-icon">🔒</span>
+            <span class="money-label">${C.roles.redaction.label}</span>
+          </div>
+          <span class="money-mask">${C.roles.redaction.hidden}</span>
+        </div>
+        <div class="rc-preview-pills">
+          <span class="rc-metric-pill"><span>Daily Punch:</span> 42 Active</span>
+          <span class="rc-metric-pill"><span>Pending Leaves:</span> 2</span>
+          <span class="rc-metric-pill"><span>Salaries:</span> Restricted</span>
+        </div>
+      </div>
+      <p class="money-cap">${C.roles.redaction.captionEmployee}</p>
+    `,
+    pm: `
+      <div class="rc-preview-box">
+        <div class="money-row redacted">
+          <div class="mr-left">
+            <span class="mr-shield-icon">🔒</span>
+            <span class="money-label">${C.roles.redaction.label}</span>
+          </div>
+          <span class="money-mask">${C.roles.redaction.hidden}</span>
+        </div>
+        <div class="rc-preview-pills">
+          <span class="rc-metric-pill"><span>Active Sprints:</span> 8</span>
+          <span class="rc-metric-pill"><span>Capacity Guard:</span> Balanced</span>
+          <span class="rc-metric-pill"><span>Margins:</span> Restricted</span>
+        </div>
+      </div>
+      <p class="money-cap">${C.roles.redaction.captionEmployee}</p>
+    `,
+    employee: `
+      <div class="rc-preview-box">
+        <div class="money-row redacted">
+          <div class="mr-left">
+            <span class="mr-shield-icon">🔒</span>
+            <span class="money-label">${C.roles.redaction.label}</span>
+          </div>
+          <span class="money-mask">${C.roles.redaction.hidden}</span>
+        </div>
+        <div class="rc-preview-pills">
+          <span class="rc-metric-pill"><span>My Tasks:</span> 4 In Progress</span>
+          <span class="rc-metric-pill"><span>Check-In:</span> 09:15 AM</span>
+          <span class="rc-metric-pill"><span>Financials:</span> Hidden</span>
+        </div>
+      </div>
+      <p class="money-cap">${C.roles.redaction.captionEmployee}</p>
+    `
+  };
+
   const faces = C.roles.items
     .map((r) => {
       const icon = roleIcons[r.id] ?? fallbackIcon;
       const demoUrl = (r as any).demoUrl ?? (C.roles as any).demoUrl ?? 'https://demo.crewdesk.com';
-      const demoCta = (C.roles as any).demoCta ?? 'See Live Demo';
+      const demoCta = (C.roles as any).demoCta ?? 'View Live Demo';
+      const mockup = roleMockups[r.id] ?? roleMockups.employee;
 
       return `
         <div class="cube-face glass role-card" data-id="${r.id}" style="--c:var(--${r.color})">
@@ -25,37 +97,34 @@ export function buildRoles(): HTMLElement {
             <div class="rc-title-wrap">
               <span class="rc-icon" aria-hidden="true">${icon}</span>
               <div>
-                <span class="role-badge">${r.badge}</span>
+                <div class="rc-badge-row">
+                  <span class="role-badge">${r.badge}</span>
+                  <span class="rc-pulse-dot" aria-hidden="true"></span>
+                </div>
                 <h3 class="rc-title">${r.title}</h3>
               </div>
             </div>
-            <span class="rc-access-pill ${r.seesMoney ? 'is-full' : 'is-prot'}">${r.seesMoney ? 'Full Access' : 'Protected'}</span>
+            <span class="rc-access-pill ${r.seesMoney ? 'is-full' : 'is-prot'}">
+              ${r.seesMoney ? '● Full Access' : '🔒 Protected'}
+            </span>
           </div>
 
           <p class="rc-desc">${r.desc}</p>
 
           <div class="role-chips">
-            ${r.chips.map((c) => `<span>${c}</span>`).join('')}
+            ${r.chips.map((c) => `<span class="rc-chip">${c}</span>`).join('')}
           </div>
 
-          ${
-            r.seesMoney
-              ? `<div class="money-row">
-                   <span class="money-label">${C.roles.redaction.label}</span>
-                   <span class="money-value" data-real="${C.roles.redaction.value}" data-mask="${C.roles.redaction.hidden}">${C.roles.redaction.value}</span>
-                 </div>
-                 <p class="money-cap">${C.roles.redaction.captionAdmin}</p>`
-              : `<div class="money-row redacted">
-                   <span class="money-label">${C.roles.redaction.label}</span>
-                   <span class="money-mask">${C.roles.redaction.hidden}</span>
-                 </div>
-                 <p class="money-cap">${C.roles.redaction.captionEmployee}</p>`
-          }
+          ${mockup}
 
           <div class="rc-actions">
+            <span class="rc-live-hint">
+              <span class="live-dot"></span>
+              Live sandbox ready
+            </span>
             <a class="btn btn-primary rc-demo-btn" href="${demoUrl}" target="_blank" rel="noopener noreferrer">
               <span>${demoCta}</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                 <polyline points="15 3 21 3 21 9"></polyline>
                 <line x1="10" y1="14" x2="21" y2="3"></line>

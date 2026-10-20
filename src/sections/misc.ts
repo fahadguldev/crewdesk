@@ -142,18 +142,22 @@ export function buildFinalCta(): HTMLElement {
       <form class="final-form glass" id="demo-form">
         <h3 class="form-title">${f.title}</h3>
         <p class="form-sub">${f.subModal}</p>
-        <label>${f.name}<input name="name" type="text" placeholder="${f.namePh}" required /></label>
-        <label>${f.agency}<input name="agency" type="text" placeholder="${f.agencyPh}" required /></label>
-        <label>${f.size}<select name="size" required><option value="">Select...</option>${sizeOpts}</select></label>
-        <label>${f.contact}<input name="contact" type="text" placeholder="${f.contactPh}" required /></label>
-        <label>${f.pain}<select name="pain" required><option value="">Select...</option>${painOpts}</select></label>
+        <div class="form-fields-compact">
+          <label class="form-field">${f.name}<input name="name" type="text" placeholder="${f.namePh}" required /></label>
+          <label class="form-field">${f.agency}<input name="agency" type="text" placeholder="${f.agencyPh}" required /></label>
+          <label class="form-field">${f.contact}<input name="contact" type="text" placeholder="${f.contactPh}" required /></label>
+          <label class="form-field">${f.size}<select name="size" required><option value="">Select...</option>${sizeOpts}</select></label>
+        </div>
+        <input type="hidden" name="pain" value="attendance" />
         <div class="form-selected-modules" id="form-selected-modules" hidden>
           <span class="sm-label">Modules to discuss:</span>
           <div class="sm-chips" id="sm-chips"></div>
         </div>
         <input type="hidden" name="modules" value="" />
-        <button type="submit" class="btn btn-primary form-submit">${f.submit}</button>
-        <a class="btn btn-ghost form-wa" href="#" target="_blank" rel="noopener">${C.finalCta.whatsapp}</a>
+        <div class="form-actions-row">
+          <button type="submit" class="btn btn-primary form-submit">${f.submit}</button>
+          <a class="btn btn-ghost form-wa" href="#" target="_blank" rel="noopener">${C.finalCta.whatsapp}</a>
+        </div>
         <div class="form-success" hidden>
           <div class="lock-ring" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
           <p>Opening WhatsApp... we'll confirm within one business day.</p>

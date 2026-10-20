@@ -1,4 +1,4 @@
-﻿import { C } from '../content';
+import { C } from '../content';
 
 const ART: Record<string, string> = {
   bars: `<div class="art-bars"><i style="height:40%"></i><i style="height:70%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:62%"></i></div>`,
@@ -7,13 +7,16 @@ const ART: Record<string, string> = {
   board: `<div class="art-board"><i></i><i></i><i></i><i></i><i></i><i></i></div>`,
   lock: `<div class="art-lock"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><i></i></div>`,
   ring: `<div class="art-ring"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" /><circle cx="18" cy="18" r="15" class="ring-fill"/></svg></div>`,
-  gauge: `<div class="art-gauge"><i style="width:82%"></i></div>`
+  gauge: `<div class="art-gauge"><i style="width:82%"></i></div>`,
+  coins: `<div class="art-coins"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M18 8a6 6 0 0 1-5 5.91"/><path d="m8 6 4 4"/><circle cx="16" cy="16" r="6"/></svg><i></i></div>`
 };
 
 export function buildModules(): HTMLElement {
   const el = document.createElement('section');
   el.className = 'modules pin-section';
   el.id = 'modules';
+
+  const demoUrl = (C.modules as any).demoUrl ?? 'https://demo.crewdesk.com';
 
   const slabs = C.modules.items
     .map(
@@ -26,6 +29,16 @@ export function buildModules(): HTMLElement {
         <span class="slab-badge">${C.modules.availableLabel}</span>
         <div class="slab-art">${ART[m.art] ?? ''}</div>
         <p class="slab-desc">${m.desc}</p>
+        <div class="slab-actions">
+          <a class="btn btn-outline-demo slab-demo-btn" href="${demoUrl}" target="_blank" rel="noopener noreferrer">
+            <span>View Live Demo</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
       </article>`
     )
     .join('');
@@ -39,9 +52,17 @@ export function buildModules(): HTMLElement {
       <h3 class="slab-title">${C.modules.ai.title} <span class="ai-status">(${C.modules.ai.status})</span></h3>
       <p class="slab-desc">${C.modules.ai.desc}</p>
       <ul class="ai-bullets">${C.modules.ai.bullets.map((b) => `<li>${b}</li>`).join('')}</ul>
+      <div class="slab-actions">
+        <a class="btn btn-outline-demo slab-demo-btn" href="${demoUrl}" target="_blank" rel="noopener noreferrer">
+          <span>View Live Demo</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
+      </div>
     </article>`;
-
-  const picker = C.modules.picker.enabled ? buildPicker() : '';
 
   el.innerHTML = `
     <div class="modules-stage container">
@@ -54,7 +75,6 @@ export function buildModules(): HTMLElement {
         <div class="module-ring">${slabs}${ai}</div>
       </div>
     </div>
-    <div class="container">${picker}</div>
   `;
   return el;
 }

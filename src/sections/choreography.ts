@@ -20,6 +20,23 @@ export function initChoreography(env: Env): void {
   const mobile = env.isMobile;
   ScrollTrigger.config({ ignoreMobileResize: true });
 
+  // ---- Hero Below Cards: fly in from alternating sides with tilt ----
+  gsap.from('.hero-card', {
+    scrollTrigger: {
+      trigger: '.hero-below-cards',
+      start: 'top 82%',
+      toggleActions: 'play none none reverse'
+    },
+    x: (i) => (mobile ? (i % 2 === 0 ? -35 : 35) : (i % 2 === 0 ? -180 : 180)),
+    y: mobile ? 45 : 95,
+    rotate: (i) => (mobile ? (i % 2 === 0 ? -2 : 2) : (i % 2 === 0 ? -4 : 4)),
+    opacity: 0,
+    stagger: 0.1,
+    duration: 0.75,
+    ease: 'power2.out',
+    clearProps: 'transform'
+  });
+
   // ---- Pain: fly-through tunnel, collapse (desktop only) ----
   if (!mobile) {
     gsap
@@ -102,23 +119,6 @@ export function initChoreography(env: Env): void {
     });
   }
 
-  // ---- Custom Modules: cards fly in from alternating sides with tilt ----
-  gsap.from('.cm-step', {
-    scrollTrigger: {
-      trigger: '.custom-modules',
-      start: 'top 78%',
-      toggleActions: 'play none none reverse'
-    },
-    x: (i) => (mobile ? (i % 2 === 0 ? -35 : 35) : (i % 2 === 0 ? -190 : 190)),
-    y: mobile ? 50 : 110,
-    rotate: (i) => (mobile ? (i % 2 === 0 ? -2 : 2) : (i % 2 === 0 ? -5 : 5)),
-    opacity: 0,
-    stagger: 0.12,
-    duration: 0.75,
-    ease: 'power2.out',
-    clearProps: 'transform'
-  });
-
   // ---- Comparison: cards and table fly in from alternating sides ----
   gsap.from('.cmp-desktop-only, .cmp-card', {
     scrollTrigger: {
@@ -137,23 +137,21 @@ export function initChoreography(env: Env): void {
   });
 
   // ---- Pricing Plans: cards fly in from alternating sides with tilt ----
-  if (!mobile) {
-    gsap.from('.plans .plan', {
-      scrollTrigger: {
-        trigger: '.pricing',
-        start: 'top 76%',
-        toggleActions: 'play none none reverse'
-      },
-      x: (i) => (i === 0 ? -190 : i === 1 ? 0 : 190),
-      y: 120,
-      rotate: (i) => (i === 0 ? -6 : i === 1 ? 0 : 6),
-      opacity: 0,
-      stagger: 0.12,
-      duration: 0.8,
-      ease: 'power2.out',
-      clearProps: 'transform'
-    });
-  }
+  gsap.from('.plans .plan', {
+    scrollTrigger: {
+      trigger: '.pricing',
+      start: 'top 78%',
+      toggleActions: 'play none none reverse'
+    },
+    x: (i) => (mobile ? (i % 2 === 0 ? -35 : 35) : (i === 0 ? -190 : i === 1 ? 0 : 190)),
+    y: mobile ? 50 : 120,
+    rotate: (i) => (mobile ? (i % 2 === 0 ? -2 : 2) : (i === 0 ? -6 : i === 1 ? 0 : 6)),
+    opacity: 0,
+    stagger: 0.12,
+    duration: 0.8,
+    ease: 'power2.out',
+    clearProps: 'transform'
+  });
 
   // ---- Pricing Table: savings matrix container flies in ----
   gsap.from('.pt-wrap', {
@@ -186,21 +184,30 @@ export function initChoreography(env: Env): void {
     clearProps: 'transform'
   });
 
-  // ---- FAQ: accordion cards cascade in from alternating sides ----
-  gsap.from('.faq-item', {
-    scrollTrigger: {
-      trigger: '.faq',
-      start: 'top 80%',
-      toggleActions: 'play none none reverse'
+  // ---- FAQ: only the items visible on screen cascade in from alternating sides ----
+  ScrollTrigger.batch('.faq-item', {
+    start: 'top 88%',
+    onEnter: (batch) => {
+      gsap.from(batch, {
+        x: (_i, el) => {
+          const all = Array.from(document.querySelectorAll('.faq-item'));
+          const idx = all.indexOf(el as HTMLElement);
+          return mobile ? (idx % 2 === 0 ? -30 : 30) : (idx % 2 === 0 ? -150 : 150);
+        },
+        y: 45,
+        rotate: (_i, el) => {
+          const all = Array.from(document.querySelectorAll('.faq-item'));
+          const idx = all.indexOf(el as HTMLElement);
+          return mobile ? (idx % 2 === 0 ? -1.5 : 1.5) : (idx % 2 === 0 ? -3 : 3);
+        },
+        opacity: 0,
+        duration: 0.65,
+        stagger: 0.08,
+        ease: 'power2.out',
+        clearProps: 'transform'
+      });
     },
-    x: (i) => (mobile ? (i % 2 === 0 ? -25 : 25) : (i % 2 === 0 ? -90 : 90)),
-    y: 45,
-    rotate: (i) => (mobile ? (i % 2 === 0 ? -1 : 1) : (i % 2 === 0 ? -2 : 2)),
-    opacity: 0,
-    stagger: 0.06,
-    duration: 0.6,
-    ease: 'power2.out',
-    clearProps: 'transform'
+    once: false
   });
 
   // ---- Final CTA: pinned ~80vh, form settles in (desktop only) ----

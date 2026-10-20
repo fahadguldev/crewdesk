@@ -24,23 +24,19 @@ export interface TypewriterConfig {
 const DEFAULT_STRUCTURE: TypewriterLine[] = [
   {
     tokens: [
-      { text: 'manage your whole ' },
+      { text: 'Manage your whole ' },
       { text: 'دفتر', className: 'type-urdu-green urdu', isUrdu: true }
     ]
   },
   {
     tokens: [
-      { text: 'from one single ' },
-      { text: 'hub', className: 'type-green-hub' }
+      { text: 'from 1 ' },
+      { text: 'Hub', className: 'type-green-hub' }
     ]
   },
   {
     className: 'hero-muted',
-    tokens: [{ text: 'not 5 tools and a' }]
-  },
-  {
-    className: 'hero-muted',
-    tokens: [{ text: 'spreadsheet.' }]
+    tokens: [{ text: 'not diff tools and sheets' }]
   }
 ];
 

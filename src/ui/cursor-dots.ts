@@ -40,6 +40,11 @@ export function initCursorDots(): () => void {
   container.className = 'cursor-dots-layer';
   container.setAttribute('aria-hidden', 'true');
 
+  // Ambient luminous light beam / spotlight exactly like pricing cards
+  const beamEl = document.createElement('div');
+  beamEl.className = 'cursor-light-beam';
+  container.appendChild(beamEl);
+
   // Luminous inertia bubble that blooms on idle
   const bubbleEl = document.createElement('div');
   bubbleEl.className = 'cursor-bubble';
@@ -54,6 +59,8 @@ export function initCursorDots(): () => void {
   let mouseY = -100;
   let bubbleX = -100;
   let bubbleY = -100;
+  let beamX = -100;
+  let beamY = -100;
   let hasMoved = false;
   let isVisible = false;
   let isIdle = false;
@@ -86,6 +93,9 @@ export function initCursorDots(): () => void {
       isVisible = true;
       bubbleX = mouseX;
       bubbleY = mouseY;
+      beamX = mouseX;
+      beamY = mouseY;
+      beamEl.style.opacity = '1';
       bubbleEl.style.opacity = '1';
       dots.forEach((d) => {
         d.x = mouseX;
@@ -94,6 +104,7 @@ export function initCursorDots(): () => void {
       });
     } else if (!isVisible) {
       isVisible = true;
+      beamEl.style.opacity = '1';
       bubbleEl.style.opacity = '1';
       dots.forEach((d) => (d.element.style.opacity = '1'));
     }
@@ -101,6 +112,7 @@ export function initCursorDots(): () => void {
 
   const onMouseLeave = () => {
     isVisible = false;
+    beamEl.style.opacity = '0';
     bubbleEl.style.opacity = '0';
     dots.forEach((d) => (d.element.style.opacity = '0'));
   };
@@ -108,6 +120,7 @@ export function initCursorDots(): () => void {
   const onMouseEnter = () => {
     if (hasMoved) {
       isVisible = true;
+      beamEl.style.opacity = '1';
       bubbleEl.style.opacity = '1';
       dots.forEach((d) => (d.element.style.opacity = '1'));
     }
@@ -132,6 +145,12 @@ export function initCursorDots(): () => void {
       bubbleEl.classList.toggle('is-idle', isIdle);
       container.classList.toggle('is-idle', isIdle);
     }
+
+    // Ambient light beam tracks with silky smooth dampening
+    const beamSpeed = 0.12;
+    beamX += (mouseX - beamX) * beamSpeed;
+    beamY += (mouseY - beamY) * beamSpeed;
+    beamEl.style.transform = `translate3d(${beamX}px, ${beamY}px, 0) translate(-50%, -50%)`;
 
     // Luminous bubble tracks mouse with silky lag (noticeably slower than raw cursor)
     const bubbleSpeed = isIdle ? 0.05 : 0.07;

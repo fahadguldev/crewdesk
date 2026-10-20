@@ -15,7 +15,6 @@ import {
   bindPricingMobile
 } from './sections/pricing';
 import {
-  buildCustomModules,
   buildOnboarding,
   buildFaq,
   bindFaq,
@@ -45,7 +44,6 @@ function mount(app: HTMLElement): void {
   app.appendChild(buildPain());
   app.appendChild(buildModules());
   app.appendChild(buildRoles());
-  app.appendChild(buildCustomModules());
   app.appendChild(buildComparison());
   app.appendChild(buildPricing());
   app.appendChild(buildPricingTable());

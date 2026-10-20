@@ -49,28 +49,69 @@ export function buildHero(): HTMLElement {
   const el = document.createElement('section');
   el.className = 'hero pin-section';
   el.id = 'hero';
-  const chips = C.hero.trustChips
+
+  const heroCards = [
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>',
+      tag: 'DAY 1 READY',
+      title: '8 Core Operational Modules',
+      body: 'Attendance, biometric sync, projects, client password vault, time tracking, workload, profit margins & payroll.',
+      color: 'emerald'
+    },
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+      tag: 'ZERO CONFUSION',
+      title: 'First-Week Onboarding',
+      body: 'Guided setup, employee migration, and hands-on team training so your office is comfortable from day one.',
+      color: 'indigo'
+    },
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>',
+      tag: 'ROLE PRIVACY',
+      title: 'Zero Salary or Rate Leaks',
+      body: '4 dedicated role screens for Owner, HR, PM, and Employee. AES-256 encrypted vault with immutable access logs.',
+      color: 'teal'
+    },
+    {
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>',
+      tag: 'SUPPORT SLA',
+      title: '2-Day Issue Resolution',
+      body: 'Ongoing support, free small workflow changes & maintenance, plus a dedicated WhatsApp hyper-care channel.',
+      color: 'amber'
+    }
+  ];
+
+  const cardsHtml = heroCards
     .map(
-      (c) => `<div class="trust-chip glass"><h4>${c.title}</h4><p>${c.body}</p></div>`
+      (c, i) => `
+        <article class="hero-card glass" data-i="${i}" style="--c:var(--${c.color})">
+          <div class="hc-glow" aria-hidden="true"></div>
+          <div class="hc-top">
+            <span class="hc-icon" aria-hidden="true">${c.icon}</span>
+            <span class="hc-tag">${c.tag}</span>
+          </div>
+          <h3 class="hc-title">${c.title}</h3>
+          <p class="hc-body">${c.body}</p>
+        </article>
+      `
     )
     .join('');
+
   el.innerHTML = `
-    <div class="container hero-layout">
-      <div class="hero-copy">
-        <div class="hero-badges">
-          <span class="pill glass">${C.hero.pill1}</span>
-          <span class="pill glass pill-accent">${C.hero.pill2}</span>
-        </div>
-        <h1 class="hero-h1" id="hero-headline" aria-label="manage your whole dafter from one single hub not 5 tools and a spread sheet.">
+    <!-- First View Screen: Only the core headline visible -->
+    <div class="hero-first-screen">
+      <div class="container hero-center-wrap">
+        <h1 class="hero-h1" id="hero-headline" aria-label="Manage your whole دفتر from 1 Hub not diff tools and sheets">
           <span class="typewriter-text" id="typewriter-text"></span><span class="typing-cursor" id="typing-cursor" aria-hidden="true">|</span>
         </h1>
-        <p class="hero-sub">${C.hero.sub}</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#final-cta">${C.hero.ctaPrimary}</a>
-          <a class="btn btn-ghost" href="#pricing-table">${C.hero.ctaSecondary}</a>
-        </div>
       </div>
-      <div class="trust-chips">${chips}</div>
+    </div>
+
+    <!-- Below Cards: fly in from left and right on scroll with micro-interactions -->
+    <div class="hero-below-cards container">
+      <div class="hero-cards-grid">
+        ${cardsHtml}
+      </div>
     </div>
   `;
   return el;

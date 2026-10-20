@@ -109,10 +109,10 @@ export function bindEntrances(): void {
   }
 }
 
-/** Adds restrained pointer depth to pricing cards without affecting touch layouts. */
+/** Adds restrained pointer depth and light glare to cards without affecting touch layouts. */
 export function bindPricingTilt(): void {
   if (window.matchMedia('(pointer: coarse)').matches) return;
-  document.querySelectorAll<HTMLElement>('.plan').forEach((card) => {
+  document.querySelectorAll<HTMLElement>('.plan, .hero-card, .pain-card, .role-card').forEach((card) => {
     card.addEventListener('pointermove', (event) => {
       const rect = card.getBoundingClientRect();
       const x = (event.clientX - rect.left) / rect.width - 0.5;
