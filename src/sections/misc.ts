@@ -149,11 +149,6 @@ export function buildFinalCta(): HTMLElement {
           <label class="form-field">${f.size}<select name="size" required><option value="">Select...</option>${sizeOpts}</select></label>
         </div>
         <input type="hidden" name="pain" value="attendance" />
-        <div class="form-selected-modules" id="form-selected-modules" hidden>
-          <span class="sm-label">Modules to discuss:</span>
-          <div class="sm-chips" id="sm-chips"></div>
-        </div>
-        <input type="hidden" name="modules" value="" />
         <div class="form-actions-row">
           <button type="submit" class="btn btn-primary form-submit">${f.submit}</button>
           <a class="btn btn-ghost form-wa" href="#" target="_blank" rel="noopener">${C.finalCta.whatsapp}</a>
