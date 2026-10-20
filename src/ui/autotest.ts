@@ -53,19 +53,23 @@ export function runAutoTest(): void {
     opts[1].click();
   }
 
-  // 4. Role cube: next rotates + admin money reveal
-  const cube = document.getElementById('role-cube');
-  const next = document.querySelector<HTMLButtonElement>('.cube-next');
-  if (cube && next) {
-    const before = cube.style.transform;
-    next.click();
-    const after = cube.style.transform;
-    ok('cube-rotate', before !== after && after.includes('rotateY(-90deg)'), `${before} -> ${after}`);
-    const money = document.querySelector('.cube-face[data-id="admin"] .money-value')?.textContent ?? '';
-    ok('cube-money-redacted', money === C.roles.redaction.hidden, `admin money=${money}`);
-    document.querySelector<HTMLButtonElement>('.cube-prev')?.click();
-    const moneyBack = document.querySelector('.cube-face[data-id="admin"] .money-value')?.textContent ?? '';
-    ok('cube-money-revealed', moneyBack === C.roles.redaction.value, `admin money=${moneyBack}`);
+  // 4. Roles: tab switching + admin money redaction toggle
+  const roleTabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.role-tab'));
+  const roleCards = Array.from(document.querySelectorAll<HTMLElement>('.role-card'));
+  if (roleTabs.length >= 2 && roleCards.length >= 2) {
+    roleTabs[1].click();
+    ok('roles-tab-switch', roleTabs[1].classList.contains('is-active') && !roleCards[1].hidden, 'tab 1 activated');
+    roleTabs[0].click();
+    const moneyToggle = document.querySelector<HTMLButtonElement>('.money-toggle');
+    const moneyVal = document.querySelector<HTMLElement>('.money-value');
+    if (moneyToggle && moneyVal) {
+      const original = moneyVal.textContent;
+      moneyToggle.click();
+      const toggled = moneyVal.textContent;
+      ok('money-toggle-redact', original !== toggled && toggled === C.roles.redaction.hidden, `redacted=${toggled}`);
+      moneyToggle.click();
+      ok('money-toggle-reveal', moneyVal.textContent === C.roles.redaction.value, `revealed=${moneyVal.textContent}`);
+    }
   }
 
   // 5. Theme toggle
