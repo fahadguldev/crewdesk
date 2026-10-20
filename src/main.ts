@@ -123,7 +123,8 @@ function boot(): void {
   const qaScroll = new URLSearchParams(window.location.search).get('scroll');
   if (qaScroll) {
     setTimeout(() => {
-      const y = Number(qaScroll) || 0;
+      const targetEl = document.getElementById(qaScroll);
+      const y = targetEl ? targetEl.getBoundingClientRect().top + window.scrollY - 20 : (Number(qaScroll) || 0);
       const lenis = getLenis();
       if (lenis) lenis.scrollTo(y, { immediate: true });
       else window.scrollTo(0, y);
