@@ -1,0 +1,193 @@
+/**
+ * Cursor Following Dots & Luminous Inertial Bubble
+ * Creates a smooth, physics-based trailing ribbon of glowing dots that
+ * follow the user's cursor with luxury inertia, and blooms into a larger
+ * glowing glass bubble whenever cursor movement stops.
+ */
+
+interface DotState {
+  x: number;
+  y: number;
+  element: HTMLDivElement;
+  size: number;
+}
+
+const DOT_COLORS = [
+  '#34d399', // emerald (signature Urdu brand green)
+  '#34d399',
+  '#2dd4bf', // teal (site accent)
+  '#2dd4bf',
+  '#38bdf8', // sky cyan (site highlight)
+  '#2dd4bf',
+  '#34d399',
+  '#10b981', // deep emerald
+  '#34d399',
+  '#2dd4bf'
+];
+
+export function initCursorDots(): () => void {
+  // Only enable on desktop pointer devices
+  if (window.matchMedia('(pointer: coarse)').matches) {
+    return () => {};
+  }
+
+  // Respect reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return () => {};
+  }
+
+  const container = document.createElement('div');
+  container.className = 'cursor-dots-layer';
+  container.setAttribute('aria-hidden', 'true');
+
+  // Ambient luminous light beam / spotlight exactly like pricing cards
+  const beamEl = document.createElement('div');
+  beamEl.className = 'cursor-light-beam';
+  container.appendChild(beamEl);
+
+  // Luminous inertia bubble that blooms on idle
+  const bubbleEl = document.createElement('div');
+  bubbleEl.className = 'cursor-bubble';
+  container.appendChild(bubbleEl);
+
+  document.body.appendChild(container);
+
+  const dotsCount = DOT_COLORS.length;
+  const dots: DotState[] = [];
+
+  let mouseX = -100;
+  let mouseY = -100;
+  let bubbleX = -100;
+  let bubbleY = -100;
+  let beamX = -100;
+  let beamY = -100;
+  let hasMoved = false;
+  let isVisible = false;
+  let isIdle = false;
+  let lastMoveTime = 0;
+
+  for (let i = 0; i < dotsCount; i++) {
+    const dotEl = document.createElement('div');
+    dotEl.className = 'cursor-dot';
+    const ratio = (dotsCount - i) / dotsCount;
+    const size = Math.max(3, Math.round(10 * ratio));
+    const color = DOT_COLORS[i];
+
+    dotEl.style.width = `${size}px`;
+    dotEl.style.height = `${size}px`;
+    dotEl.style.backgroundColor = color;
+    dotEl.style.boxShadow = `0 0 ${Math.max(4, size * 1.5)}px ${color}, 0 0 ${Math.max(8, size * 2.5)}px ${color}`;
+    dotEl.style.opacity = '0';
+
+    container.appendChild(dotEl);
+    dots.push({ x: -100, y: -100, element: dotEl, size });
+  }
+
+  const onMouseMove = (e: MouseEvent) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    lastMoveTime = performance.now();
+
+    if (!hasMoved) {
+      hasMoved = true;
+      isVisible = true;
+      bubbleX = mouseX;
+      bubbleY = mouseY;
+      beamX = mouseX;
+      beamY = mouseY;
+      beamEl.style.opacity = '1';
+      bubbleEl.style.opacity = '1';
+      dots.forEach((d) => {
+        d.x = mouseX;
+        d.y = mouseY;
+        d.element.style.opacity = '1';
+      });
+    } else if (!isVisible) {
+      isVisible = true;
+      beamEl.style.opacity = '1';
+      bubbleEl.style.opacity = '1';
+      dots.forEach((d) => (d.element.style.opacity = '1'));
+    }
+  };
+
+  const onMouseLeave = () => {
+    isVisible = false;
+    beamEl.style.opacity = '0';
+    bubbleEl.style.opacity = '0';
+    dots.forEach((d) => (d.element.style.opacity = '0'));
+  };
+
+  const onMouseEnter = () => {
+    if (hasMoved) {
+      isVisible = true;
+      beamEl.style.opacity = '1';
+      bubbleEl.style.opacity = '1';
+      dots.forEach((d) => (d.element.style.opacity = '1'));
+    }
+  };
+
+  window.addEventListener('mousemove', onMouseMove, { passive: true });
+  document.addEventListener('mouseleave', onMouseLeave);
+  document.addEventListener('mouseenter', onMouseEnter);
+
+  let animId = 0;
+
+  const update = () => {
+    animId = requestAnimationFrame(update);
+
+    if (!hasMoved) return;
+
+    const now = performance.now();
+    const idleNow = now - lastMoveTime > 130;
+
+    if (idleNow !== isIdle) {
+      isIdle = idleNow;
+      bubbleEl.classList.toggle('is-idle', isIdle);
+      container.classList.toggle('is-idle', isIdle);
+    }
+
+    // Ambient light beam tracks with silky smooth dampening
+    const beamSpeed = 0.12;
+    beamX += (mouseX - beamX) * beamSpeed;
+    beamY += (mouseY - beamY) * beamSpeed;
+    beamEl.style.transform = `translate3d(${beamX}px, ${beamY}px, 0) translate(-50%, -50%)`;
+
+    // Luminous bubble tracks mouse with silky lag (noticeably slower than raw cursor)
+    const bubbleSpeed = isIdle ? 0.05 : 0.07;
+    bubbleX += (mouseX - bubbleX) * bubbleSpeed;
+    bubbleY += (mouseY - bubbleY) * bubbleSpeed;
+    bubbleEl.style.transform = `translate3d(${bubbleX}px, ${bubbleY}px, 0) translate(-50%, -50%)`;
+
+    // Head dot follows with calm luxury inertia
+    const headSpeed = 0.08;
+    dots[0].x += (mouseX - dots[0].x) * headSpeed;
+    dots[0].y += (mouseY - dots[0].y) * headSpeed;
+
+    // Subsequent dots trail smoothly behind the dot ahead of them
+    const trailSpeed = 0.15;
+    for (let i = 1; i < dotsCount; i++) {
+      const prev = dots[i - 1];
+      const curr = dots[i];
+      curr.x += (prev.x - curr.x) * trailSpeed;
+      curr.y += (prev.y - curr.y) * trailSpeed;
+    }
+
+    // Hardware accelerated positioning
+    for (let i = 0; i < dotsCount; i++) {
+      const d = dots[i];
+      const offsetX = d.x - d.size / 2;
+      const offsetY = d.y - d.size / 2;
+      d.element.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
+    }
+  };
+
+  animId = requestAnimationFrame(update);
+
+  return () => {
+    cancelAnimationFrame(animId);
+    window.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseleave', onMouseLeave);
+    document.removeEventListener('mouseenter', onMouseEnter);
+    container.remove();
+  };
+}
