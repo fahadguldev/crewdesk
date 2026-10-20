@@ -77,11 +77,10 @@ const adminMockup = (): string => `
 
 const hrMockup = (): string => `
   <div class="rc-preview-box">
-    <div class="mock-head"><span class="mock-title">Leave requests</span><span class="mock-badge">3 pending</span></div>
-    <ul class="mock-list">
+    <div class="mock-head"><span class="mock-title">Leave requests</span><span class="mock-badge">2 pending</span></div>
+    <ul class="mock-list compact">
       <li><span class="avatar">AK</span><div class="mock-meta"><b>Ayesha Khan</b><small>Annual · 3 days</small></div><span class="status is-warn">Pending</span></li>
       <li><span class="avatar">BS</span><div class="mock-meta"><b>Bilal Sheikh</b><small>Sick · 1 day</small></div><span class="status is-ok">Approved</span></li>
-      <li><span class="avatar">HR</span><div class="mock-meta"><b>Hira Raza</b><small>Casual · 2 days</small></div><span class="status is-warn">Pending</span></li>
     </ul>
     <div class="meter" role="img" aria-label="Team attendance 94 percent">
       <div class="meter-top"><span>Team attendance</span><b>94%</b></div>

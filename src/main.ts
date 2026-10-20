@@ -4,7 +4,7 @@ import './styles/sections.css';
 import { detectEnv, type Env } from './scene/quality';
 import { initScroll, getLenis, ScrollTrigger } from './scroll';
 
-import { buildBanner, buildNav, buildHero, buildPain } from './sections/hero';
+import { buildNav, buildHero, buildPain } from './sections/hero';
 import { buildModules } from './sections/modules';
 import { buildRoles } from './sections/roles';
 import {
@@ -36,7 +36,6 @@ import { C } from './content';
 function mount(app: HTMLElement): void {
   const sticky = document.createElement('div');
   sticky.className = 'sticky-top';
-  sticky.appendChild(buildBanner());
   sticky.appendChild(buildNav());
   app.appendChild(sticky);
 

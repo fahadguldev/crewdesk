@@ -4,17 +4,6 @@ function urdu(text: string): string {
   return `<span class="urdu" dir="rtl" lang="ur"><bdi>${text}</bdi></span>`;
 }
 
-export function buildBanner(): HTMLElement {
-  const el = document.createElement('div');
-  el.className = 'banner glass';
-  el.innerHTML = `
-    <span class="banner-badge">${C.banner.badge}</span>
-    <span class="banner-text">${C.banner.text} <em>${C.banner.sub}</em></span>
-    <a class="banner-link" href="#pricing-table">${C.banner.link}</a>
-  `;
-  return el;
-}
-
 export function buildNav(): HTMLElement {
   const el = document.createElement('header');
   el.className = 'nav';

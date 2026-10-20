@@ -104,18 +104,18 @@ export function initChoreography(env: Env): void {
   }
 
   // ---- Roles: smooth step through 4 dashboards on desktop scroll ----
-  // Pins the card layout centered in the viewport so the entire card fits,
-  // allowing the heading to scroll up naturally.
+  // Pins the card layout centered in the visible viewport below the 64px sticky navbar
   const rolesLayout = document.querySelector<HTMLElement>('.roles-layout');
   if (!mobile && rolesLayout) {
     let lastStep = -1;
     ScrollTrigger.create({
       trigger: rolesLayout,
-      start: 'center center',
+      start: () => `center ${Math.round((window.innerHeight + 64) / 2)}px`,
       end: `+=${C.roles.items.length * 70}%`,
       pin: true,
       scrub: true,
       anticipatePin: 1,
+      invalidateOnRefresh: true,
       onUpdate: (self) => {
         const step = Math.min(C.roles.items.length - 1, Math.floor(self.progress * C.roles.items.length));
         if (step !== lastStep) {
@@ -217,26 +217,19 @@ export function initChoreography(env: Env): void {
     once: false
   });
 
-  // ---- Final CTA: pinned ~80vh, form settles in (desktop only) ----
-  if (!mobile) {
-    gsap.fromTo(
-      '.final-form',
-      { y: 60, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.final-cta',
-          start: 'top top',
-          end: '+=80%',
-          pin: true,
-          scrub: 1,
-          anticipatePin: 1
-        }
-      }
-    );
-  }
+  // ---- Final CTA: smooth entrance, dead-center in viewport ----
+  gsap.from('.final-inner', {
+    scrollTrigger: {
+      trigger: '.final-cta',
+      start: 'top 75%',
+      toggleActions: 'play none none reverse'
+    },
+    y: 50,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power2.out',
+    clearProps: 'transform'
+  });
 
   // Recalc after fonts settle (Nastaliq changes metrics)
   window.addEventListener('load', () => ScrollTrigger.refresh());
