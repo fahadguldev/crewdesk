@@ -8,7 +8,6 @@
     "title": "Hub دفتر | Agency Operations Platform — 7 Core Modules + 3 Custom Modules",
     "description": "Hub دفتر is the agency operations platform for digital agencies and service providers. All 7 core modules plus 3 custom modules built for your agency, guided onboarding, and ongoing support.",
     "offerCopy": "3 custom modules built for your agency, delivered in month one.",
-    "foundingOffer": "First 3 Founding دفتر get 50% off (PKR 6,000/mo) for the same full package.",
     "proofSlot": "TODO-OWNER: replace with real customer logos or quotes when available."
   },
   "nav": {
@@ -42,7 +41,7 @@
       },
       {
         "tokens": [
-          { "text": "from 1 " },
+          { "text": "from 1 single " },
           { "text": "Hub", "className": "type-green-hub" }
         ]
       },
@@ -218,7 +217,6 @@
     "title": "Predictable flat pricing. No seat penalties.",
     "sub": "No feature paywalls. No surprises. Every tier includes all 8 core modules, guided onboarding, and ongoing support.",
     "seatRule": "Every employee you onboard counts as one user. Your plan's seat limit is the number of people you can onboard — no separate per-seat charge within that limit.",
-    "founderLabel": "What Every Paying Customer Gets:",
     "plans": [
       {
         "id": "starter", "name": "Starter Plan", "tagline": "Perfect for 5 to 10 person daftars", "seats": 10, "seatLabel": "Up to 10 seats",
@@ -285,7 +283,7 @@
     "whatsapp": "Chat on WhatsApp",
     "form": {
       "name": "Your Name", "namePh": "e.g. Asad",
-      "agency": "Daftar Name", "agencyPh": "e.g. Pixel Forge Daftar",
+      "agency": "Office Name", "agencyPh": "e.g. Pixel Forge Office",
       "size": "Team Size",
       "sizeOptions": ["5-10 (Starter)", "11-25 (Growth)", "26-50 (Scale)", "50+ people"],
       "contact": "WhatsApp Number or Email", "contactPh": "+92 300 1234567 or email",
@@ -299,7 +297,7 @@
       ],
       "submit": "Open WhatsApp Direct",
       "title": "Book Your 30-Min Demo",
-      "subModal": "We'll show you the screens that match your exact daftar size.",
+      "subModal": "We'll show you the screens that match your exact office size.",
       "whatsappNumber": "923001234567"
     }
   },

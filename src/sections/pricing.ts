@@ -241,10 +241,6 @@ export function buildPricing(): HTMLElement {
         <p class="sub-sec">${p.sub}</p>
         <p class="seat-rule">${p.seatRule}</p>
       </div>
-      <div class="founder-note glass">
-        <strong>${p.founderLabel}</strong>
-        <span>${C.brand.foundingOffer}</span>
-      </div>
 
       <!-- Mobile Tier Switcher (Screen width <= 900px) -->
       <div class="pricing-mobile-switcher-wrap">

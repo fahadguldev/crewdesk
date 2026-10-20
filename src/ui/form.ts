@@ -37,7 +37,7 @@ export function bindForm(): void {
 
     const msg =
       `Hi ${C.brand.name}! I'd like to book the 30-min walkthrough.\n` +
-      `Name: ${get('name')}\nDaftar: ${get('agency')}\nTeam size: ${get('size')}\n` +
+      `Name: ${get('name')}\nOffice: ${get('agency')}\nTeam size: ${get('size')}\n` +
       `Contact: ${get('contact')}\nBiggest headache: ${get('pain')}`;
     const selectedModules = get('modules');
     const fullMessage = selectedModules ? `${msg}\nModules to discuss: ${selectedModules}` : msg;
