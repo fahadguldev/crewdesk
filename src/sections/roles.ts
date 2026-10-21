@@ -35,21 +35,19 @@ const fallbackIcon = icon(
 );
 
 /* ------------------------------------------------------------------ */
-/* Role data                                                           */
-/* Only C.roles.redaction is read from content; everything else has    */
-/* sensible defaults and can be overridden from C.roles.items[id].     */
+/* Role types and mockups                                              */
 /* ------------------------------------------------------------------ */
 
 type RoleDef = {
   id: string;
   name: string;
   tagline: string;
+  url: string;
   points: string[];
   mockup: () => string;
 };
 
 const cfg = C.roles as unknown as Record<string, any>;
-const override = (id: string): Partial<RoleDef> => cfg?.items?.[id] ?? {};
 
 const adminMockup = (): string => `
   <div class="rc-preview-box">
@@ -77,7 +75,10 @@ const adminMockup = (): string => `
 
 const hrMockup = (): string => `
   <div class="rc-preview-box">
-    <div class="mock-head"><span class="mock-title">Leave requests</span><span class="mock-badge">2 pending</span></div>
+    <div class="mock-head">
+      <span class="mock-title">Leave requests</span>
+      <span class="mock-badge">2 pending</span>
+    </div>
     <ul class="mock-list compact">
       <li><span class="avatar">AK</span><div class="mock-meta"><b>Ayesha Khan</b><small>Annual · 3 days</small></div><span class="status is-warn">Pending</span></li>
       <li><span class="avatar">BS</span><div class="mock-meta"><b>Bilal Sheikh</b><small>Sick · 1 day</small></div><span class="status is-ok">Approved</span></li>
@@ -90,7 +91,10 @@ const hrMockup = (): string => `
 
 const pmMockup = (): string => `
   <div class="rc-preview-box">
-    <div class="mock-head"><span class="mock-title">Profit per project</span><span class="mock-badge is-pos">+18% MoM</span></div>
+    <div class="mock-head">
+      <span class="mock-title">Profit per project</span>
+      <span class="mock-badge is-pos">+18% MoM</span>
+    </div>
     <div class="bars">
       <div class="bar-row"><span>Atlas</span><div class="meter-track"><span style="width:82%"></span></div><b>$12.4k</b></div>
       <div class="bar-row"><span>Nimbus</span><div class="meter-track"><span style="width:61%"></span></div><b>$9.1k</b></div>
@@ -104,7 +108,10 @@ const pmMockup = (): string => `
 
 const employeeMockup = (): string => `
   <div class="rc-preview-box">
-    <div class="mock-head"><span class="mock-title">Today</span><span class="mock-badge is-pos">Clocked in 09:02</span></div>
+    <div class="mock-head">
+      <span class="mock-title">Today</span>
+      <span class="mock-badge is-pos">Clocked in 09:02</span>
+    </div>
     <div class="ring-row">
       <div class="ring" style="--p:72" role="img" aria-label="Workload 72 percent"><b>72%</b><small>workload</small></div>
       <ul class="mock-list compact">
@@ -120,6 +127,7 @@ const roles: RoleDef[] = [
     id: "admin",
     name: "Admin",
     tagline: "Full control, with sensitive numbers redacted by default.",
+    url: "https://daftarhubdemo.vercel.app/?role=admin",
     points: [
       "Encrypted credential vault",
       "Role-based data redaction",
@@ -131,6 +139,7 @@ const roles: RoleDef[] = [
     id: "hr",
     name: "HR",
     tagline: "People operations without the spreadsheets.",
+    url: "https://daftarhubdemo.vercel.app/?role=hr",
     points: [
       "Leave approvals in one click",
       "Live attendance tracking",
@@ -142,6 +151,7 @@ const roles: RoleDef[] = [
     id: "pm",
     name: "Project Manager",
     tagline: "See which projects earn and which ones drain.",
+    url: "https://daftarhubdemo.vercel.app/?role=pm",
     points: ["Profit per project", "Workload balancing", "Delivery risk flags"],
     mockup: pmMockup,
   },
@@ -149,6 +159,7 @@ const roles: RoleDef[] = [
     id: "employee",
     name: "Employee",
     tagline: "Everything personal, nothing extra.",
+    url: "https://daftarhubdemo.vercel.app/?role=employee",
     points: [
       "One-tap attendance",
       "Leave balance and requests",
@@ -156,7 +167,7 @@ const roles: RoleDef[] = [
     ],
     mockup: employeeMockup,
   },
-].map((r) => ({ ...r, ...override(r.id) })) as RoleDef[];
+];
 
 /* ------------------------------------------------------------------ */
 /* Component                                                           */
@@ -193,12 +204,22 @@ export function buildRoles(): HTMLElement {
             <p>${esc(r.tagline)}</p>
           </div>
         </header>
+
         <ul class="role-points">
-          ${r.points.map((p) => `<li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>${esc(p)}</li>`).join("")}
+          ${r.points
+            .map(
+              (p) =>
+                `<li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>${esc(
+                  p,
+                )}</li>`,
+            )
+            .join("")}
         </ul>
+
         ${r.mockup()}
+
         <footer class="role-card-foot">
-          <a class="btn btn-primary rc-demo-btn" href="${esc(cfg?.demoUrl ?? 'https://demo.crewdesk.com')}" target="_blank" rel="noopener noreferrer">
+          <a class="btn btn-primary rc-demo-btn" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">
             <span>See Live Demo</span>
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </a>
@@ -211,7 +232,7 @@ export function buildRoles(): HTMLElement {
     <div class="roles-inner">
       <header class="roles-head">
         <span class="roles-eyebrow">${esc(cfg?.eyebrow ?? "Built for every seat")}</span>
-        <h2 id="roles-title">${esc(cfg?.title ?? "One system, four perspectives")}</h2>
+        <h2 id="roles-title">${esc(cfg?.title ?? "4 Dedicated Role Dashboards")}</h2>
         <p>${esc(cfg?.subtitle ?? "Each role sees exactly what it needs, and nothing it should not.")}</p>
       </header>
       <div class="roles-layout">
@@ -230,7 +251,6 @@ export function buildRoles(): HTMLElement {
 
   const setActive = (index: number, focus = false): void => {
     const next = (index + roles.length) % roles.length;
-    // Prevent redundant animation restarting if already active
     if (next === current && cardEls[current] && !cardEls[current].hidden) {
       return;
     }
@@ -252,13 +272,12 @@ export function buildRoles(): HTMLElement {
     });
     el.dataset.activeRole = roles[next].id;
 
-    // If user clicked or focused tab, ensure the whole card fits in view
     if (focus) {
       const activeCard = cardEls[next];
       if (activeCard) {
         const rect = activeCard.getBoundingClientRect();
         if (rect.bottom > window.innerHeight || rect.top < 65) {
-          activeCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          activeCard.scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }
     }

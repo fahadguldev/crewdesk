@@ -16,11 +16,12 @@ export function buildModules(): HTMLElement {
   el.className = 'modules pin-section';
   el.id = 'modules';
 
-  const demoUrl = (C.modules as any).demoUrl ?? 'https://demo.crewdesk.com';
+  const demoBaseUrl = (C.modules as any).demoUrl ?? 'https://daftarhubdemo.vercel.app/';
 
   const slabs = C.modules.items
-    .map(
-      (m) => `<article class="module-slab glass" data-id="${m.id}" style="--c:var(--${m.color})">
+    .map((m) => {
+      const moduleUrl = (m as any).url || demoBaseUrl;
+      return `<article class="module-slab glass" data-id="${m.id}" style="--c:var(--${m.color})">
         <div class="slab-top">
           <span class="slab-num">MODULE ${m.n}</span>
           <span class="slab-role">${m.role}</span>
@@ -30,7 +31,7 @@ export function buildModules(): HTMLElement {
         <div class="slab-art">${ART[m.art] ?? ''}</div>
         <p class="slab-desc">${m.desc}</p>
         <div class="slab-actions">
-          <a class="btn btn-outline-demo slab-demo-btn" href="${demoUrl}" target="_blank" rel="noopener noreferrer">
+          <a class="btn btn-outline-demo slab-demo-btn" href="${moduleUrl}" target="_blank" rel="noopener noreferrer">
             <span>View Live Demo</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -39,10 +40,11 @@ export function buildModules(): HTMLElement {
             </svg>
           </a>
         </div>
-      </article>`
-    )
+      </article>`;
+    })
     .join('');
 
+  const aiUrl = (C.modules.ai as any).url || demoBaseUrl;
   const ai = `<article class="module-slab module-ai glass" data-id="${C.modules.ai.id}">
       <span class="ai-badge">${C.modules.ai.badge}</span>
       <div class="slab-top">
@@ -53,7 +55,7 @@ export function buildModules(): HTMLElement {
       <p class="slab-desc">${C.modules.ai.desc}</p>
       <ul class="ai-bullets">${C.modules.ai.bullets.map((b) => `<li>${b}</li>`).join('')}</ul>
       <div class="slab-actions">
-        <a class="btn btn-outline-demo slab-demo-btn" href="${demoUrl}" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn-outline-demo slab-demo-btn" href="${aiUrl}" target="_blank" rel="noopener noreferrer">
           <span>View Live Demo</span>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -77,25 +79,4 @@ export function buildModules(): HTMLElement {
     </div>
   `;
   return el;
-}
-
-function buildPicker(): string {
-  const opts = C.modules.items
-    .map(
-      (m) => `<button type="button" class="pick-opt glass" data-id="${m.id}">
-        <span class="pick-name">${m.title.replace(' Module', '')}</span>
-        <span class="pick-role">${m.role}</span>
-      </button>`
-    )
-    .join('');
-  return `<div class="picker glass">
-    <h3>${C.modules.picker.title}</h3>
-    <p class="pick-sub">${C.modules.picker.sub}</p>
-    <div class="pick-grid">${opts}</div>
-    <p class="pick-hint">${C.modules.picker.hint}</p>
-    <div class="pick-foot">
-      <span class="pick-count">0 / ${C.modules.picker.max} selected</span>
-      <button type="button" class="btn btn-primary pick-cta" disabled>${C.modules.picker.cta}</button>
-    </div>
-  </div>`;
 }
