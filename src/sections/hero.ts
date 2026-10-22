@@ -44,7 +44,7 @@ export function buildHero(): HTMLElement {
       icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>',
       tag: 'DAY 1 READY',
       title: '8 Core Operational Modules',
-      body: 'Attendance, biometric sync, projects, client password vault, time tracking, workload, profit margins & employee management directory.',
+      body: 'Attendance, , projects, client password vault, time tracking, workload, profit margins & employee management directory.',
       color: 'emerald'
     },
     {

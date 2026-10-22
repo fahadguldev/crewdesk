@@ -177,7 +177,7 @@
     "items": [
       {
         "quote": "Who was late today? I'm checking three places.",
-        "note": "Biometrics, chats, and asking around.",
+        "note": "Attendance, chats, and asking around.",
         "icon": "clock"
       },
       {
@@ -539,8 +539,8 @@
     ],
     "rows": [
       {
-        "f": "Attendance & Biometrics",
-        "hub": "✓ Built-in biometric sync & late flags",
+        "f": "Attendance ",
+        "hub": "✓ Built-in Attendence sync & late flags",
         "cu": "✗ Typically requires 3rd-party integration",
         "other": "✗ Typically requires separate HR app",
         "hubState": "on",
