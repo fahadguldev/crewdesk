@@ -58,14 +58,14 @@ export function buildHero(): HTMLElement {
       icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>',
       tag: 'ROLE PRIVACY',
       title: 'Zero Salary or Rate Leaks',
-      body: '4 dedicated role screens for Owner, HR, PM, and Employee. AES-256 encrypted vault with immutable access logs.',
+      body: '4 dedicated role screens for Owner, HR, PM, and Employee. AES-256 encrypted vault with access logs.',
       color: 'teal'
     },
     {
       icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>',
       tag: 'SUPPORT SLA',
-      title: '2-Day Issue Resolution',
-      body: 'Ongoing support, free small workflow changes & maintenance, plus a dedicated WhatsApp hyper-care channel.',
+      title: 'Issue Resolution SLA',
+      body: 'Attendance or vault outages resolved the same day; all other customer-reported issues within 2 working days.',
       color: 'amber'
     }
   ];
@@ -90,9 +90,14 @@ export function buildHero(): HTMLElement {
     <!-- First View Screen: Only the core headline visible -->
     <div class="hero-first-screen">
       <div class="container hero-center-wrap">
-        <h1 class="hero-h1" id="hero-headline" aria-label="Manage your whole دفتر from 1 Hub not diff tools and sheets">
+        <h1 class="hero-h1" id="hero-headline" aria-label="Manage your whole دفتر from 1 Hub not disconnected tools and sheets">
           <span class="typewriter-text" id="typewriter-text"></span><span class="typing-cursor" id="typing-cursor" aria-hidden="true">|</span>
         </h1>
+        <div class="hero-proof-line">
+          <span class="hero-proof-pill">
+            <span class="proof-dot"></span> Built by an agency, used daily by our own team.
+          </span>
+        </div>
       </div>
     </div>
 

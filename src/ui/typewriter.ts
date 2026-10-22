@@ -36,7 +36,7 @@ const DEFAULT_STRUCTURE: TypewriterLine[] = [
   },
   {
     className: 'hero-muted',
-    tokens: [{ text: 'not diff tools and sheets' }]
+    tokens: [{ text: 'not disconnected tools and sheets' }]
   }
 ];
 

@@ -4,7 +4,7 @@ import content from './content.json';
 export const C = content as unknown as {
   brand: {
     name: string; latin: string; urdu: string; tagline: string;
-    title: string; description: string; offerCopy: string; foundingOffer: string; proofSlot: string;
+    title: string; description: string; offerCopy: string; proofSlot: string;
   };
   nav: {
     links: { label: string; href: string }[];
@@ -13,6 +13,7 @@ export const C = content as unknown as {
   banner: { badge: string; text: string; sub: string; link: string };
   hero: {
     pill1: string; pill2: string; h1a: string; h1b: string; h1c: string; sub: string;
+    proof?: string;
     ctaPrimary: string; ctaSecondary: string;
     systemCards: { label: string; detail: string; tone: string }[];
     trustChips: { title: string; body: string }[];
@@ -51,7 +52,7 @@ export const C = content as unknown as {
     rows: { f: string; hub: string; cu: string; other: string; hubState: string; cuState: string; otherState: string }[];
   };
   pricing: {
-    eyebrow: string; title: string; sub: string; seatRule: string; founderLabel: string;
+    eyebrow: string; title: string; sub: string; seatRule: string; founderLabel?: string; proof?: string;
     plans: {
       id: string; name: string; tagline: string; seats: number; seatLabel: string;
       pricePKR: number; usdNote?: string; saveNote?: string; popular: boolean;
@@ -70,9 +71,15 @@ export const C = content as unknown as {
       name: string; namePh: string; agency: string; agencyPh: string;
       size: string; sizeOptions: string[]; contact: string; contactPh: string;
       pain: string; painOptions: { v: string; l: string }[]; submit: string; title: string; subModal: string;
+      whatsappNumber?: string;
     };
+    contact?: { founder: string; email: string; whatsapp: string };
   };
-  footer: { copy: string; trust: { title: string; note: string } };
+  footer: {
+    copy: string;
+    trust: { title: string; note: string };
+    contact?: { founder: string; email: string; whatsapp: string };
+  };
   currency: { rate: number; pkr: string; usd: string };
 };
 

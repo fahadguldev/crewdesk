@@ -55,12 +55,11 @@ export function buildModules(): HTMLElement {
       <p class="slab-desc">${C.modules.ai.desc}</p>
       <ul class="ai-bullets">${C.modules.ai.bullets.map((b) => `<li>${b}</li>`).join('')}</ul>
       <div class="slab-actions">
-        <a class="btn btn-outline-demo slab-demo-btn" href="${aiUrl}" target="_blank" rel="noopener noreferrer">
-          <span>View Live Demo</span>
+        <a class="btn btn-outline-demo slab-demo-btn slab-waitlist-btn" href="#final-cta">
+          <span>Join waitlist</span>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-            <polyline points="15 3 21 3 21 9"></polyline>
-            <line x1="10" y1="14" x2="21" y2="3"></line>
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
           </svg>
         </a>
       </div>

@@ -51,6 +51,7 @@ const cfg = C.roles as unknown as Record<string, any>;
 
 const adminMockup = (): string => `
   <div class="rc-preview-box">
+    <div class="mock-head"><span class="mock-title">Executive Overview</span><span class="rc-sample-tag">Sample data</span></div>
     <div class="money-row">
       <div class="mr-left">
         <span class="mr-indicator-dot"></span>
@@ -78,6 +79,7 @@ const hrMockup = (): string => `
     <div class="mock-head">
       <span class="mock-title">Leave requests</span>
       <span class="mock-badge">2 pending</span>
+      <span class="rc-sample-tag">Sample data</span>
     </div>
     <ul class="mock-list compact">
       <li><span class="avatar">AK</span><div class="mock-meta"><b>Ayesha Khan</b><small>Annual · 3 days</small></div><span class="status is-warn">Pending</span></li>
@@ -94,6 +96,7 @@ const pmMockup = (): string => `
     <div class="mock-head">
       <span class="mock-title">Profit per project</span>
       <span class="mock-badge is-pos">+18% MoM</span>
+      <span class="rc-sample-tag">Sample data</span>
     </div>
     <div class="bars">
       <div class="bar-row"><span>Atlas</span><div class="meter-track"><span style="width:82%"></span></div><b>$12.4k</b></div>
@@ -111,6 +114,7 @@ const employeeMockup = (): string => `
     <div class="mock-head">
       <span class="mock-title">Today</span>
       <span class="mock-badge is-pos">Clocked in 09:02</span>
+      <span class="rc-sample-tag">Sample data</span>
     </div>
     <div class="ring-row">
       <div class="ring" style="--p:72" role="img" aria-label="Workload 72 percent"><b>72%</b><small>workload</small></div>
@@ -125,7 +129,7 @@ const employeeMockup = (): string => `
 const roles: RoleDef[] = [
   {
     id: "admin",
-    name: "Admin",
+    name: "Agency Owner / Admin",
     tagline: "Full control, with sensitive numbers redacted by default.",
     url: "https://daftarhubdemo.vercel.app/?role=admin",
     points: [
@@ -137,7 +141,7 @@ const roles: RoleDef[] = [
   },
   {
     id: "hr",
-    name: "HR",
+    name: "HR Manager",
     tagline: "People operations without the spreadsheets.",
     url: "https://daftarhubdemo.vercel.app/?role=hr",
     points: [
@@ -157,7 +161,7 @@ const roles: RoleDef[] = [
   },
   {
     id: "employee",
-    name: "Employee",
+    name: "Employee & Developer",
     tagline: "Everything personal, nothing extra.",
     url: "https://daftarhubdemo.vercel.app/?role=employee",
     points: [

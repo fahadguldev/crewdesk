@@ -5,10 +5,10 @@
     "urdu": "دفتر",
     "latin": "Hub",
     "tagline": "Agency Operations Platform",
-    "title": "Hub دفتر | Agency Operations Platform — 7 Core Modules + 3 Custom Modules",
-    "description": "Hub دفتر is the agency operations platform for digital agencies and service providers. All 7 core modules plus 3 custom modules built for your agency, guided onboarding, and ongoing support.",
+    "title": "Hub دفتر | Agency Operations Platform — 8 Core Modules + 3 Custom Modules",
+    "description": "Hub دفتر is the agency operations platform for digital agencies and service providers. All 8 core modules plus 3 custom modules built for your agency, guided onboarding, and ongoing support.",
     "offerCopy": "3 custom modules built for your agency, delivered in month one.",
-    "proofSlot": "TODO-OWNER: replace with real customer logos or quotes when available."
+    "proofSlot": "Built by an agency, used daily by our own team."
   },
   "nav": {
     "links": [
@@ -17,7 +17,7 @@
         "href": "#pricing-table"
       },
       {
-        "label": "vs ClickUp Pro",
+        "label": "vs ClickUp Unlimited",
         "href": "#comparison"
       },
       {
@@ -45,14 +45,14 @@
     "mobileCta": "Book Free Walkthrough"
   },
   "banner": {
-    "badge": "Launch Offer",
-    "text": "7 Core Modules + 3 Custom Modules Built for Your Agency",
+    "badge": "Core Modules",
+    "text": "8 Core Modules + 3 Custom Modules Built for Your Agency",
     "sub": "— all included in every plan.",
     "link": "View Pricing Table"
   },
   "hero": {
     "pill1": "Built for digital agencies & service providers",
-    "pill2": "7 Core + 3 Custom Modules",
+    "pill2": "8 Core + 3 Custom Modules",
     "typewriterStructure": [
       {
         "tokens": [
@@ -69,7 +69,7 @@
       {
         "tokens": [
           {
-            "text": "from 1 single "
+            "text": "from 1 "
           },
           {
             "text": "Hub",
@@ -81,14 +81,14 @@
         "className": "hero-muted",
         "tokens": [
           {
-            "text": "not diff tools and sheets"
+            "text": "not disconnected tools and sheets"
           }
         ]
       }
     ],
     "h1a": "Manage your whole",
     "h1b": "from 1 Hub",
-    "h1c": "not diff tools and sheets",
+    "h1c": "not disconnected tools and sheets",
     "sub": "Attendance, leaves, client passwords, team workload, and real profit per project — one platform for digital agencies and service providers, with guided onboarding and ongoing support.",
     "ctaPrimary": "Book Free 30-Min Walkthrough",
     "ctaSecondary": "Compare All Prices In Single Table",
@@ -131,7 +131,7 @@
     ],
     "trustChips": [
       {
-        "title": "7 Core Modules",
+        "title": "8 Core Modules",
         "body": "Attendance, projects, passwords, time, workload & more — working today."
       },
       {
@@ -143,10 +143,11 @@
         "body": "Guided setup, migration, and training so your team is comfortable from day one."
       },
       {
-        "title": "2-Day Issue Resolution",
-        "body": "Ongoing support and free small changes & maintenance after onboarding."
+        "title": "Issue Resolution SLA",
+        "body": "Attendance or vault outages resolved the same day; all other customer-reported issues within 2 working days."
       }
-    ]
+    ],
+    "proof": "Built by an agency, used daily by our own team."
   },
   "chaosTiles": [
     {
@@ -172,7 +173,7 @@
   ],
   "pain": {
     "title": "Sound familiar?",
-    "sub": "Six small leaks that دفتر owners lose hours to every single week.",
+    "sub": "Six small leaks that agency owners lose hours to every single week.",
     "items": [
       {
         "quote": "Who was late today? I'm checking three places.",
@@ -208,8 +209,8 @@
   },
   "modules": {
     "eyebrow": "System Architecture",
-    "title": "8 operational modules, plus AI Copilot (coming soon)",
-    "sub": "Every plan includes all eight working modules. AI Copilot is a planned additional module, included in your plan when released.",
+    "title": "8 operational modules, plus AI Copilot (planned)",
+    "sub": "Every plan includes all eight working modules. AI Copilot is a planned additional module with no extra subscription fee — your agency connects its own AI API key.",
     "availableLabel": "Available Today",
     "demoUrl": "https://daftarhubdemo.vercel.app/",
     "items": [
@@ -226,12 +227,12 @@
       {
         "n": 2,
         "id": "overview",
-        "title": "دفتر Overview Module",
+        "title": "Hub دفتر Overview Module",
         "role": "For All Roles",
         "color": "indigo",
         "art": "rows",
         "url": "https://daftarhubdemo.vercel.app/",
-        "desc": "A birds-eye view of your entire دفتر's momentum. See live task completion, active projects, employee statuses, and department progress at a single glance."
+        "desc": "A birds-eye view of your entire agency's momentum. See live task completion, active projects, employee statuses, and department progress at a single glance."
       },
       {
         "n": 3,
@@ -299,14 +300,14 @@
       "id": "ai-copilot",
       "title": "AI Copilot Module",
       "role": "Owner + PM",
-      "badge": "Coming Soon",
-      "status": "in development — not yet available",
-      "desc": "An assistant that watches your دفتر so you don't have to. When released, it will be included in your existing plan at no extra subscription cost. It recommends which team member each new task should be assigned to based on live workload and skills, flags projects trending toward a loss, and summarizes where the week's time actually went.",
+      "badge": "Planned Module",
+      "status": "planned — in development",
+      "desc": "An assistant that watches your operations so you don't have to. When released, it will be included in your plan with no extra subscription fee — your agency simply connects its own AI API key. It recommends which team member each new task should be assigned to based on live workload and skills, flags projects trending toward a loss, and summarizes where the week's time actually went.",
       "bullets": [
         "Smart task assignment suggestions",
         "Revenue & profit trend alerts",
         "Time-management & productivity insights",
-        "Included in your plan — AI API usage costs paid by your agency"
+        "No extra subscription fee — agency connects its own AI API key"
       ],
       "url": "https://daftarhubdemo.vercel.app/",
       "route": "/ (Core Extension)"
@@ -336,7 +337,7 @@
     "eyebrow": "Included for Every Paying Customer",
     "title": "Your Agency. Your Workflow.",
     "titleAccent": "Three Custom Modules Built for You.",
-    "desc": "Every paying Hub دفتر customer receives all seven core modules plus three additional modules tailored to their agency. We first learn how your team works, understand where time is being spent, and agree on the three modules that will make your operations more systematic. Your three custom modules are delivered during your first month.",
+    "desc": "Every paying Hub دفتر customer receives all eight core modules plus three additional modules tailored to their agency. We first learn how your team works, understand where time is being spent, and agree on the three modules that will make your operations more systematic. Your three custom modules are delivered during your first month.",
     "steps": [
       {
         "n": "01",
@@ -358,8 +359,7 @@
       "Designed around your agency's workflow",
       "Requirements agreed after a discovery meeting",
       "All three delivered during the first month",
-      "Small future changes & maintenance included, free",
-      "Additional new modules beyond the initial three are charged based on development hours spent"
+      "Small changes up to 4 hours of work are free. Larger work and additional modules are quoted in development hours before work starts."
     ],
     "cta": "Discuss Your Agency's Workflow",
     "note": "No extra charge for the three custom modules."
@@ -374,7 +374,7 @@
       {
         "n": 1,
         "id": "admin",
-        "title": "Daftar Owner / Admin View",
+        "title": "Agency Owner / Admin View",
         "badge": "Admin Dashboard",
         "color": "emerald",
         "url": "https://daftarhubdemo.vercel.app/?role=admin",
@@ -446,26 +446,30 @@
   },
   "pricingTable": {
     "eyebrow": "All-in-One Master Table",
-    "title": "Competitor Price & Savings Comparison Table for Daftars",
-    "sub": "See published prices for ClickUp, HubSpot, and Salesforce alongside Hub دفتر — plus estimated money and founder hours saved.",
+    "title": "Competitor Price & Savings Comparison Table for Agencies",
+    "sub": "See published prices for ClickUp, Productive, and Teamwork alongside Hub دفتر — plus estimated money and founder hours saved.",
     "cols": [
       "Tool / Plan",
       "Team of 10",
+      "Team of 15",
       "Team of 25",
       "Team of 50"
     ],
     "tiers": [
       10,
+      15,
       25,
       50
     ],
     "tierLabels": {
-      "10": "Team of 10 (Starter Daftar)",
-      "25": "Team of 25 (Growth Daftar)",
-      "50": "Team of 50 (Scale Daftar)"
+      "10": "Team of 10 (Starter)",
+      "15": "Team of 15 (Team Plan)",
+      "25": "Team of 25 (Growth)",
+      "50": "Team of 50 (Scale)"
     },
     "hoursSaved": {
       "10": 18,
+      "15": 24,
       "25": 30,
       "50": 50
     },
@@ -473,60 +477,72 @@
       {
         "id": "cu-unl-ann",
         "name": "ClickUp Unlimited",
-        "note": "Billed annually ($7/user)",
+        "note": "Billed annually ($7/user/mo)",
         "usd": 7
       },
       {
         "id": "cu-unl-mo",
         "name": "ClickUp Unlimited",
-        "note": "Billed monthly ($10/user)",
+        "note": "Billed monthly ($10/user/mo)",
         "usd": 10
       },
       {
         "id": "cu-biz-ann",
         "name": "ClickUp Business",
-        "note": "Billed annually ($12/user)",
+        "note": "Billed annually ($12/user/mo)",
         "usd": 12
       },
       {
         "id": "cu-biz-mo",
         "name": "ClickUp Business",
-        "note": "Billed monthly ($19/user)",
+        "note": "Billed monthly ($19/user/mo)",
         "usd": 19
       },
       {
-        "id": "hubspot",
-        "name": "HubSpot Starter Suite",
-        "note": "$20/seat monthly list",
-        "usd": 20
+        "id": "prod-ess-ann",
+        "name": "Productive Essential",
+        "note": "Billed annually ($10/user/mo)",
+        "usd": 10
       },
       {
-        "id": "salesforce",
-        "name": "Salesforce Starter Suite",
-        "note": "$25/seat monthly list",
-        "usd": 25
+        "id": "prod-ess-mo",
+        "name": "Productive Essential",
+        "note": "Billed monthly ($12/user/mo)",
+        "usd": 12
+      },
+      {
+        "id": "tw-bas-ann",
+        "name": "Teamwork Basics",
+        "note": "Billed annually ($10/user/mo list $9.99)",
+        "usd": 10
+      },
+      {
+        "id": "tw-bas-mo",
+        "name": "Teamwork Basics",
+        "note": "Billed monthly ($14/user/mo list $13.99)",
+        "usd": 14
       }
     ],
-    "footnote": "*List prices checked October 2026 converted at PKR 280/USD. In competitors, password tools and attendance require separate paid apps. Hours-saved figures are estimates based on consolidating multiple tools, not measured per customer.",
-    "footnoteAsterisk": "*Each Hub دفتر capability marked with an asterisk is a built-in part of the seven core modules, available on day one. Competitor equivalents typically need paid add-ons, third-party integrations or manual configuration.",
-    "cta": "Lock In This Rate Today"
+    "footnote": "*List prices verified October 2026 from official competitor pricing pages, converted at PKR 280/USD. In competitors, password vault tools and attendance typically require separate paid apps or add-ons. Hours-saved figures are estimates based on consolidating multiple disconnected tools, not measured per customer.",
+    "footnoteAsterisk": "*Each Hub دفتر capability marked with an asterisk is a built-in part of the eight core modules, available on day one. Competitor equivalents typically need paid add-ons, third-party integrations or manual configuration.",
+    "cta": "Book Free Walkthrough"
   },
   "comparison": {
     "eyebrow": "Feature Comparison",
-    "title": "Why دفتر Switch From ClickUp Pro",
-    "sub": "Other tools are empty toolkits that require weeks of configuration. Hub دفتر works for your daftar on Day 1.",
+    "title": "Why Agencies Switch From ClickUp Unlimited",
+    "sub": "Other tools are empty toolkits that typically require weeks of configuration. Hub دفتر works for your agency on Day 1.",
     "cols": [
       "Features & Capabilities",
-      "Hub دفتر (Daftar OS)",
-      "ClickUp Unlimited / Pro",
+      "Hub دفتر",
+      "ClickUp Unlimited",
       "Other PM Tools (Asana / Jira)"
     ],
     "rows": [
       {
         "f": "Attendance & Biometrics",
         "hub": "✓ Built-in biometric sync & late flags",
-        "cu": "✗ Needs 3rd-party integration",
-        "other": "✗ Separate HR app required",
+        "cu": "✗ Typically requires 3rd-party integration",
+        "other": "✗ Typically requires separate HR app",
         "hubState": "on",
         "cuState": "warn",
         "otherState": "warn"
@@ -534,8 +550,8 @@
       {
         "f": "Project Profit & Margins",
         "hub": "✓ Live net margin & developer cost rate tracking",
-        "cu": "△ Complex manual spreadsheet formulas",
-        "other": "✗ Not supported",
+        "cu": "△ Typically relies on manual spreadsheet formulas",
+        "other": "✗ Typically not supported",
         "hubState": "on",
         "cuState": "warn",
         "otherState": "warn"
@@ -543,8 +559,8 @@
       {
         "f": "Client Password Vault",
         "hub": "✓ AES-256 vault with reveal logs",
-        "cu": "✗ Not supported",
-        "other": "✗ Paid add-on (1Password)",
+        "cu": "✗ Typically not supported",
+        "other": "✗ Typically paid add-on (e.g. 1Password)",
         "hubState": "on",
         "cuState": "warn",
         "otherState": "warn"
@@ -552,8 +568,8 @@
       {
         "f": "Workload & Capacity",
         "hub": "✓ Live developer bandwidth guard",
-        "cu": "△ Locked in high-tier plans",
-        "other": "△ Basic task list only",
+        "cu": "△ Typically locked in higher-tier plans",
+        "other": "△ Typically basic task list only",
         "hubState": "on",
         "cuState": "warn",
         "otherState": "warn"
@@ -561,8 +577,8 @@
       {
         "f": "Role-Based Privacy",
         "hub": "✓ Zero salary, rate or profit leaks",
-        "cu": "△ Risky custom permissions",
-        "other": "△ Limited role gating",
+        "cu": "△ Typically requires risky custom permissions",
+        "other": "△ Typically limited role gating",
         "hubState": "on",
         "cuState": "warn",
         "otherState": "warn"
@@ -571,7 +587,7 @@
         "f": "Employee Directory & Team Management",
         "hub": "✓ Centralized roster, departments & role gating",
         "cu": "△ Basic user list only",
-        "other": "△ Separate user directory",
+        "other": "△ Typically separate user directory",
         "hubState": "on",
         "cuState": "warn",
         "otherState": "warn"
@@ -581,42 +597,66 @@
   "pricing": {
     "eyebrow": "Simple, Transparent Pricing",
     "title": "Predictable flat pricing. No seat penalties.",
-    "sub": "No feature paywalls. No surprises. Every tier includes all 8 core modules, guided onboarding, and ongoing support.",
+    "sub": "No feature paywalls. No surprises. Every tier includes all 8 core modules, 3 custom modules, guided onboarding, and ongoing support.",
     "seatRule": "Every employee you onboard counts as one user. Your plan's seat limit is the number of people you can onboard — no separate per-seat charge within that limit.",
     "plans": [
       {
         "id": "starter",
         "name": "Starter Plan",
-        "tagline": "Perfect for 5 to 10 person daftars",
+        "tagline": "Perfect for 5 to 10 person agencies",
         "seats": 10,
         "seatLabel": "Up to 10 seats",
         "pricePKR": 12000,
-        "usdNote": "That's about $43 USD total — less than 1-2% of daftar payroll.",
-        "popular": true,
+        "usdNote": "That's about $43 USD total — less than 1-2% of agency payroll.",
+        "saveNote": "Save PKR 192,000/yr vs ClickUp Unlimited (Monthly)",
+        "popular": false,
         "bullets": [
-          "All 8 core modules (AI Copilot coming soon, included in plan when released)",
+          "All 8 core modules (AI Copilot planned, included with no subscription fee when released)",
+          "Includes 3 custom modules built for your workflow",
           "Employee Management & Team Directory included",
           "First-week onboarding, migration & guided setup",
-          "Ongoing support, free small changes & maintenance, 2-day issue resolution",
-          "Dedicated Supabase database & app instance",
-          "Zero setup fee (normally PKR 20,000)",
-          "Encrypted Client Password Vault",
+          "Ongoing support: attendance or vault outages resolved same day; other issues within 2 working days",
+          "Small changes up to 4 hours of work are free",
+          "Dedicated database & app instance",
+          "No setup fee",
+          "AES-256 Encrypted Client Password Vault",
           "5 GB secure cloud file storage included"
         ],
         "cta": "Book Free 30-Min Walkthrough"
       },
       {
-        "id": "growth",
-        "name": "Growth Plan",
-        "tagline": "For scaling daftars",
-        "seats": 25,
-        "seatLabel": "Up to 25 seats",
-        "pricePKR": 30000,
-        "saveNote": "Save over PKR 480,000/yr vs ClickUp",
+        "id": "team",
+        "name": "Team Plan",
+        "tagline": "For growing teams that need more seats",
+        "seats": 15,
+        "seatLabel": "Up to 15 seats",
+        "pricePKR": 18000,
+        "usdNote": "That's about $64 USD total — flat rate, no per-seat penalties.",
+        "saveNote": "Save PKR 288,000/yr vs ClickUp Unlimited (Monthly)",
         "popular": false,
         "bullets": [
           "Everything in Starter Plan",
+          "Up to 15 team members (each onboarded employee counts as one user)",
+          "Includes 3 custom modules built for your workflow",
+          "Multi-department workload management",
+          "Priority WhatsApp support channel"
+        ],
+        "cta": "Book Team Plan Walkthrough"
+      },
+      {
+        "id": "growth",
+        "name": "Growth Plan",
+        "tagline": "For scaling agencies",
+        "seats": 25,
+        "seatLabel": "Up to 25 seats",
+        "pricePKR": 30000,
+        "usdNote": "That's about $107 USD total — flat rate for your entire team.",
+        "saveNote": "Save PKR 480,000/yr vs ClickUp Unlimited (Monthly)",
+        "popular": false,
+        "bullets": [
+          "Everything in Team Plan",
           "Up to 25 team members (each onboarded employee counts as one user)",
+          "Includes 3 custom modules built for your workflow",
           "Multi-department workload management",
           "Priority hyper-care WhatsApp channel"
         ],
@@ -629,19 +669,22 @@
         "seats": 50,
         "seatLabel": "Up to 50 seats",
         "pricePKR": 50000,
-        "saveNote": "Save over PKR 1,400,000/yr vs ClickUp Business",
+        "usdNote": "That's about $179 USD total — flat rate for up to 50 members.",
+        "saveNote": "Save PKR 1,080,000/yr vs ClickUp Unlimited (Monthly)",
         "popular": false,
         "bullets": [
           "Everything in Growth Plan",
           "Up to 50 team members (each onboarded employee counts as one user)",
+          "Includes 3 custom modules built for your workflow",
           "Custom database backup export scripts",
           "Bespoke custom integrations assistance"
         ],
         "cta": "Request Scale Demo"
       }
     ],
-    "paymentTitle": "Flexible Local & Global Payment Options",
-    "paymentNote": "Pay via direct Bank Wire (IBAN), Raast, JazzCash, Easypaisa, or Credit Card."
+    "paymentTitle": "Flexible Payment Options",
+    "paymentNote": "Pay via direct Bank Transfer (IBAN), Raast, JazzCash, or Easypaisa.",
+    "proof": "Built by an agency, used daily by our own team."
   },
   "onboarding": {
     "eyebrow": "Onboarding & Ongoing Support",
@@ -666,8 +709,8 @@
         "title": "After Onboarding — Ongoing Support",
         "bullets": [
           "Ongoing support included",
-          "Small future changes & maintenance, free",
-          "Customer-reported issues resolved within two days",
+          "Small changes up to 4 hours of work are free. Larger work and additional modules are quoted in development hours before work starts.",
+          "Attendance or vault outages resolved the same day; all other customer-reported issues within 2 working days",
           "Role-specific handbooks for Admin, HR, Employee, PM & Team Lead"
         ],
         "color": "teal"
@@ -676,8 +719,8 @@
         "tag": "+",
         "title": "More Modules & Your Data",
         "bullets": [
-          "Additional new modules beyond your initial three are charged by development hours spent",
-          "If you leave, we export your agency's data so you keep access to it",
+          "Small changes up to 4 hours of work are free. Larger work and additional modules are quoted in development hours before work starts.",
+          "If you leave, we export your agency's data upon request so you keep access to it",
           "We then delete everything associated with your agency from our systems — projects, teams, employees, logs and related records"
         ],
         "color": "amber"
@@ -691,33 +734,33 @@
     "items": [
       {
         "id": "faq-1",
-        "q": "What is DaftarHub?",
-        "a": "DaftarHub (Hub دفتر) is an agency operations platform for digital agencies and service providers. It replaces disconnected tools with one system covering attendance, leaves, projects, client passwords, time tracking, workload, and project profitability. Every plan includes seven working core modules plus three custom modules built for your agency."
+        "q": "What is Hub دفتر?",
+        "a": "Hub دفتر is an agency operations platform for digital agencies and service providers. It replaces disconnected tools with one unified system covering attendance, leaves, projects, client passwords, time tracking, workload, and project profitability. Every plan includes eight working core modules plus three custom modules built for your agency."
       },
       {
         "id": "faq-2",
-        "q": "Who is DaftarHub designed for?",
-        "a": "Small digital agencies, software development agencies, web and mobile development teams, AI and other digital service providers, and any service business that wants structured office and team management. It is built for agencies, not as a generic task manager."
+        "q": "Who is Hub دفتر designed for?",
+        "a": "Small digital agencies, software development agencies, web and mobile development teams, AI and digital service providers, and any service business that wants structured office and team management. It is built specifically for agencies, not as a generic task manager."
       },
       {
         "id": "faq-3",
         "q": "Which modules are available today?",
-        "a": "Eight core modules are available today: Business Analysis, Daftar Overview, Attendance & Leave, Projects, Password Manager, Time Tracking, Workload & Capacity, and Employee Management. All eight are included in every plan. AI Copilot is a planned additional core module in development."
+        "a": "Eight core modules are available today: Business Analysis, Hub دفتر Overview, Attendance & Leave, Projects, Password Manager, Time Tracking, Workload & Capacity, and Employee Management. All eight are included in every plan. AI Copilot is a planned additional module currently in development."
       },
       {
         "id": "faq-4",
         "q": "What are the three custom modules?",
-        "a": "They are three additional modules built specifically for your agency — not three selected from the existing seven. They are designed around your office workflows and operational processes, based on a discovery meeting where we learn how your team works and where time is being spent."
+        "a": "They are three additional modules built specifically for your agency — not three selected from the existing eight. They are designed around your office workflows and operational processes, based on a discovery meeting where we learn how your team works and where time is being spent."
       },
       {
         "id": "faq-5",
         "q": "Does every paying customer receive the three custom modules?",
-        "a": "Yes. Every paying customer receives all seven core modules plus three custom modules built for their agency, included in the plan price. There is no separate charge for the three custom modules."
+        "a": "Yes. Every paying customer receives all eight core modules plus three custom modules built for their agency, included in the plan price. There is no separate charge for the three custom modules."
       },
       {
         "id": "faq-6",
         "q": "How are the custom modules selected?",
-        "a": "After a discovery meeting. We learn your agency's workflow and how time is spent on your existing processes, then you and the DaftarHub team decide together which three modules will make your operations more systematic."
+        "a": "After a discovery meeting. We learn your agency's workflow and how time is spent on your existing processes, then you and the Hub دفتر team decide together which three modules will make your operations more systematic."
       },
       {
         "id": "faq-7",
@@ -727,37 +770,37 @@
       {
         "id": "faq-8",
         "q": "Are small future changes and maintenance included?",
-        "a": "Yes. Small future changes and maintenance are included at no additional charge, along with ongoing support. Customer-reported issues are resolved within two days."
+        "a": "Yes. Small changes up to 4 hours of work are free. Larger work and additional modules are quoted in development hours before work starts. Attendance or vault outages are resolved the same day; all other customer-reported issues within 2 working days."
       },
       {
         "id": "faq-9",
         "q": "How are additional new modules charged?",
-        "a": "The initial three custom modules are included for every paying customer. If you request a new module beyond those three, the additional development is charged according to the number of development hours spent."
+        "a": "The initial three custom modules are included for every paying customer. Small changes up to 4 hours of work are free. Larger work and additional modules are quoted in development hours before work starts."
       },
       {
         "id": "faq-10",
         "q": "Is AI Copilot available today?",
-        "a": "No. AI Copilot is in development and not yet available as a working module. It is planned as an additional core module and will be included in your existing plan price when released — current prices will not change."
+        "a": "No. AI Copilot is a planned module currently in development. When released, it will be included in your plan with no extra subscription fee — your agency simply connects its own AI API key."
       },
       {
         "id": "faq-11",
         "q": "Are AI API usage costs included in the subscription?",
-        "a": "The subscription covers access to AI Copilot when it is released. AI API usage costs are paid by your agency, not included in the subscription."
+        "a": "There is no extra subscription fee for AI Copilot. Your agency connects its own AI API key and pays only for what it uses directly with the AI provider."
       },
       {
         "id": "faq-12",
         "q": "What does each plan include?",
-        "a": "Every plan (Starter, Growth, Scale) includes all seven core modules, three custom modules built for your agency, first-week onboarding, ongoing support, free small changes and maintenance, and 2-day issue resolution. The plans differ by seat limit and team size, not by features."
+        "a": "Every plan (Starter, Team Plan, Growth, Scale) includes all eight core modules, three custom modules built for your workflow, first-week onboarding, ongoing support, free small changes up to 4 hours of work, and same-day attendance/vault resolution (2 working days for other issues). The plans differ only by seat limit (10, 15, 25, or 50 seats), not by features."
       },
       {
         "id": "faq-13",
         "q": "How are users counted?",
-        "a": "Every employee onboarded into your workspace counts as one user. A 10-user plan lets you onboard 10 people. Within your plan's seat limit there is no separate per-seat charge — that is what \"no seat penalties\" means here."
+        "a": "Every employee onboarded into your workspace counts as one user. A 10-seat Starter Plan lets you onboard 10 people; a 15-seat Team Plan lets you onboard 15 people. Within your plan's seat limit there is no separate per-seat charge — that is what \"no seat penalties\" means here."
       },
       {
         "id": "faq-14",
         "q": "Can employee job titles be customized?",
-        "a": "Yes. Employee job titles are customizable — Developer, Designer, QA Engineer, Tech Lead, Project Manager, HR Manager, or any title your agency uses. If you need additional role or workflow customization, share your requirements and the DaftarHub team will customize the setup for you."
+        "a": "Yes. Employee job titles are customizable — Developer, Designer, QA Engineer, Tech Lead, Project Manager, HR Manager, or any title your agency uses. If you need additional role or workflow customization, share your requirements and the Hub دفتر team will customize the setup for you."
       },
       {
         "id": "faq-15",
@@ -767,23 +810,23 @@
       {
         "id": "faq-16",
         "q": "What support is available after onboarding?",
-        "a": "Ongoing support is included. Small future changes and maintenance are free, customer-reported issues are resolved within two days, and you receive role-specific handbooks for Admin, HR, Employee, Project Manager, and Team Lead."
+        "a": "Ongoing support is included. Small changes up to 4 hours of work are free. Larger work and additional modules are quoted in development hours before work starts. Attendance or vault outages are resolved the same day; all other customer-reported issues within 2 working days. You also receive role-specific handbooks for Admin, HR, Employee, Project Manager, and Team Lead."
       },
       {
         "id": "faq-17",
         "q": "What happens to our agency data when we leave?",
-        "a": "When you leave, we export your agency's data as stored so you keep access to it, then delete everything associated with your agency from our systems — projects, teams, employees, logs, and related records."
+        "a": "When you leave, we export your agency's data upon request so you keep access to it, then permanently delete everything associated with your agency from our systems — projects, teams, employees, logs, and database records."
       },
       {
         "id": "faq-18",
         "q": "How is our data isolated and secured?",
-        "a": "Your agency receives a separate database instance and app deployment. Client passwords are stored in an AES-256 encrypted vault with an immutable audit log recording who viewed or copied credentials and when. Developer salary rates and project margin charts are role-gated and accessible only to designated owners.",
+        "a": "Your agency receives a dedicated database instance and app deployment. Client passwords are stored in an AES-256 encrypted vault with an audit log recording who viewed or copied credentials and when. Developer salary rates and project margin charts are role-gated and accessible only to designated administrators.",
         "isSecurity": true
       }
     ]
   },
   "finalCta": {
-    "title": "See it running in your own دفتر",
+    "title": "See it running for your agency",
     "sub": "Bring your team size and biggest headache. We'll show you how it works in 30 minutes.",
     "cta": "Book Free 30-Min Walkthrough",
     "whatsapp": "Chat on WhatsApp",
@@ -794,10 +837,11 @@
       "agencyPh": "e.g. Pixel Forge Office",
       "size": "Team Size",
       "sizeOptions": [
-        "5-10 (Starter)",
-        "11-25 (Growth)",
-        "26-50 (Scale)",
-        "50+ people"
+        "5-10 seats (Starter)",
+        "11-15 seats (Team Plan)",
+        "16-25 seats (Growth)",
+        "26-50 seats (Scale)",
+        "50+ seats"
       ],
       "contact": "WhatsApp Number or Email",
       "contactPh": "+92 300 1234567 or email",
@@ -827,14 +871,24 @@
       "submit": "Open WhatsApp Direct",
       "title": "Book Your 30-Min Demo",
       "subModal": "We'll show you the screens that match your exact office size.",
-      "whatsappNumber": "923001234567"
+      "whatsappNumber": "923000000000"
+    },
+    "contact": {
+      "founder": "[Your Name]",
+      "email": "[email@yourdomain.com]",
+      "whatsapp": "+92 300 0000000"
     }
   },
   "footer": {
     "copy": "© 2026 Hub دفتر • Agency Operations Platform • All Rights Reserved",
     "trust": {
       "title": "Platform Security & Reliability",
-      "note": "Role-isolated permissions, 256-bit encryption for client passwords, automated daily backups, and dedicated onboarding support."
+      "note": "Dedicated database per customer, AES-256 encryption for client password vault, automated daily backups, and ongoing support."
+    },
+    "contact": {
+      "founder": "[Your Name]",
+      "email": "[email@yourdomain.com]",
+      "whatsapp": "+92 300 0000000"
     }
   },
   "currency": {

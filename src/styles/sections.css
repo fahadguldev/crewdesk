@@ -1620,7 +1620,18 @@
 .seat-rule { font-size: 12px; color: var(--text-muted); margin-top: 10px; }
 .founder-note { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; padding: 14px 18px; border-radius: 12px; margin-bottom: 30px; font-size: 13px; }
 .founder-note strong { color: var(--amber); }
-.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding-top: 14px; }
+.plans {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding-top: 14px;
+}
+@media (max-width: 1160px) and (min-width: 901px) {
+  .plans {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
 .plan { --tilt-x: 0deg; --tilt-y: 0deg; --glare-x: 50%; --glare-y: 50%; padding: 26px; position: relative; display: flex; flex-direction: column; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); transition: box-shadow 0.2s ease, border-color 0.2s ease; overflow: visible; }
 .plan.in { opacity: 1; }
 .plan::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background: radial-gradient(circle at var(--glare-x) var(--glare-y), rgba(255,255,255,.16), transparent 28%); opacity: 0; transition: opacity .25s ease; }
@@ -1960,4 +1971,161 @@
 }
 [data-theme="light"] .final-form label {
   color: #4b5565;
+}
+
+/* ===== Added Brand Isolation, Proof, & Legal Styles ===== */
+.brand-name {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25em;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.hero-proof-line {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+.hero-proof-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--accent-2);
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.28);
+  padding: 6px 16px;
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+}
+.proof-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 8px var(--accent-2);
+}
+.pricing-proof-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px auto 6px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--accent-2);
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.22);
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+.rc-sample-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  padding: 2px 7px;
+  border-radius: 6px;
+  margin-left: auto;
+}
+
+.final-direct-contact {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  text-align: left;
+}
+.fdc-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.fdc-item {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 4px 0;
+}
+.fdc-item strong {
+  color: var(--text);
+}
+.fdc-item a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.fdc-item a:hover {
+  text-decoration: underline;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1fr;
+  gap: 36px;
+  margin-bottom: 30px;
+}
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+.footer-heading {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.footer-contact-line {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin: 4px 0;
+}
+.footer-contact-line strong {
+  color: var(--text);
+}
+.footer-contact-line a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.footer-contact-line a:hover {
+  text-decoration: underline;
+}
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-links-list li {
+  margin-bottom: 6px;
+}
+.footer-links-list a {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-links-list a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.footer-tagline {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 4px 0 10px;
+}
+.footer-bottom-row {
+  border-top: 1px solid var(--glass-border);
+  padding-top: 18px;
+  text-align: center;
 }

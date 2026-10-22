@@ -1,47 +1,38 @@
-# Assumptions & Owner Confirmations
+# Assumptions & Owner Decisions
 
-Items marked **TODO-OWNER** or **TODO-CONFIRM with owner** in code/copy need a real-world answer before launch.
-Everything else below is an implementation assumption made to complete the 3D rebuild — verify if any is wrong.
+## Confirmed Owner Decisions (Applied)
 
-## Content already migrated as-is (from the audited live page)
+1. **Brand**: Single unified name **Hub دفتر** everywhere. Removed legacy product name suffixes. BiDi wrapped `<bdi>` / `<span class="brand-name" dir="ltr">` so RTL Urdu does not reorder adjacent English text.
+2. **Offer & Pricing**:
+   - Flat pricing with no promo rates, no complimentary initial trial month, and zero setup charges across all tiers.
+   - Removed rate-lock guarantees, promotional popularity badges, and historical 20,000 reference anchor prices.
+   - 4 plans:
+     - Starter: PKR 12,000 (up to 10 seats) — No setup fee
+     - Team Plan: PKR 18,000 (up to 15 seats) — No setup fee
+     - Growth: PKR 30,000 (up to 25 seats) — No setup fee
+     - Scale: PKR 50,000 (up to 50 seats) — No setup fee
+   - All plans include 3 custom modules built for client workflow.
+   - 4-Hour Rule: "Small changes up to 4 hours of work are free. Larger work and additional modules are quoted in development hours before work starts." (Applied verbatim in Support, Onboarding, and FAQ).
+3. **Support SLA**: Attendance or password vault outages resolved same day; all other customer-reported issues within 2 working days. (Updated in feature strip, support, onboarding, and FAQ).
+4. **AI Copilot**: Kept as planned module (in active development). "Join waitlist" button. Cost model: no extra subscription fee; agency connects its own AI API key.
+5. **Comparison Table**:
+   - Removed legacy enterprise CRM rows.
+   - Added verified agency competitors: Productive (productive.io) and Teamwork (teamwork.com).
+   - Re-verified ClickUp Unlimited ($7 annual / $10 monthly) and ClickUp Business ($12 annual / $19 monthly).
+   - Added "Team of 15" column across all competitors and Hub rows with deterministic conversion math (seats × USD × 280).
+   - Softened competitor feature claims with "typically".
+6. **Trust & Proof**:
+   - Hero and Pricing proof line: "Built by an agency, used daily by our own team."
+   - AES-256 encryption terminology used consistently.
+   - Added Privacy Policy (`privacy.html`) and Terms of Service (`terms.html`), linked from footer.
+   - Contact placeholders added: `[Your Name]`, `[email@yourdomain.com]`, `+92 300 0000000`.
+7. **Payment Methods**: Bank Transfer (IBAN), Raast, JazzCash, Easypaisa only. Traditional card processors excluded.
 
-- Offer wording: 7 core modules + 3 custom modules built for every paying customer, delivered in month 1, first week reserved for onboarding.
-- Founding offer: "First 3 Founding Daftars get 50% off (PKR 6,000/mo) for the same full package."
-- Zero setup fee (normally PKR 20,000), 5GB storage, 2-day issue resolution (verbatim — do not weaken).
-- 18 FAQ answers, comparison table rows, seat rule, data export-then-delete on departure.
-- Savings figures are labelled estimates (conversion PKR 280/USD, October 2026 list prices).
+## Needs Owner Confirmation Before Launch
 
-## TODO-OWNER (blocks launch)
-
-1. **Trust/footer block** — hosting, encryption, backups, terms and privacy links: placeholder text in `C.footer.trust` (`src/content.json`).
-2. **Proof line** — "Used daily by our active daftar team" was removed; no customer logos/quotes exist yet. `C.brand.proofSlot` holds the slot.
-3. **WhatsApp number** — demo form posts to `wa.me/923001234567` (placeholder from the previous site). Replace with the real number in `src/ui/form.ts`.
-4. **"Immutable audit log" claim** (Attendance module) — confirm the product really provides immutability before it ships in marketing copy.
-5. **Complete deletion claim** — confirm deletion covers backups/logs, not just primary records (FAQ-18 wording).
-6. **PKR 20,000 "normally" setup-fee reference price** — confirm it is real before displaying.
-7. **Savings table conversion rate** — confirm PKR 280/USD and the chosen competitor list prices (ClickUp 7/10/12/19, HubSpot 20, Salesforce 25).
-
-## TODO-CONFIRM with owner (module picker dependency hints)
-
-The picker in the Modules section shows dependency hints built from these assumptions:
-
-| Custom module | Assumed dependency |
-|---------------|--------------------|
-| Business Analysis | Projects + Time Tracking (profit = hours × cost) |
-| Workload & Capacity | Projects |
-| Time Tracking | Projects |
-
-If the real dependencies differ, update `C.modules.picker.dependencies` in `src/content.json`.
-The picker copy is explicitly a **preview** — final scope is agreed on the discovery call.
-
-## Implementation assumptions
-
-1. **Repo rename**: site deploys under `/crewdesk/` (`vite.config.ts` base + Pages workflow). Renaming the repo requires updating both.
-2. **Competitor math**: monthly = `seats × USD-per-seat × 280`; annual = monthly × 12 (displayed as context, savings computed monthly).
-3. **Hub tier per seat column**: 10-seat column uses Starter (12,000), 25 → Growth (30,000), 50 → Scale (50,000).
-4. **Hours-saved column** (18/30/50 h for 10/25/50 seats): carried from the previous page's claims; treated as estimate copy with the table footnote.
-5. **Mobile pin budget**: pain/modules/roles/final-CTA unpinned below 768px, hero shortened to 60vh (spec's ~60% reduction).
-6. **Urdu font**: Noto Nastaliq Urdu (per rebuild spec — not the old Jameel Noori Nastaleeq), line-height guarded so RTL never breaks LTR neighbours.
-7. **No third-party brand logos** rendered in the loader visuals (legal safety) — competitor names appear as text only.
-8. **Scroll-snap, sound and bounce easings**: intentionally absent (spec).
-9. **Headless QA limits**: this environment's headless Edge clamps window width to ~492 CSS px (true 360px capture impossible) and fails to paint after JS-initiated scroll (scrolled screenshots show only body background). Verification therefore uses: full-DOM dumps, `?autotest=1` (16/16 passing), overflow measurements at 492/768/1440, and scroll-0 screenshots in both themes. A real 360px device/browser check is still recommended.
+The following technical and business claims could not be verified from repo code alone and should be reviewed by the owner:
+1. **Biometric Device Hardware Integration**: Does the attendance module integrate with physical biometric finger/facial punch machines (e.g., ZKTeco / Anviz via local bridge or API), or is check-in currently web 1-click only?
+2. **"Immutable" Audit Logs**: The marketing copy mentions audit logs for vault credentials and attendance. Confirm whether logs are cryptographically append-only / write-once (e.g. database trigger / external ledger) or standard database records with restricted update access.
+3. **Encryption Key Management**: AES-256 encryption is implemented for vault credentials. Owner should confirm where master keys / customer encryption keys live (e.g. Supabase vault, AWS KMS, environment secret, or customer-held passphrases).
+4. **Automated Daily Backups on Every Customer Database**: Confirm the exact automated backup schedule and retention policy across dedicated customer database instances.
+5. **Data Export & Deletion Timelines**: Default draft timelines of [30] days for data export and [14] days for data deletion upon customer departure are in `privacy.html` and `terms.html`. Owner should confirm or adjust these timeframes.

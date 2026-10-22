@@ -29,10 +29,14 @@ export function buildPricingTable(): HTMLElement {
           const hub = hubByTier.get(seats)!;
           const save = savingsMonthly(monthly, hub);
           const pct = savingsPercent(monthly, hub);
+          const usdMonthly = seats * comp.usd;
+          const usdAnnual = usdMonthly * 12;
+          const usdHub = usdFromPKR(hub);
+          const usdSave = Math.max(0, usdMonthly - usdHub);
           return `<td class="pt-cell">
-            <div class="pt-price"><span data-pkr="${monthly}" data-usd="${usdFromPKR(monthly)}">PKR ${monthly.toLocaleString()}</span></div>
-            <div class="pt-annual">PKR ${annual.toLocaleString()}/yr</div>
-            <div class="pt-save">save PKR ${save.toLocaleString()} (${pct}%)</div>
+            <div class="pt-price"><span data-pkr="PKR ${monthly.toLocaleString()}" data-usd="$${usdMonthly.toLocaleString()}">PKR ${monthly.toLocaleString()}</span></div>
+            <div class="pt-annual"><span data-pkr="PKR ${annual.toLocaleString()}/yr" data-usd="$${usdAnnual.toLocaleString()}/yr">PKR ${annual.toLocaleString()}/yr</span></div>
+            <div class="pt-save"><span data-pkr="save PKR ${save.toLocaleString()} (${pct}%)" data-usd="save $${usdSave.toLocaleString()} (${pct}%)">save PKR ${save.toLocaleString()} (${pct}%)</span></div>
           </td>`;
         })
         .join('');
@@ -48,8 +52,9 @@ export function buildPricingTable(): HTMLElement {
     .map((seats) => {
       const hub = hubByTier.get(seats)!;
       const plan = C.pricing.plans.find((p) => p.seats === seats)!;
+      const usdHub = usdFromPKR(hub);
       return `<td class="pt-cell pt-hub">
-        <div class="pt-price"><span data-pkr="${hub}" data-usd="${usdFromPKR(hub)}">PKR ${hub.toLocaleString()}</span></div>
+        <div class="pt-price"><span data-pkr="PKR ${hub.toLocaleString()}" data-usd="$${usdHub.toLocaleString()}">PKR ${hub.toLocaleString()}</span></div>
         <div class="pt-plan">${plan.name}</div>
         <div class="pt-seats">${plan.seatLabel}</div>
       </td>`;
@@ -74,7 +79,7 @@ export function buildPricingTable(): HTMLElement {
           </thead>
           <tbody>
             <tr class="pt-hub-row">
-              <th scope="row" class="pt-comp pt-hub-label"><span class="pt-name">${C.brand.name}</span><span class="pt-note">Flat plan price, no seat penalties</span></th>
+              <th scope="row" class="pt-comp pt-hub-label"><span class="pt-name"><span class="brand-name" dir="ltr">Hub <span class="urdu" dir="rtl" lang="ur"><bdi>دفتر</bdi></span></span></span><span class="pt-note">Flat plan price, no seat penalties</span></th>
               ${hubCells}
             </tr>
             ${competitorRows}
@@ -83,7 +88,7 @@ export function buildPricingTable(): HTMLElement {
       </div>
       <p class="pt-foot">${t.footnote}</p>
       <p class="pt-foot pt-foot-star">${t.footnoteAsterisk}</p>
-      <p class="pt-foot">Estimated founder hours saved per month: ${tiers.map((seats) => `${seats} seats ${t.hoursSaved[String(seats)]}h`).join(' · ')}. These are estimates, not measured customer results.</p>
+      <p class="pt-foot">Estimated founder hours saved per month: ${tiers.map((seats) => `${seats} seats: ${t.hoursSaved[String(seats)]}h`).join(' · ')}. These are estimates based on tool consolidation, not measured customer results.</p>
       <div class="pt-cta"><a class="btn btn-primary" href="#final-cta">${t.cta}</a></div>
     </div>
   `;
@@ -114,11 +119,11 @@ export function buildComparison(): HTMLElement {
           <div class="cmp-card-title">${r.f}</div>
           <div class="cmp-card-grid">
             <div class="cmp-card-col is-hub ${r.hubState}">
-              <div class="cmp-card-col-head"><span class="cmp-col-tag">Hub <span class="urdu">دفتر</span></span></div>
+              <div class="cmp-card-col-head"><span class="cmp-col-tag"><span class="brand-name" dir="ltr">Hub <span class="urdu" dir="rtl" lang="ur"><bdi>دفتر</bdi></span></span></span></div>
               <div class="cmp-card-col-body">${r.hub}</div>
             </div>
             <div class="cmp-card-col is-comp ${r.cuState}" data-cu-state="${r.cuState}" data-other-state="${r.otherState}">
-              <div class="cmp-card-col-head"><span class="cmp-col-tag cmp-active-comp-label">ClickUp Pro</span></div>
+              <div class="cmp-card-col-head"><span class="cmp-col-tag cmp-active-comp-label">ClickUp Unlimited</span></div>
               <div class="cmp-card-col-body cmp-active-comp-text" data-cu-text="${r.cu}" data-other-text="${r.other}">${r.cu}</div>
             </div>
           </div>
@@ -149,7 +154,7 @@ export function buildComparison(): HTMLElement {
           <span class="cmp-mobile-switcher-label">Compare against:</span>
           <div class="cmp-mobile-tabs" role="tablist" aria-label="Select comparison tool">
             <button type="button" class="cmp-mobile-tab is-active" data-comp="cu" role="tab" aria-selected="true">
-              ClickUp Pro
+              ClickUp Unlimited
             </button>
             <button type="button" class="cmp-mobile-tab" data-comp="other" role="tab" aria-selected="false">
               Other Tools
@@ -178,7 +183,7 @@ export function bindComparisonMobile(): void {
         t.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
 
-      const compName = targetComp === 'cu' ? 'ClickUp Pro' : 'Other PM Tools';
+      const compName = targetComp === 'cu' ? 'ClickUp Unlimited' : 'Other PM Tools';
 
       document.querySelectorAll<HTMLElement>('.cmp-card-col.is-comp').forEach((col) => {
         const state = targetComp === 'cu' ? col.dataset.cuState : col.dataset.otherState;
@@ -204,8 +209,7 @@ export function buildPricing(): HTMLElement {
 
   const plans = p.plans
     .map(
-      (pl) => `<article class="plan glass${pl.popular ? ' plan-popular is-mobile-active' : ''}" data-id="${pl.id}">
-        ${pl.popular ? '<span class="plan-ribbon">Most Popular</span>' : ''}
+      (pl, idx) => `<article class="plan glass${idx === 0 ? ' is-mobile-active' : ''}" data-id="${pl.id}">
         <h3 class="plan-name">${pl.name}</h3>
         <p class="plan-tag">${pl.tagline}</p>
         <div class="plan-price">
@@ -215,19 +219,18 @@ export function buildPricing(): HTMLElement {
         </div>
         <p class="plan-seats">${pl.seatLabel}</p>
         ${pl.usdNote ? `<p class="plan-note">${pl.usdNote}</p>` : ''}
-        ${pl.saveNote ? `<p class="plan-note plan-save">${pl.saveNote}</p>` : ''}
+        ${pl.saveNote ? `<p class="plan-note plan-save"><span data-pkr="${pl.saveNote}" data-usd="${pl.saveNote.replace(/PKR [\d,]+/, '$' + Math.round(Number(pl.saveNote.match(/PKR ([\d,]+)/)?.[1]?.replace(/,/g, '') || 0) / 280).toLocaleString())}">${pl.saveNote}</span></p>` : ''}
         <ul class="plan-bullets">${pl.bullets.map((b) => `<li>${b}</li>`).join('')}</ul>
-        <a class="btn ${pl.popular ? 'btn-primary' : 'btn-ghost'} plan-cta" href="#final-cta">${pl.cta}</a>
+        <a class="btn btn-primary plan-cta" href="#final-cta">${pl.cta}</a>
       </article>`
     )
     .join('');
 
   const mobileTabs = p.plans
     .map(
-      (pl) => `
-        <button type="button" class="plan-tab-btn${pl.popular ? ' is-active' : ''}" data-id="${pl.id}" role="tab" aria-selected="${pl.popular}">
+      (pl, idx) => `
+        <button type="button" class="plan-tab-btn${idx === 0 ? ' is-active' : ''}" data-id="${pl.id}" role="tab" aria-selected="${idx === 0}">
           <span>${pl.name.replace(' Plan', '')}</span>
-          ${pl.popular ? '<span class="tab-star">★</span>' : ''}
         </button>
       `
     )
@@ -239,6 +242,9 @@ export function buildPricing(): HTMLElement {
         <span class="eyebrow">${p.eyebrow}</span>
         <h2 class="h-sec">${p.title}</h2>
         <p class="sub-sec">${p.sub}</p>
+        <div class="pricing-proof-line">
+          <span class="proof-dot"></span> Built by an agency, used daily by our own team.
+        </div>
         <p class="seat-rule">${p.seatRule}</p>
       </div>
 

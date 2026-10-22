@@ -129,15 +129,26 @@ export function buildFinalCta(): HTMLElement {
   el.className = 'section final-cta';
   el.id = 'final-cta';
   const f = C.finalCta.form;
+  const direct = (C.finalCta as any).contact || {
+    founder: '[Your Name]',
+    email: '[email@yourdomain.com]',
+    whatsapp: '+92 300 0000000'
+  };
 
   const sizeOpts = f.sizeOptions.map((o) => `<option value="${o}">${o}</option>`).join('');
-  const painOpts = f.painOptions.map((o) => `<option value="${o.v}">${o.l}</option>`).join('');
+  const waUrl = 'https://wa.me/923000000000?text=' + encodeURIComponent('Hi Hub دفتر! I would like to book a walkthrough.');
 
   el.innerHTML = `
     <div class="container final-inner">
       <div class="final-copy">
         <h2 class="h-sec">${f.title}</h2>
         <p class="sub-sec">${C.finalCta.sub}</p>
+        <div class="final-direct-contact glass">
+          <span class="fdc-label">Direct Founder Contact</span>
+          <p class="fdc-item"><strong>Founder:</strong> ${direct.founder}</p>
+          <p class="fdc-item"><strong>Email:</strong> <a href="mailto:${direct.email}">${direct.email}</a></p>
+          <p class="fdc-item"><strong>WhatsApp:</strong> <a href="https://wa.me/923000000000" target="_blank" rel="noopener">${direct.whatsapp}</a></p>
+        </div>
       </div>
       <form class="final-form glass" id="demo-form">
         <h3 class="form-title">${f.title}</h3>
@@ -151,7 +162,7 @@ export function buildFinalCta(): HTMLElement {
         <input type="hidden" name="pain" value="attendance" />
         <div class="form-actions-row">
           <button type="submit" class="btn btn-primary form-submit">${f.submit}</button>
-          <a class="btn btn-ghost form-wa" href="#" target="_blank" rel="noopener">${C.finalCta.whatsapp}</a>
+          <a class="btn btn-ghost form-wa" href="${waUrl}" target="_blank" rel="noopener">${C.finalCta.whatsapp}</a>
         </div>
         <div class="form-success" hidden>
           <div class="lock-ring" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
@@ -166,10 +177,39 @@ export function buildFinalCta(): HTMLElement {
 export function buildFooter(): HTMLElement {
   const el = document.createElement('footer');
   el.className = 'footer';
+  const contact = (C.footer as any).contact || {
+    founder: '[Your Name]',
+    email: '[email@yourdomain.com]',
+    whatsapp: '+92 300 0000000'
+  };
+
   el.innerHTML = `
     <div class="container footer-inner">
-      <p class="footer-copy">${C.footer.copy}</p>
-      <p class="footer-trust"><strong>${C.footer.trust.title}:</strong> ${C.footer.trust.note}</p>
+      <div class="footer-grid">
+        <div class="footer-col-brand">
+          <div class="footer-brand-title">
+            <span class="brand-name" dir="ltr">Hub <span class="urdu" dir="rtl" lang="ur"><bdi>دفتر</bdi></span></span>
+          </div>
+          <p class="footer-tagline">${C.brand.tagline}</p>
+          <p class="footer-trust"><strong>${C.footer.trust.title}:</strong> ${C.footer.trust.note}</p>
+        </div>
+        <div class="footer-col-contact">
+          <h4 class="footer-heading">Direct Contact</h4>
+          <p class="footer-contact-line"><strong>Founder:</strong> ${contact.founder}</p>
+          <p class="footer-contact-line"><strong>Email:</strong> <a href="mailto:${contact.email}">${contact.email}</a></p>
+          <p class="footer-contact-line"><strong>WhatsApp:</strong> <a href="https://wa.me/923000000000" target="_blank" rel="noopener">${contact.whatsapp}</a></p>
+        </div>
+        <div class="footer-col-links">
+          <h4 class="footer-heading">Legal & Trust</h4>
+          <ul class="footer-links-list">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <p class="footer-copy">${C.footer.copy}</p>
+      </div>
     </div>
   `;
   return el;
