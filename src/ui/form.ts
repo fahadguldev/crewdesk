@@ -16,7 +16,7 @@ export function bindForm(): void {
       `Hi ${C.brand.name}! I'd like to book the 30-min walkthrough.\n` +
       `Name: ${get('name')}\nOffice: ${get('agency')}\nTeam size: ${get('size')}\n` +
       `Contact: ${get('contact')}\nBiggest headache: ${get('pain')}`;
-    const waNumber = (C.finalCta.form as any).whatsappNumber ?? '923001234567';
+    const waNumber = (C.finalCta.form as any).whatsappNumber ?? '923203601576';
     const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
 
     if (success) success.hidden = false;

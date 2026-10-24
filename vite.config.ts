@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
-// base must match the GitHub Pages project path: https://<user>.github.io/crewdesk/
+// Base for custom domain: https://daftarhub.app/
 export default defineConfig({
-  base: '/crewdesk/',
+  base: '/',
   build: {
     target: 'es2019',
     assetsInlineLimit: 0,

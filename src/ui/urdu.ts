@@ -31,8 +31,19 @@ export function applyUrduDaftar(root: HTMLElement = document.body): void {
       if (parent.closest('.urdu') || parent.classList.contains('urdu')) {
         return NodeFilter.FILTER_REJECT;
       }
-      // Check if text node contains daftar (case-insensitive) or Urdu دفتر
-      if (/(daftars?|daftar|دفتر)/i.test(node.nodeValue ?? '')) {
+      // Never alter mailto links, domain links, or text containing email addresses / URLs
+      if (tag === 'a') {
+        const href = parent.getAttribute('href') ?? '';
+        if (href.startsWith('mailto:') || href.includes('daftarhub.app') || href.startsWith('http')) {
+          return NodeFilter.FILTER_REJECT;
+        }
+      }
+      const val = node.nodeValue ?? '';
+      if (/@|daftarhub.app/i.test(val)) {
+        return NodeFilter.FILTER_REJECT;
+      }
+      // Check if text node contains standalone daftar (case-insensitive) or Urdu دفتر
+      if (/(\bdaftars?\b|دفتر)/i.test(val)) {
         return NodeFilter.FILTER_ACCEPT;
       }
       return NodeFilter.FILTER_SKIP;
@@ -47,8 +58,8 @@ export function applyUrduDaftar(root: HTMLElement = document.body): void {
   for (const textNode of nodesToReplace) {
     const text = textNode.nodeValue ?? '';
     const fragment = document.createDocumentFragment();
-    // Match 'daftars', 'daftar', 'Daftars', 'Daftar', 'DAFTAR', 'دفتر'
-    const regex = /(daftars?|daftar|دفتر)/gi;
+    // Match standalone 'daftars', 'daftar', 'Daftars', 'Daftar', 'DAFTAR', or Urdu 'دفتر'
+    const regex = /(\bdaftars?\b|دفتر)/gi;
     let lastIdx = 0;
     let match: RegExpExecArray | null;
 

@@ -5,6 +5,7 @@ export const C = content as unknown as {
   brand: {
     name: string; latin: string; urdu: string; tagline: string;
     title: string; description: string; offerCopy: string; proofSlot: string;
+    domain?: string; url?: string;
   };
   nav: {
     links: { label: string; href: string }[];

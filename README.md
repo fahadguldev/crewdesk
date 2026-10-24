@@ -19,21 +19,21 @@ Hub دفتر is a scroll-driven landing site for a modern agency operations plat
 
 ```bash
 pnpm install
-pnpm dev        # http://localhost:5173/crewdesk/
+pnpm dev        # http://localhost:5173/
 ```
 
 ## Build & preview
 
 ```bash
 pnpm build      # typecheck + production build -> dist/
-pnpm preview    # serves dist/ at /crewdesk/
+pnpm preview    # serves dist/ at /
 pnpm typecheck  # tsc --noEmit only
 ```
 
 ## Deploy (GitHub Pages)
 
 `.github/workflows/static.yml` builds with Vite and deploys `dist/` to Pages on push to `main`.
-`vite.config.ts` sets `base: '/crewdesk/'` to match the project path.
+`vite.config.ts` sets `base: '/'` for custom domain `https://daftarhub.app/`.
 
 ## Performance & accessibility
 
