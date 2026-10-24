@@ -1,0 +1,8 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/crewdesk/assets/:match*", "destination": "/assets/:match*" },
+    { "source": "/crewdesk", "destination": "/index.html" },
+    { "source": "/crewdesk/:path*", "destination": "/:path*" }
+  ]
+}
