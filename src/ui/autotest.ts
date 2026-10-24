@@ -97,7 +97,7 @@ export function runAutoTest(): void {
     (form.elements.namedItem('name') as HTMLInputElement).value = 'QA';
     (form.elements.namedItem('agency') as HTMLInputElement).value = 'Test Daftar';
     (form.elements.namedItem('size') as HTMLSelectElement).value = C.finalCta.form.sizeOptions[0];
-    (form.elements.namedItem('contact') as HTMLInputElement).value = '+92 320 3601576';
+    (form.elements.namedItem('contact') as HTMLInputElement).value = '+90 548 827 4659';
     (form.elements.namedItem('pain') as HTMLSelectElement).value = C.finalCta.form.painOptions[0].v;
     form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
     (window as any).open = realOpen;

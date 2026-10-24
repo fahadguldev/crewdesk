@@ -846,8 +846,8 @@
         "50+ seats"
       ],
       "contact": "WhatsApp Number or Email",
-      "contactPh": "+92 320 3601576 or email",
-      "pain": "Main Operational Headache",
+      "contactPh": "+90 548 827 4659 or email",
+      "pain": "Biggest Operational Headache",
       "painOptions": [
         {
           "v": "Project Profit & Margins",
@@ -873,12 +873,11 @@
       "submit": "Open WhatsApp Direct",
       "title": "Book Your 30-Min Demo",
       "subModal": "We'll show you the screens that match your exact office size.",
-      "whatsappNumber": "923203601576"
+      "whatsappNumber": "905488274659"
     },
     "contact": {
-      "founder": "[Your Name]",
       "email": "daftarhub.app@gmail.com",
-      "whatsapp": "+92 320 3601576"
+      "whatsapp": "+90 548 827 4659"
     }
   },
   "footer": {
@@ -888,9 +887,8 @@
       "note": "Dedicated database per customer, AES-256 encryption for client password vault, automated daily backups, and ongoing support."
     },
     "contact": {
-      "founder": "[Your Name]",
       "email": "daftarhub.app@gmail.com",
-      "whatsapp": "+92 320 3601576"
+      "whatsapp": "+90 548 827 4659"
     }
   },
   "currency": {

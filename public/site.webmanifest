@@ -1,0 +1,17 @@
+{
+  "name": "Hub دفتر — Agency Operations Platform",
+  "short_name": "Hub دفتر",
+  "description": "All-in-one operations platform for digital agencies and service providers. 8 core modules, dedicated roles, attendance, password vault, and project profit margins.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1020",
+  "theme_color": "#0B1020",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

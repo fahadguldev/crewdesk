@@ -130,13 +130,13 @@ export function buildFinalCta(): HTMLElement {
   el.id = 'final-cta';
   const f = C.finalCta.form;
   const direct = (C.finalCta as any).contact || {
-    founder: '[Your Name]',
     email: 'daftarhub.app@gmail.com',
-    whatsapp: '+92 320 3601576'
+    whatsapp: '+90 548 827 4659'
   };
-  const waDigits = (f as any).whatsappNumber || '923203601576';
+  const waDigits = (f as any).whatsappNumber || '905488274659';
 
   const sizeOpts = f.sizeOptions.map((o) => `<option value="${o}">${o}</option>`).join('');
+  const painOpts = f.painOptions.map((p) => `<option value="${p.v}">${p.l}</option>`).join('');
   const waUrl = `https://wa.me/${waDigits}?text=` + encodeURIComponent('Hi Hub دفتر! I would like to book a walkthrough.');
 
   el.innerHTML = `
@@ -145,8 +145,7 @@ export function buildFinalCta(): HTMLElement {
         <h2 class="h-sec">${f.title}</h2>
         <p class="sub-sec">${C.finalCta.sub}</p>
         <div class="final-direct-contact glass">
-          <span class="fdc-label">Direct Founder Contact</span>
-          <p class="fdc-item"><strong>Founder:</strong> ${direct.founder}</p>
+          <span class="fdc-label">Direct Contact</span>
           <p class="fdc-item"><strong>Email:</strong> <a href="mailto:${direct.email}">${direct.email}</a></p>
           <p class="fdc-item"><strong>WhatsApp:</strong> <a href="https://wa.me/${waDigits}" target="_blank" rel="noopener">${direct.whatsapp}</a></p>
         </div>
@@ -159,8 +158,8 @@ export function buildFinalCta(): HTMLElement {
           <label class="form-field">${f.agency}<input name="agency" type="text" placeholder="${f.agencyPh}" required /></label>
           <label class="form-field">${f.contact}<input name="contact" type="text" placeholder="${f.contactPh}" required /></label>
           <label class="form-field">${f.size}<select name="size" required><option value="">Select...</option>${sizeOpts}</select></label>
+          <label class="form-field form-field-full">${f.pain}<select name="pain" required><option value="">Select your main headache...</option>${painOpts}</select></label>
         </div>
-        <input type="hidden" name="pain" value="attendance" />
         <div class="form-actions-row">
           <button type="submit" class="btn btn-primary form-submit">${f.submit}</button>
           <a class="btn btn-ghost form-wa" href="${waUrl}" target="_blank" rel="noopener">${C.finalCta.whatsapp}</a>
@@ -168,6 +167,11 @@ export function buildFinalCta(): HTMLElement {
         <div class="form-success" hidden>
           <div class="lock-ring" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
           <p>Opening WhatsApp... we'll confirm within one business day.</p>
+          <div class="form-fallback-actions" style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+            <span style="color: var(--text-muted);">If WhatsApp didn't launch automatically:</span>
+            <a class="btn btn-ghost form-wa-manual" href="${waUrl}" target="_blank" rel="noopener">Open WhatsApp Web / App →</a>
+            <a class="form-mail-manual" href="mailto:daftarhub.app@gmail.com" style="color: var(--accent); text-decoration: underline; font-size: 13px;">Or email your booking request directly</a>
+          </div>
         </div>
       </form>
     </div>
@@ -179,11 +183,10 @@ export function buildFooter(): HTMLElement {
   const el = document.createElement('footer');
   el.className = 'footer';
   const contact = (C.footer as any).contact || {
-    founder: '[Your Name]',
     email: 'daftarhub.app@gmail.com',
-    whatsapp: '+92 320 3601576'
+    whatsapp: '+90 548 827 4659'
   };
-  const waDigits = (C.finalCta.form as any).whatsappNumber || '923203601576';
+  const waDigits = (C.finalCta.form as any).whatsappNumber || '905488274659';
 
   el.innerHTML = `
     <div class="container footer-inner">
@@ -197,7 +200,6 @@ export function buildFooter(): HTMLElement {
         </div>
         <div class="footer-col-contact">
           <h4 class="footer-heading">Direct Contact</h4>
-          <p class="footer-contact-line"><strong>Founder:</strong> ${contact.founder}</p>
           <p class="footer-contact-line"><strong>Email:</strong> <a href="mailto:${contact.email}">${contact.email}</a></p>
           <p class="footer-contact-line"><strong>WhatsApp:</strong> <a href="https://wa.me/${waDigits}" target="_blank" rel="noopener">${contact.whatsapp}</a></p>
         </div>

@@ -74,12 +74,12 @@ export const C = content as unknown as {
       pain: string; painOptions: { v: string; l: string }[]; submit: string; title: string; subModal: string;
       whatsappNumber?: string;
     };
-    contact?: { founder: string; email: string; whatsapp: string };
+    contact?: { founder?: string; email: string; whatsapp: string };
   };
   footer: {
     copy: string;
     trust: { title: string; note: string };
-    contact?: { founder: string; email: string; whatsapp: string };
+    contact?: { founder?: string; email: string; whatsapp: string };
   };
   currency: { rate: number; pkr: string; usd: string };
 };

@@ -25,7 +25,7 @@
    - Hero and Pricing proof line: "Built by an agency, used daily by our own team."
    - AES-256 encryption terminology used consistently.
    - Added Privacy Policy (`privacy.html`) and Terms of Service (`terms.html`), linked from footer.
-   - Contact info confirmed: Email `daftarhub.app@gmail.com`, WhatsApp `+92 320 3601576`, Domain `daftarhub.app` (Founder placeholder remains `[Your Name]`).
+   - Contact info confirmed: Email `daftarhub.app@gmail.com`, WhatsApp `+90 548 827 4659`, Domain `daftarhub.app`.
 7. **Payment Methods**: Bank Transfer (IBAN), Raast, JazzCash, Easypaisa only. Traditional card processors excluded.
 
 ## Needs Owner Confirmation Before Launch

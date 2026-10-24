@@ -1,0 +1,8 @@
+# Robots.txt for Hub دفتر (https://daftarhub.app/)
+User-agent: *
+Allow: /
+Disallow: /?autotest=1
+
+# Host & Sitemap
+Host: https://daftarhub.app
+Sitemap: https://daftarhub.app/sitemap.xml

@@ -34,6 +34,7 @@ import { applyUrduDaftar } from './ui/urdu';
 import { C } from './content';
 
 function mount(app: HTMLElement): void {
+  app.innerHTML = '';
   const sticky = document.createElement('div');
   sticky.className = 'sticky-top';
   sticky.appendChild(buildNav());
