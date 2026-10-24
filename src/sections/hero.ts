@@ -90,7 +90,7 @@ export function buildHero(): HTMLElement {
     <!-- First View Screen: Only the core headline visible -->
     <div class="hero-first-screen">
       <div class="container hero-center-wrap">
-        <h1 class="hero-h1" id="hero-headline" aria-label="Manage your whole دفتر from 1 Hub not disconnected tools and sheets">
+        <h1 class="hero-h1" id="hero-headline" aria-label="Manage your whole دفتر from one Hub not disconnected tools and sheets">
           <span class="typewriter-text" id="typewriter-text"></span><span class="typing-cursor" id="typing-cursor" aria-hidden="true">|</span>
         </h1>
         <div class="hero-proof-line">

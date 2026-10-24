@@ -30,7 +30,7 @@ const DEFAULT_STRUCTURE: TypewriterLine[] = [
   },
   {
     tokens: [
-      { text: 'from 1 ' },
+      { text: 'from one ' },
       { text: 'Hub', className: 'type-green-hub' }
     ]
   },
