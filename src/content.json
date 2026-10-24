@@ -460,20 +460,17 @@
     "tiers": [
       10,
       15,
-      25,
-      50
+      25
     ],
     "tierLabels": {
       "10": "Team of 10 (Starter)",
       "15": "Team of 15 (Team Plan)",
-      "25": "Team of 25 (Growth)",
-      "50": "Team of 50 (Scale)"
+      "25": "Team of 25 (Growth)"
     },
     "hoursSaved": {
       "10": 18,
       "15": 24,
-      "25": 30,
-      "50": 50
+      "25": 30
     },
     "competitors": [
       {
@@ -663,25 +660,6 @@
           "Priority hyper-care WhatsApp channel"
         ],
         "cta": "Request Growth Demo"
-      },
-      {
-        "id": "scale",
-        "name": "Scale Plan",
-        "tagline": "For established software houses",
-        "seats": 50,
-        "seatLabel": "Up to 50 seats",
-        "pricePKR": 50000,
-        "usdNote": "That's about $179 USD total — flat rate for up to 50 members.",
-        "saveNote": "Save PKR 1,080,000/yr vs ClickUp Unlimited (Monthly)",
-        "popular": false,
-        "bullets": [
-          "Everything in Growth Plan",
-          "Up to 50 team members (each onboarded employee counts as one user)",
-          "Includes 3 custom modules built for your workflow",
-          "Custom database backup export scripts",
-          "Bespoke custom integrations assistance"
-        ],
-        "cta": "Request Scale Demo"
       }
     ],
     "paymentTitle": "Flexible Payment Options",
@@ -792,7 +770,7 @@
       {
         "id": "faq-12",
         "q": "What does each plan include?",
-        "a": "Every plan (Starter, Team Plan, Growth, Scale) includes all eight core modules, three custom modules built for your workflow, first-week onboarding, ongoing support, free small changes up to 4 hours of work, and same-day attendance/vault resolution (2 working days for other issues). The plans differ only by seat limit (10, 15, 25, or 50 seats), not by features."
+        "a": "Every plan (Starter, Team Plan, Growth) includes all eight core modules, three custom modules built for your workflow, first-week onboarding, ongoing support, free small changes up to 4 hours of work, and same-day attendance/vault resolution (2 working days for other issues). The plans differ only by seat limit (10, 15, or 25 seats), not by features."
       },
       {
         "id": "faq-13",
@@ -842,8 +820,7 @@
         "5-10 seats (Starter)",
         "11-15 seats (Team Plan)",
         "16-25 seats (Growth)",
-        "26-50 seats (Scale)",
-        "50+ seats"
+        "25+ seats"
       ],
       "contact": "WhatsApp Number or Email",
       "contactPh": "+90 548 827 4659 or email",

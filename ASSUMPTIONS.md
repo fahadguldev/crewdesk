@@ -6,11 +6,10 @@
 2. **Offer & Pricing**:
    - Flat pricing with no promo rates, no complimentary initial trial month, and zero setup charges across all tiers.
    - Removed rate-lock guarantees, promotional popularity badges, and historical 20,000 reference anchor prices.
-   - 4 plans:
-     - Starter: PKR 12,000 (up to 10 seats) — No setup fee
-     - Team Plan: PKR 18,000 (up to 15 seats) — No setup fee
-     - Growth: PKR 30,000 (up to 25 seats) — No setup fee
-     - Scale: PKR 50,000 (up to 50 seats) — No setup fee
+   - 3 plans:
+      - Starter: PKR 12,000 (up to 10 seats) — No setup fee
+      - Team Plan: PKR 18,000 (up to 15 seats) — No setup fee
+      - Growth: PKR 30,000 (up to 25 seats) — No setup fee
    - All plans include 3 custom modules built for client workflow.
    - 4-Hour Rule: "Small changes up to 4 hours of work are free. Larger work and additional modules are quoted in development hours before work starts." (Applied verbatim in Support, Onboarding, and FAQ).
 3. **Support SLA**: Attendance or password vault outages resolved same day; all other customer-reported issues within 2 working days. (Updated in feature strip, support, onboarding, and FAQ).

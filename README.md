@@ -82,7 +82,6 @@ Flat monthly pricing with no per-seat penalty fees within each plan limit:
 - **Starter Plan**: PKR 12,000/mo (up to 10 seats) — No setup fee
 - **Team Plan**: PKR 18,000/mo (up to 15 seats) — No setup fee
 - **Growth Plan**: PKR 30,000/mo (up to 25 seats) — No setup fee
-- **Scale Plan**: PKR 50,000/mo (up to 50 seats) — No setup fee
 
 Payment methods: Bank Transfer (IBAN), Raast, JazzCash, Easypaisa.
 
