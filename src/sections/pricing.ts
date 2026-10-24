@@ -123,7 +123,7 @@ export function buildComparison(): HTMLElement {
               <div class="cmp-card-col-body">${r.hub}</div>
             </div>
             <div class="cmp-card-col is-comp ${r.cuState}" data-cu-state="${r.cuState}" data-other-state="${r.otherState}">
-              <div class="cmp-card-col-head"><span class="cmp-col-tag cmp-active-comp-label">ClickUp Unlimited</span></div>
+              <div class="cmp-card-col-head"><span class="cmp-col-tag cmp-active-comp-label">${c.cols[2] || "ClickUp Business"}</span></div>
               <div class="cmp-card-col-body cmp-active-comp-text" data-cu-text="${r.cu}" data-other-text="${r.other}">${r.cu}</div>
             </div>
           </div>
@@ -154,7 +154,7 @@ export function buildComparison(): HTMLElement {
           <span class="cmp-mobile-switcher-label">Compare against:</span>
           <div class="cmp-mobile-tabs" role="tablist" aria-label="Select comparison tool">
             <button type="button" class="cmp-mobile-tab is-active" data-comp="cu" role="tab" aria-selected="true">
-              ClickUp Unlimited
+              ${c.cols[2] || "ClickUp Business"}
             </button>
             <button type="button" class="cmp-mobile-tab" data-comp="other" role="tab" aria-selected="false">
               Other Tools
@@ -183,7 +183,7 @@ export function bindComparisonMobile(): void {
         t.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
 
-      const compName = targetComp === 'cu' ? 'ClickUp Unlimited' : 'Other PM Tools';
+      const compName = targetComp === 'cu' ? (C.comparison.cols[2] || 'ClickUp Business') : (C.comparison.cols[3] || 'Productive / Teamwork');
 
       document.querySelectorAll<HTMLElement>('.cmp-card-col.is-comp').forEach((col) => {
         const state = targetComp === 'cu' ? col.dataset.cuState : col.dataset.otherState;

@@ -19,7 +19,7 @@
         "href": "#pricing-table"
       },
       {
-        "label": "vs ClickUp Unlimited",
+        "label": "vs Competitors",
         "href": "#comparison"
       },
       {
@@ -474,67 +474,37 @@
     },
     "competitors": [
       {
-        "id": "cu-unl-ann",
-        "name": "ClickUp Unlimited",
-        "note": "Billed annually ($7/user/mo)",
-        "usd": 7
-      },
-      {
-        "id": "cu-unl-mo",
-        "name": "ClickUp Unlimited",
-        "note": "Billed monthly ($10/user/mo)",
-        "usd": 10
-      },
-      {
-        "id": "cu-biz-ann",
+        "id": "clickup-business",
         "name": "ClickUp Business",
         "note": "Billed annually ($12/user/mo)",
         "usd": 12
       },
       {
-        "id": "cu-biz-mo",
-        "name": "ClickUp Business",
-        "note": "Billed monthly ($19/user/mo)",
-        "usd": 19
+        "id": "productive-professional",
+        "name": "Productive Professional",
+        "note": "Billed annually ($24/user/mo)",
+        "usd": 24
       },
       {
-        "id": "prod-ess-ann",
-        "name": "Productive Essential",
-        "note": "Billed annually ($10/user/mo)",
-        "usd": 10
-      },
-      {
-        "id": "prod-ess-mo",
-        "name": "Productive Essential",
-        "note": "Billed monthly ($12/user/mo)",
-        "usd": 12
-      },
-      {
-        "id": "tw-bas-ann",
-        "name": "Teamwork Basics",
-        "note": "Billed annually ($10/user/mo list $9.99)",
-        "usd": 10
-      },
-      {
-        "id": "tw-bas-mo",
-        "name": "Teamwork Basics",
-        "note": "Billed monthly ($14/user/mo list $13.99)",
-        "usd": 14
+        "id": "teamwork-grow",
+        "name": "Teamwork Grow",
+        "note": "Billed annually ($20/user/mo list $19.99)",
+        "usd": 20
       }
     ],
-    "footnote": "*List prices verified October 2026 from official competitor pricing pages, converted at PKR 280/USD. In competitors, password vault tools and attendance typically require separate paid apps or add-ons. Hours-saved figures are estimates based on consolidating multiple disconnected tools, not measured per customer.",
+    "footnote": "*List prices verified October 2026 from official competitor pricing pages (ClickUp Business @ $12/user/mo, Productive Professional @ $24/user/mo, Teamwork Grow @ $20/user/mo billed annually), converted at PKR 280/USD. In competitors, password vault tools and attendance typically require separate paid apps or add-ons. Hours-saved figures are estimates based on consolidating multiple disconnected tools, not measured per customer.",
     "footnoteAsterisk": "*Each Hub دفتر capability marked with an asterisk is a built-in part of the eight core modules, available on day one. Competitor equivalents typically need paid add-ons, third-party integrations or manual configuration.",
     "cta": "Book Free Walkthrough"
   },
   "comparison": {
     "eyebrow": "Feature Comparison",
-    "title": "Why Agencies Switch From ClickUp Unlimited",
+    "title": "Why Agencies Switch From ClickUp & Other Tools",
     "sub": "Other tools are empty toolkits that typically require weeks of configuration. Hub دفتر works for your agency on Day 1.",
     "cols": [
       "Features & Capabilities",
       "Hub دفتر",
-      "ClickUp Unlimited",
-      "Other PM Tools (Asana / Jira)"
+      "ClickUp Business",
+      "Productive / Teamwork"
     ],
     "rows": [
       {
@@ -607,7 +577,7 @@
         "seatLabel": "Up to 10 seats",
         "pricePKR": 12000,
         "usdNote": "That's about $43 USD total — less than 1-2% of agency payroll.",
-        "saveNote": "Save PKR 192,000/yr vs ClickUp Unlimited (Monthly)",
+        "saveNote": "Save PKR 259,200/yr vs. ClickUp Business",
         "popular": false,
         "bullets": [
           "All 8 core modules (AI Copilot planned, included with no subscription fee when released)",
@@ -631,7 +601,7 @@
         "seatLabel": "Up to 15 seats",
         "pricePKR": 18000,
         "usdNote": "That's about $64 USD total — flat rate, no per-seat penalties.",
-        "saveNote": "Save PKR 288,000/yr vs ClickUp Unlimited (Monthly)",
+        "saveNote": "Save PKR 388,800/yr vs. ClickUp Business",
         "popular": false,
         "bullets": [
           "Everything in Starter Plan",
@@ -650,7 +620,7 @@
         "seatLabel": "Up to 25 seats",
         "pricePKR": 30000,
         "usdNote": "That's about $107 USD total — flat rate for your entire team.",
-        "saveNote": "Save PKR 480,000/yr vs ClickUp Unlimited (Monthly)",
+        "saveNote": "Save PKR 648,000/yr vs. ClickUp Business",
         "popular": false,
         "bullets": [
           "Everything in Team Plan",
