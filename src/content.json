@@ -4,57 +4,53 @@
     "nameEn": "Hub دفتر",
     "urdu": "دفتر",
     "latin": "Hub",
-    "tagline": "Agency Operations Platform",
-    "title": "Hub دفتر | Agency Operations Platform — 8 Core Modules + 3 Custom Modules",
-    "description": "Hub دفتر is the agency operations platform for digital agencies and service providers. All 8 core modules plus 3 custom modules built for your agency, guided onboarding, and ongoing support.",
-    "offerCopy": "3 custom modules built for your agency, delivered in month one.",
+    "tagline": "The Agency Operations Platform",
+    "title": "Hub دفتر — Agency Management Software for Digital Agencies",
+    "description": "One platform for attendance, projects, client passwords, time tracking and real profit per project. Built for digital agencies. Set up in the first week.",
+    "offerCopy": "Built for your agency workflow with guided first-week onboarding.",
     "proofSlot": "Built by an agency, used daily by our own team.",
     "domain": "daftarhub.app",
-    "url": "https://daftarhub.app"
+    "url": "https://www.daftarhub.app"
   },
   "nav": {
     "links": [
       {
-        "label": "Pricing & Savings Matrix",
-        "href": "#pricing-table"
-      },
-      {
-        "label": "vs Competitors",
-        "href": "#comparison"
-      },
-      {
-        "label": "8 Modules",
+        "label": "Modules",
         "href": "#modules"
       },
       {
-        "label": "4 Dedicated Roles",
+        "label": "Roles",
         "href": "#roles"
       },
       {
-        "label": "Onboarding",
-        "href": "#onboarding"
+        "label": "Pricing",
+        "href": "#pricing"
       },
       {
-        "label": "Plans",
-        "href": "#pricing"
+        "label": "Compare",
+        "href": "/compare/clickup-alternative"
       },
       {
         "label": "FAQ",
         "href": "#faq"
       }
     ],
+    "login": {
+      "label": "Log in",
+      "href": "https://app.daftarhub.app"
+    },
     "cta": "Book Walkthrough",
     "mobileCta": "Book Free Walkthrough"
   },
   "banner": {
     "badge": "Core Modules",
-    "text": "8 Core Modules + 3 Custom Modules Built for Your Agency",
+    "text": "8 Core Operational Modules Built for Your Agency",
     "sub": "— all included in every plan.",
-    "link": "View Pricing Table"
+    "link": "View Pricing"
   },
   "hero": {
     "pill1": "Built for digital agencies & service providers",
-    "pill2": "8 Core + 3 Custom Modules",
+    "pill2": "Built for Agency Workflows",
     "typewriterStructure": [
       {
         "tokens": [
@@ -83,17 +79,37 @@
         "className": "hero-muted",
         "tokens": [
           {
-            "text": "not disconnected tools and sheets"
+            "text": "— not scattered tools and sheets"
           }
         ]
       }
     ],
+    "h1Static": "Manage your whole دفتر from one Hub — not scattered tools and sheets",
     "h1a": "Manage your whole",
     "h1b": "from one Hub",
-    "h1c": "not disconnected tools and sheets",
-    "sub": "Attendance, leaves, client passwords, team workload, and real profit per project — one platform for digital agencies and service providers, with guided onboarding and ongoing support.",
+    "h1c": "— not scattered tools and sheets",
+    "sub": "Attendance, leave, projects, client passwords, time tracking, workload and real profit per project — one platform built for digital agencies, set up for you in the first week.",
     "ctaPrimary": "Book Free 30-Min Walkthrough",
-    "ctaSecondary": "Compare All Prices In Single Table",
+    "ctaSecondary": "View Live Demo",
+    "microcopy": "No setup fee · Onboarding included · Pay by bank transfer, Raast, JazzCash or Easypaisa",
+    "trustStrip": [
+      {
+        "title": "Built by an agency, used daily by our own team",
+        "icon": "team"
+      },
+      {
+        "title": "AES-256 encrypted client vault",
+        "icon": "lock"
+      },
+      {
+        "title": "Dedicated database per customer",
+        "icon": "database"
+      },
+      {
+        "title": "Flat pricing, no per-seat penalties",
+        "icon": "shield"
+      }
+    ],
     "systemCards": [
       {
         "label": "Time & Attendance",
@@ -131,22 +147,26 @@
         "tone": "amber"
       }
     ],
-    "trustChips": [
+    "heroInfoCards": [
       {
         "title": "8 Core Modules",
-        "body": "Attendance, projects, passwords, time, workload & more — working today."
-      },
-      {
-        "title": "3 Custom Modules",
-        "body": "Built for your agency's workflow. Included for every paying customer."
+        "body": "Attendance, projects, vault, time, workload, profit and people directory.",
+        "color": "emerald"
       },
       {
         "title": "First-Week Onboarding",
-        "body": "Guided setup, migration, and training so your team is comfortable from day one."
+        "body": "Guided setup, employee migration and team training.",
+        "color": "indigo"
       },
       {
-        "title": "Issue Resolution SLA",
-        "body": "Attendance or vault outages resolved the same day; all other customer-reported issues within 2 working days."
+        "title": "Private by Design",
+        "body": "Four role screens. Salaries and rates stay hidden from the wrong roles.",
+        "color": "teal"
+      },
+      {
+        "title": "Support Included",
+        "body": "Same-day fix for attendance or vault outages.",
+        "color": "amber"
       }
     ],
     "proof": "Built by an agency, used daily by our own team."
@@ -214,7 +234,7 @@
     "title": "8 operational modules, plus AI Copilot (planned)",
     "sub": "Every plan includes all eight working modules. AI Copilot is a planned additional module with no extra subscription fee — your agency connects its own AI API key.",
     "availableLabel": "Available Today",
-    "demoUrl": "https://daftarhubdemo.vercel.app/",
+    "demoUrl": "https://demo.daftarhub.app/",
     "items": [
       {
         "n": 1,
@@ -223,7 +243,7 @@
         "role": "Owner / Admin",
         "color": "emerald",
         "art": "bars",
-        "url": "https://daftarhubdemo.vercel.app/business-analyst",
+        "url": "https://demo.daftarhub.app/business-analyst",
         "desc": "Shows the real net revenue and profit generated by each project. Visualizes top-performing client projects, category margins, and financial health in real time."
       },
       {
@@ -233,7 +253,7 @@
         "role": "For All Roles",
         "color": "indigo",
         "art": "rows",
-        "url": "https://daftarhubdemo.vercel.app/",
+        "url": "https://demo.daftarhub.app/",
         "desc": "A birds-eye view of your entire agency's momentum. See live task completion, active projects, employee statuses, and department progress at a single glance."
       },
       {
@@ -243,7 +263,7 @@
         "role": "HR + Owner",
         "color": "teal",
         "art": "toggles",
-        "url": "https://daftarhubdemo.vercel.app/attendance-management",
+        "url": "https://demo.daftarhub.app/attendance-management",
         "desc": "1-click daily check-in. Tracks attendance, casual/sick leaves, WFH requests, office working hours, late arrivals, and early exits with an immutable audit log."
       },
       {
@@ -253,7 +273,7 @@
         "role": "PM + Admin",
         "color": "blue",
         "art": "board",
-        "url": "https://daftarhubdemo.vercel.app/projects",
+        "url": "https://demo.daftarhub.app/projects",
         "desc": "Organizes all client projects category-wise (e.g. Mobile, Web, AI, Retainers). Track milestone deadlines, deliverables, sprints, and subtasks cleanly."
       },
       {
@@ -263,7 +283,7 @@
         "role": "Admin Only",
         "color": "amber",
         "art": "lock",
-        "url": "https://daftarhubdemo.vercel.app/credentials",
+        "url": "https://demo.daftarhub.app/credentials",
         "desc": "Secure client credentials in an AES-256 encrypted vault instead of Google Sheets or WhatsApp. Grant access strictly to specific individuals with copy/reveal logs."
       },
       {
@@ -273,7 +293,7 @@
         "role": "Admin + PM",
         "color": "purple",
         "art": "ring",
-        "url": "https://daftarhubdemo.vercel.app/time-tracking",
+        "url": "https://demo.daftarhub.app/time-tracking",
         "desc": "Developers track billable time via an active timer or manual log entry. Visualize exactly who worked the most on each client task without weekly timesheet friction."
       },
       {
@@ -283,7 +303,7 @@
         "role": "Admin + Project Manager",
         "color": "emerald",
         "art": "gauge",
-        "url": "https://daftarhubdemo.vercel.app/workload",
+        "url": "https://demo.daftarhub.app/workload",
         "desc": "Inspect live developer capacity before delegating work. Instantly see who has maximum tasks/projects allocated and who has available bandwidth, preventing burnout and blown deadlines."
       },
       {
@@ -293,7 +313,7 @@
         "role": "Admin + HR",
         "color": "emerald",
         "art": "rows",
-        "url": "https://daftarhubdemo.vercel.app/team",
+        "url": "https://demo.daftarhub.app/team",
         "desc": "Centralized team directory and people operations. Manage employee profiles, job titles, departmental rosters, and access permissions in one unified dashboard."
       }
     ],
@@ -311,7 +331,7 @@
         "Time-management & productivity insights",
         "No extra subscription fee — agency connects its own AI API key"
       ],
-      "url": "https://daftarhubdemo.vercel.app/",
+      "url": "https://demo.daftarhub.app/",
       "route": "/ (Core Extension)"
     },
     "picker": {
@@ -334,6 +354,23 @@
         ]
       }
     }
+  },
+  "socialProof": {
+    "eyebrow": "Who's Behind This",
+    "title": "Built by an agency, for agencies",
+    "body": "We run a software agency. We built Hub دفتر because ClickUp required 14 plugins, Jira felt like enterprise bureaucracy, and client passwords kept living in shared Google Sheets. Today, our whole team runs on it every day — attendance, client vaults, time tracking, and knowing whether a project actually made money before the month closes.",
+    "founder": {
+      "name": "{{FOUNDER_NAME}}",
+      "role": "{{FOUNDER_ROLE}}",
+      "company": "{{BUSINESS_LEGAL_NAME}}",
+      "photo": "/images/founder.jpg",
+      "quote": "We don't sell software we don't use. If our own team doesn't love a feature, it doesn't make it into Hub دفتر."
+    },
+    "video": {
+      "src": "/videos/admin_overview.mp4",
+      "caption": "Watch a 90-second tour of the modules your team will use every day."
+    },
+    "testimonials": []
   },
   "customModules": {
     "eyebrow": "Included for Every Paying Customer",
@@ -367,10 +404,10 @@
     "note": "No extra charge for the three custom modules."
   },
   "roles": {
-    "eyebrow": "Zero Info Leakage",
+    "eyebrow": "Role-Based Access by Design",
     "title": "4 Dedicated Role Dashboards",
-    "sub": "Each person gets the exact screen they need. Fewer buttons, zero training, zero salary leaks.",
-    "demoUrl": "https://daftarhubdemo.vercel.app/",
+    "sub": "Each person gets exactly the screen they need — fewer buttons, less training, and no salary or rate exposure to the wrong role.",
+    "demoUrl": "https://demo.daftarhub.app/",
     "demoCta": "See Live Demo",
     "items": [
       {
@@ -379,7 +416,7 @@
         "title": "Agency Owner / Admin View",
         "badge": "Admin Dashboard",
         "color": "emerald",
-        "url": "https://daftarhubdemo.vercel.app/?role=admin",
+        "url": "https://demo.daftarhub.app/?role=admin",
         "desc": "Full executive command center. Can view overall progress, projects, attendance logs, business dashboard with profit margins, team workload, encrypted passwords, and daftar notifications.",
         "chips": [
           "Overall Progress",
@@ -395,7 +432,7 @@
         "title": "HR Manager View",
         "badge": "HR Dashboard",
         "color": "indigo",
-        "url": "https://daftarhubdemo.vercel.app/?role=hr",
+        "url": "https://demo.daftarhub.app/?role=hr",
         "desc": "Streamlined people operations. Onboard new hires, setup employee profiles, update details when required, organize teams, and track daily attendance, leaves, and office working hours.",
         "chips": [
           "Employee Onboarding",
@@ -411,7 +448,7 @@
         "title": "Project Manager View",
         "badge": "PM Dashboard",
         "color": "blue",
-        "url": "https://daftarhubdemo.vercel.app/?role=pm",
+        "url": "https://demo.daftarhub.app/?role=pm",
         "desc": "Execution and delivery hub. See active projects, create tasks, mark tasks as complete, inspect live team workloads, and assign tasks directly to less workloaded employees.",
         "chips": [
           "Project Milestones",
@@ -427,7 +464,7 @@
         "title": "Employee & Developer View",
         "badge": "Employee Dashboard",
         "color": "teal",
-        "url": "https://daftarhubdemo.vercel.app/?role=employee",
+        "url": "https://demo.daftarhub.app/?role=employee",
         "desc": "Distraction-free workspace. See assigned tasks and projects, mark attendance with 1 click, apply for leaves, and track time spent on specific tasks without seeing sensitive financial numbers.",
         "chips": [
           "Assigned Tasks",
@@ -454,8 +491,7 @@
       "Tool / Plan",
       "Team of 10",
       "Team of 15",
-      "Team of 25",
-      "Team of 50"
+      "Team of 25"
     ],
     "tiers": [
       10,
@@ -498,8 +534,8 @@
   },
   "comparison": {
     "eyebrow": "Feature Comparison",
-    "title": "Why Agencies Switch From ClickUp & Other Tools",
-    "sub": "Other tools are empty toolkits that typically require weeks of configuration. Hub دفتر works for your agency on Day 1.",
+    "title": "Why Agencies Choose Hub دفتر Over ClickUp & Generic Tools",
+    "sub": "Generic tools take weeks to configure. Hub دفتر is built for agencies and set up for your team in the first week.",
     "cols": [
       "Features & Capabilities",
       "Hub دفتر",
@@ -508,8 +544,8 @@
     ],
     "rows": [
       {
-        "f": "Attendance ",
-        "hub": "✓ Built-in Attendence sync & late flags",
+        "f": "Attendance & Leave Tracking",
+        "hub": "✓ Built-in attendance sync & late flags",
         "cu": "✗ Typically requires 3rd-party integration",
         "other": "✗ Typically requires separate HR app",
         "hubState": "on",
@@ -545,7 +581,7 @@
       },
       {
         "f": "Role-Based Privacy",
-        "hub": "✓ Zero salary, rate or profit leaks",
+        "hub": "✓ Salaries & rates stay private",
         "cu": "△ Typically requires risky custom permissions",
         "other": "△ Typically limited role gating",
         "hubState": "on",
@@ -564,9 +600,9 @@
     ]
   },
   "pricing": {
-    "eyebrow": "Simple, Transparent Pricing",
-    "title": "Predictable flat pricing. No seat penalties.",
-    "sub": "No feature paywalls. No surprises. Every tier includes all 8 core modules, 3 custom modules, guided onboarding, and ongoing support.",
+    "eyebrow": "Simple, Predictable Pricing",
+    "title": "Simple, Predictable Pricing",
+    "sub": "Flat monthly pricing in PKR. Every plan includes all 8 core modules, 3 custom modules, first-week onboarding and ongoing support.",
     "seatRule": "Every employee you onboard counts as one user. Your plan's seat limit is the number of people you can onboard — no separate per-seat charge within that limit.",
     "plans": [
       {
@@ -576,16 +612,14 @@
         "seats": 10,
         "seatLabel": "Up to 10 seats",
         "pricePKR": 12000,
-        "usdNote": "That's about $43 USD total — less than 1-2% of agency payroll.",
-        "saveNote": "Save PKR 259,200/yr vs. ClickUp Business",
+        "saveNote": "Save ~PKR 45,000/mo vs ClickUp Business*",
         "popular": false,
         "bullets": [
           "All 8 core modules (AI Copilot planned, included with no subscription fee when released)",
           "Includes 3 custom modules built for your workflow",
           "Employee Management & Team Directory included",
           "First-week onboarding, migration & guided setup",
-          "Ongoing support: attendance or vault outages resolved same day; other issues within 2 working days",
-          "Small changes up to 4 hours of work are free",
+          "Support included: same-day fix for attendance/vault outages, 2 working days for other issues. Small changes up to 4 hours are free.",
           "Dedicated database & app instance",
           "No setup fee",
           "AES-256 Encrypted Client Password Vault",
@@ -600,14 +634,14 @@
         "seats": 15,
         "seatLabel": "Up to 15 seats",
         "pricePKR": 18000,
-        "usdNote": "That's about $64 USD total — flat rate, no per-seat penalties.",
-        "saveNote": "Save PKR 388,800/yr vs. ClickUp Business",
+        "saveNote": "Save ~PKR 67,000/mo vs ClickUp Business*",
         "popular": false,
         "bullets": [
           "Everything in Starter Plan",
           "Up to 15 team members (each onboarded employee counts as one user)",
           "Includes 3 custom modules built for your workflow",
           "Multi-department workload management",
+          "Support included: same-day fix for attendance/vault outages, 2 working days for other issues. Small changes up to 4 hours are free.",
           "Priority WhatsApp support channel"
         ],
         "cta": "Book Team Plan Walkthrough"
@@ -619,21 +653,22 @@
         "seats": 25,
         "seatLabel": "Up to 25 seats",
         "pricePKR": 30000,
-        "usdNote": "That's about $107 USD total — flat rate for your entire team.",
-        "saveNote": "Save PKR 648,000/yr vs. ClickUp Business",
+        "saveNote": "Save ~PKR 113,000/mo vs ClickUp Business*",
         "popular": false,
         "bullets": [
           "Everything in Team Plan",
           "Up to 25 team members (each onboarded employee counts as one user)",
           "Includes 3 custom modules built for your workflow",
           "Multi-department workload management",
+          "Support included: same-day fix for attendance/vault outages, 2 working days for other issues. Small changes up to 4 hours are free.",
           "Priority hyper-care WhatsApp channel"
         ],
         "cta": "Request Growth Demo"
       }
     ],
     "paymentTitle": "Flexible Payment Options",
-    "paymentNote": "Pay via direct Bank Transfer (IBAN), Raast, JazzCash, or Easypaisa.",
+    "paymentNote": "Payment by bank transfer (IBAN), Raast, JazzCash or Easypaisa.",
+    "footnote": "* Compared to ClickUp Business at list price ($19/user/month billed monthly, converted at current rates) for an equivalent team size. Generic tools also require days of setup and third-party add-ons.",
     "proof": "Built by an agency, used daily by our own team."
   },
   "onboarding": {
@@ -660,7 +695,6 @@
         "bullets": [
           "Ongoing support included",
           "Small changes up to 4 hours of work are free. Larger work and additional modules are quoted in development hours before work starts.",
-          "Attendance or vault outages resolved the same day; all other customer-reported issues within 2 working days",
           "Role-specific handbooks for Admin, HR, Employee, PM & Team Lead"
         ],
         "color": "teal"
@@ -777,9 +811,9 @@
   },
   "finalCta": {
     "title": "See it running for your agency",
-    "sub": "Bring your team size and biggest headache. We'll show you how it works in 30 minutes.",
+    "sub": "Bring your team size and your biggest headache. We'll show you how it works in 30 minutes.",
     "cta": "Book Free 30-Min Walkthrough",
-    "whatsapp": "Chat on WhatsApp",
+    "whatsapp": "Message on WhatsApp",
     "form": {
       "name": "Your Name",
       "namePh": "e.g. Asad",
@@ -789,11 +823,10 @@
       "sizeOptions": [
         "5-10 seats (Starter)",
         "11-15 seats (Team Plan)",
-        "16-25 seats (Growth)",
-        "25+ seats"
+        "16-25 seats (Growth)"
       ],
       "contact": "WhatsApp Number or Email",
-      "contactPh": "+90 548 827 4659 or email",
+      "contactPh": "+92 320 3601576 or email",
       "pain": "Biggest Operational Headache",
       "painOptions": [
         {
@@ -820,22 +853,23 @@
       "submit": "Open WhatsApp Direct",
       "title": "Book Your 30-Min Demo",
       "subModal": "We'll show you the screens that match your exact office size.",
-      "whatsappNumber": "905488274659"
+      "whatsappNumber": "923203601576"
     },
     "contact": {
       "email": "daftarhub.app@gmail.com",
-      "whatsapp": "+90 548 827 4659"
+      "whatsapp": "+92 320 3601576"
     }
   },
   "footer": {
-    "copy": "© 2026 Hub دفتر • Agency Operations Platform • All Rights Reserved",
+    "copy": "© 2026 Hub دفتر. All rights reserved.",
+    "description": "Hub دفتر — The agency operations platform. Built for digital agencies.",
     "trust": {
       "title": "Platform Security & Reliability",
       "note": "Dedicated database per customer, AES-256 encryption for client password vault, automated daily backups, and ongoing support."
     },
     "contact": {
       "email": "daftarhub.app@gmail.com",
-      "whatsapp": "+90 548 827 4659"
+      "whatsapp": "+92 320 3601576"
     }
   },
   "currency": {

@@ -206,39 +206,3 @@ bdi.urdu, .urdu bdi { unicode-bidi: isolate; }
   .loader-card { transform: translate(-50%, -50%); opacity: .22; }
   .loader-hub { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
-
-.preloader-skip-btn {
-  position: absolute;
-  bottom: 36px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 22px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text);
-  background: rgba(19, 26, 46, 0.88);
-  border: 1px solid rgba(45, 212, 191, 0.45);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.25s ease;
-}
-.preloader-skip-btn:hover {
-  background: rgba(45, 212, 191, 0.18);
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateX(-50%) translateY(-2px);
-  box-shadow: 0 12px 28px rgba(45, 212, 191, 0.28);
-}
-.preloader-skip-btn svg {
-  transition: transform 0.2s ease;
-}
-.preloader-skip-btn:hover svg {
-  transform: translateX(3px);
-}

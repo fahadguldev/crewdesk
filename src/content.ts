@@ -9,26 +9,47 @@ export const C = content as unknown as {
   };
   nav: {
     links: { label: string; href: string }[];
+    login?: { label: string; href: string };
     cta: string; mobileCta: string;
   };
   banner: { badge: string; text: string; sub: string; link: string };
   hero: {
-    pill1: string; pill2: string; h1a: string; h1b: string; h1c: string; sub: string;
+    pill1: string; pill2: string; h1Static?: string; h1a: string; h1b: string; h1c: string; sub: string;
     proof?: string;
     ctaPrimary: string; ctaSecondary: string;
+    microcopy?: string;
+    trustStrip?: { title: string; icon: string }[];
+    heroInfoCards?: { title: string; body: string; color: string }[];
     systemCards: { label: string; detail: string; tone: string }[];
-    trustChips: { title: string; body: string }[];
+    trustChips?: { title: string; body: string }[];
   };
   chaosTiles: { label: string; icon: string }[];
   pain: { title: string; sub: string; items: { quote: string; note: string; icon: string }[] };
   modules: {
-    eyebrow: string; title: string; sub: string; availableLabel: string;
-    items: { n: number; id: string; title: string; role: string; color: string; art: string; desc: string }[];
-    ai: { n: number; id: string; title: string; role: string; badge: string; status: string; desc: string; bullets: string[] };
+    eyebrow: string; title: string; sub: string; availableLabel: string; demoUrl?: string;
+    items: { n: number; id: string; title: string; role: string; color: string; art: string; desc: string; url?: string }[];
+    ai: { n: number; id: string; title: string; role: string; badge: string; status: string; desc: string; bullets: string[]; url?: string; route?: string };
     picker: {
       enabled: boolean; title: string; sub: string; max: number; cta: string; hint: string;
       dependencies: Record<string, string[]>;
     };
+  };
+  socialProof?: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    founder: {
+      name: string;
+      role: string;
+      company: string;
+      photo: string;
+      quote: string;
+    };
+    video: {
+      src: string;
+      caption: string;
+    };
+    testimonials: { quote: string; name: string; role: string; agency: string; avatar?: string }[];
   };
   customModules: {
     eyebrow: string; title: string; titleAccent: string; desc: string;
@@ -36,8 +57,8 @@ export const C = content as unknown as {
     points: string[]; cta: string; note: string;
   };
   roles: {
-    eyebrow: string; title: string; sub: string;
-    items: { n: number; id: string; title: string; badge: string; color: string; desc: string; chips: string[]; seesMoney: boolean }[];
+    eyebrow: string; title: string; sub: string; demoUrl?: string; demoCta?: string;
+    items: { n: number; id: string; title: string; badge: string; color: string; desc: string; chips: string[]; seesMoney: boolean; url?: string }[];
     redaction: { label: string; value: string; hidden: string; captionAdmin: string; captionEmployee: string };
   };
   pricingTable: {
@@ -59,7 +80,7 @@ export const C = content as unknown as {
       pricePKR: number; usdNote?: string; saveNote?: string; popular: boolean;
       bullets: string[]; cta: string;
     }[];
-    paymentTitle: string; paymentNote: string;
+    paymentTitle: string; paymentNote: string; footnote?: string;
   };
   onboarding: {
     eyebrow: string; title: string; sub: string;
@@ -78,6 +99,7 @@ export const C = content as unknown as {
   };
   footer: {
     copy: string;
+    description?: string;
     trust: { title: string; note: string };
     contact?: { founder?: string; email: string; whatsapp: string };
   };

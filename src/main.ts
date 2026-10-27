@@ -15,6 +15,7 @@ import {
   bindPricingMobile
 } from './sections/pricing';
 import {
+  buildSocialProof,
   buildOnboarding,
   buildFaq,
   bindFaq,
@@ -43,6 +44,7 @@ function mount(app: HTMLElement): void {
   app.appendChild(buildHero());
   app.appendChild(buildPain());
   app.appendChild(buildModules());
+  app.appendChild(buildSocialProof());
   app.appendChild(buildRoles());
   app.appendChild(buildComparison());
   app.appendChild(buildPricing());
@@ -90,7 +92,6 @@ function boot(): void {
 
   // Let the brand gather animation complete or dismiss cleanly
   const pre = document.getElementById('preloader');
-  const skipBtn = document.getElementById('preloader-skip');
   const hide = () => {
     if (!pre?.classList.contains('hide')) {
       pre?.classList.add('hide');
@@ -101,10 +102,6 @@ function boot(): void {
     }
   };
   pre?.addEventListener('click', hide, { once: true });
-  skipBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    hide();
-  }, { once: true });
   const isQa = new URLSearchParams(window.location.search).has('scroll');
   if (isQa) hide();
   if (env.reducedMotion || env.quality === 'low') setTimeout(hide, 700);

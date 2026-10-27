@@ -1,5 +1,18 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "daftarhub.app"
+        }
+      ],
+      "destination": "https://www.daftarhub.app/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/compare/clickup-alternative", "destination": "/compare-clickup.html" },
     { "source": "/crewdesk/assets/:match*", "destination": "/assets/:match*" },

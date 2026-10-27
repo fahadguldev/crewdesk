@@ -7,8 +7,6 @@ import {
   usdFromPKR
 } from '../content';
 
-let currency: 'pkr' | 'usd' = 'pkr';
-
 export function buildPricingTable(): HTMLElement {
   const el = document.createElement('section');
   el.className = 'section pricing-table';
@@ -201,6 +199,19 @@ export function bindComparisonMobile(): void {
   });
 }
 
+function usdSaveForPlan(planId: string): string {
+  switch (planId) {
+    case 'starter':
+      return 'Save ~$161/mo vs ClickUp Business*';
+    case 'team':
+      return 'Save ~$239/mo vs ClickUp Business*';
+    case 'growth':
+      return 'Save ~$404/mo vs ClickUp Business*';
+    default:
+      return 'Save vs ClickUp Business*';
+  }
+}
+
 export function buildPricing(): HTMLElement {
   const el = document.createElement('section');
   el.className = 'section pricing';
@@ -218,8 +229,7 @@ export function buildPricing(): HTMLElement {
           <span class="plan-per">/mo</span>
         </div>
         <p class="plan-seats">${pl.seatLabel}</p>
-        ${pl.usdNote ? `<p class="plan-note">${pl.usdNote}</p>` : ''}
-        ${pl.saveNote ? `<p class="plan-note plan-save"><span data-pkr="${pl.saveNote}" data-usd="${pl.saveNote.replace(/PKR [\d,]+/, '$' + Math.round(Number(pl.saveNote.match(/PKR ([\d,]+)/)?.[1]?.replace(/,/g, '') || 0) / 280).toLocaleString())}">${pl.saveNote}</span></p>` : ''}
+        ${pl.saveNote ? `<p class="plan-note plan-save"><span data-pkr="${pl.saveNote}" data-usd="${usdSaveForPlan(pl.id)}">${pl.saveNote}</span></p>` : ''}
         <ul class="plan-bullets">${pl.bullets.map((b) => `<li>${b}</li>`).join('')}</ul>
         <a class="btn btn-primary plan-cta" href="#final-cta">${pl.cta}</a>
       </article>`
@@ -256,9 +266,12 @@ export function buildPricing(): HTMLElement {
       </div>
 
       <div class="plans">${plans}</div>
+
+      <!-- Footnote below cards -->
+      <p class="pricing-footnote">${p.footnote ?? '* Compared to ClickUp Business at list price ($19/user/month billed monthly, converted at current rates) for an equivalent team size. Generic tools also require days of setup and third-party add-ons.'}</p>
+
       <div class="payment glass">
-        <h3>${p.paymentTitle}</h3>
-        <p>${p.paymentNote}</p>
+        <p class="payment-note">${p.paymentNote}</p>
       </div>
     </div>
   `;

@@ -131,7 +131,7 @@ const roles: RoleDef[] = [
     id: "admin",
     name: "Agency Owner / Admin",
     tagline: "Full control, with sensitive numbers redacted by default.",
-    url: "https://daftarhubdemo.vercel.app/?role=admin",
+    url: "https://demo.daftarhub.app/?role=admin",
     points: [
       "Encrypted credential vault",
       "Role-based data redaction",
@@ -143,7 +143,7 @@ const roles: RoleDef[] = [
     id: "hr",
     name: "HR Manager",
     tagline: "People operations without the spreadsheets.",
-    url: "https://daftarhubdemo.vercel.app/?role=hr",
+    url: "https://demo.daftarhub.app/?role=hr",
     points: [
       "Leave approvals in one click",
       "Live attendance tracking",
@@ -155,7 +155,7 @@ const roles: RoleDef[] = [
     id: "pm",
     name: "Project Manager",
     tagline: "See which projects earn and which ones drain.",
-    url: "https://daftarhubdemo.vercel.app/?role=pm",
+    url: "https://demo.daftarhub.app/?role=pm",
     points: ["Profit per project", "Workload balancing", "Delivery risk flags"],
     mockup: pmMockup,
   },
@@ -163,7 +163,7 @@ const roles: RoleDef[] = [
     id: "employee",
     name: "Employee & Developer",
     tagline: "Everything personal, nothing extra.",
-    url: "https://daftarhubdemo.vercel.app/?role=employee",
+    url: "https://demo.daftarhub.app/?role=employee",
     points: [
       "One-tap attendance",
       "Leave balance and requests",

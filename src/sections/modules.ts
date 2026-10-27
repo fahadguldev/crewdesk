@@ -16,7 +16,7 @@ export function buildModules(): HTMLElement {
   el.className = 'modules pin-section';
   el.id = 'modules';
 
-  const demoBaseUrl = (C.modules as any).demoUrl ?? 'https://daftarhubdemo.vercel.app/';
+  const demoBaseUrl = (C.modules as any).demoUrl ?? 'https://demo.daftarhub.app/';
 
   const slabs = C.modules.items
     .map((m) => {

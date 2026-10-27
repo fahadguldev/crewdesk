@@ -48,15 +48,64 @@ export function bindAnchors(): void {
   });
 }
 
-// Nav behaviour: keep the launch offer and navigation available while scrolling.
+// Nav behaviour: navigation, mobile hamburger drawer, and mobile sticky CTA bar
 export function bindNav(): void {
   const nav = document.getElementById('top-nav');
+  const toggleBtn = document.getElementById('mobile-nav-toggle');
+  const drawer = document.getElementById('mobile-nav-drawer');
+  const stickyCta = document.getElementById('mobile-sticky-cta');
+
+  // Sticky navbar & sticky mobile CTA bar scroll observer
   const onScroll = () => {
     const y = window.scrollY;
-    if (!nav) return;
-    nav.classList.toggle('nav-scrolled', y > 40);
+    if (nav) {
+      nav.classList.toggle('nav-scrolled', y > 40);
+    }
+    if (stickyCta) {
+      const pastHero = y > 450;
+      stickyCta.classList.toggle('is-visible', pastHero);
+      stickyCta.setAttribute('aria-hidden', String(!pastHero));
+    }
   };
   window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile hamburger menu toggle
+  if (toggleBtn && drawer) {
+    const closeDrawer = () => {
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      toggleBtn.classList.remove('is-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('mobile-nav-locked');
+    };
+
+    const openDrawer = () => {
+      drawer.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      toggleBtn.classList.add('is-open');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('mobile-nav-locked');
+    };
+
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = drawer.classList.contains('is-open');
+      if (isOpen) closeDrawer();
+      else openDrawer();
+    });
+
+    // Close mobile drawer when any link is clicked
+    drawer.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => closeDrawer());
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+        closeDrawer();
+      }
+    });
+  }
 
   const sections = C.nav.links
     .map((l) => document.querySelector(l.href))

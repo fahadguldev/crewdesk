@@ -2,7 +2,7 @@
  * Urdu Nastaliq Wordmark Utility
  * Ensures that wherever the word "daftar", "Daftar", "daftars", "Daftars", or "دفتر"
  * is used anywhere on the website, it is rendered in authentic Urdu Nastaliq
- * font ('دفتر') and styled in emerald green (var(--accent-2)).
+ * font ('دفتر') and wrapped as <bdi lang="ur" dir="rtl">دفتر</bdi>.
  */
 
 export function createUrduDaftarElement(): HTMLElement {
@@ -11,6 +11,8 @@ export function createUrduDaftarElement(): HTMLElement {
   span.setAttribute('dir', 'rtl');
   span.setAttribute('lang', 'ur');
   const bdi = document.createElement('bdi');
+  bdi.setAttribute('lang', 'ur');
+  bdi.setAttribute('dir', 'rtl');
   bdi.textContent = 'دفتر';
   span.appendChild(bdi);
   return span;
