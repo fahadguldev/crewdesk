@@ -121,7 +121,7 @@ export function buildHero(): HTMLElement {
     <!-- Hero Main: Centered Design matching Screenshot -->
     <div class="hero-main container hero-centered">
       <h1 class="hero-h1" id="hero-headline">
-        <span id="typewriter-text"><span class="typing-line">Manage your whole <span class="type-urdu-green urdu" dir="rtl" lang="ur"><bdi>دفتر</bdi></span></span><br /><span class="typing-line">from one <span class="type-green-hub">Hub</span></span><br /><span class="typing-line hero-muted">not disconnected tools</span><br /><span class="typing-line hero-muted">and sheets</span></span><span id="typing-cursor" class="typing-cursor" aria-hidden="true">|</span>
+        <span id="typewriter-text"><span class="typing-line">Manage your whole <span class="type-urdu-green urdu" dir="rtl" lang="ur"><bdi>دفتر</bdi></span></span><span class="typing-line">from one <span class="type-green-hub">Hub</span></span><span class="typing-line hero-muted">not disconnected tools</span><span class="typing-line hero-muted">and sheets</span></span><span id="typing-cursor" class="typing-cursor" aria-hidden="true">|</span>
       </h1>
 
       <div class="hero-actions">

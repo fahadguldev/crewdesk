@@ -96,10 +96,6 @@ export function initTypewriter(config?: Partial<TypewriterConfig>): void {
 
     container.appendChild(lineWrapper);
     tokenSpans.push(spansForLine);
-
-    if (lineIdx < structure.length - 1) {
-      container.appendChild(document.createElement('br'));
-    }
   });
 
   let lineIdx = 0;
@@ -158,7 +154,7 @@ function formatCompleteStructure(structure: TypewriterLine[]): string {
         .join('');
       return `<span class="typing-line ${line.className || ''}">${inner}</span>`;
     })
-    .join('<br />');
+    .join('');
 }
 
 function escapeHtml(str: string): string {
