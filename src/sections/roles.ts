@@ -35,7 +35,7 @@ const fallbackIcon = icon(
 );
 
 /* ------------------------------------------------------------------ */
-/* Role types and mockups                                              */
+/* Role Definitions                                                    */
 /* ------------------------------------------------------------------ */
 
 type RoleDef = {
@@ -44,132 +44,59 @@ type RoleDef = {
   tagline: string;
   url: string;
   points: string[];
-  mockup: () => string;
+  image: string;
 };
 
 const cfg = C.roles as unknown as Record<string, any>;
-
-const adminMockup = (): string => `
-  <div class="rc-preview-box">
-    <div class="mock-head"><span class="mock-title">Executive Overview</span><span class="rc-sample-tag">Sample data</span></div>
-    <div class="money-row">
-      <div class="mr-left">
-        <span class="mr-indicator-dot"></span>
-        <span class="money-label">${esc(C.roles.redaction.label)}</span>
-      </div>
-      <div class="mr-right">
-        <span class="money-value"
-          data-real="${esc(C.roles.redaction.value)}"
-          data-mask="${esc(C.roles.redaction.hidden)}"
-          aria-live="polite">${esc(C.roles.redaction.value)}</span>
-        <button type="button" class="money-toggle" aria-pressed="false" aria-label="Toggle redaction">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="rc-preview-pills">
-      <span class="rc-metric-pill is-ok"><span class="k">Vault</span><span class="v">AES-256 armed</span></span>
-      <span class="rc-metric-pill is-ok"><span class="k">Attendance</span><span class="v">100% synced</span></span>
-      <span class="rc-metric-pill is-pos"><span class="k">Net margin</span><span class="v">+34.2%</span></span>
-    </div>
-  </div>`;
-
-const hrMockup = (): string => `
-  <div class="rc-preview-box">
-    <div class="mock-head">
-      <span class="mock-title">Leave requests</span>
-      <span class="mock-badge">2 pending</span>
-      <span class="rc-sample-tag">Sample data</span>
-    </div>
-    <ul class="mock-list compact">
-      <li><span class="avatar">AK</span><div class="mock-meta"><b>Ayesha Khan</b><small>Annual · 3 days</small></div><span class="status is-warn">Pending</span></li>
-      <li><span class="avatar">BS</span><div class="mock-meta"><b>Bilal Sheikh</b><small>Sick · 1 day</small></div><span class="status is-ok">Approved</span></li>
-    </ul>
-    <div class="meter" role="img" aria-label="Team attendance 94 percent">
-      <div class="meter-top"><span>Team attendance</span><b>94%</b></div>
-      <div class="meter-track"><span style="width:94%"></span></div>
-    </div>
-  </div>`;
-
-const pmMockup = (): string => `
-  <div class="rc-preview-box">
-    <div class="mock-head">
-      <span class="mock-title">Profit per project</span>
-      <span class="mock-badge is-pos">+18% MoM</span>
-      <span class="rc-sample-tag">Sample data</span>
-    </div>
-    <div class="bars">
-      <div class="bar-row"><span>Atlas</span><div class="meter-track"><span style="width:82%"></span></div><b>$12.4k</b></div>
-      <div class="bar-row"><span>Nimbus</span><div class="meter-track"><span style="width:61%"></span></div><b>$9.1k</b></div>
-      <div class="bar-row"><span>Orbit</span><div class="meter-track"><span style="width:38%"></span></div><b>$5.7k</b></div>
-    </div>
-    <div class="rc-preview-pills">
-      <span class="rc-metric-pill is-ok"><span class="k">On track</span><span class="v">5 projects</span></span>
-      <span class="rc-metric-pill is-warn"><span class="k">At risk</span><span class="v">1 project</span></span>
-    </div>
-  </div>`;
-
-const employeeMockup = (): string => `
-  <div class="rc-preview-box">
-    <div class="mock-head">
-      <span class="mock-title">Today</span>
-      <span class="mock-badge is-pos">Clocked in 09:02</span>
-      <span class="rc-sample-tag">Sample data</span>
-    </div>
-    <div class="ring-row">
-      <div class="ring" style="--p:72" role="img" aria-label="Workload 72 percent"><b>72%</b><small>workload</small></div>
-      <ul class="mock-list compact">
-        <li><span class="dot is-ok"></span>Sprint review · 11:00</li>
-        <li><span class="dot is-warn"></span>Report due · 16:00</li>
-        <li><span class="dot"></span>Leave balance · 12 days</li>
-      </ul>
-    </div>
-  </div>`;
 
 const roles: RoleDef[] = [
   {
     id: "admin",
     name: "Agency Owner / Admin",
-    tagline: "Full control, with sensitive numbers redacted by default.",
+    tagline: "Full executive command center with live business analysis and encrypted vault.",
     url: "https://demo.daftarhub.app/?role=admin",
     points: [
       "Encrypted credential vault",
-      "Role-based data redaction",
-      "Company-wide profit view",
+      "Executive overview & profit margins",
+      "Salaries & rates private from other roles",
     ],
-    mockup: adminMockup,
+    image: "/images/admin.png",
   },
   {
     id: "hr",
     name: "HR Manager",
-    tagline: "People operations without the spreadsheets.",
+    tagline: "People operations without spreadsheets or chaotic WhatsApp threads.",
     url: "https://demo.daftarhub.app/?role=hr",
     points: [
       "Leave approvals in one click",
-      "Live attendance tracking",
-      "Team workload at a glance",
+      "Live attendance & late flag tracking",
+      "Employee directory & team structure",
     ],
-    mockup: hrMockup,
+    image: "/images/hr.png",
   },
   {
     id: "pm",
     name: "Project Manager",
-    tagline: "See which projects earn and which ones drain.",
+    tagline: "Delivery clarity — see active projects, tasks, and real capacity.",
     url: "https://demo.daftarhub.app/?role=pm",
-    points: ["Profit per project", "Workload balancing", "Delivery risk flags"],
-    mockup: pmMockup,
+    points: [
+      "Real-time task delegation & sprints",
+      "Workload balancing across developers",
+      "Delivery risk flags & milestones",
+    ],
+    image: "/images/pm.png",
   },
   {
     id: "employee",
     name: "Employee & Developer",
-    tagline: "Everything personal, nothing extra.",
+    tagline: "Clean, distraction-free workspace. Everything personal, nothing extra.",
     url: "https://demo.daftarhub.app/?role=employee",
     points: [
-      "One-tap attendance",
-      "Leave balance and requests",
-      "Your own tasks and workload",
+      "One-tap daily attendance punch in",
+      "Leave balance & instant requests",
+      "Active task list & time logging",
     ],
-    mockup: employeeMockup,
+    image: "/images/employee.png",
   },
 ];
 
@@ -209,24 +136,60 @@ export function buildRoles(): HTMLElement {
           </div>
         </header>
 
-        <ul class="role-points">
+        <ul class="role-points" aria-label="Key Capabilities">
           ${r.points
             .map(
               (p) =>
-                `<li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>${esc(
+                `<li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>${esc(
                   p,
-                )}</li>`,
+                )}</span></li>`,
             )
             .join("")}
         </ul>
 
-        ${r.mockup()}
+        <!-- Dashboard Browser Mockup -->
+        <div class="rc-browser-frame">
+          <div class="rc-browser-bar">
+            <div class="rc-window-dots" aria-hidden="true">
+              <span class="rc-dot rc-dot-red"></span>
+              <span class="rc-dot rc-dot-yellow"></span>
+              <span class="rc-dot rc-dot-green"></span>
+            </div>
+            <div class="rc-browser-url">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <span>demo.daftarhub.app/?role=${esc(r.id)}</span>
+            </div>
+            <div class="rc-browser-status">
+              <span class="rc-status-chip">
+                <span class="rc-live-pulse" aria-hidden="true"></span>
+                <span>${esc(r.id.toUpperCase())} SCREEN</span>
+              </span>
+            </div>
+          </div>
+          <div class="rc-browser-body">
+            <img
+              src="${r.image}"
+              alt="${esc(r.name)} Dashboard Screenshot"
+              class="rc-dashboard-img"
+              loading="eager"
+              width="1800"
+              height="930"
+            />
+            <a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer" class="rc-open-overlay" title="Open ${esc(r.name)} interactive screen">
+              <span class="rc-open-pill">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                <span>Test Live ${esc(r.name.split('/')[0].trim())} Screen</span>
+              </span>
+            </a>
+          </div>
+        </div>
 
         <footer class="role-card-foot">
           <a class="btn btn-primary rc-demo-btn" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">
-            <span>See Live Demo</span>
+            <span>Open Live ${esc(r.name.split('/')[0].trim())} Demo</span>
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </a>
+          <span class="rc-foot-hint">Pre-configured sample data · Instant live screen access</span>
         </footer>
       </article>`,
     )
@@ -235,9 +198,9 @@ export function buildRoles(): HTMLElement {
   el.innerHTML = `
     <div class="roles-inner">
       <header class="roles-head">
-        <span class="roles-eyebrow">${esc(cfg?.eyebrow ?? "Built for every seat")}</span>
+        <span class="roles-eyebrow">${esc(cfg?.eyebrow ?? "Role-Based Access by Design")}</span>
         <h2 id="roles-title">${esc(cfg?.title ?? "4 Dedicated Role Dashboards")}</h2>
-        <p>${esc(cfg?.subtitle ?? "Each role sees exactly what it needs, and nothing it should not.")}</p>
+        <p>${esc(cfg?.subtitle ?? "Each person gets exactly the screen they need — fewer buttons, less training, and no salary or rate exposure to the wrong role.")}</p>
       </header>
       <div class="roles-layout">
         <div class="role-tabs" role="tablist" aria-label="Roles" aria-orientation="vertical">${tabs}</div>
@@ -313,19 +276,6 @@ export function buildRoles(): HTMLElement {
   el.addEventListener("roles:set", (e) =>
     setActive((e as CustomEvent<number>).detail),
   );
-
-  // Redaction toggle
-  const value = el.querySelector<HTMLElement>(".money-value");
-  const toggle = el.querySelector<HTMLButtonElement>(".money-toggle");
-  toggle?.addEventListener("click", () => {
-    if (!value) return;
-    const masked = toggle.getAttribute("aria-pressed") !== "true";
-    toggle.setAttribute("aria-pressed", String(masked));
-    value.textContent = masked
-      ? (value.dataset.mask ?? "")
-      : (value.dataset.real ?? "");
-    value.classList.toggle("is-masked", masked);
-  });
 
   setActive(0);
   return el;

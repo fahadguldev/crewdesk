@@ -27,7 +27,7 @@ export const C = content as unknown as {
   pain: { title: string; sub: string; items: { quote: string; note: string; icon: string }[] };
   modules: {
     eyebrow: string; title: string; sub: string; availableLabel: string; demoUrl?: string;
-    items: { n: number; id: string; title: string; role: string; color: string; art: string; desc: string; url?: string }[];
+    items: { n: number; id: string; title: string; role: string; color: string; art: string; desc: string; url?: string; image?: string }[];
     ai: { n: number; id: string; title: string; role: string; badge: string; status: string; desc: string; bullets: string[]; url?: string; route?: string };
     picker: {
       enabled: boolean; title: string; sub: string; max: number; cta: string; hint: string;
@@ -58,7 +58,7 @@ export const C = content as unknown as {
   };
   roles: {
     eyebrow: string; title: string; sub: string; demoUrl?: string; demoCta?: string;
-    items: { n: number; id: string; title: string; badge: string; color: string; desc: string; chips: string[]; seesMoney: boolean; url?: string }[];
+    items: { n: number; id: string; title: string; badge: string; color: string; desc: string; chips: string[]; seesMoney: boolean; url?: string; image?: string }[];
     redaction: { label: string; value: string; hidden: string; captionAdmin: string; captionEmployee: string };
   };
   pricingTable: {
