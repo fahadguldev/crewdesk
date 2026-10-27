@@ -2532,27 +2532,27 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 85px 24px 30px;
-  min-height: calc(100vh - 64px);
+  padding: 100px 24px 60px;
+  min-height: calc(90vh - 64px);
   position: relative;
   z-index: 2;
   margin: 0 auto;
-  max-width: 980px;
+  max-width: 1100px;
 }
 
 .hero-main .hero-h1 {
-  font-size: clamp(32px, 4.2vw, 56px);
-  line-height: 1.14;
+  font-size: clamp(40px, 5.8vw, 76px);
+  line-height: 1.15;
   letter-spacing: -0.04em;
   font-weight: 800;
   color: #FFFFFF;
-  margin: 0 auto 24px;
+  margin: 0 auto 36px;
   text-align: center;
 }
 
 .typing-line {
   display: block;
-  line-height: 1.14;
+  line-height: 1.15;
   margin: 0;
   padding: 0;
 }
@@ -2573,7 +2573,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 20px;
   flex-wrap: wrap;
   margin: 0 auto;
 }
@@ -2603,17 +2603,17 @@
 }
 
 .btn-hero-primary {
-  padding: 12px 26px;
-  font-size: 14.5px;
+  padding: 16px 36px;
+  font-size: 16px;
   font-weight: 700;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
 .btn-hero-secondary {
-  padding: 12px 22px;
-  font-size: 14.5px;
+  padding: 16px 30px;
+  font-size: 16px;
   font-weight: 600;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
 .hero-microcopy {
