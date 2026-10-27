@@ -488,29 +488,58 @@
 /* ===== Modules ===== */
 .modules { padding: 90px 0; }
 .module-viewport { margin-top: 40px; }
-/* Pinned horizontal slab track (desktop only, class added by choreography) */
+/* Desktop Pinned Full-Screen Card Carousel (1 card framed, zero splitting, full screen height) */
+.modules.pin-mode {
+  padding: 64px 0 0 0 !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.modules-stage.pin-mode {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* Hide the top heading when pinned so the card gets full screen height without stripping */
+.modules-stage.pin-mode .mod-head {
+  display: none !important;
+}
 .modules-stage.pin-mode .module-viewport {
   overflow: hidden;
-  padding: 10px 0 20px 0;
+  width: min(calc(100vw - 48px), 940px);
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
 }
 .modules-stage.pin-mode .module-ring {
   display: flex;
-  gap: clamp(24px, 5vw, 60px);
+  gap: 40px;
   width: max-content;
-  padding: 0 max(4vw, calc((100vw - min(88vw, 860px)) / 2));
-  align-items: flex-start;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 .modules-stage.pin-mode .module-slab {
-  width: min(88vw, 860px);
-  max-width: 860px;
-  flex: 0 0 auto;
+  width: min(calc(100vw - 48px), 940px);
+  max-width: 940px;
+  flex: 0 0 min(calc(100vw - 48px), 940px);
+  margin: 0;
+  box-sizing: border-box;
 }
 .mod-head { text-align: center; margin-bottom: 0; }
 .mod-head .sub-sec { margin: 12px auto 0; }
 .module-ring { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .module-slab {
   padding: 22px; position: relative; border-top: 3px solid var(--c, var(--accent));
-  opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 1; transform: none;
 }
 .module-slab.in { opacity: 1; transform: none; }
 .module-ai { border-style: dashed; border-color: var(--indigo); opacity: 0.85; }
@@ -576,7 +605,7 @@
 .slab-img-wrap {
   position: relative;
   width: 100%;
-  height: clamp(260px, 38vh, 420px);
+  height: clamp(210px, 33vh, 370px);
   background: #080d1a;
   overflow: hidden;
   display: flex;

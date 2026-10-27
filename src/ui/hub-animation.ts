@@ -107,7 +107,13 @@ function drawLogo(ctx: CanvasRenderingContext2D, image: HTMLImageElement, point:
   ctx.fill();
   ctx.stroke();
   ctx.shadowBlur = 0;
-  ctx.drawImage(image, point.x - size * .68, point.y - size * .4, size * 1.36, size * .8);
+  if (image.complete && image.naturalWidth > 0) {
+    try {
+      ctx.drawImage(image, point.x - size * .68, point.y - size * .4, size * 1.36, size * .8);
+    } catch {
+      // Safe fallback
+    }
+  }
   ctx.restore();
 }
 
@@ -124,7 +130,7 @@ export function initHubAnimation(canvas: HTMLCanvasElement, mode: Mode): void {
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
   const logo = new Image();
-  logo.src = 'logo.png';
+  logo.src = '/logo.png';
   const started = performance.now();
   const cards = labels.map((label, index) => ({
     label,

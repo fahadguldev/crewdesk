@@ -20,22 +20,24 @@ export function initChoreography(env: Env): void {
   const mobile = env.isMobile;
   ScrollTrigger.config({ ignoreMobileResize: true });
 
-  // ---- Hero Below Cards: fly in from alternating sides with tilt ----
-  gsap.from('.hero-card', {
-    scrollTrigger: {
-      trigger: '.hero-below-cards',
-      start: 'top 82%',
-      toggleActions: 'play none none reverse'
-    },
-    x: (i) => (mobile ? (i % 2 === 0 ? -35 : 35) : (i % 2 === 0 ? -180 : 180)),
-    y: mobile ? 45 : 95,
-    rotate: (i) => (mobile ? (i % 2 === 0 ? -2 : 2) : (i % 2 === 0 ? -4 : 4)),
-    opacity: 0,
-    stagger: 0.1,
-    duration: 0.75,
-    ease: 'power2.out',
-    clearProps: 'transform'
-  });
+  // ---- Hero Below Cards: fly in from alternating sides with tilt (if present) ----
+  if (document.querySelectorAll('.hero-card').length > 0) {
+    gsap.from('.hero-card', {
+      scrollTrigger: {
+        trigger: '.hero-below-cards',
+        start: 'top 82%',
+        toggleActions: 'play none none reverse'
+      },
+      x: (i) => (mobile ? (i % 2 === 0 ? -35 : 35) : (i % 2 === 0 ? -180 : 180)),
+      y: mobile ? 45 : 95,
+      rotate: (i) => (mobile ? (i % 2 === 0 ? -2 : 2) : (i % 2 === 0 ? -4 : 4)),
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.75,
+      ease: 'power2.out',
+      clearProps: 'transform'
+    });
+  }
 
   // ---- Pain: fly-through tunnel, collapse (desktop only) ----
   if (!mobile) {
@@ -50,28 +52,27 @@ export function initChoreography(env: Env): void {
           anticipatePin: 1
         }
       })
-      .from('.pain-card', {
-        x: (i) => (i % 2 === 0 ? -220 : 220),
-        y: 140,
-        rotate: (i) => (i % 2 === 0 ? -6 : 6),
-        opacity: 0,
-        stagger: 0.1,
-        ease: 'power2.out',
-        duration: 0.6
-      })
-      .to('.pain-card', { scale: 0.94, opacity: 0.3, stagger: 0.06, duration: 0.4 }, 0.75);
-  }
-
-  // ---- Mobile Pain cards entrance ----
-  if (mobile) {
+      .to('.chaos-canvas, .pain-head', { scale: 0.94, opacity: 0.35, ease: 'power1.in' }, 0)
+      .to(
+        '.pain-card',
+        {
+          scale: 0.82,
+          y: -70,
+          opacity: 0.15,
+          stagger: 0.05,
+          ease: 'power2.in'
+        },
+        0.2
+      );
+  } else {
+    // Mobile pain: subtle cascade on scroll
     gsap.from('.pain-card', {
       scrollTrigger: {
-        trigger: '.pain',
+        trigger: '.pain-grid',
         start: 'top 82%',
         toggleActions: 'play none none reverse'
       },
-      x: (i) => (i % 2 === 0 ? -40 : 40),
-      y: 50,
+      y: 40,
       rotate: (i) => (i % 2 === 0 ? -3 : 3),
       opacity: 0,
       stagger: 0.08,
@@ -81,22 +82,33 @@ export function initChoreography(env: Env): void {
     });
   }
 
-  // ---- Modules: horizontal slab track (desktop only, ~48vh per slab with buttery scrub) ----
+  // ---- Modules: horizontal slab track (desktop only, 1 module at a time with smooth scrub) ----
   const stage = document.querySelector<HTMLElement>('.modules-stage');
   const ring = document.querySelector<HTMLElement>('.module-ring');
-  if (!mobile && stage && ring) {
+  const viewport = document.querySelector<HTMLElement>('.module-viewport');
+  const modulesEl = document.querySelector<HTMLElement>('.modules');
+  if (!mobile && stage && ring && viewport && modulesEl) {
     stage.classList.add('pin-mode');
-    const slabCount = C.modules.items.length + 1; // 7 modules + AI Copilot
-    const distance = () => Math.max(0, ring.scrollWidth - (ring.parentElement?.clientWidth ?? 0));
+    modulesEl.classList.add('pin-mode');
+    const slabs = Array.from(ring.querySelectorAll<HTMLElement>('.module-slab'));
+    slabs.forEach((s) => s.classList.add('in'));
+    const slabCount = slabs.length;
+    const distance = () => Math.max(0, ring.scrollWidth - viewport.clientWidth);
     gsap.to(ring, {
       x: () => -distance(),
       ease: 'none',
       scrollTrigger: {
-        trigger: stage,
+        trigger: '.modules',
         start: 'top top',
-        end: () => `+=${Math.round(slabCount * 0.72 * window.innerHeight)}`,
+        end: () => `+=${Math.round(slabCount * 0.75 * window.innerHeight)}`,
         pin: true,
-        scrub: 1.2,
+        scrub: 1,
+        snap: {
+          snapTo: 1 / (slabCount - 1),
+          duration: { min: 0.15, max: 0.35 },
+          delay: 0.05,
+          ease: 'power1.out'
+        },
         invalidateOnRefresh: true,
         anticipatePin: 1
       }
@@ -127,69 +139,77 @@ export function initChoreography(env: Env): void {
   }
 
   // ---- Comparison: cards and table fly in from alternating sides ----
-  gsap.from('.cmp-desktop-only, .cmp-card', {
-    scrollTrigger: {
-      trigger: '.comparison',
-      start: 'top 78%',
-      toggleActions: 'play none none reverse'
-    },
-    x: (i) => (mobile ? (i % 2 === 0 ? -30 : 30) : (i % 2 === 0 ? -140 : 140)),
-    y: mobile ? 40 : 90,
-    rotate: (i) => (mobile ? (i % 2 === 0 ? -1.5 : 1.5) : (i % 2 === 0 ? -3 : 3)),
-    opacity: 0,
-    stagger: 0.08,
-    duration: 0.7,
-    ease: 'power2.out',
-    clearProps: 'transform'
-  });
+  if (document.querySelectorAll('.cmp-desktop-only, .cmp-card').length > 0) {
+    gsap.from('.cmp-desktop-only, .cmp-card', {
+      scrollTrigger: {
+        trigger: '.comparison',
+        start: 'top 78%',
+        toggleActions: 'play none none reverse'
+      },
+      x: (i) => (mobile ? (i % 2 === 0 ? -30 : 30) : (i % 2 === 0 ? -140 : 140)),
+      y: mobile ? 40 : 90,
+      rotate: (i) => (mobile ? (i % 2 === 0 ? -1.5 : 1.5) : (i % 2 === 0 ? -3 : 3)),
+      opacity: 0,
+      stagger: 0.08,
+      duration: 0.7,
+      ease: 'power2.out',
+      clearProps: 'transform'
+    });
+  }
 
   // ---- Pricing Plans: cards fly in from alternating sides with tilt ----
-  gsap.from('.plans .plan', {
-    scrollTrigger: {
-      trigger: '.pricing',
-      start: 'top 78%',
-      toggleActions: 'play none none reverse'
-    },
-    x: (i) => (mobile ? (i % 2 === 0 ? -35 : 35) : (i === 0 ? -190 : i === 1 ? 0 : 190)),
-    y: mobile ? 50 : 120,
-    rotate: (i) => (mobile ? (i % 2 === 0 ? -2 : 2) : (i === 0 ? -6 : i === 1 ? 0 : 6)),
-    opacity: 0,
-    stagger: 0.12,
-    duration: 0.8,
-    ease: 'power2.out',
-    clearProps: 'transform'
-  });
+  if (document.querySelectorAll('.plans .plan').length > 0) {
+    gsap.from('.plans .plan', {
+      scrollTrigger: {
+        trigger: '.pricing',
+        start: 'top 78%',
+        toggleActions: 'play none none reverse'
+      },
+      x: (i) => (mobile ? (i % 2 === 0 ? -35 : 35) : (i === 0 ? -190 : i === 1 ? 0 : 190)),
+      y: mobile ? 50 : 120,
+      rotate: (i) => (mobile ? (i % 2 === 0 ? -2 : 2) : (i === 0 ? -6 : i === 1 ? 0 : 6)),
+      opacity: 0,
+      stagger: 0.12,
+      duration: 0.8,
+      ease: 'power2.out',
+      clearProps: 'transform'
+    });
+  }
 
   // ---- Pricing Table: savings matrix container flies in ----
-  gsap.from('.pt-wrap', {
-    scrollTrigger: {
-      trigger: '.pricing-table',
-      start: 'top 78%',
-      toggleActions: 'play none none reverse'
-    },
-    y: 90,
-    opacity: 0,
-    duration: 0.7,
-    ease: 'power2.out',
-    clearProps: 'transform'
-  });
+  if (document.querySelectorAll('.pt-chart-card').length > 0) {
+    gsap.from('.pt-chart-card', {
+      scrollTrigger: {
+        trigger: '.pricing-table',
+        start: 'top 78%',
+        toggleActions: 'play none none reverse'
+      },
+      y: 70,
+      opacity: 0,
+      duration: 0.7,
+      ease: 'power2.out',
+      clearProps: 'transform'
+    });
+  }
 
   // ---- Onboarding: 4 cards fly in from alternating sides with tilt ----
-  gsap.from('.ob-card', {
-    scrollTrigger: {
-      trigger: '.onboarding',
-      start: 'top 78%',
-      toggleActions: 'play none none reverse'
-    },
-    x: (i) => (mobile ? (i % 2 === 0 ? -35 : 35) : (i % 2 === 0 ? -180 : 180)),
-    y: mobile ? 50 : 110,
-    rotate: (i) => (mobile ? (i % 2 === 0 ? -2 : 2) : (i % 2 === 0 ? -5 : 5)),
-    opacity: 0,
-    stagger: 0.1,
-    duration: 0.75,
-    ease: 'power2.out',
-    clearProps: 'transform'
-  });
+  if (document.querySelectorAll('.ob-card').length > 0) {
+    gsap.from('.ob-card', {
+      scrollTrigger: {
+        trigger: '.onboarding',
+        start: 'top 78%',
+        toggleActions: 'play none none reverse'
+      },
+      x: (i) => (mobile ? (i % 2 === 0 ? -35 : 35) : (i % 2 === 0 ? -180 : 180)),
+      y: mobile ? 50 : 110,
+      rotate: (i) => (mobile ? (i % 2 === 0 ? -2 : 2) : (i % 2 === 0 ? -5 : 5)),
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.75,
+      ease: 'power2.out',
+      clearProps: 'transform'
+    });
+  }
 
   // ---- FAQ: only the items visible on screen cascade in from alternating sides ----
   ScrollTrigger.batch('.faq-item', {
@@ -218,18 +238,20 @@ export function initChoreography(env: Env): void {
   });
 
   // ---- Final CTA: smooth entrance, dead-center in viewport ----
-  gsap.from('.final-inner', {
-    scrollTrigger: {
-      trigger: '.final-cta',
-      start: 'top 75%',
-      toggleActions: 'play none none reverse'
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power2.out',
-    clearProps: 'transform'
-  });
+  if (document.querySelectorAll('.final-inner').length > 0) {
+    gsap.from('.final-inner', {
+      scrollTrigger: {
+        trigger: '.final-cta',
+        start: 'top 75%',
+        toggleActions: 'play none none reverse'
+      },
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      clearProps: 'transform'
+    });
+  }
 
   // Recalc after fonts settle (Nastaliq changes metrics)
   window.addEventListener('load', () => ScrollTrigger.refresh());

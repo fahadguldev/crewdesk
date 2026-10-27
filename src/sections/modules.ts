@@ -61,7 +61,7 @@ export function buildModules(): HTMLElement {
 
       return `<article class="module-slab glass" data-id="${m.id}" style="--c:var(--${m.color})">
         <div class="slab-top">
-          <span class="slab-num">MODULE ${m.n}</span>
+          <span class="slab-num">MODULE ${m.n} OF 8 · SYSTEM ARCHITECTURE</span>
           <span class="slab-role">${m.role}</span>
         </div>
         <div class="slab-header-row">
@@ -118,7 +118,7 @@ export function buildModules(): HTMLElement {
   const ai = `<article class="module-slab module-ai glass" data-id="${C.modules.ai.id}">
       <span class="ai-badge">${C.modules.ai.badge}</span>
       <div class="slab-top">
-        <span class="slab-num">${C.modules.ai.title.toUpperCase()}</span>
+        <span class="slab-num">AI COPILOT · SYSTEM ARCHITECTURE</span>
         <span class="slab-role">${C.modules.ai.role}</span>
       </div>
       <div class="slab-header-row">
