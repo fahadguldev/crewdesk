@@ -118,15 +118,30 @@ export function buildHero(): HTMLElement {
     .join('');
 
   el.innerHTML = `
-    <!-- Hero Main Split: Left Copy & CTAs, Right Product Mockup -->
+    <!-- Ambient Background Video with Vignette -->
+    <div class="hero-video-backdrop" aria-hidden="true">
+      <video
+        class="hero-video-element"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="/images/hero-dashboard.webp"
+      >
+        <source src="/videos/admin_overview.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
+
+    <!-- Hero Main: Clean Typography, 2 CTAs, Trust Chips -->
     <div class="hero-main container">
       <div class="hero-left">
         <h1 class="hero-h1" id="hero-headline">
-          Manage your whole <span class="urdu" dir="rtl" lang="ur"><bdi>دفتر</bdi></span> from one <span class="type-green-hub">Hub</span> <span class="hero-muted">— not scattered tools and sheets</span>
+          Manage your whole <span class="urdu" dir="rtl" lang="ur"><bdi>دفتر</bdi></span><br />
+          from one single <span class="type-green-hub">Hub</span> —<br />
+          <span class="hero-muted">not scattered tools and sheets</span>
         </h1>
-        <p class="hero-sub">
-          ${C.hero.sub}
-        </p>
 
         <div class="hero-actions">
           <a class="btn btn-primary btn-hero-primary" href="${walkthroughUrl}" target="_blank" rel="noopener noreferrer">
@@ -137,44 +152,8 @@ export function buildHero(): HTMLElement {
           </a>
         </div>
 
-        <p class="hero-microcopy">
-          ${C.hero.microcopy ?? 'No setup fee · Onboarding included · Pay by bank transfer, Raast, JazzCash or Easypaisa'}
-        </p>
-
         <div class="hero-trust-strip">
           ${trustChipsHtml}
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <!-- Minimal Browser Frame Mockup -->
-        <!-- REPLACE WITH REAL SCREENSHOT -->
-        <div class="hero-browser-mockup glass">
-          <div class="mockup-bar">
-            <div class="mockup-dots" aria-hidden="true">
-              <span class="dot dot-red"></span>
-              <span class="dot dot-yellow"></span>
-              <span class="dot dot-green"></span>
-            </div>
-            <div class="mockup-url">
-              <span class="mockup-lock" aria-hidden="true">🔒</span>
-              <span class="mockup-url-text">https://demo.daftarhub.app/business-analyst</span>
-            </div>
-          </div>
-          <div class="mockup-body">
-            <picture>
-              <source srcset="/images/hero-dashboard.webp" type="image/webp" />
-              <img
-                src="/images/hero-dashboard.png"
-                alt="Hub دفتر dashboard showing profit per project, attendance and the client password vault"
-                width="1600"
-                height="1000"
-                loading="eager"
-                fetchpriority="high"
-                class="hero-dashboard-img"
-              />
-            </picture>
-          </div>
         </div>
       </div>
     </div>

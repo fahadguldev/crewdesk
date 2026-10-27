@@ -297,14 +297,29 @@
 
     <!-- Hero Section -->
     <section class="hero pin-section" id="hero">
+      <!-- Ambient Background Video with Vignette -->
+      <div class="hero-video-backdrop" aria-hidden="true">
+        <video
+          class="hero-video-element"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          poster="/images/hero-dashboard.webp"
+        >
+          <source src="/videos/admin_overview.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-video-overlay"></div>
+      </div>
+
       <div class="hero-main container">
         <div class="hero-left">
           <h1 class="hero-h1" id="hero-headline">
-            Manage your whole <span class="urdu" dir="rtl" lang="ur"><bdi>دفتر</bdi></span> from one <span class="type-green-hub">Hub</span> <span class="hero-muted">— not scattered tools and sheets</span>
+            Manage your whole <span class="urdu" dir="rtl" lang="ur"><bdi>دفتر</bdi></span><br />
+            from one single <span class="type-green-hub">Hub</span> —<br />
+            <span class="hero-muted">not scattered tools and sheets</span>
           </h1>
-          <p class="hero-sub">
-            Attendance, leave, projects, client passwords, time tracking, workload and real profit per project — one platform built for digital agencies, set up for you in the first week.
-          </p>
           <div class="hero-actions">
             <a class="btn btn-primary btn-hero-primary" href="https://wa.me/923203601576?text=Hi%20Hub%20Daftar%2C%20I%20would%20like%20to%20book%20a%20walkthrough" target="_blank" rel="noopener noreferrer">
               Book Free 30-Min Walkthrough
@@ -313,9 +328,6 @@
               View Live Demo
             </a>
           </div>
-          <p class="hero-microcopy">
-            No setup fee · Onboarding included · Pay by bank transfer, Raast, JazzCash or Easypaisa
-          </p>
           <div class="hero-trust-strip">
             <div class="hero-trust-chip">
               <span class="htc-icon" aria-hidden="true">👥</span>
@@ -332,38 +344,6 @@
             <div class="hero-trust-chip">
               <span class="htc-icon" aria-hidden="true">🛡️</span>
               <span class="htc-text">Flat pricing, no per-seat penalties</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-right">
-          <!-- Minimal Browser Frame Mockup -->
-          <!-- REPLACE WITH REAL SCREENSHOT -->
-          <div class="hero-browser-mockup glass">
-            <div class="mockup-bar">
-              <div class="mockup-dots" aria-hidden="true">
-                <span class="dot dot-red"></span>
-                <span class="dot dot-yellow"></span>
-                <span class="dot dot-green"></span>
-              </div>
-              <div class="mockup-url">
-                <span class="mockup-lock" aria-hidden="true">🔒</span>
-                <span class="mockup-url-text">https://demo.daftarhub.app/business-analyst</span>
-              </div>
-            </div>
-            <div class="mockup-body">
-              <picture>
-                <source srcset="/images/hero-dashboard.webp" type="image/webp" />
-                <img
-                  src="/images/hero-dashboard.png"
-                  alt="Hub دفتر dashboard showing profit per project, attendance and the client password vault"
-                  width="1600"
-                  height="1000"
-                  loading="eager"
-                  fetchpriority="high"
-                  class="hero-dashboard-img"
-                />
-              </picture>
             </div>
           </div>
         </div>
