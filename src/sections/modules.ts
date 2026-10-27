@@ -64,10 +64,12 @@ export function buildModules(): HTMLElement {
           <span class="slab-num">MODULE ${m.n}</span>
           <span class="slab-role">${m.role}</span>
         </div>
-        <h3 class="slab-title">${m.title}</h3>
-        <span class="slab-badge">${C.modules.availableLabel}</span>
+        <div class="slab-header-row">
+          <h3 class="slab-title">${m.title}</h3>
+          <span class="slab-badge">${C.modules.availableLabel}</span>
+        </div>
         
-        <!-- Live Dashboard Preview Frame -->
+        <!-- Live Dashboard Preview Frame with Bigger Image -->
         <div class="slab-preview-frame">
           <div class="slab-frame-bar">
             <div class="slab-dots" aria-hidden="true">
@@ -90,14 +92,15 @@ export function buildModules(): HTMLElement {
             <a href="${moduleUrl}" target="_blank" rel="noopener noreferrer" class="slab-img-overlay" title="Open live ${m.title} screen">
               <span class="slab-overlay-pill">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                <span>Live Demo</span>
+                <span>Live Screen</span>
               </span>
             </a>
           </div>
         </div>
 
-        <p class="slab-desc">${m.desc}</p>
-        <div class="slab-actions">
+        <!-- Compact Bottom Bar Without Extra Space -->
+        <div class="slab-bottom-bar">
+          <p class="slab-desc">${m.desc}</p>
           <a class="btn btn-outline-demo slab-demo-btn" href="${moduleUrl}" target="_blank" rel="noopener noreferrer">
             <span>View Live Demo</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -118,7 +121,9 @@ export function buildModules(): HTMLElement {
         <span class="slab-num">${C.modules.ai.title.toUpperCase()}</span>
         <span class="slab-role">${C.modules.ai.role}</span>
       </div>
-      <h3 class="slab-title">${C.modules.ai.title} <span class="ai-status">(${C.modules.ai.status})</span></h3>
+      <div class="slab-header-row">
+        <h3 class="slab-title">${C.modules.ai.title} <span class="ai-status">(${C.modules.ai.status})</span></h3>
+      </div>
       
       <!-- AI Preview Frame -->
       <div class="slab-preview-frame slab-ai-preview-frame">
@@ -140,9 +145,12 @@ export function buildModules(): HTMLElement {
         </div>
       </div>
 
-      <p class="slab-desc">${C.modules.ai.desc}</p>
-      <ul class="ai-bullets">${C.modules.ai.bullets.map((b) => `<li>${b}</li>`).join('')}</ul>
-      <div class="slab-actions">
+      <!-- Compact Bottom Bar for AI -->
+      <div class="slab-bottom-bar">
+        <div class="slab-ai-desc-wrap">
+          <p class="slab-desc">${C.modules.ai.desc}</p>
+          <ul class="ai-bullets">${C.modules.ai.bullets.map((b) => `<li>${b}</li>`).join('')}</ul>
+        </div>
         <a class="btn btn-outline-demo slab-demo-btn slab-waitlist-btn" href="#final-cta">
           <span>Join waitlist</span>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

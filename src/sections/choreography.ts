@@ -94,7 +94,7 @@ export function initChoreography(env: Env): void {
       scrollTrigger: {
         trigger: stage,
         start: 'top top',
-        end: () => `+=${Math.round(slabCount * 0.48 * window.innerHeight)}`,
+        end: () => `+=${Math.round(slabCount * 0.72 * window.innerHeight)}`,
         pin: true,
         scrub: 1.2,
         invalidateOnRefresh: true,

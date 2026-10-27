@@ -43,7 +43,6 @@ type RoleDef = {
   name: string;
   tagline: string;
   url: string;
-  points: string[];
   image: string;
 };
 
@@ -55,11 +54,6 @@ const roles: RoleDef[] = [
     name: "Agency Owner / Admin",
     tagline: "Full executive command center with live business analysis and encrypted vault.",
     url: "https://demo.daftarhub.app/?role=admin",
-    points: [
-      "Encrypted credential vault",
-      "Executive overview & profit margins",
-      "Salaries & rates private from other roles",
-    ],
     image: "/images/admin.png",
   },
   {
@@ -67,11 +61,6 @@ const roles: RoleDef[] = [
     name: "HR Manager",
     tagline: "People operations without spreadsheets or chaotic WhatsApp threads.",
     url: "https://demo.daftarhub.app/?role=hr",
-    points: [
-      "Leave approvals in one click",
-      "Live attendance & late flag tracking",
-      "Employee directory & team structure",
-    ],
     image: "/images/hr.png",
   },
   {
@@ -79,11 +68,6 @@ const roles: RoleDef[] = [
     name: "Project Manager",
     tagline: "Delivery clarity — see active projects, tasks, and real capacity.",
     url: "https://demo.daftarhub.app/?role=pm",
-    points: [
-      "Real-time task delegation & sprints",
-      "Workload balancing across developers",
-      "Delivery risk flags & milestones",
-    ],
     image: "/images/pm.png",
   },
   {
@@ -91,11 +75,6 @@ const roles: RoleDef[] = [
     name: "Employee & Developer",
     tagline: "Clean, distraction-free workspace. Everything personal, nothing extra.",
     url: "https://demo.daftarhub.app/?role=employee",
-    points: [
-      "One-tap daily attendance punch in",
-      "Leave balance & instant requests",
-      "Active task list & time logging",
-    ],
     image: "/images/employee.png",
   },
 ];
@@ -136,18 +115,7 @@ export function buildRoles(): HTMLElement {
           </div>
         </header>
 
-        <ul class="role-points" aria-label="Key Capabilities">
-          ${r.points
-            .map(
-              (p) =>
-                `<li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>${esc(
-                  p,
-                )}</span></li>`,
-            )
-            .join("")}
-        </ul>
-
-        <!-- Dashboard Browser Mockup -->
+        <!-- Dashboard Browser Mockup with Maximized Image Height -->
         <div class="rc-browser-frame">
           <div class="rc-browser-bar">
             <div class="rc-window-dots" aria-hidden="true">
