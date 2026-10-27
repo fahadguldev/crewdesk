@@ -12,7 +12,8 @@ import {
   buildComparison,
   buildPricing,
   bindComparisonMobile,
-  bindPricingMobile
+  bindPricingMobile,
+  bindPricingChart
 } from './sections/pricing';
 import {
   buildSocialProof,
@@ -82,6 +83,7 @@ function boot(): void {
   bindPricingTilt();
   bindComparisonMobile();
   bindPricingMobile();
+  bindPricingChart();
   bindModuleRing();
   bindPicker();
   bindCube();

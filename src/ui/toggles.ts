@@ -15,6 +15,7 @@ export function bindCurrency(): void {
       el.textContent = cur === 'pkr' ? C.currency.pkr : '$';
     });
     buttons.forEach((b) => b.classList.toggle('is-active', b.dataset.cur === cur));
+    window.dispatchEvent(new CustomEvent('currencychange', { detail: cur }));
   };
   buttons.forEach((b) => b.addEventListener('click', () => apply(b.dataset.cur as 'pkr' | 'usd')));
 }

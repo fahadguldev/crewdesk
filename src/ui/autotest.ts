@@ -106,6 +106,17 @@ export function runAutoTest(): void {
     ok('form-success-shown', !(form.querySelector('.form-success') as HTMLElement | null)?.hidden, '');
   }
 
+  // 7b. Pricing benchmark bar chart tabs
+  const tab15 = document.querySelector<HTMLButtonElement>('.pt-tier-tab[data-seats="15"]');
+  const headline = document.getElementById('pt-headline-price');
+  if (tab15 && headline) {
+    tab15.click();
+    ok('chart-tab-15', tab15.classList.contains('is-active') && (headline.textContent?.includes('18,000') || false), `headline=${headline.textContent}`);
+    const tab10 = document.querySelector<HTMLButtonElement>('.pt-tier-tab[data-seats="10"]');
+    tab10?.click();
+    ok('chart-tab-10', headline.textContent?.includes('12,000') || false, `headline=${headline.textContent}`);
+  }
+
   // 8. Layout at scroll offsets (elementFromPoint is paint-independent)
   const offsets = [0, 1200, 3000, 6000, 9000, 12000, 15000, 18000, 21000, 23500];
   const hits: string[] = [];
