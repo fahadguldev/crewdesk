@@ -107,9 +107,18 @@ export function bindNav(): void {
     });
   }
 
+  // Only observe section elements that correspond to in-page anchors
   const sections = C.nav.links
-    .map((l) => document.querySelector(l.href))
+    .filter((l) => l.href.startsWith('#'))
+    .map((l) => {
+      try {
+        return document.querySelector(l.href);
+      } catch {
+        return null;
+      }
+    })
     .filter(Boolean) as Element[];
+
   const io = new IntersectionObserver(
     (entries) =>
       entries.forEach((en) => {
