@@ -83,14 +83,14 @@ export function initChoreography(env: Env): void {
   }
 
   // ---- Modules: smooth step through 9 operational modules on desktop scroll ----
-  // Pins the 2-column layout centered in visible viewport below the 64px sticky navbar
+  // Pins the 2-column layout cleanly 80px below the viewport top (16px below the 64px sticky navbar)
   const modulesLayout = document.querySelector<HTMLElement>('.modules-layout');
   if (!mobile && modulesLayout) {
     let lastStep = -1;
     const moduleCount = 9; // 8 operational modules + AI Copilot
     ScrollTrigger.create({
       trigger: modulesLayout,
-      start: () => `center ${Math.round((window.innerHeight + 64) / 2)}px`,
+      start: 'top 80px',
       end: `+=${moduleCount * 65}%`,
       pin: true,
       scrub: true,

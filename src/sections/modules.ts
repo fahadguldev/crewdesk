@@ -233,19 +233,21 @@ export function buildModules(): HTMLElement {
         data-index="${i}" ${i === 0 ? "" : "hidden"} style="--c:var(--${m.color})">
         
         <header class="mp-head">
-          <div class="mp-head-meta">
-            <span class="mp-num">MODULE ${m.n} OF 8 · SYSTEM ARCHITECTURE</span>
+          <div class="mp-head-top">
+            <div class="mp-head-title-group">
+              <span class="mp-num">MODULE ${m.n} OF 8</span>
+              <h3 class="mp-title">${esc(m.title)}</h3>
+              <span class="mp-badge">${m.isAi ? "Planned" : "Available Today"}</span>
+            </div>
             <span class="mp-role">${esc(m.role)}</span>
           </div>
-          <div class="mp-head-title-row">
-            <h3>${esc(m.title)}</h3>
-            <span class="mp-badge">${m.isAi ? "Planned" : "Available Today"}</span>
+          <div class="mp-head-sub">
+            <p class="mp-desc">${esc(m.desc)}</p>
+            <div class="mp-chips">${chipsHtml}</div>
           </div>
-          <p class="mp-desc">${esc(m.desc)}</p>
-          <div class="mp-chips">${chipsHtml}</div>
         </header>
 
-        <!-- Dashboard Browser Mockup -->
+        <!-- Dashboard Browser Mockup with Full Uncropped Image -->
         <div class="mp-browser-frame">
           <div class="mp-browser-bar">
             <div class="mp-window-dots" aria-hidden="true">
