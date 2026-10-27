@@ -82,35 +82,26 @@ export function initChoreography(env: Env): void {
     });
   }
 
-  // ---- Modules: horizontal slab track (desktop only, 1 module at a time with smooth scrub) ----
-  const stage = document.querySelector<HTMLElement>('.modules-stage');
-  const ring = document.querySelector<HTMLElement>('.module-ring');
-  const viewport = document.querySelector<HTMLElement>('.module-viewport');
-  const modulesEl = document.querySelector<HTMLElement>('.modules');
-  if (!mobile && stage && ring && viewport && modulesEl) {
-    stage.classList.add('pin-mode');
-    modulesEl.classList.add('pin-mode');
-    const slabs = Array.from(ring.querySelectorAll<HTMLElement>('.module-slab'));
-    slabs.forEach((s) => s.classList.add('in'));
-    const slabCount = slabs.length;
-    const distance = () => Math.max(0, ring.scrollWidth - viewport.clientWidth);
-    gsap.to(ring, {
-      x: () => -distance(),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.modules',
-        start: 'top top',
-        end: () => `+=${Math.round(slabCount * 0.75 * window.innerHeight)}`,
-        pin: true,
-        scrub: 1,
-        snap: {
-          snapTo: 1 / (slabCount - 1),
-          duration: { min: 0.15, max: 0.35 },
-          delay: 0.05,
-          ease: 'power1.out'
-        },
-        invalidateOnRefresh: true,
-        anticipatePin: 1
+  // ---- Modules: smooth step through 9 operational modules on desktop scroll ----
+  // Pins the 2-column layout centered in visible viewport below the 64px sticky navbar
+  const modulesLayout = document.querySelector<HTMLElement>('.modules-layout');
+  if (!mobile && modulesLayout) {
+    let lastStep = -1;
+    const moduleCount = 9; // 8 operational modules + AI Copilot
+    ScrollTrigger.create({
+      trigger: modulesLayout,
+      start: () => `center ${Math.round((window.innerHeight + 64) / 2)}px`,
+      end: `+=${moduleCount * 65}%`,
+      pin: true,
+      scrub: true,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+      onUpdate: (self) => {
+        const step = Math.min(moduleCount - 1, Math.floor(self.progress * moduleCount));
+        if (step !== lastStep) {
+          lastStep = step;
+          window.dispatchEvent(new CustomEvent('modules:set', { detail: step }));
+        }
       }
     });
   }
