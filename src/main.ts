@@ -98,18 +98,17 @@ function boot(): void {
     if (!pre?.classList.contains('hide')) {
       pre?.classList.add('hide');
       initTypewriter({
-        structure: (C.hero as any).typewriterStructure,
-        totalDurationMs: 2300
+        totalDurationMs: 2200
       });
     }
   };
   pre?.addEventListener('click', hide, { once: true });
   const isQa = new URLSearchParams(window.location.search).has('scroll');
   if (isQa) hide();
-  if (env.reducedMotion || env.quality === 'low') setTimeout(hide, 700);
-  else if (document.readyState === 'complete') setTimeout(hide, 3200);
-  else window.addEventListener('load', () => setTimeout(hide, 3200));
-  setTimeout(hide, 3600);
+  if (env.reducedMotion || env.quality === 'low') setTimeout(hide, 400);
+  else if (document.readyState === 'complete') setTimeout(hide, 900);
+  else window.addEventListener('load', () => setTimeout(hide, 900));
+  setTimeout(hide, 1200);
 
   (window as any).__env = env;
 

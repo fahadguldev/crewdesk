@@ -29,11 +29,11 @@ const CHART_DATA: Record<number, TierChartConfig> = {
     ticksPKR: ['PKR 0', 'PKR 20k', 'PKR 40k', 'PKR 60k', 'PKR 80k'],
     ticksUSD: ['$0', '$70', '$140', '$210', '$280'],
     rows: [
-      { id: 'productive', pkr: 67200, usd: 240, widthPct: 84 },
-      { id: 'teamwork', pkr: 56000, usd: 200, widthPct: 70 },
-      { id: 'clickup-monthly', pkr: 53200, usd: 190, widthPct: 66.5 },
-      { id: 'clickup-annual', pkr: 33600, usd: 120, widthPct: 42 },
-      { id: 'hub-daftar', pkr: 12000, usd: 43, widthPct: 15 }
+      { id: 'productive', pkr: 67200, usd: 240, widthPct: 76 },
+      { id: 'teamwork', pkr: 56000, usd: 200, widthPct: 64 },
+      { id: 'clickup-monthly', pkr: 53200, usd: 190, widthPct: 60 },
+      { id: 'clickup-annual', pkr: 33600, usd: 120, widthPct: 38 },
+      { id: 'hub-daftar', pkr: 12000, usd: 43, widthPct: 22 }
     ]
   },
   15: {
@@ -45,11 +45,11 @@ const CHART_DATA: Record<number, TierChartConfig> = {
     ticksPKR: ['PKR 0', 'PKR 30k', 'PKR 60k', 'PKR 90k', 'PKR 120k'],
     ticksUSD: ['$0', '$105', '$210', '$315', '$420'],
     rows: [
-      { id: 'productive', pkr: 100800, usd: 360, widthPct: 84 },
-      { id: 'teamwork', pkr: 84000, usd: 300, widthPct: 70 },
-      { id: 'clickup-monthly', pkr: 79800, usd: 285, widthPct: 66.5 },
-      { id: 'clickup-annual', pkr: 50400, usd: 180, widthPct: 42 },
-      { id: 'hub-daftar', pkr: 18000, usd: 64, widthPct: 15 }
+      { id: 'productive', pkr: 100800, usd: 360, widthPct: 86 },
+      { id: 'teamwork', pkr: 84000, usd: 300, widthPct: 72 },
+      { id: 'clickup-monthly', pkr: 79800, usd: 285, widthPct: 68 },
+      { id: 'clickup-annual', pkr: 50400, usd: 180, widthPct: 43 },
+      { id: 'hub-daftar', pkr: 18000, usd: 64, widthPct: 25 }
     ]
   },
   25: {
@@ -61,11 +61,11 @@ const CHART_DATA: Record<number, TierChartConfig> = {
     ticksPKR: ['PKR 0', 'PKR 50k', 'PKR 100k', 'PKR 150k', 'PKR 200k'],
     ticksUSD: ['$0', '$175', '$350', '$525', '$700'],
     rows: [
-      { id: 'productive', pkr: 168000, usd: 600, widthPct: 84 },
-      { id: 'teamwork', pkr: 140000, usd: 500, widthPct: 70 },
-      { id: 'clickup-monthly', pkr: 133000, usd: 475, widthPct: 66.5 },
-      { id: 'clickup-annual', pkr: 84000, usd: 300, widthPct: 42 },
-      { id: 'hub-daftar', pkr: 30000, usd: 107, widthPct: 15 }
+      { id: 'productive', pkr: 168000, usd: 600, widthPct: 96 },
+      { id: 'teamwork', pkr: 140000, usd: 500, widthPct: 80 },
+      { id: 'clickup-monthly', pkr: 133000, usd: 475, widthPct: 76 },
+      { id: 'clickup-annual', pkr: 84000, usd: 300, widthPct: 48 },
+      { id: 'hub-daftar', pkr: 30000, usd: 107, widthPct: 28 }
     ]
   }
 };
@@ -119,7 +119,7 @@ export function buildPricingTable(): HTMLElement {
                 <span class="pt-row-sub">Billed annually ($24/seat/mo)</span>
               </div>
               <div class="pt-bar-track">
-                <div class="pt-bar pt-bar-comp" style="width: 84%;">
+                <div class="pt-bar pt-bar-comp" style="width: 76%;">
                   <span class="pt-bar-val" data-pkr="PKR 67,200 /mo" data-usd="$240 /mo">PKR 67,200 /mo</span>
                 </div>
               </div>
@@ -132,7 +132,7 @@ export function buildPricingTable(): HTMLElement {
                 <span class="pt-row-sub">Billed annually ($20/seat/mo)</span>
               </div>
               <div class="pt-bar-track">
-                <div class="pt-bar pt-bar-comp" style="width: 70%;">
+                <div class="pt-bar pt-bar-comp" style="width: 64%;">
                   <span class="pt-bar-val" data-pkr="PKR 56,000 /mo" data-usd="$200 /mo">PKR 56,000 /mo</span>
                 </div>
               </div>
@@ -145,7 +145,7 @@ export function buildPricingTable(): HTMLElement {
                 <span class="pt-row-sub">Billed monthly ($19/seat/mo)</span>
               </div>
               <div class="pt-bar-track">
-                <div class="pt-bar pt-bar-comp" style="width: 66.5%;">
+                <div class="pt-bar pt-bar-comp" style="width: 60%;">
                   <span class="pt-bar-val" data-pkr="PKR 53,200 /mo" data-usd="$190 /mo">PKR 53,200 /mo</span>
                 </div>
               </div>
@@ -158,7 +158,7 @@ export function buildPricingTable(): HTMLElement {
                 <span class="pt-row-sub">Billed annually ($12/seat/mo)</span>
               </div>
               <div class="pt-bar-track">
-                <div class="pt-bar pt-bar-comp" style="width: 42%;">
+                <div class="pt-bar pt-bar-comp" style="width: 38%;">
                   <span class="pt-bar-val" data-pkr="PKR 33,600 /mo" data-usd="$120 /mo">PKR 33,600 /mo</span>
                 </div>
               </div>
@@ -171,7 +171,7 @@ export function buildPricingTable(): HTMLElement {
                 <span class="pt-row-sub">All 8 modules included · Dedicated DB</span>
               </div>
               <div class="pt-bar-track">
-                <div class="pt-bar pt-bar-hub" style="width: 15%;">
+                <div class="pt-bar pt-bar-hub" style="width: 22%;">
                   <span class="pt-bar-val pt-val-hub" data-pkr="PKR 12,000 /mo" data-usd="$43 /mo">PKR 12,000 /mo</span>
                   <span class="pt-now-badge">NOW</span>
                 </div>

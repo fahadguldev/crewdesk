@@ -118,43 +118,27 @@ export function buildHero(): HTMLElement {
     .join('');
 
   el.innerHTML = `
-    <!-- Ambient Background Video with Vignette -->
-    <div class="hero-video-backdrop" aria-hidden="true">
-      <video
-        class="hero-video-element"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-        poster="/images/hero-dashboard.webp"
-      >
-        <source src="/videos/admin_overview.mp4" type="video/mp4" />
-      </video>
-      <div class="hero-video-overlay"></div>
-    </div>
+    <!-- Hero Main: Centered Design matching Screenshot -->
+    <div class="hero-main container hero-centered">
+      <h1 class="hero-h1" id="hero-headline">
+        <span id="typewriter-text"><span class="typing-line">Manage your whole <span class="type-urdu-green urdu" dir="rtl" lang="ur"><bdi>دفتر</bdi></span></span><br /><span class="typing-line">from one <span class="type-green-hub">Hub</span></span><br /><span class="typing-line hero-muted">not disconnected tools</span><br /><span class="typing-line hero-muted">and sheets</span></span><span id="typing-cursor" class="typing-cursor" aria-hidden="true">|</span>
+      </h1>
 
-    <!-- Hero Main: Clean Typography, 2 CTAs, Trust Chips -->
-    <div class="hero-main container">
-      <div class="hero-left">
-        <h1 class="hero-h1" id="hero-headline">
-          Manage your whole <span class="urdu" dir="rtl" lang="ur"><bdi>دفتر</bdi></span><br />
-          from one single <span class="type-green-hub">Hub</span> —<br />
-          <span class="hero-muted">not scattered tools and sheets</span>
-        </h1>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-hero-primary" href="${walkthroughUrl}" target="_blank" rel="noopener noreferrer">
+          ${C.hero.ctaPrimary}
+        </a>
+        <a class="btn btn-outline btn-hero-secondary" href="${PLACEHOLDERS.DEMO_URL}" target="_blank" rel="noopener">
+          ${C.hero.ctaSecondary}
+        </a>
+      </div>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-hero-primary" href="${walkthroughUrl}" target="_blank" rel="noopener noreferrer">
-            ${C.hero.ctaPrimary}
-          </a>
-          <a class="btn btn-outline btn-hero-secondary" href="${PLACEHOLDERS.DEMO_URL}" target="_blank" rel="noopener">
-            ${C.hero.ctaSecondary}
-          </a>
-        </div>
+      <div class="hero-proof-pill">
+        <span class="proof-dot"></span> Built by an agency, used daily by our own team.
+      </div>
 
-        <div class="hero-trust-strip">
-          ${trustChipsHtml}
-        </div>
+      <div class="hero-trust-strip">
+        ${trustChipsHtml}
       </div>
     </div>
 

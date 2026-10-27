@@ -36,7 +36,11 @@ const DEFAULT_STRUCTURE: TypewriterLine[] = [
   },
   {
     className: 'hero-muted',
-    tokens: [{ text: 'not disconnected tools and sheets' }]
+    tokens: [{ text: 'not disconnected tools' }]
+  },
+  {
+    className: 'hero-muted',
+    tokens: [{ text: 'and sheets' }]
   }
 ];
 
@@ -54,10 +58,13 @@ export function initTypewriter(config?: Partial<TypewriterConfig>): void {
   const structure = config?.structure ?? DEFAULT_STRUCTURE;
   const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Reduced motion: show full styled text immediately
+  // Reduced motion: show full styled text immediately and hide cursor
   if (isReduced) {
     container.innerHTML = formatCompleteStructure(structure);
-    if (cursor) cursor.style.display = 'none';
+    if (cursor) {
+      cursor.style.display = 'none';
+      cursor.remove();
+    }
     return;
   }
 
@@ -101,7 +108,11 @@ export function initTypewriter(config?: Partial<TypewriterConfig>): void {
 
   function typeNextChar(): void {
     if (lineIdx >= structure.length) {
-      if (cursor) cursor.classList.add('is-done');
+      if (cursor) {
+        cursor.classList.add('is-done');
+        cursor.style.display = 'none';
+        cursor.remove();
+      }
       return;
     }
 
