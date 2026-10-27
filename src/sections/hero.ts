@@ -132,14 +132,6 @@ export function buildHero(): HTMLElement {
           ${C.hero.ctaSecondary}
         </a>
       </div>
-
-      <div class="hero-proof-pill">
-        <span class="proof-dot"></span> Built by an agency, used daily by our own team.
-      </div>
-
-      <div class="hero-trust-strip">
-        ${trustChipsHtml}
-      </div>
     </div>
 
     <!-- Below Cards: 4 Clean Shortened Cards -->
