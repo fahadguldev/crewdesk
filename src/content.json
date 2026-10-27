@@ -360,9 +360,9 @@
     "title": "Built by an agency, for agencies",
     "body": "We run a software agency. We built Hub دفتر because ClickUp required 14 plugins, Jira felt like enterprise bureaucracy, and client passwords kept living in shared Google Sheets. Today, our whole team runs on it every day — attendance, client vaults, time tracking, and knowing whether a project actually made money before the month closes.",
     "founder": {
-      "name": "{{FOUNDER_NAME}}",
-      "role": "{{FOUNDER_ROLE}}",
-      "company": "{{BUSINESS_LEGAL_NAME}}",
+      "name": "Founder",
+      "role": "Hub دفتر",
+      "company": "",
       "photo": "/images/founder.jpg",
       "quote": "We don't sell software we don't use. If our own team doesn't love a feature, it doesn't make it into Hub دفتر."
     },

@@ -62,8 +62,8 @@ export function buildSocialProof(): HTMLElement {
               </svg>
             </div>
             <div class="sp-founder-info">
-              <h3 class="sp-founder-name">${sp.founder.name}</h3>
-              <p class="sp-founder-role">${sp.founder.role} · ${sp.founder.company}</p>
+              <h3 class="sp-founder-name">${sp.founder.name === 'Founder' || sp.founder.name.includes('{{') ? 'Founder' : sp.founder.name}</h3>
+              <p class="sp-founder-role"><span class="brand-name" dir="ltr">Hub <span class="urdu" dir="rtl" lang="ur"><bdi>دفتر</bdi></span></span></p>
             </div>
           </div>
           <blockquote class="sp-founder-quote">

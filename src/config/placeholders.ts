@@ -29,8 +29,8 @@ export const PLACEHOLDERS: {
   DEMO_URL: 'https://demo.daftarhub.app/',
 
   // Founder & Legal Placeholders
-  FOUNDER_NAME: '{{FOUNDER_NAME}}',
-  FOUNDER_ROLE: 'Founder & CEO',
+  FOUNDER_NAME: 'Founder',
+  FOUNDER_ROLE: 'Hub دفتر',
   FOUNDER_PHOTO: '/images/founder.jpg',
   BUSINESS_LEGAL_NAME: '{{BUSINESS_LEGAL_NAME}}',
   CITY_COUNTRY: '{{CITY_COUNTRY}}',
