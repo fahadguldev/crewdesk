@@ -312,7 +312,6 @@ export function buildFooter(): HTMLElement {
             <span class="brand-name" dir="ltr">Hub <span class="urdu" dir="rtl" lang="ur"><bdi>دفتر</bdi></span></span>
           </div>
           <p class="footer-tagline">${C.footer.description ?? 'Hub دفتر — The agency operations platform. Built for digital agencies.'}</p>
-          <p class="footer-legal-entity"><strong>Entity:</strong> ${PLACEHOLDERS.BUSINESS_LEGAL_NAME} · ${PLACEHOLDERS.CITY_COUNTRY}</p>
           <p class="footer-trust"><strong>${C.footer.trust.title}:</strong> ${C.footer.trust.note}</p>
         </div>
         <div class="footer-col-contact">
