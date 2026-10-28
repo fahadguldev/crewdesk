@@ -381,679 +381,528 @@
 
     <!-- Modules Section -->
     <!-- Modules Section -->
-        <section class="modules pin-section" id="modules" aria-labelledby="modules-title">
-      <div class="modules-inner container">
+            <section class="modules pin-section" id="modules" aria-labelledby="modules-title">
+      <div class="modules-inner">
         <header class="modules-head">
           <span class="modules-eyebrow">System Architecture</span>
-          <h2 id="modules-title">8 Operational Modules, Plus AI Copilot</h2>
-          <p>Every plan includes all eight working modules. AI Copilot is a planned additional module with no extra subscription fee — connect your own AI API key.</p>
+          <h2 id="modules-title">8 Operational Modules</h2>
+          <p>Every plan includes all eight working modules — attendance, projects, client vaults, time tracking, team management, business analysis, and workload.</p>
         </header>
         <div class="modules-layout">
-          <div class="module-tabs" role="tablist" aria-label="Operational Modules" aria-orientation="vertical">
-          <button type="button" class="module-tab is-active" role="tab"
-            id="module-tab-business-analysis" aria-controls="module-panel-business-analysis"
-            aria-selected="true" tabindex="0" data-index="0">
-            <span class="module-badge-num">01</span>
-            <span class="module-tab-text">
-              <b>Business Analysis</b>
-              <small>Owner / Admin</small>
-            </span>
-            <span class="module-tab-arrow" aria-hidden="true">→</span>
-          </button>
-          <button type="button" class="module-tab" role="tab"
-            id="module-tab-overview" aria-controls="module-panel-overview"
-            aria-selected="false" tabindex="-1" data-index="1">
-            <span class="module-badge-num">02</span>
-            <span class="module-tab-text">
-              <b>Overview Dashboard</b>
-              <small>For All Roles</small>
-            </span>
-            <span class="module-tab-arrow" aria-hidden="true">→</span>
-          </button>
-          <button type="button" class="module-tab" role="tab"
-            id="module-tab-attendance" aria-controls="module-panel-attendance"
-            aria-selected="false" tabindex="-1" data-index="2">
-            <span class="module-badge-num">03</span>
-            <span class="module-tab-text">
-              <b>Attendance &amp; Leave</b>
-              <small>HR + Owner</small>
-            </span>
-            <span class="module-tab-arrow" aria-hidden="true">→</span>
-          </button>
-          <button type="button" class="module-tab" role="tab"
-            id="module-tab-projects" aria-controls="module-panel-projects"
-            aria-selected="false" tabindex="-1" data-index="3">
-            <span class="module-badge-num">04</span>
-            <span class="module-tab-text">
-              <b>Projects &amp; Tasks</b>
-              <small>PM + Admin</small>
-            </span>
-            <span class="module-tab-arrow" aria-hidden="true">→</span>
-          </button>
-          <button type="button" class="module-tab" role="tab"
-            id="module-tab-vault" aria-controls="module-panel-vault"
-            aria-selected="false" tabindex="-1" data-index="4">
-            <span class="module-badge-num">05</span>
-            <span class="module-tab-text">
-              <b>Client Password Vault</b>
-              <small>Admin Only</small>
-            </span>
-            <span class="module-tab-arrow" aria-hidden="true">→</span>
-          </button>
-          <button type="button" class="module-tab" role="tab"
-            id="module-tab-time" aria-controls="module-panel-time"
-            aria-selected="false" tabindex="-1" data-index="5">
-            <span class="module-badge-num">06</span>
-            <span class="module-tab-text">
-              <b>Time Tracking</b>
-              <small>Admin + PM</small>
-            </span>
-            <span class="module-tab-arrow" aria-hidden="true">→</span>
-          </button>
-          <button type="button" class="module-tab" role="tab"
-            id="module-tab-workload" aria-controls="module-panel-workload"
-            aria-selected="false" tabindex="-1" data-index="6">
-            <span class="module-badge-num">07</span>
-            <span class="module-tab-text">
-              <b>Workload &amp; Capacity</b>
-              <small>Admin + Project Manager</small>
-            </span>
-            <span class="module-tab-arrow" aria-hidden="true">→</span>
-          </button>
-          <button type="button" class="module-tab" role="tab"
-            id="module-tab-team" aria-controls="module-panel-team"
-            aria-selected="false" tabindex="-1" data-index="7">
-            <span class="module-badge-num">08</span>
-            <span class="module-tab-text">
-              <b>Employee Directory</b>
-              <small>Admin + HR</small>
-            </span>
-            <span class="module-tab-arrow" aria-hidden="true">→</span>
-          </button>
-          <button type="button" class="module-tab" role="tab"
-            id="module-tab-ai-copilot" aria-controls="module-panel-ai-copilot"
-            aria-selected="false" tabindex="-1" data-index="8">
-            <span class="module-badge-num">09</span>
-            <span class="module-tab-text">
-              <b>AI Copilot</b>
-              <small>All Roles · Optional</small>
-            </span>
-            <span class="module-tab-arrow" aria-hidden="true">→</span>
-          </button>
+          <div class="role-tabs" role="tablist" aria-label="8 Operational Modules" aria-orientation="vertical">
+        <button type="button" class="role-tab is-active" role="tab"
+          id="modules-tab-business-analysis" aria-controls="modules-panel-business-analysis"
+          aria-selected="true" tabindex="0" data-index="0">
+          <span class="role-icon"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span>
+          <span class="role-tab-text"><b>Business Analysis</b><small>Net revenue, profit &amp; project margins</small></span>
+        </button>
+        <button type="button" class="role-tab" role="tab"
+          id="modules-tab-overview" aria-controls="modules-panel-overview"
+          aria-selected="false" tabindex="-1" data-index="1">
+          <span class="role-icon"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg></span>
+          <span class="role-tab-text"><b>Overview Dashboard</b><small>Live agency momentum &amp; active tasks</small></span>
+        </button>
+        <button type="button" class="role-tab" role="tab"
+          id="modules-tab-attendance" aria-controls="modules-panel-attendance"
+          aria-selected="false" tabindex="-1" data-index="2">
+          <span class="role-icon"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg></span>
+          <span class="role-tab-text"><b>Attendance &amp; Leave</b><small>1-click check-in, leaves &amp; office hours</small></span>
+        </button>
+        <button type="button" class="role-tab" role="tab"
+          id="modules-tab-projects" aria-controls="modules-panel-projects"
+          aria-selected="false" tabindex="-1" data-index="3">
+          <span class="role-icon"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14h6"/><path d="M9 10h6"/></svg></span>
+          <span class="role-tab-text"><b>Projects &amp; Tasks</b><small>Category projects, deadlines &amp; sprints</small></span>
+        </button>
+        <button type="button" class="role-tab" role="tab"
+          id="modules-tab-vault" aria-controls="modules-panel-vault"
+          aria-selected="false" tabindex="-1" data-index="4">
+          <span class="role-icon"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+          <span class="role-tab-text"><b>Client Password Vault</b><small>AES-256 encrypted passwords &amp; logs</small></span>
+        </button>
+        <button type="button" class="role-tab" role="tab"
+          id="modules-tab-time" aria-controls="modules-panel-time"
+          aria-selected="false" tabindex="-1" data-index="5">
+          <span class="role-icon"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <span class="role-tab-text"><b>Time Tracking</b><small>Live active timer &amp; billable hours</small></span>
+        </button>
+        <button type="button" class="role-tab" role="tab"
+          id="modules-tab-workload" aria-controls="modules-panel-workload"
+          aria-selected="false" tabindex="-1" data-index="6">
+          <span class="role-icon"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></span>
+          <span class="role-tab-text"><b>Workload &amp; Capacity</b><small>Real-time bandwidth &amp; burnout shield</small></span>
+        </button>
+        <button type="button" class="role-tab" role="tab"
+          id="modules-tab-team" aria-controls="modules-panel-team"
+          aria-selected="false" tabindex="-1" data-index="7">
+          <span class="role-icon"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="role-tab-text"><b>Employee Directory</b><small>Centralized rosters &amp; permissions</small></span>
+        </button>
           </div>
-          <div class="modules-stage">
-        <article class="module-panel glass is-active" role="tabpanel"
-          id="module-panel-business-analysis" aria-labelledby="module-tab-business-analysis"
-          data-index="0"  style="--c:var(--emerald)">
-          
-          <header class="mp-head">
-            <div class="mp-head-top">
-              <div class="mp-head-title-group">
-                <span class="mp-num">MODULE 1 OF 8</span>
-                <h3 class="mp-title">Business Analysis</h3>
-                <span class="mp-badge">Available Today</span>
-              </div>
-              <span class="mp-role">Owner / Admin</span>
-            </div>
-            <div class="mp-head-sub">
-              <p class="mp-desc">Shows the real net revenue and profit generated by each project. Visualizes top-performing client projects, category margins, and financial health in real time.</p>
-              <div class="mp-chips"><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--emerald)"></span>Net Revenue &amp; Profit</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--emerald)"></span>Project Margins</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--emerald)"></span>Client Financial Health</span></div>
+          <div class="roles-stage">
+        <article class="role-card is-active" role="tabpanel"
+          id="modules-panel-business-analysis" aria-labelledby="modules-tab-business-analysis"
+          data-index="0" >
+          <header class="role-card-head">
+            <span class="role-icon is-lg"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span>
+            <div>
+              <h3>Business Analysis</h3>
+              <p>Shows the real net revenue and profit generated by each project. Visualizes top-performing client projects, category margins, and financial health in real time.</p>
             </div>
           </header>
 
-          <!-- Dashboard Browser Mockup with Full Uncropped Image -->
-          <div class="mp-browser-frame">
-            <div class="mp-browser-bar">
-              <div class="mp-window-dots" aria-hidden="true">
-                <span class="mp-dot mp-dot-red"></span>
-                <span class="mp-dot mp-dot-yellow"></span>
-                <span class="mp-dot mp-dot-green"></span>
+          <div class="rc-browser-frame">
+            <div class="rc-browser-bar">
+              <div class="rc-window-dots" aria-hidden="true">
+                <span class="rc-dot rc-dot-red"></span>
+                <span class="rc-dot rc-dot-yellow"></span>
+                <span class="rc-dot rc-dot-green"></span>
               </div>
-              <div class="mp-browser-url">
+              <div class="rc-browser-url">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                 <span>demo.daftarhub.app/business-analyst</span>
               </div>
-              <div class="mp-browser-status">
-                <span class="mp-status-chip">
-                  <span class="mp-live-pulse" aria-hidden="true"></span>
-                  <span>LIVE DEMO</span>
+              <div class="rc-browser-status">
+                <span class="rc-status-chip">
+                  <span class="rc-live-pulse" aria-hidden="true"></span>
+                  <span>ANALYSIS SCREEN</span>
                 </span>
               </div>
             </div>
-            <div class="mp-browser-body">
+            <div class="rc-browser-body">
               <img
-              src="/images/business-analyst.png"
-              alt="Business Analysis Dashboard Screenshot"
-              class="mp-dashboard-img"
-              loading="eager"
-              width="1800"
-              height="930"
-            />
-            <a href="https://demo.daftarhub.app/business-analyst" target="_blank" rel="noopener noreferrer" class="mp-open-overlay" title="Open live Business Analysis screen">
-              <span class="mp-open-pill">
-                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                <span>View Live Business Analysis Screen</span>
-              </span>
-            </a>
+                src="/images/business-analyst.png"
+                alt="Business Analysis Dashboard Screenshot"
+                class="rc-dashboard-img"
+                loading="eager"
+                width="1800"
+                height="930"
+              />
+              <a href="https://demo.daftarhub.app/business-analyst" target="_blank" rel="noopener noreferrer" class="rc-open-overlay" title="Open live Business Analysis screen">
+                <span class="rc-open-pill">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  <span>View Live Business Analysis Screen</span>
+                </span>
+              </a>
             </div>
           </div>
 
-          <footer class="mp-foot">
-              <a class="btn btn-primary mp-demo-btn" href="https://demo.daftarhub.app/business-analyst" target="_blank" rel="noopener noreferrer">
-                <span>View Live Business Analysis Demo</span>
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-              </a>
-              <span class="mp-foot-hint">Pre-configured interactive demo · Instant screen access</span>
-            </footer>
+          <footer class="role-card-foot">
+            <a class="btn btn-primary rc-demo-btn" href="https://demo.daftarhub.app/business-analyst" target="_blank" rel="noopener noreferrer">
+              <span>Open Live Business Analysis Demo</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </footer>
         </article>
-        <article class="module-panel glass" role="tabpanel"
-          id="module-panel-overview" aria-labelledby="module-tab-overview"
-          data-index="1" hidden style="--c:var(--indigo)">
-          
-          <header class="mp-head">
-            <div class="mp-head-top">
-              <div class="mp-head-title-group">
-                <span class="mp-num">MODULE 2 OF 8</span>
-                <h3 class="mp-title">Overview Dashboard</h3>
-                <span class="mp-badge">Available Today</span>
-              </div>
-              <span class="mp-role">For All Roles</span>
-            </div>
-            <div class="mp-head-sub">
-              <p class="mp-desc">A birds-eye view of your entire agency&#39;s momentum. See live task completion, active projects, employee statuses, and department progress at a single glance.</p>
-              <div class="mp-chips"><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--indigo)"></span>Live Agency Momentum</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--indigo)"></span>Active Task Feed</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--indigo)"></span>Department Rosters</span></div>
+        <article class="role-card" role="tabpanel"
+          id="modules-panel-overview" aria-labelledby="modules-tab-overview"
+          data-index="1" hidden>
+          <header class="role-card-head">
+            <span class="role-icon is-lg"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg></span>
+            <div>
+              <h3>Overview Dashboard</h3>
+              <p>A birds-eye view of your entire agency&#39;s momentum. See live task completion, active projects, employee statuses, and department progress at a single glance.</p>
             </div>
           </header>
 
-          <!-- Dashboard Browser Mockup with Full Uncropped Image -->
-          <div class="mp-browser-frame">
-            <div class="mp-browser-bar">
-              <div class="mp-window-dots" aria-hidden="true">
-                <span class="mp-dot mp-dot-red"></span>
-                <span class="mp-dot mp-dot-yellow"></span>
-                <span class="mp-dot mp-dot-green"></span>
+          <div class="rc-browser-frame">
+            <div class="rc-browser-bar">
+              <div class="rc-window-dots" aria-hidden="true">
+                <span class="rc-dot rc-dot-red"></span>
+                <span class="rc-dot rc-dot-yellow"></span>
+                <span class="rc-dot rc-dot-green"></span>
               </div>
-              <div class="mp-browser-url">
+              <div class="rc-browser-url">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                 <span>demo.daftarhub.app/overview</span>
               </div>
-              <div class="mp-browser-status">
-                <span class="mp-status-chip">
-                  <span class="mp-live-pulse" aria-hidden="true"></span>
-                  <span>LIVE DEMO</span>
+              <div class="rc-browser-status">
+                <span class="rc-status-chip">
+                  <span class="rc-live-pulse" aria-hidden="true"></span>
+                  <span>OVERVIEW SCREEN</span>
                 </span>
               </div>
             </div>
-            <div class="mp-browser-body">
+            <div class="rc-browser-body">
               <img
-              src="/images/admin.png"
-              alt="Overview Dashboard Dashboard Screenshot"
-              class="mp-dashboard-img"
-              loading="eager"
-              width="1800"
-              height="930"
-            />
-            <a href="https://demo.daftarhub.app/" target="_blank" rel="noopener noreferrer" class="mp-open-overlay" title="Open live Overview Dashboard screen">
-              <span class="mp-open-pill">
-                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                <span>View Live Overview Dashboard Screen</span>
-              </span>
-            </a>
+                src="/images/admin.png"
+                alt="Overview Dashboard Dashboard Screenshot"
+                class="rc-dashboard-img"
+                loading="eager"
+                width="1800"
+                height="930"
+              />
+              <a href="https://demo.daftarhub.app/" target="_blank" rel="noopener noreferrer" class="rc-open-overlay" title="Open live Overview Dashboard screen">
+                <span class="rc-open-pill">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  <span>View Live Overview Screen</span>
+                </span>
+              </a>
             </div>
           </div>
 
-          <footer class="mp-foot">
-              <a class="btn btn-primary mp-demo-btn" href="https://demo.daftarhub.app/" target="_blank" rel="noopener noreferrer">
-                <span>View Live Overview Dashboard Demo</span>
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-              </a>
-              <span class="mp-foot-hint">Pre-configured interactive demo · Instant screen access</span>
-            </footer>
+          <footer class="role-card-foot">
+            <a class="btn btn-primary rc-demo-btn" href="https://demo.daftarhub.app/" target="_blank" rel="noopener noreferrer">
+              <span>Open Live Overview Demo</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </footer>
         </article>
-        <article class="module-panel glass" role="tabpanel"
-          id="module-panel-attendance" aria-labelledby="module-tab-attendance"
-          data-index="2" hidden style="--c:var(--teal)">
-          
-          <header class="mp-head">
-            <div class="mp-head-top">
-              <div class="mp-head-title-group">
-                <span class="mp-num">MODULE 3 OF 8</span>
-                <h3 class="mp-title">Attendance &amp; Leave</h3>
-                <span class="mp-badge">Available Today</span>
-              </div>
-              <span class="mp-role">HR + Owner</span>
-            </div>
-            <div class="mp-head-sub">
-              <p class="mp-desc">1-click daily check-in. Tracks attendance, casual/sick leaves, WFH requests, office working hours, late arrivals, and early exits with an immutable audit log.</p>
-              <div class="mp-chips"><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--teal)"></span>1-Click Check-In</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--teal)"></span>Leave &amp; WFH Approvals</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--teal)"></span>Audit-Proof Logs</span></div>
+        <article class="role-card" role="tabpanel"
+          id="modules-panel-attendance" aria-labelledby="modules-tab-attendance"
+          data-index="2" hidden>
+          <header class="role-card-head">
+            <span class="role-icon is-lg"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg></span>
+            <div>
+              <h3>Attendance &amp; Leave</h3>
+              <p>1-click daily check-in. Tracks attendance, casual/sick leaves, WFH requests, office working hours, late arrivals, and early exits with an immutable audit log.</p>
             </div>
           </header>
 
-          <!-- Dashboard Browser Mockup with Full Uncropped Image -->
-          <div class="mp-browser-frame">
-            <div class="mp-browser-bar">
-              <div class="mp-window-dots" aria-hidden="true">
-                <span class="mp-dot mp-dot-red"></span>
-                <span class="mp-dot mp-dot-yellow"></span>
-                <span class="mp-dot mp-dot-green"></span>
+          <div class="rc-browser-frame">
+            <div class="rc-browser-bar">
+              <div class="rc-window-dots" aria-hidden="true">
+                <span class="rc-dot rc-dot-red"></span>
+                <span class="rc-dot rc-dot-yellow"></span>
+                <span class="rc-dot rc-dot-green"></span>
               </div>
-              <div class="mp-browser-url">
+              <div class="rc-browser-url">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                 <span>demo.daftarhub.app/attendance-management</span>
               </div>
-              <div class="mp-browser-status">
-                <span class="mp-status-chip">
-                  <span class="mp-live-pulse" aria-hidden="true"></span>
-                  <span>LIVE DEMO</span>
+              <div class="rc-browser-status">
+                <span class="rc-status-chip">
+                  <span class="rc-live-pulse" aria-hidden="true"></span>
+                  <span>ATTENDANCE SCREEN</span>
                 </span>
               </div>
             </div>
-            <div class="mp-browser-body">
+            <div class="rc-browser-body">
               <img
-              src="/images/attendence-management.png"
-              alt="Attendance &amp; Leave Dashboard Screenshot"
-              class="mp-dashboard-img"
-              loading="eager"
-              width="1800"
-              height="930"
-            />
-            <a href="https://demo.daftarhub.app/attendance-management" target="_blank" rel="noopener noreferrer" class="mp-open-overlay" title="Open live Attendance &amp; Leave screen">
-              <span class="mp-open-pill">
-                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                <span>View Live Attendance &amp; Leave Screen</span>
-              </span>
-            </a>
+                src="/images/attendence-management.png"
+                alt="Attendance &amp; Leave Dashboard Screenshot"
+                class="rc-dashboard-img"
+                loading="eager"
+                width="1800"
+                height="930"
+              />
+              <a href="https://demo.daftarhub.app/attendance-management" target="_blank" rel="noopener noreferrer" class="rc-open-overlay" title="Open live Attendance &amp; Leave screen">
+                <span class="rc-open-pill">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  <span>View Live Attendance Screen</span>
+                </span>
+              </a>
             </div>
           </div>
 
-          <footer class="mp-foot">
-              <a class="btn btn-primary mp-demo-btn" href="https://demo.daftarhub.app/attendance-management" target="_blank" rel="noopener noreferrer">
-                <span>View Live Attendance &amp; Leave Demo</span>
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-              </a>
-              <span class="mp-foot-hint">Pre-configured interactive demo · Instant screen access</span>
-            </footer>
+          <footer class="role-card-foot">
+            <a class="btn btn-primary rc-demo-btn" href="https://demo.daftarhub.app/attendance-management" target="_blank" rel="noopener noreferrer">
+              <span>Open Live Attendance Demo</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </footer>
         </article>
-        <article class="module-panel glass" role="tabpanel"
-          id="module-panel-projects" aria-labelledby="module-tab-projects"
-          data-index="3" hidden style="--c:var(--blue)">
-          
-          <header class="mp-head">
-            <div class="mp-head-top">
-              <div class="mp-head-title-group">
-                <span class="mp-num">MODULE 4 OF 8</span>
-                <h3 class="mp-title">Projects &amp; Tasks</h3>
-                <span class="mp-badge">Available Today</span>
-              </div>
-              <span class="mp-role">PM + Admin</span>
-            </div>
-            <div class="mp-head-sub">
-              <p class="mp-desc">Organizes all client projects category-wise (e.g. Mobile, Web, AI, Retainers). Track milestone deadlines, deliverables, sprints, and subtasks cleanly.</p>
-              <div class="mp-chips"><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--blue)"></span>Category Projects</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--blue)"></span>Milestone Deadlines</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--blue)"></span>Sprints &amp; Deliverables</span></div>
+        <article class="role-card" role="tabpanel"
+          id="modules-panel-projects" aria-labelledby="modules-tab-projects"
+          data-index="3" hidden>
+          <header class="role-card-head">
+            <span class="role-icon is-lg"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14h6"/><path d="M9 10h6"/></svg></span>
+            <div>
+              <h3>Projects &amp; Tasks</h3>
+              <p>Organizes all client projects category-wise (e.g. Mobile, Web, AI, Retainers). Track milestone deadlines, deliverables, sprints, and subtasks cleanly.</p>
             </div>
           </header>
 
-          <!-- Dashboard Browser Mockup with Full Uncropped Image -->
-          <div class="mp-browser-frame">
-            <div class="mp-browser-bar">
-              <div class="mp-window-dots" aria-hidden="true">
-                <span class="mp-dot mp-dot-red"></span>
-                <span class="mp-dot mp-dot-yellow"></span>
-                <span class="mp-dot mp-dot-green"></span>
+          <div class="rc-browser-frame">
+            <div class="rc-browser-bar">
+              <div class="rc-window-dots" aria-hidden="true">
+                <span class="rc-dot rc-dot-red"></span>
+                <span class="rc-dot rc-dot-yellow"></span>
+                <span class="rc-dot rc-dot-green"></span>
               </div>
-              <div class="mp-browser-url">
+              <div class="rc-browser-url">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                 <span>demo.daftarhub.app/projects</span>
               </div>
-              <div class="mp-browser-status">
-                <span class="mp-status-chip">
-                  <span class="mp-live-pulse" aria-hidden="true"></span>
-                  <span>LIVE DEMO</span>
+              <div class="rc-browser-status">
+                <span class="rc-status-chip">
+                  <span class="rc-live-pulse" aria-hidden="true"></span>
+                  <span>PROJECTS SCREEN</span>
                 </span>
               </div>
             </div>
-            <div class="mp-browser-body">
+            <div class="rc-browser-body">
               <img
-              src="/images/project-management.png"
-              alt="Projects &amp; Tasks Dashboard Screenshot"
-              class="mp-dashboard-img"
-              loading="eager"
-              width="1800"
-              height="930"
-            />
-            <a href="https://demo.daftarhub.app/projects" target="_blank" rel="noopener noreferrer" class="mp-open-overlay" title="Open live Projects &amp; Tasks screen">
-              <span class="mp-open-pill">
-                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                <span>View Live Projects &amp; Tasks Screen</span>
-              </span>
-            </a>
+                src="/images/project-management.png"
+                alt="Projects &amp; Tasks Dashboard Screenshot"
+                class="rc-dashboard-img"
+                loading="eager"
+                width="1800"
+                height="930"
+              />
+              <a href="https://demo.daftarhub.app/projects" target="_blank" rel="noopener noreferrer" class="rc-open-overlay" title="Open live Projects &amp; Tasks screen">
+                <span class="rc-open-pill">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  <span>View Live Projects Screen</span>
+                </span>
+              </a>
             </div>
           </div>
 
-          <footer class="mp-foot">
-              <a class="btn btn-primary mp-demo-btn" href="https://demo.daftarhub.app/projects" target="_blank" rel="noopener noreferrer">
-                <span>View Live Projects &amp; Tasks Demo</span>
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-              </a>
-              <span class="mp-foot-hint">Pre-configured interactive demo · Instant screen access</span>
-            </footer>
+          <footer class="role-card-foot">
+            <a class="btn btn-primary rc-demo-btn" href="https://demo.daftarhub.app/projects" target="_blank" rel="noopener noreferrer">
+              <span>Open Live Projects Demo</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </footer>
         </article>
-        <article class="module-panel glass" role="tabpanel"
-          id="module-panel-vault" aria-labelledby="module-tab-vault"
-          data-index="4" hidden style="--c:var(--amber)">
-          
-          <header class="mp-head">
-            <div class="mp-head-top">
-              <div class="mp-head-title-group">
-                <span class="mp-num">MODULE 5 OF 8</span>
-                <h3 class="mp-title">Client Password Vault</h3>
-                <span class="mp-badge">Available Today</span>
-              </div>
-              <span class="mp-role">Admin Only</span>
-            </div>
-            <div class="mp-head-sub">
-              <p class="mp-desc">Secure client credentials in an AES-256 encrypted vault instead of Google Sheets or WhatsApp. Grant access strictly to specific individuals with copy/reveal logs.</p>
-              <div class="mp-chips"><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--amber)"></span>AES-256 Encrypted</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--amber)"></span>Strict Access Control</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--amber)"></span>Copy &amp; Reveal Audit</span></div>
+        <article class="role-card" role="tabpanel"
+          id="modules-panel-vault" aria-labelledby="modules-tab-vault"
+          data-index="4" hidden>
+          <header class="role-card-head">
+            <span class="role-icon is-lg"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+            <div>
+              <h3>Client Password Vault</h3>
+              <p>Secure client credentials in an AES-256 encrypted vault instead of Google Sheets or WhatsApp. Grant access strictly to specific individuals with copy/reveal logs.</p>
             </div>
           </header>
 
-          <!-- Dashboard Browser Mockup with Full Uncropped Image -->
-          <div class="mp-browser-frame">
-            <div class="mp-browser-bar">
-              <div class="mp-window-dots" aria-hidden="true">
-                <span class="mp-dot mp-dot-red"></span>
-                <span class="mp-dot mp-dot-yellow"></span>
-                <span class="mp-dot mp-dot-green"></span>
+          <div class="rc-browser-frame">
+            <div class="rc-browser-bar">
+              <div class="rc-window-dots" aria-hidden="true">
+                <span class="rc-dot rc-dot-red"></span>
+                <span class="rc-dot rc-dot-yellow"></span>
+                <span class="rc-dot rc-dot-green"></span>
               </div>
-              <div class="mp-browser-url">
+              <div class="rc-browser-url">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                 <span>demo.daftarhub.app/credentials</span>
               </div>
-              <div class="mp-browser-status">
-                <span class="mp-status-chip">
-                  <span class="mp-live-pulse" aria-hidden="true"></span>
-                  <span>LIVE DEMO</span>
+              <div class="rc-browser-status">
+                <span class="rc-status-chip">
+                  <span class="rc-live-pulse" aria-hidden="true"></span>
+                  <span>VAULT SCREEN</span>
                 </span>
               </div>
             </div>
-            <div class="mp-browser-body">
+            <div class="rc-browser-body">
               <img
-              src="/images/password-vault.png"
-              alt="Client Password Vault Dashboard Screenshot"
-              class="mp-dashboard-img"
-              loading="eager"
-              width="1800"
-              height="930"
-            />
-            <a href="https://demo.daftarhub.app/credentials" target="_blank" rel="noopener noreferrer" class="mp-open-overlay" title="Open live Client Password Vault screen">
-              <span class="mp-open-pill">
-                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                <span>View Live Client Password Vault Screen</span>
-              </span>
-            </a>
+                src="/images/password-vault.png"
+                alt="Client Password Vault Dashboard Screenshot"
+                class="rc-dashboard-img"
+                loading="eager"
+                width="1800"
+                height="930"
+              />
+              <a href="https://demo.daftarhub.app/credentials" target="_blank" rel="noopener noreferrer" class="rc-open-overlay" title="Open live Client Password Vault screen">
+                <span class="rc-open-pill">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  <span>View Live Password Vault Screen</span>
+                </span>
+              </a>
             </div>
           </div>
 
-          <footer class="mp-foot">
-              <a class="btn btn-primary mp-demo-btn" href="https://demo.daftarhub.app/credentials" target="_blank" rel="noopener noreferrer">
-                <span>View Live Client Password Vault Demo</span>
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-              </a>
-              <span class="mp-foot-hint">Pre-configured interactive demo · Instant screen access</span>
-            </footer>
+          <footer class="role-card-foot">
+            <a class="btn btn-primary rc-demo-btn" href="https://demo.daftarhub.app/credentials" target="_blank" rel="noopener noreferrer">
+              <span>Open Live Password Vault Demo</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </footer>
         </article>
-        <article class="module-panel glass" role="tabpanel"
-          id="module-panel-time" aria-labelledby="module-tab-time"
-          data-index="5" hidden style="--c:var(--purple)">
-          
-          <header class="mp-head">
-            <div class="mp-head-top">
-              <div class="mp-head-title-group">
-                <span class="mp-num">MODULE 6 OF 8</span>
-                <h3 class="mp-title">Time Tracking</h3>
-                <span class="mp-badge">Available Today</span>
-              </div>
-              <span class="mp-role">Admin + PM</span>
-            </div>
-            <div class="mp-head-sub">
-              <p class="mp-desc">Developers track billable time via an active timer or manual log entry. Visualize exactly who worked the most on each client task without weekly timesheet friction.</p>
-              <div class="mp-chips"><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--purple)"></span>Live Active Timer</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--purple)"></span>Developer Timesheets</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--purple)"></span>Billable Hours Breakdown</span></div>
+        <article class="role-card" role="tabpanel"
+          id="modules-panel-time" aria-labelledby="modules-tab-time"
+          data-index="5" hidden>
+          <header class="role-card-head">
+            <span class="role-icon is-lg"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+            <div>
+              <h3>Time Tracking</h3>
+              <p>Developers track billable time via an active timer or manual log entry. Visualize exactly who worked the most on each client task without weekly timesheet friction.</p>
             </div>
           </header>
 
-          <!-- Dashboard Browser Mockup with Full Uncropped Image -->
-          <div class="mp-browser-frame">
-            <div class="mp-browser-bar">
-              <div class="mp-window-dots" aria-hidden="true">
-                <span class="mp-dot mp-dot-red"></span>
-                <span class="mp-dot mp-dot-yellow"></span>
-                <span class="mp-dot mp-dot-green"></span>
+          <div class="rc-browser-frame">
+            <div class="rc-browser-bar">
+              <div class="rc-window-dots" aria-hidden="true">
+                <span class="rc-dot rc-dot-red"></span>
+                <span class="rc-dot rc-dot-yellow"></span>
+                <span class="rc-dot rc-dot-green"></span>
               </div>
-              <div class="mp-browser-url">
+              <div class="rc-browser-url">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                 <span>demo.daftarhub.app/time-tracking</span>
               </div>
-              <div class="mp-browser-status">
-                <span class="mp-status-chip">
-                  <span class="mp-live-pulse" aria-hidden="true"></span>
-                  <span>LIVE DEMO</span>
+              <div class="rc-browser-status">
+                <span class="rc-status-chip">
+                  <span class="rc-live-pulse" aria-hidden="true"></span>
+                  <span>TIME SCREEN</span>
                 </span>
               </div>
             </div>
-            <div class="mp-browser-body">
+            <div class="rc-browser-body">
               <img
-              src="/images/time-tracking.png"
-              alt="Time Tracking Dashboard Screenshot"
-              class="mp-dashboard-img"
-              loading="eager"
-              width="1800"
-              height="930"
-            />
-            <a href="https://demo.daftarhub.app/time-tracking" target="_blank" rel="noopener noreferrer" class="mp-open-overlay" title="Open live Time Tracking screen">
-              <span class="mp-open-pill">
-                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                <span>View Live Time Tracking Screen</span>
-              </span>
-            </a>
+                src="/images/time-tracking.png"
+                alt="Time Tracking Dashboard Screenshot"
+                class="rc-dashboard-img"
+                loading="eager"
+                width="1800"
+                height="930"
+              />
+              <a href="https://demo.daftarhub.app/time-tracking" target="_blank" rel="noopener noreferrer" class="rc-open-overlay" title="Open live Time Tracking screen">
+                <span class="rc-open-pill">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  <span>View Live Time Tracking Screen</span>
+                </span>
+              </a>
             </div>
           </div>
 
-          <footer class="mp-foot">
-              <a class="btn btn-primary mp-demo-btn" href="https://demo.daftarhub.app/time-tracking" target="_blank" rel="noopener noreferrer">
-                <span>View Live Time Tracking Demo</span>
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-              </a>
-              <span class="mp-foot-hint">Pre-configured interactive demo · Instant screen access</span>
-            </footer>
+          <footer class="role-card-foot">
+            <a class="btn btn-primary rc-demo-btn" href="https://demo.daftarhub.app/time-tracking" target="_blank" rel="noopener noreferrer">
+              <span>Open Live Time Tracking Demo</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </footer>
         </article>
-        <article class="module-panel glass" role="tabpanel"
-          id="module-panel-workload" aria-labelledby="module-tab-workload"
-          data-index="6" hidden style="--c:var(--emerald)">
-          
-          <header class="mp-head">
-            <div class="mp-head-top">
-              <div class="mp-head-title-group">
-                <span class="mp-num">MODULE 7 OF 8</span>
-                <h3 class="mp-title">Workload &amp; Capacity</h3>
-                <span class="mp-badge">Available Today</span>
-              </div>
-              <span class="mp-role">Admin + Project Manager</span>
-            </div>
-            <div class="mp-head-sub">
-              <p class="mp-desc">Inspect live developer capacity before delegating work. Instantly see who has maximum tasks/projects allocated and who has available bandwidth, preventing burnout.</p>
-              <div class="mp-chips"><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--emerald)"></span>Real-Time Bandwidth</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--emerald)"></span>Capacity Heatmap</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--emerald)"></span>Burnout Shield</span></div>
+        <article class="role-card" role="tabpanel"
+          id="modules-panel-workload" aria-labelledby="modules-tab-workload"
+          data-index="6" hidden>
+          <header class="role-card-head">
+            <span class="role-icon is-lg"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></span>
+            <div>
+              <h3>Workload &amp; Capacity</h3>
+              <p>Inspect live developer capacity before delegating work. Instantly see who has maximum tasks/projects allocated and who has available bandwidth, preventing burnout.</p>
             </div>
           </header>
 
-          <!-- Dashboard Browser Mockup with Full Uncropped Image -->
-          <div class="mp-browser-frame">
-            <div class="mp-browser-bar">
-              <div class="mp-window-dots" aria-hidden="true">
-                <span class="mp-dot mp-dot-red"></span>
-                <span class="mp-dot mp-dot-yellow"></span>
-                <span class="mp-dot mp-dot-green"></span>
+          <div class="rc-browser-frame">
+            <div class="rc-browser-bar">
+              <div class="rc-window-dots" aria-hidden="true">
+                <span class="rc-dot rc-dot-red"></span>
+                <span class="rc-dot rc-dot-yellow"></span>
+                <span class="rc-dot rc-dot-green"></span>
               </div>
-              <div class="mp-browser-url">
+              <div class="rc-browser-url">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                 <span>demo.daftarhub.app/workload</span>
               </div>
-              <div class="mp-browser-status">
-                <span class="mp-status-chip">
-                  <span class="mp-live-pulse" aria-hidden="true"></span>
-                  <span>LIVE DEMO</span>
+              <div class="rc-browser-status">
+                <span class="rc-status-chip">
+                  <span class="rc-live-pulse" aria-hidden="true"></span>
+                  <span>WORKLOAD SCREEN</span>
                 </span>
               </div>
             </div>
-            <div class="mp-browser-body">
+            <div class="rc-browser-body">
               <img
-              src="/images/workload.png"
-              alt="Workload &amp; Capacity Dashboard Screenshot"
-              class="mp-dashboard-img"
-              loading="eager"
-              width="1800"
-              height="930"
-            />
-            <a href="https://demo.daftarhub.app/workload" target="_blank" rel="noopener noreferrer" class="mp-open-overlay" title="Open live Workload &amp; Capacity screen">
-              <span class="mp-open-pill">
-                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                <span>View Live Workload &amp; Capacity Screen</span>
-              </span>
-            </a>
+                src="/images/workload.png"
+                alt="Workload &amp; Capacity Dashboard Screenshot"
+                class="rc-dashboard-img"
+                loading="eager"
+                width="1800"
+                height="930"
+              />
+              <a href="https://demo.daftarhub.app/workload" target="_blank" rel="noopener noreferrer" class="rc-open-overlay" title="Open live Workload &amp; Capacity screen">
+                <span class="rc-open-pill">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  <span>View Live Workload Screen</span>
+                </span>
+              </a>
             </div>
           </div>
 
-          <footer class="mp-foot">
-              <a class="btn btn-primary mp-demo-btn" href="https://demo.daftarhub.app/workload" target="_blank" rel="noopener noreferrer">
-                <span>View Live Workload &amp; Capacity Demo</span>
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-              </a>
-              <span class="mp-foot-hint">Pre-configured interactive demo · Instant screen access</span>
-            </footer>
+          <footer class="role-card-foot">
+            <a class="btn btn-primary rc-demo-btn" href="https://demo.daftarhub.app/workload" target="_blank" rel="noopener noreferrer">
+              <span>Open Live Workload Demo</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </footer>
         </article>
-        <article class="module-panel glass" role="tabpanel"
-          id="module-panel-team" aria-labelledby="module-tab-team"
-          data-index="7" hidden style="--c:var(--emerald)">
-          
-          <header class="mp-head">
-            <div class="mp-head-top">
-              <div class="mp-head-title-group">
-                <span class="mp-num">MODULE 8 OF 8</span>
-                <h3 class="mp-title">Employee Directory</h3>
-                <span class="mp-badge">Available Today</span>
-              </div>
-              <span class="mp-role">Admin + HR</span>
-            </div>
-            <div class="mp-head-sub">
-              <p class="mp-desc">Centralized team directory and people operations. Manage employee profiles, job titles, departmental rosters, and access permissions in one unified dashboard.</p>
-              <div class="mp-chips"><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--emerald)"></span>Unified Team Directory</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--emerald)"></span>Custom Job Titles</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--emerald)"></span>Role Access Management</span></div>
+        <article class="role-card" role="tabpanel"
+          id="modules-panel-team" aria-labelledby="modules-tab-team"
+          data-index="7" hidden>
+          <header class="role-card-head">
+            <span class="role-icon is-lg"><svg class="role-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+    aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <div>
+              <h3>Employee Directory</h3>
+              <p>Centralized team directory and people operations. Manage employee profiles, job titles, departmental rosters, and access permissions in one unified dashboard.</p>
             </div>
           </header>
 
-          <!-- Dashboard Browser Mockup with Full Uncropped Image -->
-          <div class="mp-browser-frame">
-            <div class="mp-browser-bar">
-              <div class="mp-window-dots" aria-hidden="true">
-                <span class="mp-dot mp-dot-red"></span>
-                <span class="mp-dot mp-dot-yellow"></span>
-                <span class="mp-dot mp-dot-green"></span>
+          <div class="rc-browser-frame">
+            <div class="rc-browser-bar">
+              <div class="rc-window-dots" aria-hidden="true">
+                <span class="rc-dot rc-dot-red"></span>
+                <span class="rc-dot rc-dot-yellow"></span>
+                <span class="rc-dot rc-dot-green"></span>
               </div>
-              <div class="mp-browser-url">
+              <div class="rc-browser-url">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                 <span>demo.daftarhub.app/team</span>
               </div>
-              <div class="mp-browser-status">
-                <span class="mp-status-chip">
-                  <span class="mp-live-pulse" aria-hidden="true"></span>
-                  <span>LIVE DEMO</span>
+              <div class="rc-browser-status">
+                <span class="rc-status-chip">
+                  <span class="rc-live-pulse" aria-hidden="true"></span>
+                  <span>TEAM SCREEN</span>
                 </span>
               </div>
             </div>
-            <div class="mp-browser-body">
+            <div class="rc-browser-body">
               <img
-              src="/images/team-management.png"
-              alt="Employee Directory Dashboard Screenshot"
-              class="mp-dashboard-img"
-              loading="eager"
-              width="1800"
-              height="930"
-            />
-            <a href="https://demo.daftarhub.app/team" target="_blank" rel="noopener noreferrer" class="mp-open-overlay" title="Open live Employee Directory screen">
-              <span class="mp-open-pill">
-                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                <span>View Live Employee Directory Screen</span>
-              </span>
-            </a>
-            </div>
-          </div>
-
-          <footer class="mp-foot">
-              <a class="btn btn-primary mp-demo-btn" href="https://demo.daftarhub.app/team" target="_blank" rel="noopener noreferrer">
-                <span>View Live Employee Directory Demo</span>
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-              </a>
-              <span class="mp-foot-hint">Pre-configured interactive demo · Instant screen access</span>
-            </footer>
-        </article>
-        <article class="module-panel glass" role="tabpanel"
-          id="module-panel-ai-copilot" aria-labelledby="module-tab-ai-copilot"
-          data-index="8" hidden style="--c:var(--indigo)">
-          
-          <header class="mp-head">
-            <div class="mp-head-top">
-              <div class="mp-head-title-group">
-                <span class="mp-num">MODULE 9 OF 8</span>
-                <h3 class="mp-title">AI Copilot</h3>
-                <span class="mp-badge">Planned</span>
-              </div>
-              <span class="mp-role">All Roles · Optional</span>
-            </div>
-            <div class="mp-head-sub">
-              <p class="mp-desc">AI Copilot is a planned additional module with no extra subscription fee. Your agency connects its own AI API key and pays only for what it uses.</p>
-              <div class="mp-chips"><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--indigo)"></span>Auto Task Rebalance</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--indigo)"></span>Loss Margin Alerts</span><span class="mp-chip"><span class="mp-chip-dot" style="background:var(--indigo)"></span>Connect Agency API Key</span></div>
-            </div>
-          </header>
-
-          <!-- Dashboard Browser Mockup with Full Uncropped Image -->
-          <div class="mp-browser-frame">
-            <div class="mp-browser-bar">
-              <div class="mp-window-dots" aria-hidden="true">
-                <span class="mp-dot mp-dot-red"></span>
-                <span class="mp-dot mp-dot-yellow"></span>
-                <span class="mp-dot mp-dot-green"></span>
-              </div>
-              <div class="mp-browser-url">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                <span>demo.daftarhub.app/ai-copilot.engine</span>
-              </div>
-              <div class="mp-browser-status">
-                <span class="mp-status-chip">
-                  <span class="mp-live-pulse" aria-hidden="true"></span>
-                  <span>AI COPILOT</span>
+                src="/images/team-management.png"
+                alt="Employee Directory Dashboard Screenshot"
+                class="rc-dashboard-img"
+                loading="eager"
+                width="1800"
+                height="930"
+              />
+              <a href="https://demo.daftarhub.app/team" target="_blank" rel="noopener noreferrer" class="rc-open-overlay" title="Open live Employee Directory screen">
+                <span class="rc-open-pill">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  <span>View Live Employee Directory Screen</span>
                 </span>
-              </div>
-            </div>
-            <div class="mp-browser-body">
-              <div class="mp-ai-visual">
-              <div class="ai-neural-grid">
-                <div class="ai-node is-active"><span>Task Rebalance</span><small>Auto-suggested</small></div>
-                <div class="ai-connector"></div>
-                <div class="ai-node is-pulse"><span>Loss Risk Flag</span><small>Project margin alert</small></div>
-              </div>
-              <span class="ai-visual-tag">Planned · Included in all plans with agency API key</span>
-            </div>
+              </a>
             </div>
           </div>
 
-          <footer class="mp-foot">
-              <a class="btn btn-outline-demo mp-demo-btn mp-waitlist-btn" href="#final-cta">
-                <span>Join waitlist</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </a>
-              <span class="mp-foot-hint">Planned module · Direct integration with your AI provider key</span>
-            </footer>
+          <footer class="role-card-foot">
+            <a class="btn btn-primary rc-demo-btn" href="https://demo.daftarhub.app/team" target="_blank" rel="noopener noreferrer">
+              <span>Open Live Employee Directory Demo</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </footer>
         </article>
           </div>
         </div>

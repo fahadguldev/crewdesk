@@ -82,15 +82,14 @@ export function initChoreography(env: Env): void {
     });
   }
 
-  // ---- Modules: smooth step through 9 operational modules on desktop scroll ----
-  // Pins the 2-column layout cleanly 80px below the viewport top (16px below the 64px sticky navbar)
-  const modulesLayout = document.querySelector<HTMLElement>('.modules-layout');
+  // ---- Modules: smooth step through 8 operational modules on desktop scroll ----
+  const modulesLayout = document.querySelector<HTMLElement>('#modules .modules-layout');
   if (!mobile && modulesLayout) {
     let lastStep = -1;
-    const moduleCount = 9; // 8 operational modules + AI Copilot
+    const moduleCount = 8; // 8 operational modules
     ScrollTrigger.create({
       trigger: modulesLayout,
-      start: 'top 80px',
+      start: () => `center ${Math.round((window.innerHeight + 64) / 2)}px`,
       end: `+=${moduleCount * 65}%`,
       pin: true,
       scrub: true,
@@ -108,7 +107,7 @@ export function initChoreography(env: Env): void {
 
   // ---- Roles: smooth step through 4 dashboards on desktop scroll ----
   // Pins the card layout centered in the visible viewport below the 64px sticky navbar
-  const rolesLayout = document.querySelector<HTMLElement>('.roles-layout');
+  const rolesLayout = document.querySelector<HTMLElement>('#roles .roles-layout');
   if (!mobile && rolesLayout) {
     let lastStep = -1;
     ScrollTrigger.create({
