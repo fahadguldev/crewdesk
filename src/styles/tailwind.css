@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 160 84% 39%;
+    --radius: 0.75rem;
+  }
+}
+
+/* Base custom font family declarations and glass utilities */
+.font-urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+}
+
+.font-heading {
+  font-family: 'Plus Jakarta Sans', var(--font-head, sans-serif);
+}
+
+.glass-panel {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(23, 33, 58, 0.75);
+  border-color: rgba(52, 211, 153, 0.3);
+  box-shadow: 0 12px 30px -10px rgba(16, 185, 129, 0.15);
+}
