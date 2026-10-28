@@ -14,6 +14,7 @@ import {
   Sparkles
 } from 'lucide-react';
 import { BorderBeam } from '../motion/BorderBeam';
+import { UrduDaftar } from '../common/UrduDaftar';
 
 interface ModuleItem {
   id: string;
@@ -125,7 +126,7 @@ export const ModulesShowcase: React.FC = () => {
   const IconComponent = activeModule.icon;
 
   return (
-    <section id="modules" className="py-24 bg-slate-900/40 relative border-t border-slate-800/80">
+    <section id="modules" className="py-24 bg-[#0B1020] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -154,12 +155,12 @@ export const ModulesShowcase: React.FC = () => {
                 className={`flex flex-col items-center justify-center p-3 rounded-2xl border text-center transition-all cursor-pointer ${
                   isActive
                     ? 'border-emerald-500/80 bg-emerald-500/15 text-white shadow-lg shadow-emerald-500/10 scale-105'
-                    : 'border-slate-800/80 bg-slate-950/60 text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                    : 'border-slate-800 bg-[#11172B]/60 text-slate-400 hover:text-slate-200 hover:border-slate-700'
                 }`}
               >
                 <div
                   className={`flex h-9 w-9 items-center justify-center rounded-xl mb-2 transition-colors ${
-                    isActive ? 'bg-emerald-400 text-slate-950' : 'bg-slate-800/80 text-slate-300'
+                    isActive ? 'bg-emerald-400 text-slate-950' : 'bg-slate-800 text-slate-300'
                   }`}
                 >
                   <ModIcon className="h-4 w-4" />
@@ -171,7 +172,7 @@ export const ModulesShowcase: React.FC = () => {
         </div>
 
         {/* Active Module Showcase Card */}
-        <div className="relative rounded-3xl border border-slate-800 bg-slate-950/90 p-6 sm:p-10 shadow-2xl overflow-hidden">
+        <div className="relative rounded-3xl border border-slate-800 bg-[#11172B]/90 p-6 sm:p-10 shadow-2xl overflow-hidden">
           <BorderBeam size={300} duration={15} colorFrom="#10b981" colorTo="#065f46" />
 
           <AnimatePresence mode="wait">
@@ -242,9 +243,9 @@ export const ModulesShowcase: React.FC = () => {
 
               {/* Right Screenshot Showcase Column */}
               <div className="lg:col-span-7">
-                <div className="rounded-2xl border border-slate-800 bg-slate-900 overflow-hidden shadow-2xl">
+                <div className="rounded-2xl border border-slate-800 bg-[#0B1020] overflow-hidden shadow-2xl">
                   {/* Window Bar */}
-                  <div className="flex items-center justify-between px-4 py-2.5 bg-slate-950/80 border-b border-slate-800 text-xs text-slate-400 font-mono">
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-[#0B1020] border-b border-slate-800 text-xs text-slate-400 font-mono">
                     <div className="flex items-center gap-1.5">
                       <div className="h-2.5 w-2.5 rounded-full bg-rose-500/70" />
                       <div className="h-2.5 w-2.5 rounded-full bg-amber-500/70" />
@@ -254,13 +255,13 @@ export const ModulesShowcase: React.FC = () => {
                     <span className="text-[11px] font-bold text-emerald-400">100% Agency Tested</span>
                   </div>
 
-                  <div className="relative aspect-[16/10] bg-slate-950 overflow-hidden group">
+                  <div className="relative aspect-[16/10] bg-[#0B1020] overflow-hidden group">
                     <img
                       src={activeModule.image}
                       alt={activeModule.name}
                       className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1020]/70 via-transparent to-transparent pointer-events-none" />
                   </div>
                 </div>
               </div>

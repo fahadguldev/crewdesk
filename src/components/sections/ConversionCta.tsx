@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, MessageSquare, CheckCircle, Sparkles, Shield, Clock, Send } from 'lucide-react';
+import { ArrowRight, MessageSquare, CheckCircle, Sparkles, Shield, Send } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { ShimmerButton } from '../motion/ShimmerButton';
+import { UrduDaftar } from '../common/UrduDaftar';
+import { PLACEHOLDERS } from '../../config/placeholders';
 
 interface ConversionCtaProps {
   initialModules?: string[];
@@ -24,12 +26,10 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
     e.preventDefault();
     setLoading(true);
 
-    // Simulate submission and trigger confetti
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
 
-      // Trigger confetti celebration
       try {
         confetti({
           particleCount: 80,
@@ -40,26 +40,26 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
         // ignore in non-browser env
       }
 
-      // Also generate direct WhatsApp redirection link
+      // WhatsApp redirection link with Turkey number
       const text = `Hi Hub Daftar Team! I'm ${formData.contactName} from ${formData.agencyName} (${formData.teamSize}). I would like to book our first-week agency walkthrough.`;
-      const waUrl = `https://wa.me/923203601576?text=${encodeURIComponent(text)}`;
+      const waUrl = `https://wa.me/${PLACEHOLDERS.WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
       setTimeout(() => {
         window.open(waUrl, '_blank');
       }, 1200);
     }, 600);
   };
 
-  const directWhatsAppUrl = `https://wa.me/923203601576?text=${encodeURIComponent(
+  const directWhatsAppUrl = `https://wa.me/${PLACEHOLDERS.WHATSAPP_NUMBER}?text=${encodeURIComponent(
     'Hi Hub Daftar! I would like to book a 30-min walkthrough for my agency.'
   )}`;
 
   return (
-    <section id="final-cta" className="py-24 bg-slate-900/60 relative border-t border-slate-800/80 overflow-hidden">
+    <section id="final-cta" className="py-24 bg-[#0B1020] relative overflow-hidden">
       {/* Background radial highlight */}
       <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-emerald-500/10 blur-[120px] rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="rounded-3xl border border-slate-800 bg-slate-950 p-6 sm:p-12 shadow-2xl">
+        <div className="rounded-3xl border border-slate-800 bg-[#11172B]/90 p-6 sm:p-12 shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Copy & Value Points */}
             <div className="lg:col-span-6 space-y-6">
@@ -69,9 +69,7 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
               </div>
 
               <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
-                Ready to run your whole{' '}
-                <span className="font-urdu text-emerald-400 font-bold" dir="rtl">دفتر</span>{' '}
-                from one calm Hub?
+                Ready to run your whole <UrduDaftar className="text-3xl sm:text-5xl" /> from one calm Hub?
               </h2>
 
               <p className="text-slate-300 text-base leading-relaxed">
@@ -92,7 +90,7 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
                 ))}
               </div>
 
-              {/* Instant WhatsApp Option */}
+              {/* Instant WhatsApp Option with Turkey Number */}
               <div className="pt-4 border-t border-slate-800/80">
                 <p className="text-xs text-slate-400 mb-2">Prefer instant direct messaging?</p>
                 <a
@@ -102,7 +100,7 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
                   className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors"
                 >
                   <MessageSquare className="h-4 w-4" />
-                  <span>Chat directly on WhatsApp (+92 320 3601576)</span>
+                  <span>Chat directly on WhatsApp ({PLACEHOLDERS.WHATSAPP_DISPLAY})</span>
                   <ArrowRight className="h-3.5 w-3.5" />
                 </a>
               </div>
@@ -110,7 +108,7 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
 
             {/* Right Booking Form Card */}
             <div className="lg:col-span-6">
-              <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 sm:p-8 backdrop-blur-xl shadow-xl">
+              <div className="rounded-2xl border border-slate-800 bg-[#0B1020]/90 p-6 sm:p-8 backdrop-blur-xl shadow-xl">
                 {submitted ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -155,7 +153,7 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
                         placeholder="e.g. Pixel Studio or Nexus Digital"
                         value={formData.agencyName}
                         onChange={(e) => setFormData({ ...formData, agencyName: e.target.value })}
-                        className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none transition-colors"
+                        className="w-full rounded-xl border border-slate-700 bg-[#11172B] px-4 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none transition-colors"
                       />
                     </div>
 
@@ -170,7 +168,7 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
                           placeholder="Fahad or Sarah"
                           value={formData.contactName}
                           onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
-                          className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none transition-colors"
+                          className="w-full rounded-xl border border-slate-700 bg-[#11172B] px-4 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none transition-colors"
                         />
                       </div>
                       <div>
@@ -180,10 +178,10 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
                         <input
                           type="text"
                           required
-                          placeholder="+92 300 1234567 or email"
+                          placeholder="+90 548 827 4659 or email"
                           value={formData.emailOrPhone}
                           onChange={(e) => setFormData({ ...formData, emailOrPhone: e.target.value })}
-                          className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none transition-colors"
+                          className="w-full rounded-xl border border-slate-700 bg-[#11172B] px-4 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none transition-colors"
                         />
                       </div>
                     </div>
@@ -196,7 +194,7 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
                         <select
                           value={formData.teamSize}
                           onChange={(e) => setFormData({ ...formData, teamSize: e.target.value })}
-                          className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2.5 text-xs sm:text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                          className="w-full rounded-xl border border-slate-700 bg-[#11172B] px-3 py-2.5 text-xs sm:text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors"
                         >
                           <option value="5-10 seats">5 - 10 seats (Starter)</option>
                           <option value="11-20 seats">11 - 20 seats (Team)</option>
@@ -212,7 +210,7 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
                         <select
                           value={formData.biggestPain}
                           onChange={(e) => setFormData({ ...formData, biggestPain: e.target.value })}
-                          className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2.5 text-xs sm:text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                          className="w-full rounded-xl border border-slate-700 bg-[#11172B] px-3 py-2.5 text-xs sm:text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors"
                         >
                           <option value="vault-profit">Client Password Vault & Profit Margins</option>
                           <option value="attendance-time">Attendance & Time Tracking</option>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Calendar, MessageSquare, Clock, ShieldCheck, Check } from 'lucide-react';
+import { UrduDaftar } from '../common/UrduDaftar';
+import { PLACEHOLDERS } from '../../config/placeholders';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -8,7 +10,7 @@ interface BookingModalProps {
 }
 
 export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
-  const whatsappUrl = `https://wa.me/923203601576?text=${encodeURIComponent(
+  const whatsappUrl = `https://wa.me/${PLACEHOLDERS.WHATSAPP_NUMBER}?text=${encodeURIComponent(
     'Hi Hub Daftar! I would like to book a 30-min walkthrough for my agency.'
   )}`;
 
@@ -22,7 +24,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-slate-950/80 backdrop-blur-md"
+            className="fixed inset-0 bg-[#0B1020]/85 backdrop-blur-md"
           />
 
           {/* Modal Container */}
@@ -31,12 +33,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-lg rounded-3xl border border-slate-800 bg-slate-950 p-6 sm:p-8 shadow-2xl z-10"
+            className="relative w-full max-w-lg rounded-3xl border border-slate-800 bg-[#0B1020] p-6 sm:p-8 shadow-2xl z-10"
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-slate-900 text-slate-400 hover:text-white transition-colors"
+              className="absolute top-4 right-4 p-2 rounded-full bg-[#11172B] text-slate-400 hover:text-white transition-colors cursor-pointer"
             >
               <X className="h-5 w-5" />
             </button>
@@ -50,12 +52,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                   Book Your 30-Minute Agency Walkthrough
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 mt-1">
-                  See Hub دفتر customized to your agency's exact team size, project categories, and security needs.
+                  See Hub <UrduDaftar /> customized to your agency's exact team size, project categories, and security needs.
                 </p>
               </div>
 
               {/* What happens on the call */}
-              <div className="rounded-xl border border-slate-800/80 bg-slate-900/60 p-4 space-y-2.5 text-xs text-slate-300">
+              <div className="rounded-xl border border-slate-800/80 bg-[#11172B] p-4 space-y-2.5 text-xs text-slate-300">
                 <div className="flex items-center gap-2 font-bold text-slate-200">
                   <Clock className="h-4 w-4 text-emerald-400" />
                   <span>In 30 minutes, we will cover:</span>
@@ -88,10 +90,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                     </div>
                     <div>
                       <div className="text-sm font-bold text-white group-hover:text-emerald-300">
-                        Instant WhatsApp Coordination
+                        WhatsApp Coordination
                       </div>
                       <div className="text-xs text-slate-400">
-                        Chat directly with the founder to pick a slot today
+                        Chat directly on {PLACEHOLDERS.WHATSAPP_DISPLAY}
                       </div>
                     </div>
                   </div>
@@ -101,7 +103,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                 <a
                   href="#final-cta"
                   onClick={onClose}
-                  className="flex items-center justify-between p-4 rounded-2xl border border-slate-800 bg-slate-900/60 hover:bg-slate-900 text-white transition-all cursor-pointer"
+                  className="flex items-center justify-between p-4 rounded-2xl border border-slate-800 bg-[#11172B]/80 hover:bg-[#11172B] text-white transition-all cursor-pointer"
                 >
                   <div className="flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 text-slate-300">
@@ -109,7 +111,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                     </div>
                     <div>
                       <div className="text-sm font-bold text-white">Fill Request Form</div>
-                      <div className="text-xs text-slate-400">Provide team details and get a customized email invite</div>
+                      <div className="text-xs text-slate-400">Provide team details and get a tailored invite</div>
                     </div>
                   </div>
                   <span className="text-xs font-bold text-slate-400">Form →</span>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Calendar, CheckCircle2, Sparkles, Clock, Rocket } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
+import { UrduDaftar } from '../common/UrduDaftar';
 
 export const OnboardingRoadmap: React.FC = () => {
   const steps = [
@@ -18,7 +19,7 @@ export const OnboardingRoadmap: React.FC = () => {
     {
       step: 'Day 4–5',
       title: 'Custom Workflow Configuration',
-      desc: 'Your 3 custom modules (e.g. invoicing formats, white-label client portal, or custom pipelines) are tailored to your exact team rituals.',
+      desc: 'Your 3 custom modules (e.g. payrolls, hiring pipeline, or client reminders) are configured to match your exact agency rituals.',
       badge: 'TAILORING'
     },
     {
@@ -30,7 +31,7 @@ export const OnboardingRoadmap: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-slate-900/30 relative border-t border-slate-800/80">
+    <section className="py-20 bg-[#0B1020] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
@@ -48,7 +49,7 @@ export const OnboardingRoadmap: React.FC = () => {
           {steps.map((item, idx) => (
             <div
               key={idx}
-              className="relative rounded-2xl border border-slate-800 bg-slate-950 p-6 flex flex-col justify-between"
+              className="relative rounded-2xl border border-slate-800 bg-[#11172B]/80 p-6 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">

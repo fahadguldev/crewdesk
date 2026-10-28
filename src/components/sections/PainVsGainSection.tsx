@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { XCircle, CheckCircle, ArrowRight, AlertTriangle, Sparkles } from 'lucide-react';
+import { XCircle, CheckCircle, AlertTriangle, Sparkles } from 'lucide-react';
 import { SpotlightCard } from '../motion/SpotlightCard';
+import { UrduDaftar } from '../common/UrduDaftar';
 
 export const PainVsGainSection: React.FC = () => {
   const [view, setView] = useState<'pain' | 'gain'>('gain');
@@ -53,7 +54,7 @@ export const PainVsGainSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-slate-950 relative overflow-hidden border-t border-slate-900">
+    <section className="py-24 bg-[#0B1020] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
@@ -69,18 +70,18 @@ export const PainVsGainSection: React.FC = () => {
 
           {/* Interactive Toggle */}
           <div className="flex justify-center mt-8">
-            <div className="inline-flex rounded-full border border-slate-800 bg-slate-900/90 p-1.5 backdrop-blur-md">
+            <div className="inline-flex rounded-full border border-slate-800 bg-[#11172B] p-1.5 backdrop-blur-md">
               <button
                 type="button"
                 onClick={() => setView('gain')}
-                className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                className={`flex items-center gap-1.5 rounded-full px-5 py-2.5 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   view === 'gain'
                     ? 'bg-emerald-400 text-slate-950 shadow-md shadow-emerald-500/25'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
                 <Sparkles className="h-4 w-4" />
-                <span>The Hub دفتر Way</span>
+                <span>The Hub <UrduDaftar className={view === 'gain' ? 'text-slate-950 font-extrabold' : 'text-emerald-400'} /> Way</span>
               </button>
               <button
                 type="button"
@@ -113,7 +114,7 @@ export const PainVsGainSection: React.FC = () => {
                 <SpotlightCard
                   key={i}
                   spotlightColor="rgba(52, 211, 153, 0.15)"
-                  className="border-emerald-500/20 bg-emerald-950/20"
+                  className="border-emerald-500/20 bg-[#11172B]/80"
                 >
                   <div className="flex items-start justify-between mb-3">
                     <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400">
@@ -141,7 +142,7 @@ export const PainVsGainSection: React.FC = () => {
                 <SpotlightCard
                   key={i}
                   spotlightColor="rgba(244, 63, 94, 0.15)"
-                  className="border-rose-500/20 bg-rose-950/20"
+                  className="border-rose-500/20 bg-[#11172B]/80"
                 >
                   <div className="flex items-start justify-between mb-3">
                     <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-rose-500/20 text-rose-400">

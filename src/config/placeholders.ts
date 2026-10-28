@@ -18,8 +18,8 @@ export const PLACEHOLDERS: {
   CITY_COUNTRY: string;
 } = {
   // Contact & Communication
-  WHATSAPP_NUMBER: '923203601576', // digits only with country code
-  WHATSAPP_DISPLAY: '+92 320 3601576',
+  WHATSAPP_NUMBER: '905488274659', // Turkey country code digits only
+  WHATSAPP_DISPLAY: '+90 548 827 4659',
   BUSINESS_EMAIL: 'daftarhub.app@gmail.com',
   BOOKING_LINK: '', // optional Calendly/Cal.com link; if set, used for primary CTA
 

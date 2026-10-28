@@ -1,23 +1,59 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Check, AlertCircle, ArrowRight, Sparkles, Sliders } from 'lucide-react';
+import { Plus, Check, ArrowRight, Sliders, Award, FileSpreadsheet, Users, Bell, Star, Layout } from 'lucide-react';
 import { AnimatedNumber } from '../motion/AnimatedNumber';
+import { UrduDaftar } from '../common/UrduDaftar';
 
 interface CustomOption {
   id: string;
   name: string;
   tagline: string;
   category: string;
-  requires?: string[];
+  icon: React.ElementType;
 }
 
 const CUSTOM_OPTIONS: CustomOption[] = [
-  { id: 'invoicing', name: 'Automated Client Invoicing', tagline: 'One-click PDF invoices from billable hours', category: 'Finance' },
-  { id: 'client-portal', name: 'White-Label Client Portal', tagline: 'Clients see deliverables without messaging PMs', category: 'Client Experience' },
-  { id: 'proposals', name: 'Proposal & Scope Builder', tagline: 'Turn closed deals into projects automatically', category: 'Sales' },
-  { id: 'payroll', name: 'Payroll & Bonus Calculator', tagline: 'Attendance-backed monthly salary sheets', category: 'Finance', requires: ['invoicing'] },
-  { id: 'recruiting', name: 'Applicant Tracking & Hiring', tagline: 'Manage resumes, test tasks & candidate stages', category: 'HR' },
-  { id: 'reviews', name: 'Performance & 360 Reviews', tagline: 'Quarterly peer feedback & salary review logs', category: 'HR' }
+  {
+    id: 'payrolls',
+    name: 'Payrolls & Salary Slips',
+    tagline: 'Attendance-backed monthly salary sheets, advance deductions & bank exports',
+    category: 'Finance',
+    icon: FileSpreadsheet
+  },
+  {
+    id: 'hiring-ats',
+    name: 'Application Tracking & Hiring',
+    tagline: 'Manage candidate pipelines, CV screening, test tasks & interview rounds',
+    category: 'HR & Talent',
+    icon: Users
+  },
+  {
+    id: 'client-followups',
+    name: 'Client Followup & Milestone Reminders',
+    tagline: 'Automated reminders for pending client deliverables, invoices & retainer renewals',
+    category: 'Client Ops',
+    icon: Bell
+  },
+  {
+    id: 'employee-of-month',
+    name: 'Employee of the Month Calculator',
+    tagline: 'Automated scoring algorithm based on punctuality, task velocity & peer feedback',
+    category: 'Culture & HR',
+    icon: Award
+  },
+  {
+    id: 'performance-appraisal',
+    name: 'Employee Performance & 360 Reviews',
+    tagline: 'Quarterly performance appraisals, KPI scorecards, salary reviews & feedback logs',
+    category: 'Management',
+    icon: Star
+  },
+  {
+    id: 'client-portal',
+    name: 'White-Label Client Portal',
+    tagline: 'Clients see deliverables and approve milestones without Slack or email noise',
+    category: 'Client Experience',
+    icon: Layout
+  }
 ];
 
 interface CustomModuleBuilderProps {
@@ -27,7 +63,7 @@ interface CustomModuleBuilderProps {
 export const CustomModuleBuilder: React.FC<CustomModuleBuilderProps> = ({
   onSelectModulesForWalkthrough
 }) => {
-  const [selectedIds, setSelectedIds] = useState<string[]>(['client-portal', 'invoicing']);
+  const [selectedIds, setSelectedIds] = useState<string[]>(['payrolls', 'client-followups']);
   const maxAllowed = 3;
 
   const toggleModule = (id: string) => {
@@ -43,9 +79,9 @@ export const CustomModuleBuilder: React.FC<CustomModuleBuilderProps> = ({
   };
 
   return (
-    <section className="py-20 bg-slate-950 relative border-t border-slate-900 overflow-hidden">
+    <section id="custom-modules" className="py-20 bg-[#0B1020] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl border border-emerald-500/30 bg-gradient-to-br from-emerald-950/20 via-slate-950 to-slate-950 p-6 sm:p-12 shadow-2xl relative">
+        <div className="rounded-3xl border border-emerald-500/30 bg-gradient-to-br from-[#11172B] via-[#0B1020] to-[#0B1020] p-6 sm:p-12 shadow-2xl relative">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-10 pb-8 border-b border-slate-800/80">
             <div>
               <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-400 border border-emerald-500/20 mb-3">
@@ -53,15 +89,15 @@ export const CustomModuleBuilder: React.FC<CustomModuleBuilderProps> = ({
                 <span>Tailored for Your Agency</span>
               </div>
               <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-                Choose 3 Custom Modules Included Free
+                3 Custom Modules Configured Free in Week 1
               </h2>
               <p className="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
-                Every agency has unique operational quirks. Beyond the 8 core modules, we configure and customize up to 3 custom modules in your dedicated environment during Week 1 onboarding.
+                Every agency operates differently. Beyond the 8 core modules of Hub <UrduDaftar />, we customize up to 3 custom modules directly from our tested agency roster during onboarding.
               </p>
             </div>
 
             {/* Selection Counter Pill */}
-            <div className="shrink-0 flex items-center gap-3 bg-slate-900 border border-slate-800 rounded-2xl px-5 py-3">
+            <div className="shrink-0 flex items-center gap-3 bg-[#11172B] border border-slate-800 rounded-2xl px-5 py-3">
               <div className="flex flex-col">
                 <span className="text-xs text-slate-400 font-medium">Selected Scope</span>
                 <span className="text-lg font-extrabold text-white">
@@ -87,6 +123,7 @@ export const CustomModuleBuilder: React.FC<CustomModuleBuilderProps> = ({
             {CUSTOM_OPTIONS.map((opt) => {
               const isSelected = selectedIds.includes(opt.id);
               const isDisabled = !isSelected && selectedIds.length >= maxAllowed;
+              const Icon = opt.icon;
 
               return (
                 <button
@@ -96,16 +133,22 @@ export const CustomModuleBuilder: React.FC<CustomModuleBuilderProps> = ({
                   disabled={isDisabled}
                   className={`relative p-5 rounded-2xl border text-left transition-all cursor-pointer ${
                     isSelected
-                      ? 'border-emerald-500 bg-emerald-950/40 shadow-lg shadow-emerald-500/10'
+                      ? 'border-emerald-500 bg-emerald-950/30 shadow-lg shadow-emerald-500/10'
                       : isDisabled
-                      ? 'border-slate-800/40 bg-slate-900/20 opacity-50 cursor-not-allowed'
-                      : 'border-slate-800 bg-slate-900/60 hover:border-slate-700 hover:bg-slate-900'
+                      ? 'border-slate-800/40 bg-[#11172B]/30 opacity-50 cursor-not-allowed'
+                      : 'border-slate-800 bg-[#11172B]/70 hover:border-slate-700 hover:bg-[#11172B]'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-md">
-                      {opt.category}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <div className={`p-1.5 rounded-lg ${isSelected ? 'bg-emerald-400 text-slate-950' : 'bg-slate-800 text-slate-300'}`}>
+                        <Icon className="h-4 w-4" />
+                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-md">
+                        {opt.category}
+                      </span>
+                    </div>
+
                     <div
                       className={`flex h-6 w-6 items-center justify-center rounded-full transition-colors ${
                         isSelected ? 'bg-emerald-400 text-slate-950' : 'bg-slate-800 text-slate-400'
@@ -117,13 +160,6 @@ export const CustomModuleBuilder: React.FC<CustomModuleBuilderProps> = ({
 
                   <h3 className="text-base font-bold text-white mb-1">{opt.name}</h3>
                   <p className="text-xs text-slate-300 leading-relaxed">{opt.tagline}</p>
-
-                  {opt.requires && !selectedIds.includes(opt.requires[0]) && (
-                    <div className="mt-3 flex items-center gap-1.5 text-[11px] text-amber-400 bg-amber-950/40 px-2.5 py-1 rounded-md border border-amber-900/50">
-                      <AlertCircle className="h-3 w-3 shrink-0" />
-                      <span>Best paired with {opt.requires.join(', ')}</span>
-                    </div>
-                  )}
                 </button>
               );
             })}
@@ -132,7 +168,7 @@ export const CustomModuleBuilder: React.FC<CustomModuleBuilderProps> = ({
           {/* Action Bar */}
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-800/80">
             <p className="text-xs text-slate-400 text-center sm:text-left">
-              Need a 4th custom module or proprietary API integration? We build custom extensions for agency enterprise plans.
+              Need custom integrations or bespoke pipelines? We tailor agency extensions during your onboarding week.
             </p>
             <a
               href="#final-cta"

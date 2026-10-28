@@ -1,6 +1,7 @@
 import React from 'react';
-import { Lock, Database, ShieldCheck, FileKey, EyeOff, UserCheck } from 'lucide-react';
+import { Lock, Database, ShieldCheck, FileKey, EyeOff } from 'lucide-react';
 import { SpotlightCard } from '../motion/SpotlightCard';
+import { UrduDaftar } from '../common/UrduDaftar';
 
 export const SecurityGuarantee: React.FC = () => {
   const securityPillars = [
@@ -27,7 +28,7 @@ export const SecurityGuarantee: React.FC = () => {
   ];
 
   return (
-    <section id="security" className="py-20 bg-slate-950 relative border-t border-slate-900">
+    <section id="security" className="py-20 bg-[#0B1020] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-400 border border-emerald-500/20 mb-3">
@@ -38,7 +39,7 @@ export const SecurityGuarantee: React.FC = () => {
             Security that protects your client relationships
           </h2>
           <p className="text-slate-400 text-base sm:text-lg mt-3">
-            One leaked client password or compromised server credential can destroy an agency's reputation overnight. Hub دفتر makes leaks mathematically impossible.
+            One leaked client password or compromised server credential can destroy an agency's reputation overnight. Hub <UrduDaftar /> makes leaks mathematically impossible.
           </p>
         </div>
 
@@ -49,7 +50,7 @@ export const SecurityGuarantee: React.FC = () => {
               <SpotlightCard
                 key={idx}
                 spotlightColor="rgba(52, 211, 153, 0.12)"
-                className="border-slate-800 bg-slate-900/40"
+                className="border-slate-800 bg-[#11172B]/70"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 mb-4">
                   <Icon className="h-5 w-5" />

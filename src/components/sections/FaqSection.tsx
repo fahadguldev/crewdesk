@@ -1,6 +1,7 @@
 import React from 'react';
 import { SpringAccordion, type AccordionItemData } from '../motion/SpringAccordion';
 import { HelpCircle } from 'lucide-react';
+import { UrduDaftar } from '../common/UrduDaftar';
 
 export const FaqSection: React.FC = () => {
   const faqData: AccordionItemData[] = [
@@ -27,8 +28,8 @@ export const FaqSection: React.FC = () => {
     },
     {
       id: 'custom-modules',
-      question: 'What are the 3 custom modules included in onboarding?',
-      answer: 'Every agency has unique rituals. During your first week of onboarding, we configure up to 3 custom modules tailored to your operations—such as an automated client invoicing engine, a white-labeled client deliverable portal, candidate recruitment pipeline, or custom project categories.'
+      question: 'What custom modules can be configured during onboarding?',
+      answer: 'Every agency has unique rituals. During your first week of onboarding, we configure up to 3 custom modules tailored to your operations—such as automated payroll & salary slips, candidate hiring & ATS pipelines, client milestone reminders, or employee of the month calculators.'
     },
     {
       id: 'migration',
@@ -38,7 +39,7 @@ export const FaqSection: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-slate-950 relative border-t border-slate-900">
+    <section id="faq" className="py-24 bg-[#0B1020] relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-400 border border-emerald-500/20 mb-3">
@@ -49,7 +50,7 @@ export const FaqSection: React.FC = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-slate-400 text-base sm:text-lg mt-3">
-            Everything you need to know about Hub دفتر, data security, and getting started.
+            Everything you need to know about Hub <UrduDaftar />, data security, and getting started.
           </p>
         </div>
 

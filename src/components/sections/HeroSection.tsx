@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Play, Shield, Users, Database, CheckCircle2, ArrowRight, Sparkles, Lock, Layers } from 'lucide-react';
+import { Play, Users, Lock, Database, CheckCircle2, ArrowRight } from 'lucide-react';
 import { ShimmerButton } from '../motion/ShimmerButton';
 import { TiltCard } from '../motion/TiltCard';
-import { SpotlightCard } from '../motion/SpotlightCard';
 import { Magnetic } from '../motion/Magnetic';
+import { UrduDaftar } from '../common/UrduDaftar';
 
 interface HeroSectionProps {
   onOpenBooking: () => void;
@@ -36,7 +36,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onOpenV
   };
 
   return (
-    <section id="hero" className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+    <section id="hero" className="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-[#0B1020] overflow-hidden">
       {/* Background radial glow */}
       <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-emerald-500/10 blur-[130px] rounded-full" />
       <div className="pointer-events-none absolute top-1/3 left-1/4 w-[350px] h-[350px] bg-teal-500/10 blur-[100px] rounded-full" />
@@ -49,7 +49,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onOpenV
           transition={{ duration: 0.5 }}
           className="flex justify-center mb-6"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-950/40 px-4 py-1.5 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-[#11172B]/80 px-4 py-1.5 backdrop-blur-md">
             <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-xs font-semibold text-emerald-300 tracking-wide uppercase">
               The Agency Operations Platform
@@ -59,19 +59,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onOpenV
           </div>
         </motion.div>
 
-        {/* Main Headline */}
+        {/* Main Headline with Nastaleeq Urdu دفتر */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-center max-w-4xl mx-auto space-y-4"
         >
-          <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
-            Manage your whole{' '}
-            <span className="relative inline-block font-urdu text-emerald-400 font-bold px-2 py-0.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20" dir="rtl">
-              دفتر
-            </span>{' '}
-            from one <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 bg-clip-text text-transparent">Hub</span>
+          <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.15]">
+            Manage your whole <UrduDaftar className="text-4xl sm:text-6xl lg:text-7xl" /> from one{' '}
+            <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 bg-clip-text text-transparent">
+              Hub
+            </span>
           </h1>
 
           <p className="text-base sm:text-xl text-slate-300/90 max-w-2xl mx-auto font-normal leading-relaxed pt-2">
@@ -95,7 +94,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onOpenV
           <Magnetic strength={0.2}>
             <button
               onClick={onOpenVideoTour}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-slate-200 px-6 py-4 text-sm font-semibold backdrop-blur-md transition-all hover:border-slate-600 cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full border border-slate-700 bg-[#11172B]/80 hover:bg-[#16203c] text-slate-200 px-6 py-4 text-sm font-semibold backdrop-blur-md transition-all hover:border-slate-600 cursor-pointer"
             >
               <div className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
                 <Play className="h-3 w-3 fill-current ml-0.5" />
@@ -120,7 +119,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onOpenV
           ].map((item, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-2.5 rounded-xl border border-slate-800/80 bg-slate-900/40 p-3 text-left backdrop-blur-sm"
+              className="flex items-center gap-2.5 rounded-xl border border-slate-800/80 bg-[#11172B]/60 p-3 text-left backdrop-blur-sm"
             >
               <item.icon className="h-4 w-4 shrink-0 text-emerald-400" />
               <span className="text-xs text-slate-300 font-medium leading-tight">{item.label}</span>
@@ -144,7 +143,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onOpenV
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   activePreviewTab === tabKey
                     ? 'bg-emerald-400 text-slate-950 shadow-md shadow-emerald-500/20'
-                    : 'bg-slate-900/90 text-slate-400 hover:text-slate-200 border border-slate-800'
+                    : 'bg-[#11172B] text-slate-400 hover:text-slate-200 border border-slate-800'
                 }`}
               >
                 {previews[tabKey].tag}
@@ -152,10 +151,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onOpenV
             ))}
           </div>
 
-          <TiltCard maxTilt={6} className="rounded-3xl border border-slate-800 bg-slate-950/90 shadow-2xl shadow-emerald-950/40 p-2 sm:p-4">
+          <TiltCard maxTilt={5} className="rounded-3xl border border-slate-800 bg-[#11172B]/90 shadow-2xl shadow-emerald-950/40 p-2 sm:p-4">
             <div className="relative rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-900">
               {/* Window Chrome */}
-              <div className="flex items-center justify-between px-4 py-3 border-b border-slate-800 bg-slate-950/80">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-slate-800 bg-[#0B1020]/90">
                 <div className="flex items-center gap-2">
                   <div className="h-3 w-3 rounded-full bg-rose-500/80" />
                   <div className="h-3 w-3 rounded-full bg-amber-500/80" />
@@ -171,14 +170,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onOpenV
               </div>
 
               {/* Preview Image with dynamic switch */}
-              <div className="relative aspect-[16/9] w-full bg-slate-950 overflow-hidden">
+              <div className="relative aspect-[16/9] w-full bg-[#0B1020] overflow-hidden">
                 <img
                   src={previews[activePreviewTab].image}
                   alt={previews[activePreviewTab].title}
                   className="w-full h-full object-cover object-top transition-all duration-500 hover:scale-[1.02]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-6">
-                  <div className="bg-slate-950/85 backdrop-blur-md border border-slate-800 p-4 rounded-xl max-w-md">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1020]/90 via-transparent to-transparent flex items-end p-6">
+                  <div className="bg-[#0B1020]/90 backdrop-blur-md border border-slate-800 p-4 rounded-xl max-w-md">
                     <span className="text-[10px] font-bold tracking-wider text-emerald-400 uppercase">
                       {previews[activePreviewTab].tag}
                     </span>

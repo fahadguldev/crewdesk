@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Crown, Briefcase, UserCheck, Shield, Check, Eye } from 'lucide-react';
 import { TiltCard } from '../motion/TiltCard';
+import { UrduDaftar } from '../common/UrduDaftar';
 
 interface RoleData {
   id: string;
@@ -93,7 +94,7 @@ export const RoleDashboards: React.FC = () => {
   const [activeRole, setActiveRole] = useState<RoleData>(ROLES[0]);
 
   return (
-    <section id="roles" className="py-24 bg-slate-950 relative border-t border-slate-900">
+    <section id="roles" className="py-24 bg-[#0B1020] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -101,7 +102,7 @@ export const RoleDashboards: React.FC = () => {
             Tailored Experiences
           </span>
           <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-4">
-            Built for everyone in your agency
+            Built for everyone in your <UrduDaftar />
           </h2>
           <p className="text-slate-400 text-base sm:text-lg mt-3">
             Granular role-based views ensure founders see the financials, PMs see the sprints, and staff focus on delivery.
@@ -121,7 +122,7 @@ export const RoleDashboards: React.FC = () => {
                 className={`p-4 rounded-2xl border text-left transition-all cursor-pointer ${
                   isSelected
                     ? 'border-emerald-500 bg-emerald-950/30 shadow-lg shadow-emerald-500/15'
-                    : 'border-slate-800 bg-slate-900/40 text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                    : 'border-slate-800 bg-[#11172B]/70 text-slate-400 hover:text-slate-200 hover:border-slate-700'
                 }`}
               >
                 <div className="flex items-center gap-3">
@@ -143,7 +144,7 @@ export const RoleDashboards: React.FC = () => {
         </div>
 
         {/* Active Role Card View */}
-        <div className="rounded-3xl border border-slate-800 bg-slate-900/60 backdrop-blur-xl p-6 sm:p-10 shadow-2xl">
+        <div className="rounded-3xl border border-slate-800 bg-[#11172B]/80 backdrop-blur-xl p-6 sm:p-10 shadow-2xl">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeRole.id}
@@ -162,7 +163,7 @@ export const RoleDashboards: React.FC = () => {
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
                     {activeRole.name}
                   </h3>
-                  <p className="text-sm text-emerald-400 font-medium mt-1">
+                  <p className="text-sm text-emerald-400 font-semibold mt-1">
                     {activeRole.tagline}
                   </p>
                 </div>
@@ -174,7 +175,7 @@ export const RoleDashboards: React.FC = () => {
                 {/* Key Metrics Pill Grid */}
                 <div className="grid grid-cols-3 gap-2.5 pt-2">
                   {activeRole.keyMetrics.map((met, i) => (
-                    <div key={i} className="bg-slate-950/80 border border-slate-800 p-3 rounded-xl text-center">
+                    <div key={i} className="bg-[#0B1020] border border-slate-800 p-3 rounded-xl text-center">
                       <div className="text-[10px] text-slate-400 uppercase font-semibold">{met.label}</div>
                       <div className="text-sm font-extrabold text-white mt-0.5">{met.value}</div>
                     </div>
@@ -194,14 +195,14 @@ export const RoleDashboards: React.FC = () => {
 
               {/* Right Screenshot Tilt Showcase */}
               <div className="lg:col-span-7">
-                <TiltCard maxTilt={5} className="rounded-2xl border border-slate-800 bg-slate-950 p-2 shadow-2xl">
-                  <div className="relative rounded-xl overflow-hidden aspect-[16/10] bg-slate-900">
+                <TiltCard maxTilt={5} className="rounded-2xl border border-slate-800 bg-[#0B1020] p-2 shadow-2xl">
+                  <div className="relative rounded-xl overflow-hidden aspect-[16/10] bg-[#0B1020]">
                     <img
                       src={activeRole.screenshot}
                       alt={activeRole.name}
                       className="w-full h-full object-cover object-top"
                     />
-                    <div className="absolute bottom-3 right-3 bg-slate-950/90 backdrop-blur-md border border-slate-800 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-200 flex items-center gap-2">
+                    <div className="absolute bottom-3 right-3 bg-[#0B1020]/90 backdrop-blur-md border border-slate-800 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-200 flex items-center gap-2">
                       <Eye className="h-3.5 w-3.5 text-emerald-400" />
                       <span>{activeRole.name} Screen</span>
                     </div>
