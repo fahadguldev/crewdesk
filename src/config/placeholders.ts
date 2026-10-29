@@ -24,7 +24,7 @@ export const PLACEHOLDERS: {
   BOOKING_LINK: '', // optional Calendly/Cal.com link; if set, used for primary CTA
 
   // Application & Demo URLs
-  APP_LOGIN_URL: 'https://app.daftarhub.app',
+  APP_LOGIN_URL: 'https://demo.daftarhub.app',
   CANONICAL_HOST: 'https://www.daftarhub.app',
   DEMO_URL: 'https://demo.daftarhub.app/',
 
