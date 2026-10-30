@@ -144,10 +144,11 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
                     </p>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1">
+                      <label htmlFor="walkthrough-agency-name" className="block text-xs font-semibold text-slate-300 mb-1">
                         Agency Name
                       </label>
                       <input
+                        id="walkthrough-agency-name"
                         type="text"
                         required
                         placeholder="e.g. Pixel Studio or Nexus Digital"
@@ -159,10 +160,11 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-semibold text-slate-300 mb-1">
+                        <label htmlFor="walkthrough-contact-name" className="block text-xs font-semibold text-slate-300 mb-1">
                           Your Name
                         </label>
                         <input
+                          id="walkthrough-contact-name"
                           type="text"
                           required
                           placeholder="Fahad or Sarah"
@@ -172,10 +174,11 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-semibold text-slate-300 mb-1">
+                        <label htmlFor="walkthrough-email-phone" className="block text-xs font-semibold text-slate-300 mb-1">
                           WhatsApp or Email
                         </label>
                         <input
+                          id="walkthrough-email-phone"
                           type="text"
                           required
                           placeholder="+90 548 827 4659 or email"
@@ -188,10 +191,12 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-semibold text-slate-300 mb-1">
+                        <label htmlFor="walkthrough-team-size" className="block text-xs font-semibold text-slate-300 mb-1">
                           Agency Team Size
                         </label>
                         <select
+                          id="walkthrough-team-size"
+                          aria-label="Agency Team Size"
                           value={formData.teamSize}
                           onChange={(e) => setFormData({ ...formData, teamSize: e.target.value })}
                           className="w-full rounded-xl border border-slate-700 bg-[#11172B] px-3 py-2.5 text-xs sm:text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors"
@@ -204,10 +209,12 @@ export const ConversionCta: React.FC<ConversionCtaProps> = ({ initialModules = [
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-slate-300 mb-1">
+                        <label htmlFor="walkthrough-biggest-pain" className="block text-xs font-semibold text-slate-300 mb-1">
                           Primary Focus Area
                         </label>
                         <select
+                          id="walkthrough-biggest-pain"
+                          aria-label="Primary Focus Area"
                           value={formData.biggestPain}
                           onChange={(e) => setFormData({ ...formData, biggestPain: e.target.value })}
                           className="w-full rounded-xl border border-slate-700 bg-[#11172B] px-3 py-2.5 text-xs sm:text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors"
