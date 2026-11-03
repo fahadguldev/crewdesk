@@ -139,7 +139,10 @@ export const InteractivePricing: React.FC<InteractivePricingProps> = ({ onOpenBo
   return (
     <section id="pricing" className="py-24 bg-[#0B1020] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* ============================================================== */}
+        {/* Pricing Cards Grid (Commented out per request) */}
+        {/* ============================================================== */}
+        {/*
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
             Fair Flat Pricing
@@ -152,7 +155,6 @@ export const InteractivePricing: React.FC<InteractivePricingProps> = ({ onOpenBo
           </p>
         </div>
 
-        {/* Pricing Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-24">
           {plans.map((plan) => {
             const priceObj = formatPrice(plan.pkrPrice);
@@ -178,7 +180,6 @@ export const InteractivePricing: React.FC<InteractivePricingProps> = ({ onOpenBo
                   <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
                   <p className="text-xs text-slate-400 mb-6 min-h-[36px]">{plan.desc}</p>
 
-                  {/* Price */}
                   <div className="flex items-baseline gap-1 mb-6 pb-6 border-b border-slate-800/80">
                     <span className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
                       <AnimatedNumber value={priceObj.amount} prefix={priceObj.symbol === '$' ? '$' : 'PKR '} />
@@ -186,7 +187,6 @@ export const InteractivePricing: React.FC<InteractivePricingProps> = ({ onOpenBo
                     <span className="text-xs text-slate-400 font-medium">/ month</span>
                   </div>
 
-                  {/* Features */}
                   <div className="space-y-3 mb-8">
                     {plan.features.map((feat, idx) => (
                       <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
@@ -213,6 +213,7 @@ export const InteractivePricing: React.FC<InteractivePricingProps> = ({ onOpenBo
             );
           })}
         </div>
+        */}
 
         {/* ============================================================== */}
         {/* Exact Benchmark Comparison Card as requested by User's Image */}
@@ -224,7 +225,8 @@ export const InteractivePricing: React.FC<InteractivePricingProps> = ({ onOpenBo
               PRICING, BENCHMARKED AGAINST THE FIELD
             </span>
             <h3 className="font-heading text-2xl sm:text-4xl font-extrabold text-white tracking-tight mt-3">
-              All 8 agency modules, now <span className="text-emerald-400">{headlinePrice}</span>.
+              All 8 agency modules, now {/* <span className="text-emerald-400">{headlinePrice}</span> */}
+              <span className="text-emerald-400">at a fraction of market cost</span>.
             </h3>
             <p className="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
               Dedicated database, attendance, client password vault, time tracking, real project profit and over 75% lower cost than ClickUp, Productive, and Teamwork — with zero seat penalties.
@@ -331,11 +333,15 @@ export const InteractivePricing: React.FC<InteractivePricingProps> = ({ onOpenBo
                         >
                           {row.isHub ? (
                             <>
-                              <span className="text-xs sm:text-sm font-extrabold text-white drop-shadow-sm whitespace-nowrap">
+                              {/* Exact price amount commented out as requested */}
+                              {/* <span className="text-xs sm:text-sm font-extrabold text-white drop-shadow-sm whitespace-nowrap">
                                 {valText}
+                              </span> */}
+                              <span className="text-xs sm:text-sm font-extrabold text-white drop-shadow-sm whitespace-nowrap">
+                                Over 75% Cheaper
                               </span>
                               <span className="bg-black/30 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full tracking-wider whitespace-nowrap uppercase">
-                                NOW
+                                FLAT
                               </span>
                             </>
                           ) : (
